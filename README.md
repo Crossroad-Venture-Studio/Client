@@ -1,4 +1,4 @@
-![Crossroad logo](https://crossroad-venture-studio.github.io/Design-System/__assets__/crossroad.svg)
+![Crossroad logo](https://crossroad-venture-studio.github.io/Design-System/assets/crossroad.svg)
 # *Crossroad Venture Studio:* Client Side Codebase
 
 [Crossroad Venture Studio](crossroadventurestudio.com) is a company focused on creating and building startups. We typically help startups by providing an initial team, strategic direction, and operational support. Contrary to incubators, accelerators and other investment entities, the main added value is on execution rather than financial help.
@@ -17,8 +17,8 @@ By working with *Crossroad*, you are agreeing to the following term and conditio
 
 # Core
 
-[![Javascript file](/https://crossroad-venture-studio.github.io/Design-System/__assets__/javascript.svg)](/src/client/core/)
+[![Javascript file](/https://crossroad-venture-studio.github.io/Design-System/assets/javascript.svg)](/src/client/core/)
 
 # Utilities
 
-[![Javascript file](/https://crossroad-venture-studio.github.io/Design-System/__assets__/javascript.svg)](/src/client/utils/)
+[![Javascript file](/https://crossroad-venture-studio.github.io/Design-System/assets/javascript.svg)](/src/client/utils/)
