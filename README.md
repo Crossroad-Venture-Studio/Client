@@ -17,8 +17,8 @@ By working with *Crossroad*, you are agreeing to the following term and conditio
 
 # Core
 
-[![Javascript file](/https://crossroad-venture-studio.github.io/Design-System/assets/javascript.svg)](/src/client/core/)
+[![Javascript file](https://crossroad-venture-studio.github.io/Design-System/assets/javascript.svg)](/src/client/core/)
 
 # Utilities
 
-[![Javascript file](/https://crossroad-venture-studio.github.io/Design-System/assets/javascript.svg)](/src/client/utils/)
+[![Javascript file](https://crossroad-venture-studio.github.io/Design-System/assets/javascript.svg)](/src/client/utils/)
