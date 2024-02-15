@@ -1,7 +1,7 @@
 "use strict";
 
 import { navigator, isIosMobileApp } from './Platform';
-import '../../../utils/functionUtils';
+import '/utils/functionUtils';
 
 // Vibrating styles.
 const styles = {
