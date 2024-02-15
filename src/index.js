@@ -1,5 +1,5 @@
-import core from './client/core';
-import utils from './client/utils';
+import core from './core';
+import utils from './utils';
 
 export default {
   ...core,
