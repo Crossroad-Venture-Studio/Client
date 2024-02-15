@@ -35,7 +35,10 @@ const vibrate = isIosMobileApp && (
 Object.defineProperty(vibrate, 'vibrate', {
   value: vibrate
 });
-navigator && (Navigator.prototype.vibrate = function(style = '') {
-  return vibrate(style, this);
+navigator && Object.defineProperty(Navigator.prototype, 'vibrate', {
+  value: function(style = '') {
+    return vibrate(style, this);
+  },
+  enumerable: true
 });
 export default Object.freeze(vibrate);

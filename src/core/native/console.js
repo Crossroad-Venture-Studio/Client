@@ -86,9 +86,17 @@ _console.getStyle = isIosMobileApp && (_console.resetStyle = x => '') || (
 Object.defineProperty(_console, 'console', {
   value: _console
 });
-(isAndroidApp || isIosMobileApp) && (window.console = _console)
-|| (
-  window.console.err = window.console.error,
-  window.console.success = (...msg) => { console.log('Success:', map(msg)) }
+(isAndroidApp || isIosMobileApp) && navigator && Object.defineProperty(window, 'console', {
+  value: _console,
+  enumerable: true
+}) || (
+  Object.defineProperty(window.console, 'err', {
+    value: window.console.error,
+    enumerable: true
+  }),
+  Object.defineProperty(window.console, 'success', {
+    value: (...msg) => console.log('Success:', map(msg)),
+    enumerable: true
+  })
 );
 export default Object.freeze(_console);
