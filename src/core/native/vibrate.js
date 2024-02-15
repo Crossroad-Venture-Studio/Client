@@ -1,7 +1,7 @@
 "use strict";
 
 import { navigator, isIosMobileApp } from './Platform';
-import '/utils/functionUtils';
+import '/utils/src/functionUtils';
 
 // Vibrating styles.
 const styles = {
@@ -32,13 +32,12 @@ const vibrate = isIosMobileApp && (
 ) || Function.void;
 
 // Export.
-Object.defineProperty(vibrate, 'vibrate', {
-  value: vibrate
-});
 navigator && Object.defineProperty(Navigator.prototype, 'vibrate', {
   value: function(style = '') {
     return vibrate(style, this);
   },
   enumerable: true
 });
-export default Object.freeze(vibrate);
+export default Object.freeze(Object.defineProperty(vibrate, 'vibrate', {
+  value: vibrate
+}));

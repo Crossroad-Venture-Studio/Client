@@ -80,6 +80,9 @@ const Platform = {
   onreleaseName: HAS_TOUCH_SCREEN && 'ontouchend' || 'onmouseup',
   onReleaseName: HAS_TOUCH_SCREEN && 'onTouchEnd' || 'onMouseUp',
   onreleaseEvent: HAS_TOUCH_SCREEN && 'touchend' || 'mouseup',
+  onmoveName: HAS_TOUCH_SCREEN && 'ontouchmove' || 'onmousemove',
+  onMoveName: HAS_TOUCH_SCREEN && 'onTouchMove' || 'onMouseMove',
+  onmoveEvent: HAS_TOUCH_SCREEN && 'touchmove' || 'mousemove',
   // Local storage.
   defaultStorage: WINDOW.localStorage, // Where to store persisting data
   defaultStorageEncode: 'stringify', // Default storage data encoding function
@@ -127,7 +130,6 @@ Object.defineProperty(Platform, 'toString', {
 });
 
 // Exports.
-Object.defineProperty(Platform, 'Platform', {
+export default Object.freeze(Object.defineProperty(Platform, 'Platform', {
   value: Platform
-});
-export default Object.freeze(Platform);
+}));

@@ -83,9 +83,6 @@ _console.getStyle = isIosMobileApp && (_console.resetStyle = x => '') || (
 }));
 
 // Exports.
-Object.defineProperty(_console, 'console', {
-  value: _console
-});
 (isAndroidApp || isIosMobileApp) && navigator && Object.defineProperty(window, 'console', {
   value: _console,
   enumerable: true
@@ -99,4 +96,6 @@ Object.defineProperty(_console, 'console', {
     enumerable: true
   })
 );
-export default Object.freeze(_console);
+export default Object.freeze(Object.defineProperty(_console, 'console', {
+  value: _console
+}));
