@@ -1,0 +1,81 @@
+{
+  "name": "@crossroad-venture-studio/client",
+  "version": "1.0.0",
+  "author": "William Brendel",
+  "description": "Crossroad client side codebase",
+  "bugs": {
+    "url": "https://github.com/npm/npm/issues"
+  },
+  "homepage": "https://github.com/npm/npm#readme",
+  "main": "index.js",
+  "keywords": [
+    "crossroad",
+    "framework",
+    "fullstack",
+    "client",
+    "codebase",
+    "code",
+    "pwa",
+    "progressive",
+    "web",
+    "app"
+  ],
+  "license": "ISC",
+  "scripts": {
+    "test": "jest",
+    "lint": "standard --verbose | snazzy",
+    "lintdiff": "git diff --name-only --cached --relative | grep '\\.js$' | xargs standard | snazzy",
+    "clear-all": "rm -rf node_modules/ && npm cache clean --force",
+    "update": "npx npm-check-updates -u; npm update; npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/npm/npm.git"
+  },
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^27.2.1",
+    "snazzy": "^9.0.0",
+    "standard": "^17.0.0",
+    "yargs": "^17.6.2"
+  },
+  "jest": {
+    "testMatch": [
+      "<rootDir>/__tests__/**/*.js",
+      "**/?(*.)(spec|test).js?(x)"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/Tests/Setup.js",
+      "<rootDir>/Tests/Setup.test.js",
+      "<rootDir>/Tests/Setup/*"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "identity-obj-proxy"
+    },
+    "testEnvironment": "jsdom"
+  },
+  "standard": {
+    "parser": "eslint",
+    "globals": [
+      "describe",
+      "test",
+      "jest",
+      "expect",
+      "fetch",
+      "navigator",
+      "__DEV__",
+      "XMLHttpRequest"
+    ]
+  },
+  "files": [
+    "src/**/*"
+  ]
+}
