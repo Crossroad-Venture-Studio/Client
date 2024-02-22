@@ -24,7 +24,7 @@ const Button = props => {
     doNotHide,
     ...other
   } = props || {};
-  Object.assign(other, createEventHandlers(createStopPropagationFunc(onPress)));
+  Object.assign(other, createEventHandlers({onPress: createStopPropagationFunc(onPress)}));
   href || (href = null);
   className = className && `button ${className}` || 'button';
 

@@ -86,9 +86,9 @@ const Overlay = props => {
     });
 
     // Closing the modal by taping in the background.
-    createEventHandlers(createStopPropagationFunc(
+    Object.assign(other, createEventHandlers({onPress: createStopPropagationFunc(
       event => _ref && event.target === _ref.current && hooks.close()
-    ), other);
+    )}));
 
     // Access to current.
     Object.defineProperty(hooks, 'current', {

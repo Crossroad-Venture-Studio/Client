@@ -39,7 +39,7 @@ const TopNavbar = props => {
     ...other
   } = props || {},
     onLogoFuncs = createEventHandlers(
-      createStopPropagationFunc(onLogo),
+      {onPress: createStopPropagationFunc(onLogo)},
       null,
       {style: {pointerEvents: 'none'}}
     );

@@ -3,7 +3,9 @@ import normalizeEventHandler from './normalizeEventHandler';
 
 // Helper function to normalize press, release and move
 // event handlers for both standard web and React/NextJS.
-const createEventHandlers = (handlers, options) => {
+const createEventHandlers = (handlers, options, defaultOutput) => {
+  typeof handlers === 'function' && (handlers = {onPress: handlers});
+  if (!handlers && defaultOutput) return defaultOutput;
   let {
     onMouseDown,
     onTouchStart = onMouseDown,
