@@ -38,7 +38,7 @@ const Button = props => {
     {...other}
   >
     {src && <img className={`icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null}></img>}
-    {text && <span className={`vertical-trim${doNotHide && ' do-not-hide' || ''}`}>{text}</span> || null}
+    {text && <span className={`fat vertical-trim${doNotHide && ' do-not-hide' || ''}`}>{text}</span> || null}
     {...(children || [])}
   </button> || <a
     href={href}
@@ -47,7 +47,7 @@ const Button = props => {
     {...other}
   >
     {src && <img className={`icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null}></img>}
-    {text && <span className={`vertical-trim${doNotHide && ' do-not-hide' || ''}`}>{text}</span> || null}
+    {text && <span className={`fat vertical-trim${doNotHide && ' do-not-hide' || ''}`}>{text}</span> || null}
     {...(children || [])}
   </a>
 }
