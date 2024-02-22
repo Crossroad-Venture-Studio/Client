@@ -42,7 +42,7 @@ const LinkLine = props => {
   return <div className={className} {...other}>
     {(leftSrc || leftText) && <div title={leftTitle || leftAlt || null}>
       {leftSrc && <img className='icon' alt={leftAlt || leftTitle || null} /> || null}
-      {leftText && <span>{leftText}</span> || null}
+      {leftText && <span className='trim-vertical'>{leftText}</span> || null}
     </div> || null}
     {...(children || [])}
     {(rightSrc || rightText) && <a
@@ -50,7 +50,7 @@ const LinkLine = props => {
       href={href || null}
       {...events}
     >
-      {rightText && <span>{rightText}</span> || null}
+      {rightText && <span className='trim-vertical'>{rightText}</span> || null}
       {rightSrc && <img className='icon' alt={rightAlt || rightTitle || null} /> || null}
     </a> || null}
   </div>
