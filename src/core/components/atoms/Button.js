@@ -22,14 +22,25 @@ const Button = props => {
     className,
     children,
     doNotHide,
+    type,
+    submit = `${(type || '')}`.toLowerCase() === 'submit',
     ...other
   } = props || {};
+  onPress || (submit && href && (onPress = () => window.location.href = href));
   Object.assign(other, createEventHandlers({onPress: createStopPropagationFunc(onPress)}));
   href || (href = null);
   className = className && `button ${className}` || 'button';
 
   // Layout.
-  return <a
+  return submit && <button
+    className={className}
+    title={title}
+    {...other}
+  >
+    {src && <img className={`icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null}></img>}
+    {text && <span className={`vertical-trim${doNotHide && ' do-not-hide' || ''}`}>{text}</span> || null}
+    {...(children || [])}
+  </button> || <a
     href={href}
     className={className}
     title={title}
