@@ -23,12 +23,12 @@ const LinkLine = props => {
     leftText = leftValue,
     // Right part.
     rightIconSrc,
-    rightIcon = leftIconSrc,
-    rightSrc = leftIcon,
+    rightIcon = rightIconSrc,
+    rightSrc = rightIcon,
     rightTitle,
     rightAlt,
     rightValue,
-    rightText = leftValue,
+    rightText = rightValue,
     // Other.
     className,
     children,
