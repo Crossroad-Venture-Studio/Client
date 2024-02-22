@@ -7,6 +7,9 @@
 - [*Crossroad Venture Studio:* Client Side Codebase](#crossroad-venture-studio-client-side-codebase)
   - [Table of content](#table-of-content)
   - [Terms and conditions](#terms-and-conditions)
+- [Instaling as a github submodule](#instaling-as-a-github-submodule)
+  - [Installation](#installation)
+  - [Update](#update)
 - [Core](#core)
 - [Utilities](#utilities)
 
@@ -14,6 +17,25 @@
 By working with *Crossroad*, you are agreeing to the following term and conditions:
 - This is a proprietary suite of softwares, tools, framework, design sytem, etc.
 - Do not distribute, modify, sell unless consulted and agreed before by William Brendel (brendel.william@gmail.com)
+
+# Instaling as a github submodule
+
+## Installation
+
+Go to your other repo you want this repo to be connected as a submodule and type:
+
+    git submodule add https://github.com/Crossroad-Venture-Studio/Client src/crossroad-client
+    git add .
+    git commit -am "client submodule"
+    git push
+
+## Update
+
+Go to the repo where this module has been installed and type:
+
+    git submodule foreach --recursive git pull
+    git commit -am "client submodule"
+    git push
 
 # Core
 
