@@ -54,18 +54,6 @@ const LinkLine = props => {
       {rightSrc && <img src={rightSrc} className='icon' alt={rightAlt || rightTitle || null} /> || null}
     </a> || null}
   </div>
-
-  // Layout.
-  return <a
-    href={href}
-    className={className}
-    title={title}
-    {...other}
-  >
-    {src && <img className={`icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null}></img>}
-    {text && <span className={`vertical-trim${doNotHide && ' do-not-hide' || ''}`}>{text}</span> || null}
-    {...(children || [])}
-  </a>
 }
 
 // Exports.

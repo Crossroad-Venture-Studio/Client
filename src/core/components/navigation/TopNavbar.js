@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image'
 import createEventHandlers from '../../../utils/createEventHandlers';
 import createStopPropagationFunc from '../../../utils/createStopPropagationFunc';
 import Button from '../atoms/Button';
@@ -69,11 +70,11 @@ const TopNavbar = props => {
 
       {(logoSrc || logoText) && (
         <a
-          className={`row center ${hasBack && (rightNav.length || hasNext) && 'middle' || (hasBack && 'right') || 'left'} fill`}
+          className={`link row center gap ${hasBack && (rightNav.length || hasNext) && 'middle' || (hasBack && 'right') || 'left'} fill`}
           href={logoHref || null}
           {...onLogoFuncs}
         >
-          {logoSrc && <img src={logoSrc} className='logo' alt='logo'/> || null}
+          {logoSrc && <Image src={logoSrc} className='logo' alt='logo'/> || null}
           {logoText && <span className='logo-text'> {logoText} </span> || null}
         </a>
       ) || null}
