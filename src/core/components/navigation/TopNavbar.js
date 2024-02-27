@@ -74,7 +74,7 @@ const TopNavbar = props => {
           {...onLogoFuncs}
         >
           {logoSrc && <img src={logoSrc} className='logo' alt='logo'/> || null}
-          {logoText && <span className='logo-text'> {logoText} </span> || null}
+          {logoText && <span className='logo-text trim-vertical'> {logoText} </span> || null}
         </a>
       ) || null}
 
