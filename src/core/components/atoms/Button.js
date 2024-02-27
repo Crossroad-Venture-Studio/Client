@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import createEventHandlers from '../../../utils/createEventHandlers';
 import createStopPropagationFunc from '../../../utils/createStopPropagationFunc';
 
@@ -38,7 +37,7 @@ const Button = props => {
     title={title}
     {...other}
   >
-    {src && <Image className={`icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
+    {src && <img className={`icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
     {text && <span className={`fat vertical-trim${doNotHide && ' do-not-hide' || ''}`}>{text}</span> || null}
     {...(children || [])}
   </button> || <a
@@ -47,7 +46,7 @@ const Button = props => {
     title={title}
     {...other}
   >
-    {src && <Image className={`icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
+    {src && <img className={`icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
     {text && <span className={`fat vertical-trim${doNotHide && ' do-not-hide' || ''}`}>{text}</span> || null}
     {...(children || [])}
   </a>

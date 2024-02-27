@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Button from './Button';
 
 // Main component.
@@ -23,7 +22,7 @@ const NextButton = props => {
   >
     {...(children || [])}
     {text && <span className='vertical-trim do-not-hide'>{text}</span> || null}
-    {src && <Image className='icon do-not-hide' src={src} alt={alt || null} />}
+    {src && <img className='icon do-not-hide' src={src} alt={alt || null} />}
   </Button>;
 }
 

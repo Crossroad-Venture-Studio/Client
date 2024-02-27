@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image'
 import createEventHandlers from '../../../utils/createEventHandlers';
 import createStopPropagationFunc from '../../../utils/createStopPropagationFunc';
 import Button from '../atoms/Button';
@@ -74,7 +73,7 @@ const TopNavbar = props => {
           href={logoHref || null}
           {...onLogoFuncs}
         >
-          {logoSrc && <Image src={logoSrc} className='logo' alt='logo'/> || null}
+          {logoSrc && <img src={logoSrc} className='logo' alt='logo'/> || null}
           {logoText && <span className='logo-text'> {logoText} </span> || null}
         </a>
       ) || null}
