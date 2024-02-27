@@ -69,7 +69,7 @@ const TopNavbar = props => {
 
       {(logoSrc || logoText) && (
         <a
-          className={`link row center gap ${hasBack && (rightNav.length || hasNext) && 'middle' || (hasBack && 'right') || 'left'} fill`}
+          className={`link row center text-gap ${hasBack && (rightNav.length || hasNext) && 'middle' || (hasBack && 'right') || 'left'} fill`}
           href={logoHref || null}
           {...onLogoFuncs}
         >
