@@ -73,7 +73,7 @@ const TopNavbar = props => {
           href={logoHref || null}
           {...onLogoFuncs}
         >
-          {logoSrc && <img src={logo} className='logo' alt='logo'/> || null}
+          {logoSrc && <img src={logoSrc} className='logo' alt='logo'/> || null}
           {logoText && <span className='logo-text'> {logoText} </span> || null}
         </a>
       ) || null}
