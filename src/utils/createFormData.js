@@ -1,6 +1,6 @@
 'use strict';
 
-import '../../utils/src/stringUtils.js';
+import '../../utils';
 
 // Check if input is an event.
 const isSubmitEvent = event => {
