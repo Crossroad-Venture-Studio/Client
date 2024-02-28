@@ -6,7 +6,8 @@ import createEventHandlers from '../../../utils/createEventHandlers';
 const Form = props => {
   // Normalize input.
   let {
-    onSubmit,
+    onLogin,
+    onSubmit = onLogin,
     className,
     children,
     ...other
