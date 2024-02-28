@@ -4,6 +4,7 @@ const createFormData = (input, defaultOutput = {}) => {
 
   const output = {};
   try {
+    console.log('>>>>', input instanceof SyntheticBaseEvent || input instanceof SubmitEvent);
     (input instanceof SyntheticBaseEvent || input instanceof SubmitEvent)  && (
       input.preventDefault(),
       input = input.target
