@@ -33,7 +33,8 @@ Go to your other repo you want this repo to be connected as a submodule and type
 
 Go to the repo where this module has been installed and type:
 
-    git submodule foreach --recursive git pull
+    git submodule update --init --recursive
+    git submodule foreach --recursive git pull origin main
     git commit -am "client submodule"
     git push
 
