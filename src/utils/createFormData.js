@@ -20,6 +20,9 @@ const createFormData = (input, defaultOutput = {}) => {
     input = input.target
   );
 
+  input.checkValidity();
+  input.reportValidity();
+
   input = new FormData(input);
   for (const pair of input) {
     const [key, value] = pair;
