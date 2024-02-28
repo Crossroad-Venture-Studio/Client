@@ -1,5 +1,6 @@
 import BackButton from './BackButton';
 import Button from './Button';
+import Form from './Form';
 import NextButton from './NextButton';
 import Pill from './Pill';
 
@@ -7,6 +8,7 @@ import Pill from './Pill';
 export default {
   BackButton,
   Button,
+  Form,
   NextButton,
   Pill
 };
