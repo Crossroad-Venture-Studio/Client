@@ -1,5 +1,6 @@
 import Platform from '../core/native/Platform';
 import normalizeEventHandler from './normalizeEventHandler';
+import createFormData from './createFormData';
 
 // Helper function to normalize press, release and move
 // event handlers for both standard web and React/NextJS.
@@ -31,6 +32,8 @@ const createEventHandlers = (handlers, options, defaultOutput) => {
     onmousemove,
     ontouchmove = onmousemove,
     onmove = ontouchmove,
+    onSubmit,
+    onsubmit,
     ...output
   } = handlers || (handlers = {}),
   {
@@ -41,11 +44,19 @@ const createEventHandlers = (handlers, options, defaultOutput) => {
   (onPress = normalizeEventHandler(onPress)) && (output[Platform.onPressName] = onPress);
   (onRelease = normalizeEventHandler(onRelease)) && (output[Platform.onReleaseName] = onRelease);
   (onMove = normalizeEventHandler(onMove)) && (output[Platform.onMoveName] = onMove);
+  (onSubmit = normalizeEventHandler(onSubmit)) && (output.onSubmit = event => {
+    const data = createFormData(event);
+    onSubmit(data, event);
+  });
 
   // Regular web event normalization.
   (onpress = normalizeEventHandler(onpress)) && (output[Platform.onpressName] = onpress);
   (onrelease = normalizeEventHandler(onrelease)) && (output[Platform.onreleaseName] = onrelease);
   (onmove = normalizeEventHandler(onmove)) && (output[Platform.onmoveName] = onmove);
+  (onsubmit = normalizeEventHandler(onsubmit)) && (output.onsubmit = event => {
+    const data = createFormData(event);
+    onsubmit(data, event);
+  });
 
   // Long press for React/NextJs.
   if (delay = Math.max(0, delay || 0)) {
