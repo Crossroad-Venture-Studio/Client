@@ -1,3 +1,5 @@
+import '../../utils/src/stringUtils';
+
 // Check if input is an event.
 const isSubmitEvent = event => {
   if (!event || typeof event !== 'object') return false;
@@ -25,7 +27,7 @@ const createFormData = (input, defaultOutput = {}) => {
   for (const pair of input) {
     const [key, value] = pair;
     (typeof value === 'number' || typeof value === 'boolean' || value) && (
-      output[key] = value
+      output[key.toCamelCase()] = value
     );
   }
 
