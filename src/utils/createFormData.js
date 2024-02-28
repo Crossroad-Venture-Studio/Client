@@ -14,13 +14,12 @@ const createFormData = (input, defaultOutput = {}) => {
   if (!input || typeof input !== 'object') return defaultOutput;
 
   // If input is an event instead of a form.
-  isSubmitEvent(input) && (
-    input.preventDefault(),
-    input = input.target
-  );
+  input instanceof HTMLFormElement || (isSubmitEvent(input) && (input = input.target));
 
+  // If we can't capture the form element.
   if (!(input instanceof HTMLFormElement)) return defaultOutput;
 
+  // Format data, ignoring empty values.
   const output = {};
   input = new FormData(input);
   for (const pair of input) {
@@ -30,6 +29,7 @@ const createFormData = (input, defaultOutput = {}) => {
     );
   }
 
+  // Return output.
   return output;
 }
 

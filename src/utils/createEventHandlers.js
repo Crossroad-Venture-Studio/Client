@@ -45,6 +45,7 @@ const createEventHandlers = (handlers, options, defaultOutput) => {
   (onRelease = normalizeEventHandler(onRelease)) && (output[Platform.onReleaseName] = onRelease);
   (onMove = normalizeEventHandler(onMove)) && (output[Platform.onMoveName] = onMove);
   (onSubmit = normalizeEventHandler(onSubmit)) && (output.onSubmit = event => {
+    event.preventDefault();
     event.target.checkValidity();
     event.target.reportValidity();
     onSubmit(createFormData(event), event);
@@ -55,6 +56,7 @@ const createEventHandlers = (handlers, options, defaultOutput) => {
   (onrelease = normalizeEventHandler(onrelease)) && (output[Platform.onreleaseName] = onrelease);
   (onmove = normalizeEventHandler(onmove)) && (output[Platform.onmoveName] = onmove);
   (onsubmit = normalizeEventHandler(onsubmit)) && (output.onsubmit = event => {
+    event.preventDefault();
     event.target.checkValidity();
     event.target.reportValidity();
     onsubmit(createFormData(event), event);
