@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 import { isIosMobileApp, isAndroidApp, getNative, window } from './Platform';
 

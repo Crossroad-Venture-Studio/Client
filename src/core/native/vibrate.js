@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 import { navigator, isIosMobileApp } from './Platform';
 import '/utils/src/functionUtils';

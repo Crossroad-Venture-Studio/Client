@@ -1,3 +1,5 @@
+'use strict';
+
 import Platform from '../core/native/Platform';
 import normalizeEventHandler from './normalizeEventHandler';
 import createFormData from './createFormData';
