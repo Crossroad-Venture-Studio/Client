@@ -45,8 +45,9 @@ const createEventHandlers = (handlers, options, defaultOutput) => {
   (onRelease = normalizeEventHandler(onRelease)) && (output[Platform.onReleaseName] = onRelease);
   (onMove = normalizeEventHandler(onMove)) && (output[Platform.onMoveName] = onMove);
   (onSubmit = normalizeEventHandler(onSubmit)) && (output.onSubmit = event => {
-    const data = createFormData(event);
-    onSubmit(data, event);
+    event.target.checkValidity();
+    event.target.reportValidity();
+    onSubmit(createFormData(event), event);
   });
 
   // Regular web event normalization.
@@ -54,8 +55,9 @@ const createEventHandlers = (handlers, options, defaultOutput) => {
   (onrelease = normalizeEventHandler(onrelease)) && (output[Platform.onreleaseName] = onrelease);
   (onmove = normalizeEventHandler(onmove)) && (output[Platform.onmoveName] = onmove);
   (onsubmit = normalizeEventHandler(onsubmit)) && (output.onsubmit = event => {
-    const data = createFormData(event);
-    onsubmit(data, event);
+    event.target.checkValidity();
+    event.target.reportValidity();
+    onsubmit(createFormData(event), event);
   });
 
   // Long press for React/NextJs.

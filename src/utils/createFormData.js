@@ -12,17 +12,16 @@ const isSubmitEvent = event => {
 // Main helper: create data from a form.
 const createFormData = (input, defaultOutput = {}) => {
   if (!input || typeof input !== 'object') return defaultOutput;
-  input.preventDefault();
 
-  const output = {};
+  // If input is an event instead of a form.
   isSubmitEvent(input) && (
     input.preventDefault(),
     input = input.target
   );
 
-  input.checkValidity();
-  input.reportValidity();
+  if (!(input instanceof HTMLFormElement)) return defaultOutput;
 
+  const output = {};
   input = new FormData(input);
   for (const pair of input) {
     const [key, value] = pair;
