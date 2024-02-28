@@ -17,7 +17,7 @@ const Button = props => {
     iconSrc,
     icon = iconSrc,
     src = icon,
-    title = `Go to ${text || src}`,
+    title = (text || src) && `Go to ${text || src}` || null,
     alt = title,
     className,
     children,
@@ -35,6 +35,7 @@ const Button = props => {
   return submit && <button
     className={className}
     title={title}
+    type='submit'
     {...other}
   >
     {src && <img className={`icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
