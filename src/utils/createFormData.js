@@ -1,3 +1,4 @@
+// Check if input is an event.
 const isSubmitEvent = event => {
   if (!event || typeof event !== 'object') return false;
   else if (event.target && event.target instanceof HTMLFormElement) return true;
@@ -8,6 +9,7 @@ const isSubmitEvent = event => {
   }
 }
 
+// Main helper: create data from a form.
 const createFormData = (input, defaultOutput = {}) => {
   if (!input || typeof input !== 'object') return defaultOutput;
   input.preventDefault();
@@ -17,8 +19,6 @@ const createFormData = (input, defaultOutput = {}) => {
     input.preventDefault(),
     input = input.target
   );
-
-  console.log('INPUT', input);
 
   input = new FormData(input);
   for (const pair of input) {
