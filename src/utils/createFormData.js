@@ -1,7 +1,5 @@
 const createFormData = (input, defaultOutput = {}) => {
   //if (!input || typeof input !== 'object') return defaultOutput;
-
-  console.log(input, input instanceof SyntheticBaseEvent);
   input.preventDefault();
 
   const output = {};
@@ -16,6 +14,8 @@ const createFormData = (input, defaultOutput = {}) => {
       input = input.target
     );
   };
+
+  console.log('INPUT', input);
 
   input = new FormData(input);
   for (const pair of input) {
