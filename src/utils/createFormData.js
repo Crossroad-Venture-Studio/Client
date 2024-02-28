@@ -5,10 +5,17 @@ const createFormData = (input, defaultOutput = {}) => {
   input.preventDefault();
 
   const output = {};
-  input instanceof SubmitEvent && (
-    input.preventDefault(),
-    input = input.target
-  );
+  try {
+    (input instanceof SyntheticBaseEvent || input instanceof SubmitEvent)  && (
+      input.preventDefault(),
+      input = input.target
+    );
+  } catch {
+    input instanceof SubmitEvent && (
+      input.preventDefault(),
+      input = input.target
+    );
+  };
 
   input = new FormData(input);
   for (const pair of input) {
