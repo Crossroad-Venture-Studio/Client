@@ -1,20 +1,22 @@
+const isSubmitEvent = event => {
+  if (!event || typeof event !== 'object') return false;
+  else if (event.target && event.target instanceof HTMLFormElement) return true;
+  try {
+    return event instanceof SyntheticBaseEvent || event instanceof SubmitEvent;
+  } catch {
+    return event instanceof SubmitEvent;
+  }
+}
+
 const createFormData = (input, defaultOutput = {}) => {
-  //if (!input || typeof input !== 'object') return defaultOutput;
+  if (!input || typeof input !== 'object') return defaultOutput;
   input.preventDefault();
 
   const output = {};
-  try {
-    console.log('>>>>', input instanceof SyntheticBaseEvent || input instanceof SubmitEvent);
-    (input instanceof SyntheticBaseEvent || input instanceof SubmitEvent)  && (
-      input.preventDefault(),
-      input = input.target
-    );
-  } catch {
-    input instanceof SubmitEvent && (
-      input.preventDefault(),
-      input = input.target
-    );
-  };
+  isSubmitEvent(input) && (
+    input.preventDefault(),
+    input = input.target
+  );
 
   console.log('INPUT', input);
 
