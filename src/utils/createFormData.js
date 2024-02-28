@@ -1,7 +1,7 @@
 const createFormData = (input, defaultOutput = {}) => {
   if (!input || typeof input !== 'object') return defaultOutput;
 
-  console.log(input, input instanceof SubmitEvent);
+  console.log(input, input instanceof SubmitEvent, input instanceof Event);
   input.preventDefault();
 
   const output = {};
