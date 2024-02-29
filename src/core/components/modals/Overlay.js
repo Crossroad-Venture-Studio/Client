@@ -80,11 +80,11 @@ const Overlay = props => {
       
       // The ref is available and the modal is opened.
       _ref.current.classList.remove('opened');
-      let queue = [_ref.current], node, i, l, c;
-      while(node = queue.pop()) {
-        node.blur && node.blur();
-        //for(i = 0, c = node.childNodes || [], l = c.length; i !== l; ++i) queue.push(c[i]);
-      }
+      // let queue = [_ref.current], node, i, l, c;
+      // while(node = queue.pop()) {
+      //   node.blur && node.blur();
+      //   for(i = 0, c = node.childNodes || [], l = c.length; i !== l; ++i) queue.push(c[i]);
+      // }
       _ref.current.blur && _ref.current.blur();
       onClose && onClose(_ref.current);
       return setTimeout(() => {
