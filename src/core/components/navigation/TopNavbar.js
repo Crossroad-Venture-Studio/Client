@@ -22,6 +22,7 @@ const TopNavbar = props => {
     logoText,
     onLogo,
     logoHref,
+    logoTarget,
     // Right nav.
     nav = [],
     rightNav = nav,
@@ -71,6 +72,7 @@ const TopNavbar = props => {
         <a
           className={`link row center text-gap ${hasBack && (rightNav.length || hasNext) && 'middle' || (hasBack && 'right') || 'left'} fill`}
           href={logoHref || null}
+          target={logoTarget || null}
           {...onLogoFuncs}
         >
           {logoSrc && <img src={logoSrc} className='logo' alt='logo'/> || null}
