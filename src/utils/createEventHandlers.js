@@ -36,6 +36,7 @@ const createEventHandlers = (handlers, options, defaultOutput) => {
     onmove = ontouchmove,
     onSubmit,
     onsubmit,
+    stopPropagation = true,
     ...output
   } = handlers || (handlers = {}),
   {
@@ -43,9 +44,9 @@ const createEventHandlers = (handlers, options, defaultOutput) => {
   } = options || {},
   timeoutId = -1, timeoutid = -1;
   // React NexJS event normalization.
-  (onPress = normalizeEventHandler(onPress)) && (output[Platform.onPressName] = onPress);
-  (onRelease = normalizeEventHandler(onRelease)) && (output[Platform.onReleaseName] = onRelease);
-  (onMove = normalizeEventHandler(onMove)) && (output[Platform.onMoveName] = onMove);
+  (onPress = normalizeEventHandler(onPress, stopPropagation)) && (output[Platform.onPressName] = onPress);
+  (onRelease = normalizeEventHandler(onRelease, stopPropagation)) && (output[Platform.onReleaseName] = onRelease);
+  (onMove = normalizeEventHandler(onMove, stopPropagation)) && (output[Platform.onMoveName] = onMove);
   (onSubmit = normalizeEventHandler(onSubmit)) && (output.onSubmit = event => {
     event.preventDefault();
     event.target.checkValidity();
@@ -54,9 +55,9 @@ const createEventHandlers = (handlers, options, defaultOutput) => {
   });
 
   // Regular web event normalization.
-  (onpress = normalizeEventHandler(onpress)) && (output[Platform.onpressName] = onpress);
-  (onrelease = normalizeEventHandler(onrelease)) && (output[Platform.onreleaseName] = onrelease);
-  (onmove = normalizeEventHandler(onmove)) && (output[Platform.onmoveName] = onmove);
+  (onpress = normalizeEventHandler(onpress, stopPropagation)) && (output[Platform.onpressName] = onpress);
+  (onrelease = normalizeEventHandler(onrelease, stopPropagation)) && (output[Platform.onreleaseName] = onrelease);
+  (onmove = normalizeEventHandler(onmove, stopPropagation)) && (output[Platform.onmoveName] = onmove);
   (onsubmit = normalizeEventHandler(onsubmit)) && (output.onsubmit = event => {
     event.preventDefault();
     event.target.checkValidity();
@@ -66,7 +67,7 @@ const createEventHandlers = (handlers, options, defaultOutput) => {
 
   // Long press for React/NextJs.
   if (delay = Math.max(0, delay || 0)) {
-    (onPress || (onPress = normalizeEventHandler(onLongPress))) && (
+    (onPress || (onPress = normalizeEventHandler(onLongPress, stopPropagation))) && (
       output[Platform.onPressName] = (...args) => {
         timeoutId = setTimeout(() => onPress && onPress(...args), delay);
       },
@@ -77,7 +78,7 @@ const createEventHandlers = (handlers, options, defaultOutput) => {
     );
 
     // Long press for regular web.
-    (onpress || (onpress = normalizeEventHandler(onlongpress))) && (
+    (onpress || (onpress = normalizeEventHandler(onlongpress, stopPropagation))) && (
       output[Platform.onpressName] = (...args) => {
         timeoutid = setTimeout(() => onpress && onpress(...args), delay);
       },

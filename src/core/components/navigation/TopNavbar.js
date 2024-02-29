@@ -1,7 +1,6 @@
 'use client';
 
 import createEventHandlers from '../../../utils/createEventHandlers';
-import createStopPropagationFunc from '../../../utils/createStopPropagationFunc';
 import Button from '../atoms/Button';
 import BackButton from '../atoms/BackButton';
 import NextButton from '../atoms/NextButton';
@@ -20,7 +19,8 @@ const TopNavbar = props => {
     // Logo.
     logoSrc,
     logoText,
-    onLogo,
+    onPressLogo,
+    onLogo = onPressLogo,
     logoHref,
     logoTarget,
     // Right nav.
@@ -40,7 +40,7 @@ const TopNavbar = props => {
     ...other
   } = props || {},
     onLogoFuncs = createEventHandlers(
-      {onPress: createStopPropagationFunc(onLogo)},
+      {onPress: onLogo},
       null,
       {style: {pointerEvents: 'none'}}
     );

@@ -1,7 +1,6 @@
 'use client';
 
 import createEventHandlers from '../../../utils/createEventHandlers';
-import createStopPropagationFunc from '../../../utils/createStopPropagationFunc';
 
 // Main component.
 const LinkLine = props => {
@@ -34,7 +33,7 @@ const LinkLine = props => {
     children,
     ...other
   } = props || {};
-  const events = createEventHandlers({onPress: createStopPropagationFunc(onPress)});
+  const events = createEventHandlers({onPress});
   href || (href = null);
   className = className && `link-line ${className}` || 'link-line';
   Array.isArray(children || (children = [])) || (children = [children]);

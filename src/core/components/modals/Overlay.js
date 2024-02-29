@@ -2,7 +2,6 @@
 
 import { useRef } from 'react';
 import createEventHandlers from '../../../utils/createEventHandlers';
-import createStopPropagationFunc from '../../../utils/createStopPropagationFunc';
 
 // Modal overlay.
 const Overlay = props => {
@@ -95,7 +94,7 @@ const Overlay = props => {
     });
 
     // Closing the modal by taping in the background.
-    cancelable && Object.assign(other, createEventHandlers({onPress: createStopPropagationFunc(
+    cancelable && Object.assign(other, createEventHandlers({onPress: (
       event => _ref && event.target === _ref.current && hooks.close()
     )}));
 

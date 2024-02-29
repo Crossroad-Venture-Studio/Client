@@ -1,7 +1,6 @@
 'use client';
 
 import createEventHandlers from '../../../utils/createEventHandlers';
-import createStopPropagationFunc from '../../../utils/createStopPropagationFunc';
 
 // Main component.
 const Button = props => {
@@ -27,7 +26,7 @@ const Button = props => {
     ...other
   } = props || {};
   onPress || (submit && href && (onPress = () => window.location.href = href));
-  Object.assign(other, createEventHandlers({onPress: createStopPropagationFunc(onPress)}));
+  Object.assign(other, createEventHandlers({onPress}));
   href || (href = null);
   className = className && `button ${className}` || 'button';
   Array.isArray(children || (children = [])) || (children = [children]);
