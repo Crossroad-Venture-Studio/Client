@@ -85,6 +85,9 @@ const Overlay = props => {
       //   node.blur && node.blur();
       //   for(i = 0, c = node.childNodes || [], l = c.length; i !== l; ++i) queue.push(c[i]);
       // }
+      if (document && document.activeElement && document.activeElement.blur) {
+        document.activeElement.blur();
+      }
       _ref.current.blur && _ref.current.blur();
       onClose && onClose(_ref.current);
       return setTimeout(() => {
