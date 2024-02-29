@@ -80,9 +80,9 @@ const Overlay = props => {
       
       // The ref is available and the modal is opened.
       _ref.current.classList.remove('opened');
-      if (document && document.activeElement && document.activeElement.blur) {
-        document.activeElement.blur();
-      }
+      // if (document && document.activeElement && document.activeElement.blur) {
+      //   document.activeElement.blur();
+      // }
       onClose && onClose(_ref.current);
       return setTimeout(() => {
         _ref.current.classList.remove('display');
