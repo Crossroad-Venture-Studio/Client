@@ -52,12 +52,15 @@ const Overlay = props => {
       // The ref is available and the modal is closed.
       _ref.current.showModal();
       return setTimeout(() => {
-        _ref.current.classList.add('opened');
-        onOpen && onOpen(_ref.current);
-        (resolve || onOpened) && setTimeout(() => {
-          resolve && resolve(_ref.current);
-          onOpened && onOpened(_ref.current);
-        }, 300); // end of animation.
+        _ref.current.classList.add('display');
+        setTimeout(() => {
+          _ref.current.classList.add('opened');
+          onOpen && onOpen(_ref.current);
+          (resolve || onOpened) && setTimeout(() => {
+            resolve && resolve(_ref.current);
+            onOpened && onOpened(_ref.current);
+          }, 300); // end of animation.
+        }, 10);
       }, 30); // add a mini delay to make sure showModal is done.
     });
 
@@ -85,6 +88,7 @@ const Overlay = props => {
       _ref.current.blur && _ref.current.blur();
       onClose && onClose(_ref.current);
       return setTimeout(() => {
+        _ref.current.classList.remove('display');
         _ref.current.close(); // close after animation.
         resolve && resolve(_ref.current);
         onClosed && onClosed(_ref.current);
