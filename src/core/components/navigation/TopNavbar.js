@@ -46,6 +46,7 @@ const TopNavbar = props => {
     );
 
   // Normalize input and filter buttons.
+  Array.isArray(children || (children = [])) || (children = [children]);
   className = className && `top-navbar ${className}` || 'top-navbar';
   safearea && (className = `safearea ${className}`);
   rightNav = (Array.isArray(rightNav) && rightNav || [rightNav]).filter(x => x);
@@ -80,7 +81,7 @@ const TopNavbar = props => {
         </a>
       ) || null}
 
-      {...(children || [])}
+      {...children}
 
       {rightNav.length && <div className='row center right fill'>
         {...(rightNav.map((b, i) => <Button {...b} key={`${i}`}></Button>))}

@@ -36,8 +36,7 @@ const OverlayMenu = props => {
     _ref && _ref.current && _ref.current.classList.remove('opened');
     onClose && onClose(...args);
   };
-  children || (children = []);
-  Array.isArray(children) || (children = [children]);
+  Array.isArray(children || (children = [])) || (children = [children]);
   nav || (nav = []);
   className = (className && `menu ${className}`) || 'menu';
 
@@ -57,7 +56,7 @@ const OverlayMenu = props => {
       {...other}
     >
       {...(nav.map(({src, icon, iconSrc, ...other} = {}, i) => <Button {...other} key={`${i}`}></Button>))}
-      {...(children || [])}
+      {...children}
     </div> || null}
   </Overlay>;
 }

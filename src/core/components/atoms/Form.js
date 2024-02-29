@@ -14,10 +14,11 @@ const Form = props => {
   } = props || {};
   className = className && `form ${className}` || 'form';
   Object.assign(other, createEventHandlers({onSubmit}));
+  Array.isArray(children || (children = [])) || (children = [children]);
 
   // Layout.
   return <form className={className} {...other}>
-    {...(children || [])}
+    {...children}
   </form>;
 }
 

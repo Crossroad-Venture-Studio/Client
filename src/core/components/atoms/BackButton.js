@@ -11,7 +11,6 @@ const BackButton = props => {
     title = 'Back to previous page',
     value = 'Back',
     text = value,
-    children,
     ...other
   } = props || {};
 
@@ -23,7 +22,6 @@ const BackButton = props => {
     doNotHide
     {...other}
   >
-    {...(children || [])}
   </Button>;
 }
 

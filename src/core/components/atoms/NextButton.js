@@ -14,13 +14,14 @@ const NextButton = props => {
     children,
     ...other
   } = props || {};
+  Array.isArray(children || (children = [])) || (children = [children]);
 
   // Layout.
   return <Button
     title={title}
     {...other}
   >
-    {...(children || [])}
+    {...children}
     {text && <span className='vertical-trim do-not-hide'>{text}</span> || null}
     {src && <img className='icon do-not-hide' src={src} alt={alt || null} />}
   </Button>;

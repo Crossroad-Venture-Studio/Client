@@ -30,6 +30,7 @@ const Button = props => {
   Object.assign(other, createEventHandlers({onPress: createStopPropagationFunc(onPress)}));
   href || (href = null);
   className = className && `button ${className}` || 'button';
+  Array.isArray(children || (children = [])) || (children = [children]);
 
   // Layout.
   return submit && <button
@@ -40,7 +41,7 @@ const Button = props => {
   >
     {src && <img className={`icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
     {text && <span className={`fat vertical-trim${doNotHide && ' do-not-hide' || ''}`}>{text}</span> || null}
-    {...(children || [])}
+    {...children}
   </button> || <a
     href={href}
     className={className}
@@ -49,7 +50,7 @@ const Button = props => {
   >
     {src && <img className={`icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
     {text && <span className={`fat vertical-trim${doNotHide && ' do-not-hide' || ''}`}>{text}</span> || null}
-    {...(children || [])}
+    {...children}
   </a>
 }
 

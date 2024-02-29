@@ -5,13 +5,12 @@ const Pill = props => {
   // Normalize input.
   let {
     className,
-    children,
     ...other
   } = props || {};
   className = className && `pill ${className}` || 'pill';
 
   // Layout.
-  return <Button className={className} {...other}>{...(children || [])}</Button>;
+  return <Button className={className} {...other}></Button>;
 }
 
 // Exports.

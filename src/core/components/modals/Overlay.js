@@ -29,6 +29,7 @@ const Overlay = props => {
   className = (className && `overlay ${className}`) || 'overlay';
   opened && (className += ' opened');
   opened && (other.open = true);
+  Array.isArray(children || (children = [])) || (children = [children]);
 
   // Fill hooks.
   // Hooks are functions that allow control from external components.
@@ -111,7 +112,7 @@ const Overlay = props => {
     title={title}
     {...other}
   >
-    {...(children || [])}
+    {...children}
   </dialog>
 };
 

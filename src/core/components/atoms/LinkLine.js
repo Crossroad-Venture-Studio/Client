@@ -37,6 +37,7 @@ const LinkLine = props => {
   const events = createEventHandlers({onPress: createStopPropagationFunc(onPress)});
   href || (href = null);
   className = className && `link-line ${className}` || 'link-line';
+  Array.isArray(children || (children = [])) || (children = [children]);
 
   // Layout.
   return <div className={className} {...other}>
@@ -44,7 +45,7 @@ const LinkLine = props => {
       {leftSrc && <img src={leftSrc} className='icon' alt={leftAlt || leftTitle || null} /> || null}
       {leftText && <span className='fat vertical-trim'>{leftText}</span> || null}
     </div> || null}
-    {...(children || [])}
+    {...children}
     {(rightSrc || rightText) && <a
       title={rightTitle || rightAlt || null}
       href={href || null}

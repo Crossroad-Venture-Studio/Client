@@ -11,9 +11,10 @@ const Page = props => {
   } = props || {};
   className = (className && `page ${className}`) || 'page';
   safearea && (className = `safearea ${className}`);
+  Array.isArray(children || (children = [])) || (children = [children]);
   
   return <main className={className} {...other}>
-    {...(children || [])}
+    {...children}
   </main>
 }
 
