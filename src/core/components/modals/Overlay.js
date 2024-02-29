@@ -83,7 +83,7 @@ const Overlay = props => {
       let queue = [_ref.current], node, i, l, c;
       while(node = queue.pop()) {
         node.blur && node.blur();
-        for(i = 0, c = node.childNodes || [], l = c.length; i !== l; ++i) queue.push(c[i]);
+        //for(i = 0, c = node.childNodes || [], l = c.length; i !== l; ++i) queue.push(c[i]);
       }
       _ref.current.blur && _ref.current.blur();
       onClose && onClose(_ref.current);
