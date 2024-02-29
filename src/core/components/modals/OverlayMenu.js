@@ -18,10 +18,12 @@ const OverlayMenu = props => {
     onOpen = onOpenStart,
     onOpenEnd,
     onOpened = onOpenEnd,
-    onCloseStart,
+    onDismiss,
+    onCloseStart = onDismiss,
     onClose = onCloseStart,
     onCloseEnd,
     onClosed = onCloseEnd,
+    cancelable = true,
     hooks,
     ...other
   } = props || {},
@@ -47,6 +49,7 @@ const OverlayMenu = props => {
     onOpened={onOpened}
     onClosed={onClosed}
     hooks={hooks}
+    cancelable={cancelable}
   >
     {(nav.length || children.length) && <div
       className={className}

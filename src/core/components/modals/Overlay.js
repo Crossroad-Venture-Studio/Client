@@ -16,18 +16,18 @@ const Overlay = props => {
     onOpen = onOpenStart,
     onOpenEnd,
     onOpened = onOpenEnd,
-    onCloseStart,
+    onDismiss,
+    onCloseStart = onDismiss,
     onClose = onCloseStart,
     onCloseEnd,
     onClosed = onCloseEnd,
+    cancelable,
     hooks,
     title = 'Click here to close the window',
     ...other
   } = props || {}, _ref = null;
   className = (className && `overlay ${className}`) || 'overlay';
   opened && (className += ' opened');
-  children || (children = []);
-  Array.isArray(children) || (children = [children]);
   opened && (other.open = true);
 
   // Fill hooks.
@@ -93,7 +93,7 @@ const Overlay = props => {
     });
 
     // Closing the modal by taping in the background.
-    Object.assign(other, createEventHandlers({onPress: createStopPropagationFunc(
+    cancelable && Object.assign(other, createEventHandlers({onPress: createStopPropagationFunc(
       event => _ref && event.target === _ref.current && hooks.close()
     )}));
 
@@ -111,7 +111,7 @@ const Overlay = props => {
     title={title}
     {...other}
   >
-    {...children}
+    {...(children || [])}
   </dialog>
 };
 
