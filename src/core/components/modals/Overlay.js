@@ -27,6 +27,7 @@ const Overlay = props => {
     ...other
   } = props || {}, _ref = null;
   className = (className && `overlay ${className}`) || 'overlay';
+  cancelable && (className = `cancelable ${className}`);  
   opened && (className += ' opened');
   opened && (other.open = true);
   Array.isArray(children || (children = [])) || (children = [children]);
