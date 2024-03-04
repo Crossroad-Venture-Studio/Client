@@ -33,6 +33,9 @@ const TopNavbar = props => {
     nextText = 'Next',
     onNext,
     nextHref,
+    // Background.
+    backgroundSrc,
+    background = backgroundSrc,
     // Other.
     children,
     className,
@@ -56,6 +59,7 @@ const TopNavbar = props => {
   // Layout.
   return (
     <nav className={className} {...other}>
+      {background && <img src={background} className='background'></img>}
       {hasBack && (
         <div className='row center left fill'>
           <BackButton
