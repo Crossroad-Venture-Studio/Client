@@ -7,7 +7,7 @@ import Pill from './Pill';
 import Row from './Row';
 
 // Exports.
-export default {
+export {
   BackButton,
   Button,
   Column,
