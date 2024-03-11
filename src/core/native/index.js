@@ -1,9 +1,4 @@
-import console from './console';
-import vibrate from './vibrate';
-import Platform from './Platform';
-
-export default {
-  console,
-  vibrate,
-  Platform
-};
+// Exports.
+export { default as console } from './console';
+export { default as Platform } from './Platform';
+export { default as vibrate } from './vibrate';

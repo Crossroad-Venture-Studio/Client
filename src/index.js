@@ -1,8 +1,3 @@
-import core from './core';
-import utils from './utils';
-
 // Exports.
-export default {
-  ...core,
-  ...utils
-}
+export * from './core';
+export * from './utils';

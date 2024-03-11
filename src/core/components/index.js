@@ -1,16 +1,7 @@
-import atoms from './atoms';
-import modals from './modals';
-import molecules from './molecules';
-import navigation from './navigation';
-import organisms from './organisms';
-import templates from './templates';
-
 // Exports.
-export default {
-  ...atoms,
-  ...modals,
-  ...molecules,
-  ...navigation,
-  ...organisms,
-  ...templates
-}
+export * from './atoms';
+export * from './modals';
+export * from './molecules';
+export * from './navigation';
+export * from './organisms';
+export * from './templates';

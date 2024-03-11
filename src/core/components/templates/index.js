@@ -1,6 +1,2 @@
-import Page from './Page';
-
 // Exports.
-export {
-  Page
-};
+export { default as Page } from './Page';

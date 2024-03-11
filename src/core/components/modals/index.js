@@ -1,8 +1,3 @@
-import ModalMenu from './OverlayMenu';
-import ModalOverlay from './Overlay';
-
 // Exports.
-export {
-  ModalMenu,
-  ModalOverlay
-};
+export { default as ModalMenu } from './ModalMenu';
+export { default as ModalOverlay } from './ModalOverlay';
