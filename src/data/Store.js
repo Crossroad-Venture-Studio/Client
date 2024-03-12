@@ -166,6 +166,34 @@ export class Store {
     return this;
   }
 
+  // Helper function to clear the data.
+  clearData(...keys) {
+    if (keys[0]) {
+      // Case where input parameter is true: clear all.
+      if (typeof keys[0] !== 'string') {
+        for (const key in this.data) delete this.data[key];
+        return this;
+      }
+
+      // Clear all keys.
+      for (let i = 0; i !== keys; ++i) {
+        delete this.data[keys[i]];
+      }
+      return this;
+    }
+
+    if (keys.length) return this;
+
+    // Case where no input parameters is specified, same as clear all.
+    for (const k in this.data) delete this.data[k];
+    return this;
+  }
+
+  // Helper function to clear all.
+  clear(...keys) {
+    return this.clearStorage(...keys).clearData(...keys);
+  }
+
   // Helper function to make a key persist.
   makePersist(persistingKey, initFromStorage = true) {
     // Split key into a chain of sub-keys.
@@ -200,6 +228,13 @@ export class Store {
     observe(obj, subKey,
       v => writeData(v, this.storageName, persistingKey, this.encode, this.storage)
     );
+    return this;
+  }
+
+  // Persist all direct keys.
+  makePersistAll(initFromStorage = true) {
+    for (const key in this.data) this.makePersist(key, initFromStorage);
+    return this;
   }
 };
 
