@@ -1,10 +1,10 @@
 import '../../utils/src/objectUtils';
-
-import {
+import Platform from '../core/native/Platform';
+const {
   defaultStorage,
   defaultStorageEncode,
   defaultStorageDecode
-} from '../core/native/Platform';
+} = Platform;
 
 // Helper function to get and normalize store name.
 export const getStoreName = name => {
