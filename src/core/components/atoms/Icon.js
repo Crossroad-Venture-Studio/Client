@@ -1,7 +1,7 @@
 'use client';
 
 // Main component.
-const Icon = props => {
+export const Icon = props => {
   // Normalize input.
   let {
     iconSrc,
@@ -22,6 +22,4 @@ const Icon = props => {
 }
 
 // Exports.
-export default Object.freeze(Object.defineProperty(Icon, 'Icon', {
-  value: Icon
-}));
+export default Icon;

@@ -96,6 +96,5 @@ _console.getStyle = isIosMobileApp && (_console.resetStyle = x => '') || (
     enumerable: true
   })
 );
-export default Object.freeze(Object.defineProperty(_console, 'console', {
-  value: _console
-}));
+export const console = _console;
+export default console;

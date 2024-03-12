@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import createEventHandlers from '../../../utils/createEventHandlers';
 
 // Modal overlay.
-const Overlay = props => {
+export const Overlay = props => {
   // Get props and normalize input.
   let {
     className,
@@ -117,6 +117,4 @@ const Overlay = props => {
 };
 
 // Exports.
-export default Object.freeze(Object.defineProperty(Overlay, 'Overlay', {
-  value: Overlay
-}));
+export default Overlay;

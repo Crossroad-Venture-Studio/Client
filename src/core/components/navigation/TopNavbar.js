@@ -6,7 +6,7 @@ import BackButton from '../atoms/BackButton';
 import NextButton from '../atoms/NextButton';
 
 // Navbar.
-const TopNavbar = props => {
+export const TopNavbar = props => {
   // Get props.
   let {
     // Back nav.
@@ -108,6 +108,4 @@ const TopNavbar = props => {
 }
 
 // Exports.
-export default Object.freeze(Object.defineProperty(TopNavbar, 'TopNavbar', {
-  value: TopNavbar
-}));
+export default TopNavbar;

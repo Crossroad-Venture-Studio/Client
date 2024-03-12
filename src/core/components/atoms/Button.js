@@ -3,7 +3,7 @@
 import createEventHandlers from '../../../utils/createEventHandlers';
 
 // Main component.
-const Button = props => {
+export const Button = props => {
   // Normalize input.
   let {
     link,
@@ -54,6 +54,4 @@ const Button = props => {
 }
 
 // Exports.
-export default Object.freeze(Object.defineProperty(Button, 'Button', {
-  value: Button
-}));
+export default Button;

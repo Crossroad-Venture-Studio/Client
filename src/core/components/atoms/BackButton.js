@@ -1,7 +1,7 @@
 import Button from './Button';
 
 // Main component.
-const BackButton = props => {
+export const BackButton = props => {
   // Normalize input.
   let {
     iconSrc = 'https://crossroad-venture-studio.github.io/Design-System/icons/navigation/chevron-left-wired-light.svg',
@@ -26,6 +26,4 @@ const BackButton = props => {
 }
 
 // Exports.
-export default Object.freeze(Object.defineProperty(BackButton, 'BackButton', {
-  value: BackButton
-}));
+export default BackButton;

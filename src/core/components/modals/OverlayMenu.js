@@ -5,7 +5,7 @@ import Overlay from './Overlay';
 import Button from '../atoms/Button';
 
 // Modal menu.
-const OverlayMenu = props => {
+export const OverlayMenu = props => {
   // Get props and normalize input.
   let {
     rightNav = [],
@@ -62,6 +62,4 @@ const OverlayMenu = props => {
 }
 
 // Exports.
-export default Object.freeze(Object.defineProperty(OverlayMenu, 'OverlayMenu', {
-  value: OverlayMenu
-}));
+export default OverlayMenu;

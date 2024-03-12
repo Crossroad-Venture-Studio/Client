@@ -1,10 +1,4 @@
-import DataWarehouse from './DataWarehouse';
-import observe from './observe';
-import Store from './Store';
-
 // Exports.
-export default {
-  DataWarehouse,
-  observe,
-  Store
-}
+export { default as DataWarehouse } from './DataWarehouse';
+export { default as observe } from './observe';
+export { default as Store } from './Store';

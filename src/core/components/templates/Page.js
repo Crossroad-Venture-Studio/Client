@@ -1,7 +1,7 @@
 'use client';
 
 // Main component.
-const Page = props => {
+export const Page = props => {
   // Normalize input.
   let {
     children,
@@ -19,6 +19,4 @@ const Page = props => {
 }
 
 // Exports.
-export default Object.freeze(Object.defineProperty(Page, 'Page', {
-  value: Page
-}));
+export default Page;

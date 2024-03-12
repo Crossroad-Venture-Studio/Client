@@ -57,7 +57,7 @@ const IS_GOOGLE = /Google/.test(VENDOR),
   IS_IOS_MOBILE_APP = IS_IOS_MOBILE && WINDOW.webkit.messageHandlers && WINDOW.webkit.messageHandlers.console;
 
 // Platform.
-const Platform = {
+export const Platform = {
   // Macro variables.
   userAgent: USER_AGENT,
   referrer: DOCUMENT.referrer,
@@ -130,6 +130,4 @@ Object.defineProperty(Platform, 'toString', {
 });
 
 // Exports.
-export default Object.freeze(Object.defineProperty(Platform, 'Platform', {
-  value: Platform
-}));
+export default Platform;

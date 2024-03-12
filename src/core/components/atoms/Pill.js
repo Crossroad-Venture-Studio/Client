@@ -1,7 +1,7 @@
 import Button from './Button';
 
 // Main component.
-const Pill = props => {
+export const Pill = props => {
   // Normalize input.
   let {
     className,
@@ -14,6 +14,4 @@ const Pill = props => {
 }
 
 // Exports.
-export default Object.freeze(Object.defineProperty(Pill, 'Pill', {
-  value: Pill
-}));
+export default Pill;

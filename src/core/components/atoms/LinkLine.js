@@ -3,7 +3,7 @@
 import createEventHandlers from '../../../utils/createEventHandlers';
 
 // Main component.
-const LinkLine = props => {
+export const LinkLine = props => {
   // Normalize input.
   let {
     // Action.
@@ -57,6 +57,4 @@ const LinkLine = props => {
 }
 
 // Exports.
-export default Object.freeze(Object.defineProperty(LinkLine, 'LinkLine', {
-  value: LinkLine
-}));
+export default LinkLine;

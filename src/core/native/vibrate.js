@@ -21,7 +21,7 @@ styles['3'] = styles.err = styles.error;
 
 // Main function.
 const v = navigator && Navigator.prototype.vibrate;
-const vibrate = isIosMobileApp && (
+export const vibrate = isIosMobileApp && (
   style => window.webkit.messageHandlers.vibrate.postMessage(`${style || ''}`.toLowerCase())
 ) || (
   v && (
@@ -38,6 +38,4 @@ navigator && Object.defineProperty(Navigator.prototype, 'vibrate', {
   },
   enumerable: true
 });
-export default Object.freeze(Object.defineProperty(vibrate, 'vibrate', {
-  value: vibrate
-}));
+export default vibrate;

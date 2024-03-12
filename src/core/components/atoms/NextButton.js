@@ -1,7 +1,7 @@
 import Button from './Button';
 
 // Main component.
-const NextButton = props => {
+export const NextButton = props => {
   // Normalize input.
   let {
     iconSrc = 'https://crossroad-venture-studio.github.io/Design-System/icons/navigation/chevron-right-wired-light.svg',
@@ -28,6 +28,4 @@ const NextButton = props => {
 }
 
 // Exports.
-export default Object.freeze(Object.defineProperty(NextButton, 'NextButton', {
-  value: NextButton
-}));
+export default NextButton;

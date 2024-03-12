@@ -1,7 +1,7 @@
 'use client';
 
 // Main component.
-const Row = props => {
+export const Row = props => {
   // Normalize input.
   let {
     className,
@@ -18,6 +18,4 @@ const Row = props => {
 }
 
 // Exports.
-export default Object.freeze(Object.defineProperty(Row, 'Row', {
-  value: Row
-}));
+export default Row;

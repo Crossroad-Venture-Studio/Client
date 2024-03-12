@@ -3,7 +3,7 @@
 import createEventHandlers from '../../../utils/createEventHandlers';
 
 // Main component.
-const Form = props => {
+export const Form = props => {
   // Normalize input.
   let {
     onLogin,
@@ -23,6 +23,4 @@ const Form = props => {
 }
 
 // Exports.
-export default Object.freeze(Object.defineProperty(Form, 'Form', {
-  value: Form
-}));
+export default Form;
