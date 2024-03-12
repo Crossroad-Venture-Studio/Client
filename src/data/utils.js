@@ -1,4 +1,4 @@
-import '/utils/src/objectUtils';
+import '../../utils/src/objectUtils';
 
 import {
   defaultStorage,
