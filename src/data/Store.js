@@ -4,14 +4,13 @@ import {
   readData,
   writeData
 } from './utils';
-
 import observe from './observe';
-
-import {
+import Platform from '../core/native/Platform';
+const {
   defaultStorage,
   defaultStorageEncode,
   defaultStorageDecode
-} from '../core/native/Platform';
+} = Platform;
 
 // Helper function to define a non configurable read-only prop on an object.
 const defineReadOnlyProp = (obj, key, value) => Object.defineProperty(obj, key, {
