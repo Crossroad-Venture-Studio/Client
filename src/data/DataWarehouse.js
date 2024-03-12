@@ -18,7 +18,7 @@ async function runPostProcesses() {
 }
 
 // Class to store multiple stores.
-class DataWarehouse {
+export class DataWarehouse {
   // To check if all the stores are ready and post processes done.
   isReady = false;
 
@@ -92,6 +92,4 @@ class DataWarehouse {
 }
 
 // Exports.
-export default Object.freeze(Object.defineProperty(DataWarehouse, 'DataWarehouse', {
-  value: DataWarehouse
-}));
+export default DataWarehouse;

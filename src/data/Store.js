@@ -81,7 +81,7 @@ async function asyncLoad(store, funcs, data, postProcesses) {
 }
 
 // Base class store.
-class Store {
+export class Store {
   // True when the store is ready.
   isReady = false;
 
@@ -205,6 +205,4 @@ class Store {
 };
 
 // Exports.
-export default Object.freeze(Object.defineProperty(Store, 'Store', {
-  value: Store
-}));
+export default Store;

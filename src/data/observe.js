@@ -1,5 +1,5 @@
 // Function to check if an object property is observable.
-const isObservable = (obj, prop) => {
+export const isObservable = (obj, prop) => {
   let d;
 
   // Get if the object prop exists and has a property descriptor.
@@ -16,13 +16,13 @@ const isObservable = (obj, prop) => {
 }
 
 // Function to check if a property was observed.
-const isObserved = (obj, prop) => {
+export const isObserved = (obj, prop) => {
   const d = isObservable(obj, prop) || {}, { get, set } = d;
   return get && set && set.__is_observable__ && d || null;
 }
 
 // Function to observe an object property.
-const observe = (obj, prop, ...callbacks) => {
+export const observe = (obj, prop, ...callbacks) => {
   const d = isObservable(obj, prop);
 
   if (!d) return null;
@@ -84,7 +84,7 @@ const observe = (obj, prop, ...callbacks) => {
 }
 
 // Function to unobserve a property of an object.
-const completelyUnobserve = (obj, prop) => {
+export const completelyUnobserve = (obj, prop) => {
   // Check if the property was observed.
   const d = isObserved(obj, prop);
   if (!d) return null;
@@ -106,7 +106,7 @@ const completelyUnobserve = (obj, prop) => {
 }
 
 // Function to remove observable callbacks.
-const removeObservableCallbacks = (obj, prop, ...callbacks) => {
+export const removeObservableCallbacks = (obj, prop, ...callbacks) => {
   const d = isObserved(obj, prop);
   if (!d) return null;
 
@@ -125,29 +125,11 @@ const removeObservableCallbacks = (obj, prop, ...callbacks) => {
 }
 
 // Function to unobserve.
-const unobserve = (obj, prop, ...callbacks) => (
+export const unobserve = (obj, prop, ...callbacks) => (
   callbacks.length ?
     removeObservableCallbacks(obj, prop, ...callbacks)
     : completelyUnobserve(obj, prop)
 );
 
 // Exports.
-Object.defineProperty(observe, 'isObservable', {
-  value: isObservable
-});
-Object.defineProperty(observe, 'isObserved', {
-  value: isObserved
-});
-Object.defineProperty(observe, 'completelyUnobserve', {
-  value: completelyUnobserve
-});
-Object.defineProperty(observe, 'removeObservableCallbacks', {
-  value: removeObservableCallbacks
-});
-Object.defineProperty(observe, 'unobserve', {
-  value: unobserve
-});
-
-export default Object.freeze(Object.defineProperty(observe, 'observe', {
-  value: observe
-}));
+export default observe;
