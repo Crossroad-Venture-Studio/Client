@@ -194,6 +194,15 @@ export class Store {
     return this.clearStorage(...keys).clearData(...keys);
   }
 
+  // Helper function to load data.
+  loadData(data) {
+    if (typeof (data || (data = {})) !== 'object') return this;
+    for (const key in data) {
+      this.data[key] = data[key];
+    }
+    return this;
+  }
+
   // Helper function to make a key persist.
   makePersist(persistingKey, initFromStorage = true) {
     // Split key into a chain of sub-keys.
