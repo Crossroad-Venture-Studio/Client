@@ -301,7 +301,8 @@ export class Store {
   }
 
   // Check if a key persists.
-  persists(key) { return this.getStorageKeys().findIndex(key) >= 0; }
+  hasStorageKey(key) { return this.getStorageKeys().findIndex(key) >= 0; }
+  persists(key) { return Object.getOwnPropertyDescriptor(this.data, key).get && this.hasStorageKey(key); }
 };
 
 // Exports.
