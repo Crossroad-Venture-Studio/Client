@@ -148,6 +148,7 @@ export class Store {
       persisting === true && (loadFromStorage = { persisting })
       || (Array.isArray(persisting) && (loadFromStorage = persisting.map(x => [x, true])))
     );
+    console.log('>>>', loadFromStorage, persisting);
     if (loadFromStorage) this.loadFromStorage(loadFromStorage);
   }
 
