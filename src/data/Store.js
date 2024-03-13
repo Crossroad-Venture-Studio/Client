@@ -214,7 +214,7 @@ export class Store {
   }
 
   // Helper function to get the storageKeys.
-  getStorageKeys() { return getStorageKeys(this.storageName); }
+  getStorageKeys() { return getStorageKeys(this.storage, this.storageName); }
 
   // Helper function to load data from storage.
   loadFromStorage(...keys) {
