@@ -1,3 +1,3 @@
 // Exports.
-export { default as ModalMenu } from './ModalMenu';
-export { default as ModalOverlay } from './ModalOverlay';
+export { default as OverlayMenu } from './OverlayMenu';
+export { default as Overlay } from './Overlay';
