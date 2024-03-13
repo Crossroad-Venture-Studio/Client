@@ -51,12 +51,15 @@ export const setData = (data, obj, key, sep = '.') => {
 }
 
 // Helper function to get the key for the property to store on the persisting storage.
-export const getStorageKey = (storeName, storeKey = '') => `${storeName}|${storeKey}`;
+export const getStorageKeyPrefix = storeName => storeName && `${storeName}|` || '';
+export const getStorageKey = (storeName, storeKey = '') => (
+  storeName && storeKey && `${getStorageKeyPrefix(storeName)}${storeKey}` || storeName || storeKey
+);
 
 // Helper function to get a store keys.
 export const getStorageKeys = (storage, storeName, removePrefix = true) => {
   if (!storage || (storage = window.localStorage)) return [];
-  const output = [], s = storeName && getStorageKey(storeName) || '';
+  const output = [], s = getStorageKeyPrefix(storeName);
   if (typeof storage.key === 'function') {
     for ( let i = 0, l = storage.length, key; i !== l; ++i ) {
       key = storage.key(i);
@@ -69,6 +72,11 @@ export const getStorageKeys = (storage, storeName, removePrefix = true) => {
   }
   return output;
 }
+
+// Helper function to check if a store has a key.
+export const hasStorageKey = (storage, storeName, storeKey) => (
+  getStorageKeys(storage, storeName).findIndex(storeKey || storeName || '') >= 0
+);
 
 // Helper function to read some data from the storage.
 export const readData = (

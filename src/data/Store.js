@@ -5,7 +5,8 @@ import {
   writeData,
   getStorageKey,
   getStorageKeys,
-  getStorage
+  getStorage,
+  hasStorageKey
 } from './utils';
 import observe from './observe';
 
@@ -301,7 +302,7 @@ export class Store {
   }
 
   // Check if a key persists.
-  hasStorageKey(key) { return this.getStorageKeys().findIndex(key) >= 0; }
+  hasStorageKey(key) { return hasStorageKey(this.storage, this.storeName, key); }
   persists(key) { return Object.getOwnPropertyDescriptor(this.data, key).get && this.hasStorageKey(key); }
 };
 
