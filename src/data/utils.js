@@ -53,8 +53,10 @@ export const getStorageKey = (storeName, storeKey = '') => `${storeName}|${store
 // Helper function to get a store keys.
 export const getStorageKeys = (storage = defaultStorage, storeName) => {
   const output = [];
-  for ( let i = 0, l = storage.length, key, s = storeName && getStorageKey(storeName) || ''; i !== l; ++i ) {
+  if (typeof storage.key === 'function') for ( let i = 0, l = storage.length, key, s = storeName && getStorageKey(storeName) || ''; i !== l; ++i ) {
     key = storage.key(i);
+    (!s || key.startsWith(s)) && output.push(key.replace(s, ''));
+  } else for (const key in storage) {
     (!s || key.startsWith(s)) && output.push(key.replace(s, ''));
   }
   return output;
