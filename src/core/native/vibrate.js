@@ -1,7 +1,8 @@
 'use strict';
 'use client';
 
-import { navigator, isIosMobileApp } from './Platform';
+import Platform from './Platform';
+const { navigator, isIosMobileApp } = Platform;
 import '../../../utils/src/functionUtils';
 
 // Vibrating styles.
