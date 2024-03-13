@@ -144,6 +144,10 @@ export class Store {
     for (let i = 0, l = persisting.length; i !== l; ++i) this.makePersist(persisting[i]);
 
     // Load from storage.
+    loadFromStorage === true && (
+      persisting === true && (loadFromStorage = { persisting })
+      || (Array.isArray(persisting) && (loadFromStorage = persisting.map(x => [x, true])))
+    );
     if (loadFromStorage) this.loadFromStorage(loadFromStorage);
   }
 
@@ -223,7 +227,8 @@ export class Store {
       } else if (!v) return this;
       else if (typeof v === 'object') {
         const {
-          makePersist,
+          persisting,
+          makePersist = persisting,
           makePersistAll = makePersist,
           keys
         } = v;
