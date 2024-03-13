@@ -285,7 +285,9 @@ export class Store {
           // Update storage if necessary.
           d = val;
           writeData(d, this.storageName, persistingKey, this.encode, this.storage);
-        } else obj[subKey] = d;
+        } else {
+          writeData(obj[subKey] = d, this.storageName, persistingKey, this.encode, this.storage);
+        }
       } else d = val;
     } catch (e) {
       console.error(e);
@@ -300,6 +302,7 @@ export class Store {
 
   // Persist all direct keys.
   makePersistAll(initFromStorage = true) {
+    console.log('makePersistAll');
     for (const key in this.data) this.makePersist(key, initFromStorage);
     return this;
   }
