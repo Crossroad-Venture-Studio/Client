@@ -52,12 +52,17 @@ export const getStorageKey = (storeName, storeKey = '') => `${storeName}|${store
 
 // Helper function to get a store keys.
 export const getStorageKeys = (storage = defaultStorage, storeName, removePrefix = true) => {
+  if (!storage) return [];
   const output = [], s = storeName && getStorageKey(storeName) || '';
-  if (typeof storage.key === 'function') for ( let i = 0, l = storage.length, key; i !== l; ++i ) {
-    key = storage.key(i);
-    (!s || key.startsWith(s)) && output.push(removePrefix && key.replace(s, '') || key);
-  } else for (const key in storage) {
-    (!s || key.startsWith(s)) && output.push(removePrefix && key.replace(s, '') || key);
+  if (typeof storage.key === 'function') {
+    for ( let i = 0, l = storage.length, key; i !== l; ++i ) {
+      key = storage.key(i);
+      (!s || key.startsWith(s)) && output.push(removePrefix && key.replace(s, '') || key);
+    }
+  } else {
+    for (const key in storage) {
+      (!s || key.startsWith(s)) && output.push(removePrefix && key.replace(s, '') || key);
+    }
   }
   return output;
 }
