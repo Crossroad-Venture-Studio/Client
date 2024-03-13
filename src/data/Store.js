@@ -3,6 +3,7 @@ import {
   getPersistingKeys,
   readData,
   writeData,
+  getStorageKey,
   getStorageKeys
 } from './utils';
 import observe from './observe';
@@ -161,21 +162,26 @@ export class Store {
     keys = keys.flat(Infinity);
     if (keys[0]) {
       // Case where input parameter is true: clear all.
-      if (typeof keys[0] !== 'string') {
-        this.storage.clear();
-        return this;
-      }
+      typeof keys[0] !== 'string' && (keys = this.getStorageKeys());
 
       // Clear all keys.
-      for (let i = 0; i !== keys; ++i) {
-        for (let k in this.storage) k.includes(keys[i]) && this.storage.removeItem(k);
+      for (let i = 0, l = keys.length; i !== l; ++i) {
+        this.storage.removeItem(getStorageKey(this.storageName, keys[i]));
       }
       return this;
     }
 
+    // Case where input parameter is false.
     if (keys.length) return this;
 
     // Case where no input parameters is specified, same as clear all.
+    keys = this.getStorageKeys(false);
+    for (let i = 0, l = keys.length; i !== l; ++i) {
+      this.storage.removeItem(keys[i]);
+    }
+    return this;
+  }
+  clearEntireStorage() {
     this.storage.clear();
     return this;
   }
@@ -219,7 +225,7 @@ export class Store {
   }
 
   // Helper function to get the storageKeys.
-  getStorageKeys() { return getStorageKeys(this.storage, this.storageName); }
+  getStorageKeys(removePrefix = true) { return getStorageKeys(this.storage, this.storageName, removePrefix); }
 
   // Helper function to load data from storage.
   loadFromStorage(...keys) {

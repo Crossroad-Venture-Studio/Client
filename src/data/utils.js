@@ -51,13 +51,13 @@ export const setData = (data, obj, key, sep = '.') => {
 export const getStorageKey = (storeName, storeKey = '') => `${storeName}|${storeKey}`;
 
 // Helper function to get a store keys.
-export const getStorageKeys = (storage = defaultStorage, storeName) => {
+export const getStorageKeys = (storage = defaultStorage, storeName, removePrefix = true) => {
   const output = [], s = storeName && getStorageKey(storeName) || '';
   if (typeof storage.key === 'function') for ( let i = 0, l = storage.length, key; i !== l; ++i ) {
     key = storage.key(i);
-    (!s || key.startsWith(s)) && output.push(key.replace(s, ''));
+    (!s || key.startsWith(s)) && output.push(removePrefix && key.replace(s, '') || key);
   } else for (const key in storage) {
-    (!s || key.startsWith(s)) && output.push(key.replace(s, ''));
+    (!s || key.startsWith(s)) && output.push(removePrefix && key.replace(s, '') || key);
   }
   return output;
 }
