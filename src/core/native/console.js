@@ -88,7 +88,7 @@ _console.getStyle = isIosMobileApp && (_console.resetStyle = x => '') || (
 (isAndroidApp || isIosMobileApp) && navigator && Object.defineProperty(window, 'console', {
   value: _console,
   enumerable: true
-}) || (window && (
+}) || (window && window.console && (
   window.console.err || (window.console.err = window.console.error),
   window.console.success || (window.console.success = (...msg) => console.log('Success:', map(msg)))
 ));
