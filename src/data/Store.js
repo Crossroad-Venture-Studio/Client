@@ -139,17 +139,21 @@ export class Store {
       enumerable: false
     });
 
+    // Normalize input.
+    loadFromStorage === true && (
+      (persisting === true || (Array.isArray(persisting) && persisting[0] === true))
+      && (
+        persisting = Array.isArray(persisting) && persisting.unshift() || [],
+        loadFromStorage = { persisting: true }
+      ) || (Array.isArray(persisting) && (loadFromStorage = persisting.map(x => [x, true])))
+    );
+
     // Add persisting keys.
     persisting = getPersistingKeys(persisting);
     for (let i = 0, l = persisting.length; i !== l; ++i) this.makePersist(persisting[i]);
 
     // Load from storage.
-    loadFromStorage === true && (
-      (persisting === true || (Array.isArray(persisting) && persisting[0] === true))
-      && (loadFromStorage = { persisting: true })
-      || (Array.isArray(persisting) && (loadFromStorage = persisting.map(x => [x, true])))
-    );
-    console.log('>>>', loadFromStorage, persisting, persisting === true, Array.isArray(persisting), persisting[0] === true);
+    console.log('>>>', loadFromStorage);
     if (loadFromStorage) this.loadFromStorage(loadFromStorage);
   }
 
