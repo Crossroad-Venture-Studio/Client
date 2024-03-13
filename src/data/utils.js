@@ -1,7 +1,13 @@
 import '../../utils/src/objectUtils';
 
 // Helper function to get a storage.
-export const getStorage = storage => storage || (window && window.localStorage);
+export const getStorage = storage => {
+  try {
+    return storage || localStorage || window.localStorage;
+  } catch {
+    return storage;
+  }
+}
 
 // Helper function to get and normalize store name.
 export const getStoreName = name => {
