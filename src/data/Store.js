@@ -219,6 +219,7 @@ export class Store {
   // Helper function to load data from storage.
   loadFromStorage(...keys) {
     keys = keys.flat(Infinity);
+    console.log('keys', keys);
     let storageKeys = this.getStorageKeys(), j = 0, persists, _keys = [];
     for (let i = 0, l = keys.length, v; i !== l; ++i) {
       v = keys[i];
