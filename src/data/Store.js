@@ -4,15 +4,10 @@ import {
   readData,
   writeData,
   getStorageKey,
-  getStorageKeys
+  getStorageKeys,
+  getStorage
 } from './utils';
 import observe from './observe';
-import Platform from '../core/native/Platform';
-const {
-  defaultStorage,
-  defaultStorageEncode,
-  defaultStorageDecode
-} = Platform;
 
 // Helper function to define a non configurable read-only prop on an object.
 const defineReadOnlyProp = (obj, key, value) => Object.defineProperty(obj, key, {
@@ -98,9 +93,9 @@ export class Store {
     postProcesses = onloaded,
     persists = [],
     persisting = persists,
-    storage = defaultStorage,
-    encode = defaultStorageEncode,
-    decode = defaultStorageDecode,
+    storage,
+    encode = 'stringify',
+    decode = 'stringify',
     loadFromStorage,
     clearStorage = [] // Clear local storage at initialization,
                       // true, false or a list of keys to delete
@@ -111,7 +106,10 @@ export class Store {
     defineReadOnlyProp(this, 'storageName', getStoreName(storeName));
 
     // Add store storage.
-    defineReadOnlyProp(this, 'storage', storage);
+    Object.defineProperty(this, 'storage', {
+      get() { return getStorage(storage); },
+      enumerable: true
+    })
 
     // Add encode function for the storage.
     defineReadOnlyProp(this, 'encode', encode);

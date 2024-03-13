@@ -1,10 +1,7 @@
 import '../../utils/src/objectUtils';
-import Platform from '../core/native/Platform';
-const {
-  defaultStorage,
-  defaultStorageEncode,
-  defaultStorageDecode
-} = Platform;
+
+// Helper function to get a storage.
+export const getStorage = storage => storage || window.localStorage;
 
 // Helper function to get and normalize store name.
 export const getStoreName = name => {
@@ -51,8 +48,8 @@ export const setData = (data, obj, key, sep = '.') => {
 export const getStorageKey = (storeName, storeKey = '') => `${storeName}|${storeKey}`;
 
 // Helper function to get a store keys.
-export const getStorageKeys = (storage = defaultStorage, storeName, removePrefix = true) => {
-  if (!storage) return [];
+export const getStorageKeys = (storage, storeName, removePrefix = true) => {
+  if (!storage || (storage = window.localStorage)) return [];
   const output = [], s = storeName && getStorageKey(storeName) || '';
   if (typeof storage.key === 'function') {
     for ( let i = 0, l = storage.length, key; i !== l; ++i ) {
@@ -71,27 +68,29 @@ export const getStorageKeys = (storage = defaultStorage, storeName, removePrefix
 export const readData = (
   storeName,
   storeKey,
-  decode = defaultStorageDecode,
-  storage = defaultStorage,
-  _data = storage && storage.getItem && storage.getItem(getStorageKey(storeName, storeKey)) || null,
-  _decode = (typeof decode === 'function' && decode)
+  decode = 'stringify',
+  storage
+) => {
+  const _data = (storage = getStorage(storage)) && storage.getItem && storage.getItem(getStorageKey(storeName, storeKey)) || null,
+    _decode = (typeof decode === 'function' && decode)
     || (decode === 'stringify-object' && Object.from)
-    || (decode && (data => JSON.parse(data)))
-) => _decode ? (
+    || (decode && (data => JSON.parse(data)));
+  return _decode ? (
   (_decode === Object.from && (_data === null || _data === undefined) && {})
     || _decode(_data)
   ) : _data;
+}
 
 // Helper function to write some data on the storage.
 export const writeData = (
   data,
   storeName,
   storeKey,
-  encode = defaultStorageEncode,
-  storage = defaultStorage
+  encode = 'stringify',
+  storage
 ) => (
   data !== null && data !== undefined ?
-  storage && storage.setItem && storage.setItem(
+  (storage = getStorage(storage)) && storage.setItem && storage.setItem(
     getStorageKey(storeName, storeKey),
     (encode && ( // encode if needed.
       typeof encode === 'function' ?
@@ -102,7 +101,7 @@ export const writeData = (
       ) : JSON.stringify(data === undefined ? null : data) // stringify all
     )) || data
   )
-  : storage && storage.removeItem && storage.removeItem(
+  : (storage = getStorage(storage)) && storage.removeItem && storage.removeItem(
     getStorageKey(storeName, storeKey)
   ) // remove item if data is null or undefined.
 );
