@@ -22,7 +22,7 @@ styles['2'] = styles.warn = styles.warning;
 styles['3'] = styles.err = styles.error;
 
 // Main function.
-const v = navigator && Navigator.prototype.vibrate;
+const v = navigator && Navigator && Navigator.prototype.vibrate;
 export const vibrate = isIosMobileApp && (
   style => window.webkit.messageHandlers.vibrate.postMessage(`${style || ''}`.toLowerCase())
 ) || (
@@ -34,7 +34,7 @@ export const vibrate = isIosMobileApp && (
 ) || Function.void;
 
 // Export.
-navigator && Object.defineProperty(Navigator.prototype, 'vibrate', {
+navigator && Navigator && Object.defineProperty(Navigator.prototype, 'vibrate', {
   value: function(style = '') {
     return vibrate(style, this);
   },
