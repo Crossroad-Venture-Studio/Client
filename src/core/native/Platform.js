@@ -1,4 +1,5 @@
 'use strict';
+'use client';
 
 let WINDOW = {}, NAVIGATOR = {}, DOCUMENT = {}, IS_CLIENT = false, MQ, IS_APPLE;
 try {

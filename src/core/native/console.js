@@ -1,11 +1,12 @@
 'use strict';
+'use client'
 
 import Platform from './Platform';
 const { isIosMobileApp, isAndroidApp, getNative, window } = Platform;
 
 // Define the extended console.
 const func = getNative('console'), f = s => `${s}`, map = msg => msg.map(f).join(' ');
-const _console = {...console, ...(isAndroidApp && {
+const _console = {...window.console, ...(isAndroidApp && {
   log(...msg) { func('log', map(msg)); },
   warn(...msg) { func('warn', map(msg)); },
   err(...msg) { func('err', map(msg)); },
