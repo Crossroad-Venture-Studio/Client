@@ -12,9 +12,7 @@ export const colorize = (color, isNotBlack) => {
     return null;
   }
 
-  const color = new Color(rgb[0], rgb[1], rgb[2]),
-    solver = new Solver(color);
-
+  const solver = new Solver(new Color(rgb[0], rgb[1], rgb[2]));
   return solver.solve(isNotBlack);
 }
 
