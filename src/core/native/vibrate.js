@@ -2,7 +2,6 @@
 'use client';
 
 import Platform from './Platform';
-const { navigator, isIosMobileApp } = Platform;
 import '../../../utils/src/functionUtils';
 
 // Vibrating styles.
@@ -22,22 +21,15 @@ styles['2'] = styles.warn = styles.warning;
 styles['3'] = styles.err = styles.error;
 
 // Main function.
-const v = navigator && Navigator.prototype.vibrate;
-export const vibrate = isIosMobileApp && (
-  style => window.webkit.messageHandlers.vibrate.postMessage(`${style || ''}`.toLowerCase())
-) || (
-  v && (
-    function(style = '', _navigator = navigator) { 
-      return v.apply(_navigator, [typeof style === 'string' && (style && styles[style.toLowerCase()] || styles.default) || style])
-    }
-  )
-) || Function.void;
+export const vibrate = style => {
+  if (Platform.isIosMobileApp) {
+    try {
+      Platform.window.webkit.messageHandlers.vibrate.postMessage(`${style || ''}`.toLowerCase());
+    } catch {}
+  } else if (Platform.navigator && Platform.navigator.vibrate) {
+    Platform.navigator.vibrate(typeof style === 'string' && (style && styles[style.toLowerCase()] || styles.default) || style);
+  }
+}
 
 // Export.
-navigator && Object.defineProperty(Navigator.prototype, 'vibrate', {
-  value: function(style = '') {
-    return vibrate(style, this);
-  },
-  enumerable: true
-});
 export default vibrate;

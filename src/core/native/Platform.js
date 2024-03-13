@@ -1,134 +1,127 @@
 'use strict';
 'use client';
 
-let WINDOW = {}, NAVIGATOR = {}, DOCUMENT = {}, IS_CLIENT = false, MQ, IS_APPLE;
-try {
-  IS_CLIENT = !!window;
-  WINDOW = window || {};
-  NAVIGATOR = WINDOW.navigator || navigator || {};
-  DOCUMENT = WINDOW.document || document || {};
-} catch {};
-const VENDOR = NAVIGATOR.vendor || '',
-  USER_AGENT = NAVIGATOR.userAgent || '',
-  IS_ANDROID_MOBILE = /Android|Opera Mini/.test(USER_AGENT) || WINDOW.Android || false,
-  IS_WINDOWS_MOBILE = /Windows Phone|IEMobile/.test(USER_AGENT),
-  IS_OTHER_MOBILE = /webOS|BlackBerry/.test(USER_AGENT),
-  IS_IOS_MOBILE = /iP(hone|ad|od)/.test(USER_AGENT)
-  && WINDOW.webkit
-  && !(IS_ANDROID_MOBILE || IS_WINDOWS_MOBILE || IS_OTHER_MOBILE),
-  MOBILE = (IS_IOS_MOBILE && 'ios')
-  || (IS_ANDROID_MOBILE && 'android')
-  || (IS_WINDOWS_MOBILE && 'windows')
-  || (IS_OTHER_MOBILE && 'other'),
-  HAS_TOUCH_SCREEN = !!MOBILE
-  || 'ontouchstart' in (DOCUMENT.documentElement || {})
-  || NAVIGATOR.maxTouchPoints > 0
-  || NAVIGATOR.msMaxTouchPoints > 0
-  || (
-    (MQ = ((WINDOW.matchMedia || (() => {}))('(pointer:coarse)') || {}))
-    && MQ.media === '(pointer:coarse)'
-    && !!MQ.matches
-  ) || !!WINDOW.orientation;
-
-IS_APPLE = /Apple/.test(VENDOR);
-const IS_SAFARI = /Safari/.test(USER_AGENT) && IS_APPLE;
-IS_APPLE || (IS_APPLE = /Mac/.test(USER_AGENT));
-const IS_GOOGLE = /Google/.test(VENDOR),
-  IS_CHROMIUM = /Chromium/.test(USER_AGENT) && IS_GOOGLE,
-  IS_CHROME = ((/Chrome/.test(USER_AGENT) && IS_GOOGLE) || (!!WINDOW.chrome && (!!WINDOW.chrome.webstore || !!WINDOW.chrome.runtime))) && !IS_CHROMIUM,
-  IS_SEAMONKEY = /Seamonkey/.test(USER_AGENT),
-  IS_FIREFOX = (/Firefox/.test(USER_AGENT) || typeof InstallTrigger !== 'undefined') && !IS_SEAMONKEY,
-  IS_OPERA = /OPR|Opera/.test(USER_AGENT),
-  IS_IE = /MSIE|Trident.*rv\:11\./.test(USER_AGENT) || /*@cc_on!@*/false || !!DOCUMENT.documentMode,
-  BROWSER = (IS_SAFARI && 'safari')
-  || (IS_CHROME && 'chrome')
-  || (IS_CHROMIUM && 'chromium')
-  || (IS_SEAMONKEY && 'seamonkey')
-  || (IS_FIREFOX && 'firefox')
-  || (IS_OPERA && 'opera')
-  || (IS_IE && 'ie'),
-  IS_GECKO = /Mobile|Tablet/.test(USER_AGENT) && /Gecko|Firefox/.test(USER_AGENT) && /Mozilla/.test(USER_AGENT) || IS_FIREFOX,
-  IS_EDGE = (!IS_IE && !!WINDOW.StyleMedia) || (IS_CHROME && /Edg/.test(USER_AGENT)),
-  IS_BLINK = (IS_CHROME || IS_OPERA) && !!WINDOW.CSS,
-  IS_WEBKIT = /KHTML/.test(USER_AGENT) && /AppleWebKit/.test(USER_AGENT),
-  RENDERING_ENGINE = (IS_EDGE && 'edge')
-  || (IS_BLINK && 'blink')
-  || (IS_GECKO && 'gecko')
-  || (IS_WEBKIT && 'webkit'),
-  IS_IOS_MOBILE_APP = IS_IOS_MOBILE && WINDOW.webkit.messageHandlers && WINDOW.webkit.messageHandlers.console;
-
-// Platform.
 export const Platform = {
-  // Macro variables.
-  userAgent: USER_AGENT,
-  referrer: DOCUMENT.referrer,
-  // Flags.
-  isClient: IS_CLIENT,
-  isMobileOrTablet: !!MOBILE,
-  isApple: IS_APPLE,
-  isAndroidApp: IS_ANDROID_MOBILE,
-  isIosMobileApp: IS_IOS_MOBILE_APP,
-  isSafariMobile: MOBILE && IS_SAFARI && !IS_IOS_MOBILE_APP,
-  hasTouchScreen: HAS_TOUCH_SCREEN,
-  // Browser info.
-  browserVendor: VENDOR,
-  browser: BROWSER,
-  renderingEngine: RENDERING_ENGINE,
+  // Basic properties.
+  get isMounted() {
+    try {
+      return window;
+    } catch {
+      return null;
+    }
+  },
+  get window() { return this.isMounted || {}; },
+  get document() { return this.window.document || {}; },
+  get documentElement() { return this.document.documentElement || {}; },
+  get navigator() { return this.window.navigator || this.document.navigator || {}; },
+  get vendor() { return this.navigator.vendor || ''; },
+  get userAgent() { return this.navigator.userAgent || ''; },
+  get referrer() { return this.document.referrer || ''; },
+  get screen() { return this.window.screen || {}; },
+  get orientation() { return this.screen.orientation || this.window.orientation; },
+  get online() { return (this.navigator.online || this.navigator.onLine); },
+  matchMedia(...args) { return (this.window.matchMedia || (() => {}))(...args); },
+  // Mobile.
+  get isAndroidMobile() { return /Android|Opera Mini/.test(this.userAgent) || this.window.Android; },
+  get isWindowsMobile() { return /Windows Phone|IEMobile/.test(this.userAgent); },
+  get isOtherMobile() { return /webOS|BlackBerry/.test(this.userAgent); },
+  get isIosMobile() { return (
+    /iP(hone|ad|od)/.test(this.userAgent)
+    && this.window.webkit
+    && !(
+      this.isAndroidMobile
+      || this.isWindowsMobile
+      || this.isOtherMobile
+    )
+  ); },
+  get isMobile() {
+    return this.isAndroidMobile || this.isWindowsMobile || this.isOtherMobile || this.isIosMobile;
+  },
+  get isIosMobileApp() {
+    return this.isIosMobile && this.window.webkit.messageHandlers && this.window.webkit.messageHandlers.console;
+  },
+  get isAndroidApp() { return this.isAndroidMobile && this.window.Android; },
+  // Touch screen.
+  get hasTouchScreen() {
+    let mq;
+    return 'ontouchstart' in this.document
+    || 'ontouchstart' in this.documentElement
+    || this.navigator.maxTouchPoints > 0
+    || this.navigator.msMaxTouchPoints > 0
+    || (
+      (mq = this.matchMedia('(pointer:coarse)') || {})
+      && mq.media === '(pointer:coarse)'
+      && !!mq.matches
+    ) || !!this.orientation;
+  },
+  // Vendors.
+  get isApple() {
+    return /Apple/.test(this.vendor) || /Mac/.test(this.userAgent);
+  },
+  get isGoogle() {
+    return /Google/.test(this.vendor);
+  },
+  // Browsers.
+  get isSafari() {
+    return /Safari/.test(this.userAgent) && /Apple/.test(this.vendor);
+  },
+  get isChromium() { return /Chromium/.test(this.userAgent) && this.isGoogle },
+  get isChrome() {
+    return (
+      (/Chrome/.test(this.userAgent) && this.isGoogle)
+      || (!!this.window.chrome && (!!this.window.chrome.webstore || !!this.window.chrome.runtime))
+    ) && !this.isChromium;
+  },
+  get isSeamonkey() { return /Seamonkey/.test(this.userAgent); },
+  get isFirefox() { return (/Firefox/.test(this.userAgent) || this.window.InstallTrigger !== undefined) && !this.isSeamonkey; },
+  get isOpera() { return /OPR|Opera/.test(this.userAgent); },
+  get isIE() { return /MSIE|Trident.*rv\:11\./.test(this.userAgent) || /*@cc_on!@*/false || !!this.document.documentMode; },
+  get browser() {
+    return this.isSafari && 'safari'
+    || (this.isChrome && 'chrome')
+    || (this.isChromium && 'chromium')
+    || (this.isSeamonkey && 'seamonkey')
+    || (this.isFirefox && 'firefox')
+    || (this.isOpera && 'opera')
+    || (this.isIE && 'ie')
+    || '';
+  },
+  get isSafariMobile() { return this.isMobile && this.isSafari && !this.isIosMobileApp; },
+  // Rendering engine.
+  get isGecko() { return /Mobile|Tablet/.test(this.userAgent) && /Gecko|Firefox/.test(this.userAgent) && /Mozilla/.test(this.userAgent) || this.isFirefox; },
+  get isEdge() { return (!this.isIE && !!this.window.StyleMedia) || (this.isChrome && /Edg/.test(this.userAgent)); },
+  get isBlink() { return (this.isChrome || this.isOpera) && !!this.window.CSS; },
+  get isWebkit() { return this.window.webkit && /KHTML/.test(this.userAgent) && /AppleWebKit/.test(this.userAgent); },
+  get renderingEngine() {
+    return this.isEdge && 'edge'
+    || (this.isBlink && 'blink')
+    || (this.isGecko && 'gecko')
+    || (this.isWebkit && 'webkit')
+    || '';
+  },
   // Touch vs click handlers.
-  onpressName: HAS_TOUCH_SCREEN && 'ontouchstart' || 'onmousedown',
-  onPressName: HAS_TOUCH_SCREEN && 'onTouchStart' || 'onMouseDown',
-  onpressEvent: HAS_TOUCH_SCREEN && 'touchstart' || 'mousedown',
-  onreleaseName: HAS_TOUCH_SCREEN && 'ontouchend' || 'onmouseup',
-  onReleaseName: HAS_TOUCH_SCREEN && 'onTouchEnd' || 'onMouseUp',
-  onreleaseEvent: HAS_TOUCH_SCREEN && 'touchend' || 'mouseup',
-  onmoveName: HAS_TOUCH_SCREEN && 'ontouchmove' || 'onmousemove',
-  onMoveName: HAS_TOUCH_SCREEN && 'onTouchMove' || 'onMouseMove',
-  onmoveEvent: HAS_TOUCH_SCREEN && 'touchmove' || 'mousemove',
+  get onpressName() { return this.hasTouchScreen && 'ontouchstart' || 'onmousedown'; },
+  get onPressName() { return this.hasTouchScreen && 'onTouchStart' || 'onMouseDown'; },
+  get onpressEvent() { return this.hasTouchScreen && 'touchstart' || 'mousedown'; },
+  get onreleaseName() { return this.hasTouchScreen && 'ontouchend' || 'onmouseup'; },
+  get onReleaseName() { return this.hasTouchScreen && 'onTouchEnd' || 'onMouseUp'; },
+  get onreleaseEvent() { return this.hasTouchScreen && 'touchend' || 'mouseup'; },
+  get onmoveName() { return this.hasTouchScreen && 'ontouchmove' || 'onmousemove'; },
+  get onMoveName() { return this.hasTouchScreen && 'onTouchMove' || 'onMouseMove'; },
+  get onmoveEvent() { return this.hasTouchScreen && 'touchmove' || 'mousemove'; },
   // Local storage.
-  defaultStorage: WINDOW.localStorage, // Where to store persisting data
-  defaultStorageEncode: 'stringify', // Default storage data encoding function
-  defaultStorageDecode: 'stringify' // Default storage data decoding function
-};
-MOBILE && (Platform.mobileOrTablet = MOBILE);
-
-NAVIGATOR
-  && (NAVIGATOR.online || NAVIGATOR.onLine) !== undefined
-  && Object.defineProperty(Platform, 'online', {
-  get() {return (NAVIGATOR.online || NAVIGATOR.onLine) || false; },
-  enumerable: true
-});
-
-// Non enumarable properties.
-Object.defineProperty(Platform, 'window', {
-  value: WINDOW
-});
-Object.defineProperty(Platform, 'navigator', {
-  value: NAVIGATOR
-});
-Object.defineProperty(Platform, 'document', {
-  value: DOCUMENT
-});
-
-// Helper function to get mobile native functionalities.
-Object.defineProperty(Platform, 'getNative', {
-  value: (funcName, fallback = WINDOW) => IS_ANDROID_MOBILE && WINDOW.Android && ((...args) => WINDOW.Android[funcName](...args))
-    || (IS_IOS_MOBILE && ((...args) => WINDOW.webkit.messageHandlers[funcName].postMessage(...args)))
-    || (fallback && typeof fallback === 'object' && typeof fallback[funcName] === 'function' && ((...args) => fallback[funcName](...args)))
-    || (typeof fallback === 'function' && fallback)
-    || (() => {})
-});
-
-// String conversion, for display.
-Object.defineProperty(Platform, 'toString', {
-  value: function () {
-    return Object.entries(this).reduce((v, [key, val]) => {
-      return val !== this
-        && typeof val !== 'function'
-        && `${v && v + '\n' || v}${key}: ${typeof val === 'object' && JSON.stringify(val) || val}`
-        || v;
-    }, '');
+  get defaultStorage() { return this.window.localStorage; }, // Where to store persisting data
+  get defaultStorageEncode() { return 'stringify'; }, // Default storage data encoding function
+  get defaultStorageDecode() { return 'stringify'; }, // Default storage data decoding function
+  // Helper function to get mobile native functionalities.
+  getNative(funcName, fallback = this.window) {
+    return this.isAndroidApp && ((...args) => this.window.Android[funcName](...args))
+      || (this.isIosMobileApp && ((...args) => this.window.webkit.messageHandlers[funcName].postMessage(...args)))
+      || (fallback && typeof fallback === 'object' && typeof fallback[funcName] === 'function' && ((...args) => fallback[funcName](...args)))
+      || (typeof fallback === 'function' && fallback)
+      || (() => {});
   }
-});
+}
 
 // Exports.
 export default Platform;
