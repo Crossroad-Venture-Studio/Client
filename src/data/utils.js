@@ -52,13 +52,13 @@ export const setData = (data, obj, key, sep = '.') => {
 
 // Helper function to get the key for the property to store on the persisting storage.
 export const getStorageKeyPrefix = storeName => storeName && `${storeName}|` || '';
-export const getStorageKey = (storeName, storeKey = '') => (
-  storeName && storeKey && `${getStorageKeyPrefix(storeName)}${storeKey}` || storeName || storeKey
+export const getStorageKey = (storeKey, storeName) => (
+  storeKey && storeName && `${getStorageKeyPrefix(storeName)}${storeKey}` || storeKey || storeName || ''
 );
 
 // Helper function to get a store keys.
-export const getStorageKeys = (storage, storeName, removePrefix = true) => {
-  if (!storage || (storage = window.localStorage)) return [];
+export const getStorageKeys = (storeName, removePrefix = true, storage) => {
+  if (!(storage = getStorage(storage))) return [];
   const output = [], s = getStorageKeyPrefix(storeName);
   if (typeof storage.key === 'function') {
     for ( let i = 0, l = storage.length, key; i !== l; ++i ) {
@@ -74,18 +74,18 @@ export const getStorageKeys = (storage, storeName, removePrefix = true) => {
 }
 
 // Helper function to check if a store has a key.
-export const hasStorageKey = (storage, storeName, storeKey) => (
-  getStorageKeys(storage, storeName).findIndex(storeKey || storeName || '') >= 0
+export const hasStorageKey = (storeKey, storeName, storage) => (
+  getStorageKeys(storeName, true, storage).findIndex(storeKey || storeName || '') >= 0
 );
 
 // Helper function to read some data from the storage.
 export const readData = (
-  storeName,
   storeKey,
+  storeName,
   decode = 'stringify',
   storage
 ) => {
-  const _data = (storage = getStorage(storage)) && storage.getItem && storage.getItem(getStorageKey(storeName, storeKey)) || null,
+  const _data = (storage = getStorage(storage)) && storage.getItem && storage.getItem(getStorageKey(storeKey, storeName)) || null,
     _decode = (typeof decode === 'function' && decode)
     || (decode === 'stringify-object' && Object.from)
     || (decode && (data => JSON.parse(data)));
@@ -98,14 +98,14 @@ export const readData = (
 // Helper function to write some data on the storage.
 export const writeData = (
   data,
-  storeName,
   storeKey,
+  storeName,
   encode = 'stringify',
   storage
 ) => (
   data !== null && data !== undefined ?
   (storage = getStorage(storage)) && storage.setItem && storage.setItem(
-    getStorageKey(storeName, storeKey),
+    getStorageKey(storeKey, storeName),
     (encode && ( // encode if needed.
       typeof encode === 'function' ?
       encode(data) // use encode function
@@ -116,7 +116,7 @@ export const writeData = (
     )) || data
   )
   : (storage = getStorage(storage)) && storage.removeItem && storage.removeItem(
-    getStorageKey(storeName, storeKey)
+    getStorageKey(storeKey, storeName)
   ) // remove item if data is null or undefined.
 );
 

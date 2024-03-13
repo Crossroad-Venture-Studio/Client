@@ -165,7 +165,7 @@ export class Store {
 
       // Clear all keys.
       for (let i = 0, l = keys.length; i !== l; ++i) {
-        this.storage.removeItem(getStorageKey(this.storageName, keys[i]));
+        this.storage.removeItem(getStorageKey(keys[i], this.storageName));
       }
       return this;
     }
@@ -224,7 +224,7 @@ export class Store {
   }
 
   // Helper function to get the storageKeys.
-  getStorageKeys(removePrefix = true) { return getStorageKeys(this.storage, this.storageName, removePrefix); }
+  getStorageKeys(removePrefix = true) { return getStorageKeys(this.storageName, removePrefix, this.storage); }
 
   // Helper function to load data from storage.
   loadFromStorage(...keys) {
@@ -256,7 +256,7 @@ export class Store {
     for (let i = 0, l = storageKeys.length, k, p; i !== l; ++i) {
       k = storageKeys[i];
       if (keys.size && (p = keys.get(k)) || (p === undefined && persists)) this.makePersist(k);
-      else this.data[k] = readData(this.storageName, k, this.decode, this.storage);
+      else this.data[k] = readData(k, this.storageName, this.decode, this.storage);
     }
   }
 
@@ -278,19 +278,19 @@ export class Store {
     // Get data from storage.
     try {
       if (initFromStorage) {
-        const d = readData(this.storageName, persistingKey, this.decode, this.storage);
+        const d = readData(persistingKey, this.storageName, this.decode, this.storage);
         if ((d === undefined || d === null) && val !== undefined && val !== null) {
           // Update storage if necessary.
-          writeData(val, this.storageName, persistingKey, this.encode, this.storage);
+          writeData(val, persistingKey, this.storageName, this.encode, this.storage);
         } else obj[subKey] = d;
-      } else writeData(val, this.storageName, persistingKey, this.encode, this.storage);
+      } else writeData(val, persistingKey, this.storageName, this.encode, this.storage);
     } catch (e) {
       console.error(e);
     }
 
     // Create observable.
     observe(obj, subKey,
-      v => writeData(v, this.storageName, persistingKey, this.encode, this.storage)
+      v => writeData(v, persistingKey, this.storageName, this.encode, this.storage)
     );
     return this;
   }
@@ -302,7 +302,7 @@ export class Store {
   }
 
   // Check if a key persists.
-  hasStorageKey(key) { return hasStorageKey(this.storage, this.storeName, key); }
+  hasStorageKey(key) { return hasStorageKey(key, this.storeName, this.storage ); }
   persists(key) { return Object.getOwnPropertyDescriptor(this.data, key).get && this.hasStorageKey(key); }
 };
 
