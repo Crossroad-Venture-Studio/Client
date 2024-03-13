@@ -299,6 +299,9 @@ export class Store {
     for (const key in this.data) this.makePersist(key, initFromStorage);
     return this;
   }
+
+  // Check if a key persists.
+  persists(key) { return this.getStorageKeys().findIndex(key) >= 0; }
 };
 
 // Exports.
