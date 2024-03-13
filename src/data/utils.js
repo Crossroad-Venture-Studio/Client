@@ -59,7 +59,6 @@ export const getStorageKeys = (storage = defaultStorage, storeName) => {
   } else for (const key in storage) {
     (!s || key.startsWith(s)) && output.push(key.replace(s, ''));
   }
-  console.log(storage, storage[0]);
   return output;
 }
 
