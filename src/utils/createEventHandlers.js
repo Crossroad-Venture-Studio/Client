@@ -6,7 +6,7 @@ import createFormData from './createFormData';
 
 // Helper function to normalize press, release and move
 // event handlers for both standard web and React/NextJS.
-const createEventHandlers = (handlers, options, defaultOutput) => {
+export const createEventHandlers = (handlers, options, defaultOutput) => {
   typeof handlers === 'function' && (handlers = {onPress: handlers});
   if (!handlers && defaultOutput) return defaultOutput;
   let {
@@ -93,6 +93,4 @@ const createEventHandlers = (handlers, options, defaultOutput) => {
 }
 
 // Exports.
-export default Object.freeze(Object.defineProperty(createEventHandlers, 'createEventHandlers', {
-  value: createEventHandlers
-}));
+export default createEventHandlers;

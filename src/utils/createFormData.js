@@ -3,7 +3,7 @@
 import '../../utils/src/stringUtils';
 
 // Check if input is an event.
-const isSubmitEvent = event => {
+export const isSubmitEvent = event => {
   if (!event || typeof event !== 'object') return false;
   else if (event.target && event.target instanceof HTMLFormElement) return true;
   try {
@@ -14,7 +14,7 @@ const isSubmitEvent = event => {
 }
 
 // Main helper: create data from a form.
-const createFormData = (input, defaultOutput = {}) => {
+export const createFormData = (input, defaultOutput = {}) => {
   if (!input || typeof input !== 'object') return defaultOutput;
 
   // If input is an event instead of a form.
@@ -38,6 +38,4 @@ const createFormData = (input, defaultOutput = {}) => {
 }
 
 // Exports.
-export default Object.freeze(Object.defineProperty(createFormData, 'createFormData', {
-  value: createFormData
-}));
+export default createFormData;

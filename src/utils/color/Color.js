@@ -1,6 +1,6 @@
 'use strict';
 
-class Color {
+export class Color {
   constructor(r, g, b) {
     this.set(r, g, b);
   }
@@ -151,6 +151,4 @@ class Color {
 }
 
 // Exports.
-export default Object.freeze(Object.defineProperty(Color, 'Color', {
-  value: Color
-}));
+export default Color;

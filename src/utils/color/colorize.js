@@ -2,7 +2,7 @@ import Color from './Color';
 import Solver from './Solver';
 import hexToRgb from './hexToRgb';
 
-const colorize = (color, isNotBlack) => {
+export const colorize = (color, isNotBlack) => {
   const rgb = typeof color === 'string' && (
     color.startsWith('#') && hexToRgb(color)
     || color.match(/[0-9\.]+/g).filter(x => x)
@@ -19,6 +19,4 @@ const colorize = (color, isNotBlack) => {
 }
 
 // Exports.
-export default Object.freeze(Object.defineProperty(hexToRgb, 'hexToRgb', {
-  value: hexToRgb
-}));
+export default colorize;
