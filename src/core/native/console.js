@@ -89,6 +89,7 @@ _console.getStyle = isIosMobileApp && (_console.resetStyle = x => '') || (
   value: _console,
   enumerable: true
 }) || (
+  console.log('#####', window, window && window.console),
   window.console.err || (window.console.err = window.console.error),
   window.console.success || (window.console.success = (...msg) => console.log('Success:', map(msg)))
 );
