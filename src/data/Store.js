@@ -278,17 +278,13 @@ export class Store {
 
     // Get data from storage.
     try {
-      let d;
       if (initFromStorage) {
-        d = readData(this.storageName, persistingKey, this.decode, this.storage);
+        const d = readData(this.storageName, persistingKey, this.decode, this.storage);
         if ((d === undefined || d === null) && val !== undefined && val !== null) {
           // Update storage if necessary.
-          d = val;
-          writeData(d, this.storageName, persistingKey, this.encode, this.storage);
-        } else {
-          writeData(obj[subKey] = d, this.storageName, persistingKey, this.encode, this.storage);
-        }
-      } else d = val;
+          writeData(val, this.storageName, persistingKey, this.encode, this.storage);
+        } else obj[subKey] = d;
+      } else writeData(val, this.storageName, persistingKey, this.encode, this.storage);
     } catch (e) {
       console.error(e);
     }
@@ -302,7 +298,6 @@ export class Store {
 
   // Persist all direct keys.
   makePersistAll(initFromStorage = true) {
-    console.log('makePersistAll');
     for (const key in this.data) this.makePersist(key, initFromStorage);
     return this;
   }
