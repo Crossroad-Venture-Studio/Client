@@ -153,7 +153,6 @@ export class Store {
     for (let i = 0, l = persisting.length; i !== l; ++i) this.makePersist(persisting[i]);
 
     // Load from storage.
-    console.log('>>>', loadFromStorage);
     if (loadFromStorage) this.loadFromStorage(loadFromStorage);
   }
 
@@ -225,7 +224,6 @@ export class Store {
   // Helper function to load data from storage.
   loadFromStorage(...keys) {
     keys = keys.flat(Infinity);
-    console.log('keys', keys);
     let storageKeys = this.getStorageKeys(), j = 0, persists, _keys = [];
     for (let i = 0, l = keys.length, v; i !== l; ++i) {
       v = keys[i];
@@ -249,7 +247,7 @@ export class Store {
       keys = new Map(keys);
       storageKeys = storageKeys.filter(x => keys.has(x));
     }
-    console.log('storageKeys', storageKeys, persists);
+    
     for (let i = 0, l = storageKeys.length, k, p; i !== l; ++i) {
       k = storageKeys[i];
       if (keys.size && (p = keys.get(k)) || (p === undefined && persists)) this.makePersist(k);
