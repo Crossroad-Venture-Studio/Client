@@ -242,6 +242,7 @@ export class Store {
       keys = new Map(keys);
       storageKeys = storageKeys.filter(x => keys.has(x));
     }
+    console.log('storageKeys', storageKeys, persists);
     for (let i = 0, l = storageKeys.length, k, p; i !== l; ++i) {
       k = storageKeys[i];
       if (keys.size && (p = keys.get(k)) || (p === undefined && persists)) this.makePersist(k);
