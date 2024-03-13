@@ -145,7 +145,8 @@ export class Store {
 
     // Load from storage.
     loadFromStorage === true && (
-      persisting === true && (loadFromStorage = { persisting })
+      (persisting === true || (Array.isArray(persisting) && persisting[0] === true))
+      && (loadFromStorage = { persisting })
       || (Array.isArray(persisting) && (loadFromStorage = persisting.map(x => [x, true])))
     );
     console.log('>>>', loadFromStorage, persisting);
