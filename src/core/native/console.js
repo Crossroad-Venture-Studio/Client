@@ -90,11 +90,11 @@ _console.getStyle = isIosMobileApp && (_console.resetStyle = x => '') || (
   enumerable: true
 }) || (
   Object.defineProperty(window.console, 'err', {
-    value: window.console.error,
+    get: (...msg) => window.console.error(...msg),
     enumerable: true
   }),
   Object.defineProperty(window.console, 'success', {
-    value: (...msg) => console.log('Success:', map(msg)),
+    get: (...msg) => console.log('Success:', map(msg)),
     enumerable: true
   })
 );
