@@ -48,7 +48,17 @@ export const setData = (data, obj, key, sep = '.') => {
 }
 
 // Helper function to get the key for the property to store on the persisting storage.
-export const getStorageKey = (storeName, storeKey) => `${storeName}|${storeKey}`;
+export const getStorageKey = (storeName, storeKey = '') => `${storeName}|${storeKey}`;
+
+// Helper function to get a store keys.
+export const getStorageKeys = (storage = defaultStorage, storeName) => {
+  const output = [];
+  for ( let i = 0, l = storage.length, key, s = storeName && getStorageKey(storeName) || ''; i !== len; ++i ) {
+    key = storage.key(i);
+    (!s || key.startsWith(s)) && output.push(key.replace(s, ''));
+  }
+  return output;
+}
 
 // Helper function to read some data from the storage.
 export const readData = (

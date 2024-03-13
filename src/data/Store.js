@@ -2,7 +2,8 @@ import {
   getStoreName,
   getPersistingKeys,
   readData,
-  writeData
+  writeData,
+  getStorageKeys
 } from './utils';
 import observe from './observe';
 import Platform from '../core/native/Platform';
@@ -99,6 +100,7 @@ export class Store {
     storage = defaultStorage,
     encode = defaultStorageEncode,
     decode = defaultStorageDecode,
+    loadFromStorage,
     clearStorage = [] // Clear local storage at initialization,
                       // true, false or a list of keys to delete
   } = {}) {
@@ -140,6 +142,9 @@ export class Store {
     // Add persisting keys.
     persisting = getPersistingKeys(persisting);
     for (let i = 0, l = persisting.length; i !== l; ++i) this.makePersist(persisting[i]);
+
+    // Load from storage.
+    if (loadFromStorage) this.loadFromStorage(loadFromStorage);
   }
 
   // Helper function to clear the persisting storage.
@@ -168,6 +173,7 @@ export class Store {
 
   // Helper function to clear the data.
   clearData(...keys) {
+    keys = keys.flat(Infinity);
     if (keys[0]) {
       // Case where input parameter is true: clear all.
       if (typeof keys[0] !== 'string') {
@@ -201,6 +207,41 @@ export class Store {
       this.data[key] = data[key];
     }
     return this;
+  }
+
+  // Helper function to get the storageKeys.
+  getStorageKeys() { return getStorageKeys(this.storageName); }
+
+  // Helper function to load data from storage.
+  loadFromStorage(...keys) {
+    keys = keys.flat(Infinity);
+    let storageKeys = this.getStorageKeys(), j = 0, persists, _keys = [];
+    for (let i = 0, l = keys.length, v; i !== l; ++i) {
+      v = keys[i];
+      if (typeof v === 'string') {
+        keys[j++] = v;
+      } else if (!v) return this;
+      else if (typeof v === 'object') {
+        const {
+          makePersist,
+          makePersistAll = makePersist,
+          keys
+        } = v;
+        persists = persists || makePersistAll;
+        Array.isArray(keys) && keys.length && (_keys = _keys.concat(keys));
+      }
+    }
+    keys.length = j;
+    keys = keys.concat(_keys).map(x => typeof x !== 'object' && [x, persists ] || (Array.isArray(x) && x) || [x.name || x.key, x.persists]);
+    if (keys.length && keys[0] === 'string') {
+      keys = new Map(keys);
+      storageKeys = storageKeys.filter(x => keys.has(x));
+    }
+    for (let i = 0, l = storageKeys.length, k, p; i !== l; ++i) {
+      k = storageKeys[i];
+      if (keys.size && (p = keys.get(k)) || (p === undefined && persists)) this.makePersist(k);
+      else this.data[k] = readData(this.storageName, k, this.decode, this.storage);
+    }
   }
 
   // Helper function to make a key persist.
