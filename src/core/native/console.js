@@ -1,5 +1,5 @@
 'use strict';
-'use client'
+'use client';
 
 import Platform from './Platform';
 const { isIosMobileApp, isAndroidApp, getNative, window } = Platform;
@@ -88,10 +88,9 @@ _console.getStyle = isIosMobileApp && (_console.resetStyle = x => '') || (
 (isAndroidApp || isIosMobileApp) && navigator && Object.defineProperty(window, 'console', {
   value: _console,
   enumerable: true
-}) || (
-  console.log('#####', window, window && window.console),
+}) || (window && (
   window.console.err || (window.console.err = window.console.error),
   window.console.success || (window.console.success = (...msg) => console.log('Success:', map(msg)))
-);
+));
 export const console = _console;
 export default console;
