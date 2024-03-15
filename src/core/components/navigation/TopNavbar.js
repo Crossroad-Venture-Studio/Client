@@ -62,7 +62,7 @@ export const TopNavbar = props => {
   // Layout.
   return (
     <nav className={className} title={title || null} {...other}>
-      {background && <img src={background} className='background'></img>}
+      {background && <img src={background} className='top-navbar-background'></img>}
       {hasBack && (
         <div className='row center left fill'>
           <BackButton
