@@ -88,7 +88,7 @@ export const createEventHandlers = (handlers, options, defaultOutput) => {
       }
     );
   }
-
+console.log('Platform.onPressName', Platform.onPressName);
   return output;
 }
 
