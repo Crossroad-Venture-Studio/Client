@@ -89,6 +89,7 @@ export const createEventHandlers = (handlers, options, defaultOutput) => {
     );
   }
 console.log('Platform.onPressName', Platform.onPressName);
+console.log('Platform.isMounted', Platform.isMounted);
   return output;
 }
 
