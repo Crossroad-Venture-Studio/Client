@@ -22,13 +22,16 @@ export const Button = props => {
     children,
     doNotHide,
     type,
+    hasNotification,
+    notification = hasNotification,
     submit = `${(type || '')}`.toLowerCase() === 'submit',
     ...other
-  } = props || {};
+  } = props || {},
+  baseClassName = `button${notification && ' notification' || ''}`;
   onPress || (submit && href && (onPress = () => window.location.href = href));
   Object.assign(other, createEventHandlers({onPress}));
   href || (href = null);
-  className = className && `button ${className}` || 'button';
+  className = className && `${baseClassName} ${className}` || baseClassName;
   Array.isArray(children || (children = [])) || (children = [children]);
 
   // Layout.
