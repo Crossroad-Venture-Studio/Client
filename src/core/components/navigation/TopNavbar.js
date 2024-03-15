@@ -42,6 +42,7 @@ export const TopNavbar = props => {
     children,
     className,
     safearea,
+    title = 'Top navigation bar',
     ...other
   } = props || {},
     onLogoFuncs = createEventHandlers(
@@ -60,7 +61,7 @@ export const TopNavbar = props => {
 
   // Layout.
   return (
-    <nav className={className} {...other}>
+    <nav className={className} title={title || null} {...other}>
       {background && <img src={background} className='background'></img>}
       {hasBack && (
         <div className='row center left fill'>
