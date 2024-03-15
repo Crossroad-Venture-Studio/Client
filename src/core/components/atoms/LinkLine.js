@@ -53,7 +53,7 @@ export const LinkLine = props => {
       <span className='fat vertical-trim'>{rightText}</span>
       {rightSrc && <img src={rightSrc} className='icon' alt={rightAlt || rightTitle || null} /> || null}
     </a>
-  </div> || <div
+  </div> || <a
     className={className}
     href={href || null}
     {...events}
@@ -69,7 +69,7 @@ export const LinkLine = props => {
     >
       {rightSrc && <img src={rightSrc} className='icon' alt={rightAlt || rightTitle || null} title={rightTitle || rightAlt || null} /> || null}
     </div>
-  </div>
+  </a>
 }
 
 // Exports.
