@@ -10,7 +10,8 @@ export const TopNavbar = props => {
   // Get props.
   let {
     // Back nav.
-    backSrc = 'https://crossroad-venture-studio.github.io/Design-System/icons/navigation/chevron-left-wired-light.svg',
+    backIconSrc = 'https://crossroad-venture-studio.github.io/Design-System/icons/navigation/chevron-left-wired-light.svg',
+    backSrc = backIconSrc,
     backTitle,
     backAlt = backTitle,
     backText = 'Back',
@@ -27,7 +28,8 @@ export const TopNavbar = props => {
     nav = [],
     rightNav = nav,
     // Next nav.
-    nextSrc = 'https://crossroad-venture-studio.github.io/Design-System/icons/navigation/chevron-right-wired-light.svg',
+    nextIconSrc = 'https://crossroad-venture-studio.github.io/Design-System/icons/navigation/chevron-right-wired-light.svg',
+    nextSrc = nextIconSrc,
     nextTitle,
     nextAlt = backTitle,
     nextText = 'Next',
