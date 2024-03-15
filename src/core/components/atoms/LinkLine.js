@@ -40,7 +40,7 @@ export const LinkLine = props => {
 
   // Layout.
   return <div className={className} {...other}>
-    {(rightText) && <>
+    {(rightText) && <div>
       {(leftSrc || leftText) && <div title={leftTitle || leftAlt || null}>
         {leftSrc && <img src={leftSrc} className='icon' alt={leftAlt || leftTitle || null} /> || null}
         {leftText && <span className='fat vertical-trim'>{leftText}</span> || null}
@@ -54,7 +54,7 @@ export const LinkLine = props => {
         <span className='fat vertical-trim'>{rightText}</span>
         {rightSrc && <img src={rightSrc} className='icon' alt={rightAlt || rightTitle || null} /> || null}
       </a>
-    </> || <a
+    </div> || <a
       href={href || null}
       {...events}
     >
