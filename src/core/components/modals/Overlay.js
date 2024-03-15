@@ -117,4 +117,6 @@ export const Overlay = props => {
 };
 
 // Exports.
+export const TRANSITION_TIME = 300;
+Object.defineProperty(Overlay, 'TRANSITION_TIME', {value: TRANSITION_TIME});
 export default Overlay;

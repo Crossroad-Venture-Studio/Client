@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import Overlay from './Overlay';
+import { Overlay, TRANSITION_TIME as TT } from './Overlay';
 import Button from '../atoms/Button';
 
 // Modal menu.
@@ -62,4 +62,6 @@ export const OverlayMenu = props => {
 }
 
 // Exports.
+export const TRANSITION_TIME =  TT;
+Object.defineProperty(OverlayMenu, 'TRANSITION_TIME', {value: TRANSITION_TIME});
 export default OverlayMenu;
