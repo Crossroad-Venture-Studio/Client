@@ -32,6 +32,8 @@ export const Button = props => {
     || (notification.startsWith('warn') && 'warning-notification')
     || (notification.startsWith('succ') && 'success-notification')
     || (notification.startsWith('info') && 'info-notification')
+    || (notification.startsWith('light') && 'light-notification')
+    || (notification.startsWith('dark') && 'dark-notification')
   ) || (notification && 'notification') || '';
   notification && (notification = ` ${notification}`)
   const baseClassName = `button${notification}`;
