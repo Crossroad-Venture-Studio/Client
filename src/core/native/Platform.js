@@ -44,17 +44,6 @@ export const Platform = {
   // Touch screen.
   get hasTouchScreen() {
     let mq;
-    console.log('ontouchstart' in this.document,
-      'ontouchstart' in this.documentElement,
-      this.navigator.maxTouchPoints > 0,
-      this.navigator.msMaxTouchPoints > 0,
-      (
-        (mq = this.matchMedia('(pointer:coarse)') || {})
-        && mq.media === '(pointer:coarse)'
-        && !!mq.matches
-      ),
-      !!this.orientation
-    );
     return 'ontouchstart' in this.document
     || 'ontouchstart' in this.documentElement
     || this.navigator.maxTouchPoints > 0
@@ -63,7 +52,7 @@ export const Platform = {
       (mq = this.matchMedia('(pointer:coarse)') || {})
       && mq.media === '(pointer:coarse)'
       && !!mq.matches
-    ) || !!this.orientation;
+    );
   },
   // Vendors.
   get isApple() {

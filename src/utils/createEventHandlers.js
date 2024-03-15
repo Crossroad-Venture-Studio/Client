@@ -88,8 +88,7 @@ export const createEventHandlers = (handlers, options, defaultOutput) => {
       }
     );
   }
-console.log('Platform.onPressName', Platform.onPressName);
-console.log('Platform.hasTouchScreen', Platform.hasTouchScreen);
+
   return output;
 }
 
