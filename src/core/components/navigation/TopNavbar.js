@@ -83,8 +83,8 @@ export const TopNavbar = props => {
           target={logoTarget || null}
           {...onLogoFuncs}
         >
-          {logoSrc && <img src={logoSrc} className='logo' alt='logo'/> || null}
-          {logoText && <span className='logo-text vertical-trim'> {logoText} </span> || null}
+          {logoSrc && <img src={logoSrc} className='top-navbar-logo' alt='logo'/> || null}
+          {logoText && <span className='top-navbar-logo-text vertical-trim'> {logoText} </span> || null}
         </a>
       ) || null}
 
