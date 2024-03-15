@@ -40,7 +40,21 @@ export const LinkLine = props => {
 
   // Layout.
   return <div className={className} {...other}>
-    {(rightText) && <a
+    {(rightText) && <>
+      {(leftSrc || leftText) && <div title={leftTitle || leftAlt || null}>
+        {leftSrc && <img src={leftSrc} className='icon' alt={leftAlt || leftTitle || null} /> || null}
+        {leftText && <span className='fat vertical-trim'>{leftText}</span> || null}
+      </div> || null}
+      {...children}
+      <a
+        href={href || null}
+        {...events}
+        title={rightTitle || rightAlt || null}
+      >
+        <span className='fat vertical-trim'>{rightText}</span>
+        {rightSrc && <img src={rightSrc} className='icon' alt={rightAlt || rightTitle || null} /> || null}
+      </a>
+    </> || <a
       href={href || null}
       {...events}
     >
@@ -49,27 +63,13 @@ export const LinkLine = props => {
         {leftText && <span className='fat vertical-trim'>{leftText}</span> || null}
       </div> || null}
       {...children}
-      <div
+      {(rightSrc || rightText) && <div
         title={rightTitle || rightAlt || null}
-      >
-        <span className='fat vertical-trim'>{rightText}</span>
-        {rightSrc && <img src={rightSrc} className='icon' alt={rightAlt || rightTitle || null} /> || null}
-      </div>
-    </a> || <>
-      {(leftSrc || leftText) && <div title={leftTitle || leftAlt || null}>
-        {leftSrc && <img src={leftSrc} className='icon' alt={leftAlt || leftTitle || null} /> || null}
-        {leftText && <span className='fat vertical-trim'>{leftText}</span> || null}
-      </div> || null}
-      {...children}
-      {(rightSrc || rightText) && <a
-        title={rightTitle || rightAlt || null}
-        href={href || null}
-        {...events}
       >
         {rightText && <span className='fat vertical-trim'>{rightText}</span> || null}
         {rightSrc && <img src={rightSrc} className='icon' alt={rightAlt || rightTitle || null} /> || null}
-      </a> || null}
-    </>}
+      </div> || null}
+    </a>}
   </div>
 }
 
