@@ -26,8 +26,15 @@ export const Button = props => {
     notification = hasNotification,
     submit = `${(type || '')}`.toLowerCase() === 'submit',
     ...other
-  } = props || {},
-  baseClassName = `button${notification && ' notification' || ''}`;
+  } = props || {};
+  notification = typeof notification === 'string' && (
+    (notification = notification.toLowerCase()).startsWith('err') && 'error-notification'
+    || (notification.startsWith('warn') && 'warning-notification')
+    || (notification.startsWith('succ') && 'success-notification')
+    || (notification.startsWith('info') && 'info-notification')
+  ) || (notification && 'notification') || '';
+  notification && (notification = ` ${notification}`)
+  const baseClassName = `button${notification}`;
   onPress || (submit && href && (onPress = () => window.location.href = href));
   Object.assign(other, createEventHandlers({onPress}));
   href || (href = null);
