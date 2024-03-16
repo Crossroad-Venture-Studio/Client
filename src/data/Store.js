@@ -216,7 +216,10 @@ export class Store {
 
   // Helper function to load data.
   loadData(data) {
-    if (typeof (data || (data = {})) !== 'object') return this;
+    if (!data) throw Error('Trying to load empty data');
+    if (typeof data !== 'object') throw Error('Trying to load non-object data');
+    if (Array.isArray(data)) throw Error('Trying to load array data, input must be a pure object');
+
     for (const key in data) {
       this.data[key] = data[key];
     }
