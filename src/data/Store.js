@@ -5,6 +5,7 @@ import {
   writeData,
   getStorageKey,
   getStorageKeys,
+  hasStorageKeys,
   getStorage,
   hasStorageKey
 } from './utils';
@@ -228,6 +229,9 @@ export class Store {
 
   // Helper function to get the storageKeys.
   getStorageKeys(removePrefix = true) { return getStorageKeys(this.storageName, removePrefix, this.storage); }
+
+  // Helper function to check if a store has any storage keys.
+  hasStorageKeys() { return hasStorageKeys(this.storageName, this.storage); }
 
   // Helper function to load data from storage.
   loadFromStorage(...keys) {

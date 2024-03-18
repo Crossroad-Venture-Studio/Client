@@ -73,6 +73,9 @@ export const getStorageKeys = (storeName, removePrefix = true, storage) => {
   return output;
 }
 
+// Helper function to check if a store has any storage keys.
+export const hasStorageKeys = (storeName, storage) => getStorageKeys(storeName, false, storage).length;
+
 // Helper function to check if a store has a key.
 export const hasStorageKey = (storeKey, storeName, storage) => (
   getStorageKeys(storeName, true, storage).indexOf(storeKey || storeName || '') >= 0
