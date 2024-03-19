@@ -31,12 +31,10 @@ export const AnimationPage = forwardRef((props, ref) => {
       {...animation}
       {...other}
       onAnimationStart={() => {
-        console.log('starting');
         setFreeze(true);
       }}
       onAnimationComplete={definition => {
         definition === 'exit' && setFreeze(false);
-        console.log('Completed animating', definition);
       }}
     >
       <FrozenRoute freeze={freeze}>
