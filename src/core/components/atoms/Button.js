@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import createEventHandlers from '../../../utils/createEventHandlers';
 
 // Main component.
@@ -44,25 +45,26 @@ export const Button = props => {
   Array.isArray(children || (children = [])) || (children = [children]);
 
   // Layout.
-  return submit && <button
+  return href && <Link
+  href={href}
+  scroll={false}
+  className={className}
+  title={title}
+  {...other}
+>
+  {src && <img className={`icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
+  {text && <span className={`fat vertical-trim${doNotHide && ' do-not-hide' || ''}`}>{text}</span> || null}
+  {...children}
+</Link> ||  <button
     className={className}
     title={title}
-    type='submit'
+    type={type || (submit && 'submit') || null}
     {...other}
   >
     {src && <img className={`icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
     {text && <span className={`fat vertical-trim${doNotHide && ' do-not-hide' || ''}`}>{text}</span> || null}
     {...children}
-  </button> || <a
-    href={href}
-    className={className}
-    title={title}
-    {...other}
-  >
-    {src && <img className={`icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
-    {text && <span className={`fat vertical-trim${doNotHide && ' do-not-hide' || ''}`}>{text}</span> || null}
-    {...children}
-  </a>
+  </button>;
 }
 
 // Exports.
