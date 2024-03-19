@@ -26,6 +26,7 @@ export const Button = props => {
     hasNotification,
     notification = hasNotification,
     submit = `${(type || '')}`.toLowerCase() === 'submit',
+    scroll = false,
     ...other
   } = props || {};
   notification = typeof notification === 'string' && (
@@ -47,7 +48,7 @@ export const Button = props => {
   // Layout.
   return href && <Link
   href={href}
-  scroll={false}
+  scroll={scroll}
   className={className}
   title={title}
   {...other}
