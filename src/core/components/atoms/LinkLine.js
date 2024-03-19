@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import createEventHandlers from '../../../utils/createEventHandlers';
 
 // Main component.
@@ -31,6 +32,7 @@ export const LinkLine = props => {
     // Other.
     className,
     children,
+    scroll = false,
     ...other
   } = props || {};
   const events = createEventHandlers({onPress});
@@ -45,17 +47,19 @@ export const LinkLine = props => {
       {leftText && <span className='fat vertical-trim'>{leftText}</span> || null}
     </div> || null}
     {...children}
-    <a
+    <Link
       href={href || null}
       {...events}
       title={rightTitle || rightAlt || null}
+      scroll={scroll}
     >
       <span className='fat vertical-trim'>{rightText}</span>
       {rightSrc && <img src={rightSrc} className='icon' alt={rightAlt || rightTitle || null} /> || null}
-    </a>
-  </div> || <a
+    </Link>
+  </div> || <Link
     className={className}
     href={href || null}
+    scroll={scroll}
     {...events}
     {...other}
   >
@@ -69,7 +73,7 @@ export const LinkLine = props => {
     >
       {rightSrc && <img src={rightSrc} className='icon' alt={rightAlt || rightTitle || null} title={rightTitle || rightAlt || null} /> || null}
     </div>
-  </a>
+  </Link>
 }
 
 // Exports.

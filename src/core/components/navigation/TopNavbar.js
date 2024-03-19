@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import createEventHandlers from '../../../utils/createEventHandlers';
 import Button from '../atoms/Button';
 import BackButton from '../atoms/BackButton';
@@ -77,7 +78,7 @@ export const TopNavbar = props => {
       ) || null}
 
       {(logoSrc || logoText) && (
-        <a
+        <Link
           className={`link row center text-gap ${hasBack && (rightNav.length || hasNext) && 'middle' || (hasBack && 'right') || 'left'} fill`}
           href={logoHref || null}
           target={logoTarget || null}
@@ -85,7 +86,7 @@ export const TopNavbar = props => {
         >
           {logoSrc && <img src={logoSrc} className='top-navbar-logo' alt='logo'/> || null}
           {logoText && <span className='top-navbar-logo-text vertical-trim'> {logoText} </span> || null}
-        </a>
+        </Link>
       ) || null}
 
       {...children}
