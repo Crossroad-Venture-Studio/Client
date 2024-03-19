@@ -36,7 +36,7 @@ export const LinkLine = props => {
     ...other
   } = props || {};
   const events = createEventHandlers({onPress});
-  href || (href = null);
+  href = href && { href } || {};
   className = className && `link-line ${className}` || 'link-line';
   Array.isArray(children || (children = [])) || (children = [children]);
 
@@ -48,7 +48,7 @@ export const LinkLine = props => {
     </div> || null}
     {...children}
     <Link
-      href={href || null}
+      {...href}
       {...events}
       title={rightTitle || rightAlt || null}
       scroll={scroll}
@@ -58,7 +58,7 @@ export const LinkLine = props => {
     </Link>
   </div> || <Link
     className={className}
-    href={href || null}
+    {...href}
     scroll={scroll}
     {...events}
     {...other}

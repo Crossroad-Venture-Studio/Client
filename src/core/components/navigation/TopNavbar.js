@@ -81,8 +81,8 @@ export const TopNavbar = props => {
       {(logoSrc || logoText) && (
         <Link
           className={`link row center text-gap ${hasBack && (rightNav.length || hasNext) && 'middle' || (hasBack && 'right') || 'left'} fill`}
-          href={logoHref || null}
-          target={logoTarget || null}
+          {...(logoHref && { href: logoHref } || {})}
+          {...(logoTarget && { target: logoTarget } || {})}
           scroll={logoScroll}
           {...onLogoFuncs}
         >
