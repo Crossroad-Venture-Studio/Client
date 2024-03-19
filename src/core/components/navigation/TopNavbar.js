@@ -25,6 +25,7 @@ export const TopNavbar = props => {
     onLogo = onPressLogo,
     logoHref,
     logoTarget,
+    logoScroll = false,
     // Right nav.
     nav = [],
     rightNav = nav,
@@ -82,6 +83,7 @@ export const TopNavbar = props => {
           className={`link row center text-gap ${hasBack && (rightNav.length || hasNext) && 'middle' || (hasBack && 'right') || 'left'} fill`}
           href={logoHref || null}
           target={logoTarget || null}
+          scroll={logoScroll}
           {...onLogoFuncs}
         >
           {logoSrc && <img src={logoSrc} className='top-navbar-logo' alt='logo'/> || null}
