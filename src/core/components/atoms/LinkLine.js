@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Button from './Button';
 import createEventHandlers from '../../../utils/createEventHandlers';
 
 // Main component.
@@ -36,9 +36,9 @@ export const LinkLine = props => {
     ...other
   } = props || {};
   const events = createEventHandlers({onPress});
-  href = href && { href } || {};
   className = className && `link-line ${className}` || 'link-line';
   Array.isArray(children || (children = [])) || (children = [children]);
+  href || (href = null);
 
   // Layout.
   return rightText && <div className={className} {...other}>
@@ -47,18 +47,18 @@ export const LinkLine = props => {
       {leftText && <span className='fat vertical-trim'>{leftText}</span> || null}
     </div> || null}
     {...children}
-    <Link
-      {...href}
+    <Button
+      href={href}
       {...events}
       title={rightTitle || rightAlt || null}
       scroll={scroll}
     >
       <span className='fat vertical-trim'>{rightText}</span>
       {rightSrc && <img src={rightSrc} className='icon' alt={rightAlt || rightTitle || null} /> || null}
-    </Link>
-  </div> || <Link
+    </Button>
+  </div> || <Button
     className={className}
-    {...href}
+    href={href}
     scroll={scroll}
     {...events}
     {...other}
@@ -73,7 +73,7 @@ export const LinkLine = props => {
     >
       {rightSrc && <img src={rightSrc} className='icon' alt={rightAlt || rightTitle || null} title={rightTitle || rightAlt || null} /> || null}
     </div>
-  </Link>
+  </Button>
 }
 
 // Exports.
