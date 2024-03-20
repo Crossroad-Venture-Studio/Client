@@ -79,7 +79,7 @@ export const TopNavbar = props => {
 
       {(logoSrc || logoText) && (
         <Button
-          className={`top-navbar-logo row center text-gap ${hasBack && (rightNav.length || hasNext) && 'middle' || (hasBack && 'right') || 'left'} fill`}
+          className={`top-navbar-logo do-not-hide row center text-gap ${hasBack && (rightNav.length || hasNext) && 'middle' || (hasBack && 'right') || 'left'} fill`}
           href={logoHref}
           {...(logoTarget && { target: logoTarget } || {})}
           scroll={logoScroll}
