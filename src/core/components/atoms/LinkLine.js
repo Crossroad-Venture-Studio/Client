@@ -41,22 +41,7 @@ export const LinkLine = props => {
   href || (href = null);
 
   // Layout.
-  return rightText && <div className={className} {...other}>
-    {(leftSrc || leftText) && <div title={leftTitle || leftAlt || null}>
-      {leftSrc && <img src={leftSrc} className='icon' alt={leftAlt || leftTitle || null} /> || null}
-      {leftText && <span className='fat vertical-trim'>{leftText}</span> || null}
-    </div> || null}
-    {...children}
-    <Button
-      href={href}
-      {...events}
-      title={rightTitle || rightAlt || null}
-      scroll={scroll}
-    >
-      <span className='fat vertical-trim'>{rightText}</span>
-      {rightSrc && <img src={rightSrc} className='icon' alt={rightAlt || rightTitle || null} /> || null}
-    </Button>
-  </div> || <Button
+  return <Button
     className={className}
     href={href}
     scroll={scroll}
@@ -71,6 +56,7 @@ export const LinkLine = props => {
     <div
       title={rightTitle || rightAlt || null}
     >
+      {rightText && <span className='fat vertical-trim'>{rightText}</span> || null}
       {rightSrc && <img src={rightSrc} className='icon' alt={rightAlt || rightTitle || null} title={rightTitle || rightAlt || null} /> || null}
     </div>
   </Button>
