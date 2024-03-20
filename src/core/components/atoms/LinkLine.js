@@ -58,7 +58,7 @@ export const LinkLine = props => {
     {...children}
     <div
       title={rightTitle || rightAlt || null}
-      className={rightText && 'link-line-button' || null}
+      className={'link-line-button'}
     >
       {rightText && <span className='fat vertical-trim'>{rightText}</span> || null}
       {rightSrc && <img src={rightSrc} className='icon' alt={rightAlt || rightTitle || null} title={rightTitle || rightAlt || null} /> || null}
