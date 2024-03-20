@@ -48,13 +48,17 @@ export const LinkLine = props => {
     {...events}
     {...other}
   >
-    {(leftSrc || leftText) && <div title={leftTitle || leftAlt || null}>
+    {(leftSrc || leftText) && <div
+      title={leftTitle || leftAlt || null}
+      className={!rightText && 'link-line-button' || null}
+    >
       {leftSrc && <img src={leftSrc} className='icon' alt={leftAlt || leftTitle || null} /> || null}
       {leftText && <span className='fat vertical-trim'>{leftText}</span> || null}
     </div> || null}
     {...children}
     <div
       title={rightTitle || rightAlt || null}
+      className={rightText && 'link-line-button' || null}
     >
       {rightText && <span className='fat vertical-trim'>{rightText}</span> || null}
       {rightSrc && <img src={rightSrc} className='icon' alt={rightAlt || rightTitle || null} title={rightTitle || rightAlt || null} /> || null}
