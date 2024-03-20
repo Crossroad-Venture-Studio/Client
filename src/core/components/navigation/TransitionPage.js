@@ -19,13 +19,13 @@ export const TransitionPage = props => {
 
   // Hooks.
   const key = usePathname();
-  const [hasTouchScreen, setHasTouchScreen] = useState(!touchScreenOnly);
-  touchScreenOnly && useEffect(() => {
-    Platform.hasTouchScreen && setHasTouchScreen(true);
-  }, []);
+  // const [hasTouchScreen, setHasTouchScreen] = useState(!touchScreenOnly);
+  // touchScreenOnly && useEffect(() => {
+  //   Platform.hasTouchScreen && setHasTouchScreen(true);
+  // }, []);
 
   // Render.
-  return hasTouchScreen && (
+  return (!touchScreenOnly || Platform.hasTouchScreen) && (
     <AnimatePresence
       mode={mode || 'popLayout'}
       initial={initial || false}
