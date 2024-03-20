@@ -4,12 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import AnimationPage from './AnimationPage';
 import { useState, useEffect } from 'react';
-// import Platform from '../../native/Platform';
-
-import dynamic from 'next/dynamic';
-const Platform = dynamic(() => import('../../native/Platform'), {
-  ssr: false,
-});
+import Platform from '../../../native/Platform';
 
 // Main component.
 export const TransitionPage = props => {
