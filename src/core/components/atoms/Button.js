@@ -37,7 +37,8 @@ export const Button = props => {
     || (notification.startsWith('light') && 'light-notification')
     || (notification.startsWith('dark') && 'dark-notification')
   ) || (notification && 'notification') || '';
-  notification && (notification = ` ${notification}`)
+  notification && (notification = ` ${notification}`);
+  console.log('notification', notification);
   const baseClassName = `button${notification}`;
   onPress || (submit && href && (onPress = () => window.location.href = href));
   Object.assign(other, createEventHandlers({onPress}));
