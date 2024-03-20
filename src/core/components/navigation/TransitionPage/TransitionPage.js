@@ -3,7 +3,6 @@
 import { AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import AnimationPage from './AnimationPage';
-import { useState, useEffect } from 'react';
 import Platform from '../../../native/Platform';
 
 // Main component.
@@ -19,10 +18,6 @@ export const TransitionPage = props => {
 
   // Hooks.
   const key = usePathname();
-  // const [hasTouchScreen, setHasTouchScreen] = useState(!touchScreenOnly);
-  // touchScreenOnly && useEffect(() => {
-  //   Platform.hasTouchScreen && setHasTouchScreen(true);
-  // }, []);
 
   // Render.
   return (!touchScreenOnly || Platform.hasTouchScreen) && (
