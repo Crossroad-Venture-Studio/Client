@@ -32,5 +32,9 @@ Object.defineProperty(transitions, 'custom', {
   value: name => () => setCurrentTransition(name)
 });
 
+Object.defineProperty(transitions, 'setCurrentTransition', {
+  value: name => setCurrentTransition(name)
+});
+
 // Default export.
 export default transitions;
