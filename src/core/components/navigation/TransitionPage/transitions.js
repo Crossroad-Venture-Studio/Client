@@ -1,8 +1,36 @@
 import animations from './animations';
 
+// An object of transitions.
 export const transitions = {};
-const createTransition = name => transitions[name] = () => animations.set(name);
-export const slideIn = createTransition('slideIn');
-export const slideOut = createTransition('slideOut');
-export const dissolve = createTransition('dissolve');
+
+// Defaut transition.
+Object.defineProperty(transitions, '__default__', {
+  value: animations.__default__
+});
+
+// Current transitions.
+Object.defineProperty(transitions, '__current__', {
+  value: transitions.__default__,
+  writable: true
+});
+
+// Helper function to set a current transition.
+export const setCurrentTransition = input => (
+  transitions.__current__ = typeof input === 'object' && input
+    || (typeof input === 'string' && animations[input])
+    || transitions.__current__
+    || transitions.__default__
+);
+
+// The transition functions.
+for (const k in animations) Object.defineProperty(transitions, k, {
+  value: () => transitions.__current__ = animations[k],
+  enumerable: true
+});
+
+Object.defineProperty(transitions, 'custom', {
+  value: name => () => setCurrentTransition(name)
+});
+
+// Default export.
 export default transitions;

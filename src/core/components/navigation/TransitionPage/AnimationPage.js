@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import animations from './animations';
+import transitions from './transitions';
 import FrozenRoute from './FrozenRoute';
 import { forwardRef, useState } from 'react';
 
@@ -14,7 +14,7 @@ export const AnimationPage = forwardRef((props, ref) => {
     ...other
   } = props || {}, baseClassName= 'full absolute';
   Array.isArray(children || (children = [])) || (children = [children]);
-  animation = Object.assign({}, animations.current || animations.default, animation || {});
+  animation = Object.assign({}, transitions.__current__ || transitions.__default__, animation || {});
   className = className && `${baseClassName} ${className}` || baseClassName;
 
   const [freeze, setFreeze] = useState(false);

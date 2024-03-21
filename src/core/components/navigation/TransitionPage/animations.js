@@ -1,5 +1,3 @@
-'use client';
-
 // Main object to export.
 export const animations = {};
 
@@ -15,44 +13,8 @@ Object.defineProperty(animations, 'add', {
 
 const add = (name, value) => animations.add(name, value)[name];
 
-// Helper function to set the current animation.
-Object.defineProperty(animations, 'set', {
-  value: function (input) {
-    const output = typeof input === 'object' && input
-      || (typeof input === 'string' && this[input])
-      || this.current
-      || this.default;
-    return this.current = output;
-  }
-});
-
 // Different animation styles.
-export const slideIn = add('slideIn', {
-  variants: Object.freeze({
-    initial: { x: '100vw', zIndex: 2 },
-    animate: { x: 0, zIndex: 2 },
-    exit: { x: '-20vw', zIndex: 0, opacity: 0.5 }
-  }),
-  transition: Object.freeze({
-    // ease: 'easeInOut',
-    type: 'tween',
-    duration: 0.5
-  })
-});
-
-export const slideOut = add('slideOut', {
-  variants: Object.freeze({
-    initial: { x: '-100vw', zIndex: 2 },
-    animate: { x: 0, zIndex: 2 },
-    exit: { x: '20vw', opacity: 0.5, zIndex: 0 }
-  }),
-  transition: Object.freeze({
-    ease: 'easeInOut',
-    type: 'tween',
-    duration: 0.5
-  })
-});
-
+// Dissolve (fade in/out) [default].
 export const dissolve = add('dissolve', {
   variants: Object.freeze({
     initial: { opacity: 0, zIndex: 2 },
@@ -66,13 +28,38 @@ export const dissolve = add('dissolve', {
   })
 });
 
-// Current and default animations.
-Object.defineProperty(animations, 'current', {
-  value: null,
-  writable: true
+// Slide in.
+export const slideIn = add('slideIn', {
+  variants: Object.freeze({
+    initial: { x: '100vw', zIndex: 2 },
+    animate: { x: 0, zIndex: 2 },
+    exit: { x: '-20vw', zIndex: 0, opacity: 0.5 }
+  }),
+  transition: Object.freeze({
+    // ease: 'easeInOut',
+    type: 'tween',
+    duration: 0.5
+  })
 });
-export const DEFAULT_ANIMATION = animations.set('slideIn');
-Object.defineProperty(animations, 'default', { get() { return DEFAULT_ANIMATION; } });
+
+// Slide out.
+export const slideOut = add('slideOut', {
+  variants: Object.freeze({
+    initial: { x: '-100vw', zIndex: 2 },
+    animate: { x: 0, zIndex: 2 },
+    exit: { x: '20vw', opacity: 0.5, zIndex: 0 }
+  }),
+  transition: Object.freeze({
+    ease: 'easeInOut',
+    type: 'tween',
+    duration: 0.5
+  })
+});
+
+// Default animations.
+Object.defineProperty(animations, '__default__', {
+  value: animations.dissolve
+});
 
 // Default export.
 export default animations;
