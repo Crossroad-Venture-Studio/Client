@@ -1,3 +1,3 @@
 // Exports.
 export { default as TopNavbar } from './TopNavbar';
-export * from './TransitionPage';
+export { default as TransitionPage } from './TransitionPage';
