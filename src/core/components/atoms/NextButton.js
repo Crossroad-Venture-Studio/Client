@@ -11,14 +11,19 @@ export const NextButton = props => {
     title = 'Go to next page',
     value = 'Next',
     text = value,
+    doNotHide = true,
     children,
+    className,
     ...other
   } = props || {};
   Array.isArray(children || (children = [])) || (children = [children]);
+  className = className && `next-button ${className}` || 'next-button';
 
   // Layout.
   return <Button
     title={title}
+    className={className}
+    doNotHide={doNotHide}
     {...other}
   >
     {...children}

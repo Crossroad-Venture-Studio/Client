@@ -11,15 +11,19 @@ export const BackButton = props => {
     title = 'Back to previous page',
     value = 'Back',
     text = value,
+    className,
+    doNotHide = true,
     ...other
   } = props || {};
+  className = className && `back-button ${className}` || 'back-button';
 
   // Layout.
   return <Button
     title={title}
     src={src}
     text={text}
-    doNotHide
+    className={className}
+    doNotHide={doNotHide}
     {...other}
   >
   </Button>;
