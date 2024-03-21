@@ -1,4 +1,5 @@
 export { default as animations } from './animations';
+export { default as transitions } from './transitions';
 
 // Dynamically import the component because of the property touchScreenOnly
 // which evalutae if a device screen is touchable on client side.
