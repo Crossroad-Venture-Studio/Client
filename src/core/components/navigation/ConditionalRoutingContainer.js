@@ -1,6 +1,7 @@
 'use client';
 
 // Imports.
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { transitions } from './TransitionPage';
 
@@ -17,15 +18,18 @@ export const ConditionalRoutingContainer = props => {
   // Normalize input.
   Array.isArray(children || (children = [])) || (children = [children]);
   url || (url = '/');
-  typeof condition === 'function' && (condition = condition());
-  typeof transition === 'object' && (transition = transitions.custom(transition));
-  transition();
 
   // Check for authentification.
-  const router = useRouter();
+  const router = useRouter(), [met, setMet] = useState();
+
+  useEffect(() => {
+    typeof condition === 'function' && (condition = condition());
+    setMet(condition);
+  }, [])
 
   // Render.
-  return condition && <>{...children}</> || (
+  return met && <>{...children}</> || (
+    typeof transition === 'object' && (transition = transitions.custom(transition)),
     transition(),
     router.push(url),
     fallBackComponent || null
