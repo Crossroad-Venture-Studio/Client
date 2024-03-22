@@ -2,7 +2,7 @@
 
 // Imports.
 import { useRouter } from 'next/navigation';
-import { transitions } from '../navigation/TransitionPage';
+import { transitions } from './TransitionPage';
 
 // Main page component with authentification.
 export const ConditionalRoutingContainer = props => {

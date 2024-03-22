@@ -5,3 +5,4 @@ export {
   transitions as pageTransitions,
   animations as pageAnimations
 } from './TransitionPage';
+export { default as ConditionalRoutingContainer } from '../navigation/ConditionalRoutingContainer';
