@@ -25,7 +25,7 @@ export const ConditionalRoutingContainer = props => {
   useEffect(() => {
     typeof condition === 'function' && (condition = condition());
     setMet(condition);
-    console.log('met', met);
+    console.log('met', met, condition);
   }, [])
 
   // Render.
