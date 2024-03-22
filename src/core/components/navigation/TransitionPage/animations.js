@@ -15,6 +15,19 @@ const add = (name, value) => animations.add(name, value)[name];
 
 // Different animation styles.
 // Dissolve (fade in/out) [default].
+export const instant = add('instant', {
+  variants: Object.freeze({
+    initial: { opacity: 1, zIndex: 2 },
+    animate: { opacity: 1, zIndex: 2 },
+    exit: { opacity: 1, zIndex: 0 }
+  }),
+  transition: Object.freeze({
+    type: 'tween',
+    duration: 0
+  })
+});
+
+// Dissolve (fade in/out) [default].
 export const dissolve = add('dissolve', {
   variants: Object.freeze({
     initial: { opacity: 0, zIndex: 2 },
