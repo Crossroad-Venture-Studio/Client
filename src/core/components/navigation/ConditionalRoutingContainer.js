@@ -29,7 +29,7 @@ export const ConditionalRoutingContainer = props => {
   }, [])
 
   // Render.
-  return met && <>{...children}</> || (
+  return met ? <>{...children}</> : (
     typeof transition === 'object' && (transition = transitions.custom(transition)),
     transition(),
     router.push(url),
