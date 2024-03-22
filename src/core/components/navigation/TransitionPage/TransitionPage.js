@@ -21,15 +21,18 @@ export const TransitionPage = props => {
   const key = usePathname();
 
   // Render.
-  return (!touchScreenOnly || Platform.hasTouchScreen) && transitions.__current__ && transitions.__current__.transition.duration !== 0 && (
-    <AnimatePresence
-      mode={mode || 'popLayout'}
-      initial={initial || false}
-      className='relative'
-    >
-      <AnimationPage {...other} key={key}>{...children}</AnimationPage>
-    </AnimatePresence>
-  ) || <>{...children}</>;
+  return (!touchScreenOnly || Platform.hasTouchScreen)
+    && transitions.__current__
+    && transitions.__current__.transition.duration !== 0
+    && (
+      <AnimatePresence
+        mode={mode || 'popLayout'}
+        initial={initial || false}
+        className='relative'
+      >
+        <AnimationPage {...other} key={key}>{...children}</AnimationPage>
+      </AnimatePresence>
+    ) || <>{...children}</>;
 }
 
 // Default export.
