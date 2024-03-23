@@ -29,6 +29,7 @@ export const ConditionalRoutingContainer = props => {
       transition(),
       router.push(url)
     );
+    console.log('met', met, condition);
   }, []);
 
   // Render.
