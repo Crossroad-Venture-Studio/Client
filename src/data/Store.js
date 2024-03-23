@@ -198,18 +198,19 @@ export class Store {
 
       // Clear all keys.
       for (let i = 0, l = keys.length, key; i !== l; ++i) {
-        console.log('>', Object.getOwnPropertyDescriptor(this.data, key = keys[i]).get);
         if (Object.getOwnPropertyDescriptor(this.data, key = keys[i]).get) this.data[key] = undefined;
         else delete this.data[key];
       }
-      console.log('>>', this);
       return this;
     }
 
     if (keys.length) return this;
 
     // Case where no input parameters is specified, same as clear all.
-    for (const k in this.data) delete this.data[k];
+    for (const key in this.data) {
+      if (Object.getOwnPropertyDescriptor(this.data, key).get) this.data[key] = undefined;
+      else delete this.data[key];
+    }
     return this;
   }
 
