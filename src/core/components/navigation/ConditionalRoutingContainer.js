@@ -8,9 +8,9 @@ import { transitions } from './TransitionPage';
 // Main page component with authentification.
 export const ConditionalRoutingContainer = props => {
   let {
-    fallBackUrl,
-    url = fallBackUrl,
-    fallBackComponent,
+    fallbackUrl,
+    url = fallbackUrl,
+    fallbackComponent,
     condition = true,
     transition = transitions.instant,
     children,
@@ -32,7 +32,7 @@ export const ConditionalRoutingContainer = props => {
   console.log('conditionMet', conditionMet);
 
   // Render.
-  return conditionMet && <>{...children}</> || fallBackComponent || null;
+  return conditionMet && <>{...children}</> || fallbackComponent || null;
 }
 
 // Default export.
