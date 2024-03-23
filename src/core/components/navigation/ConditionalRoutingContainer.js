@@ -20,21 +20,20 @@ export const ConditionalRoutingContainer = props => {
   url || (url = '/');
 
   // Check for authentification.
-  const router = useRouter(), [met, setMet] = useState();
+  const [met, setMet] = useState(false), router = useRouter();
 
   useEffect(() => {
     typeof condition === 'function' && (condition = condition());
-    setMet(condition);
+    condition && setMet(condition) || (
+      typeof transition === 'object' && (transition = transitions.custom(transition)),
+      transition(),
+      router.push(url)
+    );
     console.log('met', met, condition);
   }, [])
 
   // Render.
-  return met ? <>{...children}</> : (
-    typeof transition === 'object' && (transition = transitions.custom(transition)),
-    transition(),
-    router.push(url),
-    fallBackComponent || null
-  );
+  return met ? <>{...children}</> : fallBackComponent || null;
 }
 
 // Default export.
