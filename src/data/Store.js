@@ -198,9 +198,11 @@ export class Store {
 
       // Clear all keys.
       for (let i = 0, l = keys.length, key; i !== l; ++i) {
-        if (Object.getOwnPropertyDescriptor(this.data, key = keys[i]).get) this.data[keys[i]] = undefined;
+        console.log('>', Object.getOwnPropertyDescriptor(this.data, key = keys[i]).get);
+        if (Object.getOwnPropertyDescriptor(this.data, key = keys[i]).get) this.data[key] = undefined;
         else delete this.data[key];
       }
+      console.log('>>', this;)
       return this;
     }
 
