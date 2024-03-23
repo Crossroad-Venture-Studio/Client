@@ -197,8 +197,9 @@ export class Store {
       }
 
       // Clear all keys.
-      for (let i = 0; i !== keys; ++i) {
-        delete this.data[keys[i]];
+      for (let i = 0, l = keys.length, key; i !== l; ++i) {
+        if (Object.getOwnPropertyDescriptor(this.data, key = keys[i]).get) this.data[keys[i]] = undefined;
+        else delete this.data[key];
       }
       return this;
     }
