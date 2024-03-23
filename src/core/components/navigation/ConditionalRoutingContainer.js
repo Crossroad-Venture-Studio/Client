@@ -24,7 +24,7 @@ export const ConditionalRoutingContainer = props => {
 
   useEffect(() => {
     typeof condition === 'function' && (condition = condition());
-    condition && setMet(true) || (
+    condition ? setMet(true) : (
       typeof transition === 'object' && (transition = transitions.custom(transition)),
       transition(),
       router.push(url)
