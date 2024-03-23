@@ -29,7 +29,7 @@ export const ConditionalRoutingContainer = props => {
       transition(),
       router.push(url)
     );
-  }, [])
+  }, []);
 
   // Render.
   return met ? <>{...children}</> : fallBackComponent || null;
