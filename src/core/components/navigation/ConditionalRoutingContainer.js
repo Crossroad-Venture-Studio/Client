@@ -22,14 +22,12 @@ export const ConditionalRoutingContainer = props => {
   const [conditionMet, setConditionMet] = useState(false), router = useRouter();
   useEffect(() => {
     typeof condition === 'function' && (condition = condition());
-    console.log('condition', condition, url);
     condition ? setConditionMet(true) : (
       typeof transition === 'object' && (transition = transitions.custom(transition)),
       transition(),
       router.push(url || '/')
     );
   }, []);
-  console.log('conditionMet', conditionMet);
 
   // Render.
   return conditionMet && <>{...children}</> || fallbackComponent || null;
