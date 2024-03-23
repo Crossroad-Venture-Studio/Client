@@ -202,7 +202,7 @@ export class Store {
         if (Object.getOwnPropertyDescriptor(this.data, key = keys[i]).get) this.data[key] = undefined;
         else delete this.data[key];
       }
-      console.log('>>', this;)
+      console.log('>>', this);
       return this;
     }
 
