@@ -24,16 +24,17 @@ export const ConditionalRoutingContainer = props => {
 
   useEffect(() => {
     typeof condition === 'function' && (condition = condition());
-    condition && setMet(condition) || (
+    condition && setMet(true) || (
       typeof transition === 'object' && (transition = transitions.custom(transition)),
       transition(),
       router.push(url)
     );
-    console.log('met', met, condition);
+    console.log('condition', condition);
   }, []);
+  console.log('met', met);
 
   // Render.
-  return met ? <>{...children}</> : fallBackComponent || null;
+  return met && <>{...children}</> || fallBackComponent || null;
 }
 
 // Default export.
