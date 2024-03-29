@@ -6,6 +6,7 @@ export const SubmitButton = props => {
   let {
     type,
     className,
+    value = 'Submit',
     ...other
   } = props || {};
   className = className && `submit-button ${className}` || 'submit-button';
