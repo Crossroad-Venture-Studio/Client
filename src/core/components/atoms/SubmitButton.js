@@ -7,6 +7,7 @@ export const SubmitButton = props => {
     type,
     className,
     value = 'Submit',
+    text = value,
     ...other
   } = props || {};
   className = className && `submit-button ${className}` || 'submit-button';
@@ -14,6 +15,7 @@ export const SubmitButton = props => {
   // Layout.
   return <Button
     type='submit'
+    text={text}
     className={className}
     {...other}
   ></Button>;
