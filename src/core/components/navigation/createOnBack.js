@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { transitions } from './TransitionPage';
 
 // Helper function to create an onBack callback.
-export const createOnBack = (callback, transition) => {
+export const createOnBack = (callback, transition = 'slideOut') => {
   const router = useRouter();
   
   return (...args) => {
