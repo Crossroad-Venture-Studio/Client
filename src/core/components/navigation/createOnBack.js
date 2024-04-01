@@ -2,14 +2,14 @@
 
 // Imports.
 import { useRouter } from 'next/navigation';
-import { pageTransitions } from '@/crossroad-client/src/core/components/navigation';
+import { transitions } from './TransitionPage';
 
 // Helper function to create an onBack callback.
 export const createOnBack = (callback, transition) => {
   const router = useRouter();
   
   return (...args) => {
-    pageTransitions.setCurrentTransition(transition);
+    transitions.setCurrentTransition(transition);
     typeof callback === 'function' && callback(...args);
     router.back();
   };
