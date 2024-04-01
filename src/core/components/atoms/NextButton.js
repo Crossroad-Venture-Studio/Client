@@ -12,6 +12,7 @@ export const NextButton = props => {
     value = 'Next',
     text = value,
     doNotHide = true,
+    transition = 'slideIn',
     children,
     className,
     ...other

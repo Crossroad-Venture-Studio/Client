@@ -11,6 +11,7 @@ export const BackButton = props => {
     title = 'Back to previous page',
     value = 'Back',
     text = value,
+    transition = 'slideOut',
     className,
     doNotHide = true,
     ...other
@@ -24,6 +25,7 @@ export const BackButton = props => {
     text={text}
     className={className}
     doNotHide={doNotHide}
+    transition={transition}
     {...other}
   >
   </Button>;

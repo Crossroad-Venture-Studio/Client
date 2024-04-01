@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import createEventHandlers from '../../../utils/createEventHandlers';
+import transitions from '../navigation/TransitionPage/transitions';
 
 // Main component.
 export const Button = props => {
@@ -22,6 +23,7 @@ export const Button = props => {
     className,
     children,
     doNotHide,
+    transition,
     type,
     hasNotification,
     notification = hasNotification,
@@ -44,6 +46,7 @@ export const Button = props => {
   href || (href = null);
   className = className && `${baseClassName} ${className}` || baseClassName;
   Array.isArray(children || (children = [])) || (children = [children]);
+  typeof transition === 'string' && transitions.setCurrentTransition(transition) || (typeof transition === 'function' && transition());
 
   // Layout.
   return href && <Link

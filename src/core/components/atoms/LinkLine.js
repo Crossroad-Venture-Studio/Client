@@ -13,6 +13,7 @@ export const LinkLine = props => {
     href = url,
     onClick,
     onPress = onClick,
+    transition = 'slideIn',
     // Left part.
     leftIconSrc,
     leftIcon = leftIconSrc,
