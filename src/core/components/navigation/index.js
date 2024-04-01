@@ -6,4 +6,3 @@ export {
   animations as pageAnimations
 } from './TransitionPage';
 export { default as ConditionalRoutingContainer } from './ConditionalRoutingContainer';
-export { default as createOnBack } from './createOnBack';
