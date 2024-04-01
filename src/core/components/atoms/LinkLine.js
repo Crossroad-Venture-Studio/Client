@@ -43,6 +43,7 @@ export const LinkLine = props => {
 
   // Layout.
   return <Button
+    transition={transition}
     className={className}
     href={href}
     scroll={scroll}

@@ -25,6 +25,7 @@ export const NextButton = props => {
     title={title}
     className={className}
     doNotHide={doNotHide}
+    transition={transition}
     {...other}
   >
     {...children}
