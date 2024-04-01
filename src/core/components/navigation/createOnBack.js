@@ -3,15 +3,20 @@
 // Imports.
 import { useRouter } from 'next/navigation';
 import { transitions } from './TransitionPage';
+import Platform from '../../native/Platform';
 
 // Helper function to create an onBack callback.
-export const createOnBack = (callback, transition = 'slideOut') => {
+export const createOnBack = (callback, fallbackUrl, transition = 'slideOut') => {
   const router = useRouter();
   
   return (...args) => {
     transitions.setCurrentTransition(transition);
     typeof callback === 'function' && callback(...args);
-    router.back();
+    if (Platform.window.history && Platform.window.history.length) {
+      router.back();
+    } else {
+        router.push(fallbackUrl || '/');
+    }
   };
 }
 
