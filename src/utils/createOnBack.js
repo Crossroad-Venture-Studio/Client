@@ -2,8 +2,8 @@
 
 // Imports.
 import { useRouter } from 'next/navigation';
-import { transitions } from './TransitionPage';
-import Platform from '../../native/Platform';
+import { transitions } from '../core/components/navigation/TransitionPage/transitions';
+import Platform from '../core/native/Platform';
 
 // Helper function to create an onBack callback.
 export const createOnBack = (callback, fallbackUrl, transition = 'slideOut') => {
