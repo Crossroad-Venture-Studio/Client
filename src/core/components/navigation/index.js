@@ -5,4 +5,5 @@ export {
   transitions as pageTransitions,
   animations as pageAnimations
 } from './TransitionPage';
-export { default as ConditionalRoutingContainer } from '../navigation/ConditionalRoutingContainer';
+export { default as ConditionalRoutingContainer } from './ConditionalRoutingContainer';
+export { default as createOnBack } from './createOnBack';
