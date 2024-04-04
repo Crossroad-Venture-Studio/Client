@@ -9,11 +9,11 @@ export const NextButton = props => {
     src = icon,
     alt = 'Go to next page',
     title = 'Go to next page',
-    value = 'Next',
+    children,
+    value = !children && 'Next' || null,
     text = value,
     doNotHide = true,
     transition = 'slideIn',
-    children,
     className,
     ...other
   } = props || {};

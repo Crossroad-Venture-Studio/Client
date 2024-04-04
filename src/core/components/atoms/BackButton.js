@@ -9,7 +9,8 @@ export const BackButton = props => {
     src = icon,
     alt = 'Back to previous page',
     title = 'Back to previous page',
-    value = 'Back',
+    children,
+    value = !children && 'Back' || null,
     text = value,
     transition = 'slideOut',
     className,
@@ -17,6 +18,7 @@ export const BackButton = props => {
     ...other
   } = props || {};
   className = className && `back-button ${className}` || 'back-button';
+  other.children = children;
 
   // Layout.
   return <Button
