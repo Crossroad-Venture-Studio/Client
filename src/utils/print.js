@@ -9,11 +9,10 @@ export const print = () => {
     for (let i = 0, l = pages.length; i !== l; ++i) {
       pages[i].classList.add('print');
     }
-    console.log('printing', pages, Platform.document);
-    // w.print();
-    // for (let i = 0, l = pages.length; i !== l; ++i) {
-    //   pages[i].classList.remove('print');
-    // }
+    w.print();
+    for (let i = 0, l = pages.length; i !== l; ++i) {
+      pages[i].classList.remove('print');
+    }
   }
 };
 
