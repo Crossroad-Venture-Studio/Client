@@ -33,15 +33,15 @@ export const  CompanyFooter = props => {
       {value && <div className='line-height-120-percent font-size-12-14 company-footer-description'>{value}</div> || null}
     </Column>
     <Column className='text-gap fill right font-size-12-14'>
-      {rightNav.length && <div className='row center'>
+      {rightNav.length && <div className='row center gap-half'>
         {...(rightNav.map(({text, value = text, children, ...b} = {}, i) => <Button {...b} key={`${i}`}>{value}{children}</Button>))}
       </div> || null}
       {socials.length && <div className='row center'>
         {...(socials.map((b = {}, i) => <Button {...b} key={`${i}`}></Button>))}
       </div> || null}
       {copyright || null}
-      {links.length && <div className='row center'>
-        {...(links.map(({text, value = text, children, ...b} = {}, i) => <Button {...b} key={`${i}`}>{value}{children}</Button>))}
+      {links.length && <div className='row center text-gap'>
+        {...(links.map(({text, value = text, children, ...b} = {}, i) => <>{i && '|' || null}<Button {...b} key={`${i}`}>{value}{children}</Button></>))}
       </div> || null}
     </Column>
   </Row>;
