@@ -22,8 +22,10 @@ export const Page = props => {
   // Detect scroll.
   const ref = useRef();
   observeScroll && useEffect(() => {
-    Platform.document.addEventListener('scroll', debounce(() => {
-      ref && ref.current && (ref.current.dataset.scrolling = window.scrollTop > 0);
+    console.log('observeScroll');
+    ref && ref.current && ref.current.addEventListener('scroll', debounce(() => {
+      console.log('scrolling', ref.current.scrollTop);
+      ref && ref.current && (ref.current.dataset.scrolling = ref.current.scrollTop > 0);
     }), { passive: true });
   }, []);
   
