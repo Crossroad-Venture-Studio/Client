@@ -3,6 +3,7 @@ import Platform from '../core/native/Platform';
 
 // Helper function to trigger the pinter.
 export const print = () => {
+  console.log('printing', Platform.window);
   const w = Platform.window, p = w && typeof w.print;
   if (typeof p === 'function') {
     const pages = Platform.document.getElementsByClassName('page') || [];
