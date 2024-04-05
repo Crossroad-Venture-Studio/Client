@@ -40,7 +40,7 @@ export const  CompanyFooter = props => {
         {...(socials.map((b = {}, i) => <Button {...b} key={`${i}`}></Button>))}
       </div> || null}
       {copyright || null}
-      {links.length && <div className='row center text-gap'>
+      {links.length && <div className='row center text-gap-half'>
         {...(links.map(({text, value = text, children, ...b} = {}, i) => <>{i && '|' || null}<Button {...b} key={`${i}`}>{value}{children}</Button></>))}
       </div> || null}
     </Column>
