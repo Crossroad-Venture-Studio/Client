@@ -21,7 +21,7 @@ export const Page = props => {
   // Detect scroll.
   const ref = useRef();
   observeScroll && useEffect(() => {
-    console.log('observeScroll');
+    console.log('observeScroll', ref.current);
     ref && ref.current && ref.current.addEventListener('scroll', throttle(() => {
       console.log('scrolling', ref.current.scrollTop);
       ref && ref.current && (ref.current.dataset.scrolling = ref.current.scrollTop > 0);
