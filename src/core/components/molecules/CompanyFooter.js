@@ -41,7 +41,7 @@ export const  CompanyFooter = props => {
       </div> || null}
       {copyright || null}
       {links.length && <div className='row center text-gap-half'>
-        {...(links.map(({text, value = text, children, ...b} = {}, i) => <>{i && <span key={`${i}-sep`}>|</span> || null}<Button {...b} key={`${i}`}>{value}{children}</Button></>))}
+        {...(links.map(({text, value = text, children, ...b} = {}, i) => [i && <span key={`${i}-sep`}>|</span> || null, <Button {...b} key={`${i}`}>{value}{children}</Button>]))}
       </div> || null}
     </Column>
   </Row>;
