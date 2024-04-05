@@ -28,7 +28,7 @@ export const  CompanyFooter = props => {
 
   // Render.
   return <Row className={className} {...other}>
-    <Column className='text-gap fill left'>
+    <Column className='text-gap-2x fill left'>
       {logo && <img src={logo} className='company-footer-logo icon' title={logoTitle} alt={logoAlt}/> || null}
       {value && <div className='line-height-120-percent font-size-12-14 company-footer-description'>{value}</div> || null}
     </Column>
