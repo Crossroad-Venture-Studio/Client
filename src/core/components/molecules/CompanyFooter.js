@@ -20,7 +20,7 @@ export const  CompanyFooter = props => {
     links,
     ...other
   } = props || {};
-  const baseClassName = `company-footer responsive spread gap center`;
+  const baseClassName = `company-footer responsive left spread gap center`;
   className = className && `${baseClassName} ${className}` || baseClassName;
   rightNav = (Array.isArray(rightNav) && rightNav || [rightNav]).filter(x => x);
   socials = (Array.isArray(socials) && socials || [socials]).filter(x => x);
