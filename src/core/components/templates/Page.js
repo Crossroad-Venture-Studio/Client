@@ -1,9 +1,8 @@
 'use client';
 
 // Imports.
-import Platform from '../../native/Platform';
 import { useEffect, useRef } from 'react';
-import debounce from '../../../../utils/src/debounce';
+import throttle from '../../../../utils/src/throttle';
 
 // Main component.
 export const Page = props => {
@@ -22,9 +21,7 @@ export const Page = props => {
   // Detect scroll.
   const ref = useRef();
   observeScroll && useEffect(() => {
-    console.log('observeScroll');
-    ref && ref.current && ref.current.addEventListener('scroll', debounce(() => {
-      console.log('scrolling', ref.current.scrollTop);
+    ref && ref.current && ref.current.addEventListener('scroll', throttle(() => {
       ref && ref.current && (ref.current.dataset.scrolling = ref.current.scrollTop > 0);
     }), { passive: true });
   }, []);
