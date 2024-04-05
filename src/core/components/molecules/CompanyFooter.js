@@ -1,7 +1,7 @@
 // Imports
 import Button from '../atoms/Button';
 import Row from '../atoms/Row';
-import Column from '../atoms/Row';
+import Column from '../atoms/Column';
 
 export const  CompanyFooter = props => {
   let {
