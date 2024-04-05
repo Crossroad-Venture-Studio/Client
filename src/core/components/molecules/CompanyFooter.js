@@ -30,7 +30,7 @@ export const  CompanyFooter = props => {
   return <Row className={className} {...other}>
     <Column className='text-gap-2x fill left responsive'>
       {logo && <img src={logo} className='company-footer-logo icon' title={logoTitle} alt={logoAlt}/> || null}
-      {value && <div className='line-height-120-percent font-size-12-14 balance company-footer-description'>{value}</div> || null}
+      {value && <div className='line-height-150-percent font-size-12-14 balance company-footer-description'>{value}</div> || null}
     </Column>
     <Column className='text-gap fill right font-size-12-14 responsive'>
       {rightNav.length && <div className='row center gap-half'>
