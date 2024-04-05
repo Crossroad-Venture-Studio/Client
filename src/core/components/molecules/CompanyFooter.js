@@ -28,11 +28,11 @@ export const  CompanyFooter = props => {
 
   // Render.
   return <Row className={className} {...other}>
-    <Column className='text-gap-2x fill left'>
+    <Column className='text-gap-2x fill left responsive'>
       {logo && <img src={logo} className='company-footer-logo icon' title={logoTitle} alt={logoAlt}/> || null}
       {value && <div className='line-height-120-percent font-size-12-14 company-footer-description'>{value}</div> || null}
     </Column>
-    <Column className='text-gap fill right font-size-12-14'>
+    <Column className='text-gap fill right font-size-12-14 responsive'>
       {rightNav.length && <div className='row center gap-half'>
         {...(rightNav.map(({text, value = text, children, ...b} = {}, i) => <Button {...b} key={`${i}`}>{value}{children}</Button>))}
       </div> || null}
