@@ -66,7 +66,7 @@ export const Button = props => {
   {...other}
 >
   {src && <img className={`icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
-  {text && <span className={testStyle}>{text}</span> || null}
+  {text && <span className={textStyle}>{text}</span> || null}
   {...children}
 </Link> ||  <button
     className={className}
