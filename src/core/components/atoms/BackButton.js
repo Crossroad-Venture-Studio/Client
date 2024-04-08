@@ -20,6 +20,8 @@ export const BackButton = props => {
   className = className && `back-button ${className}` || 'back-button';
   other.children = children;
 
+  console.log('BACK', transition);
+
   // Layout.
   return <Button
     title={title}
