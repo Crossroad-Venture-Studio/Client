@@ -5,7 +5,12 @@ export const animations = {};
 Object.defineProperty(animations, 'add', {
   value: function (name, value) {
     return name && Object.defineProperty(this, name, {
-      value: Object.freeze(Object.assign(this.default || {}, value || {})),
+      value: Object.freeze(
+        Object.defineProperty(
+          Object.assign({variants: null, transition: null}, value || {}), '__name__', {
+          value: name
+        })
+      ),
       enumerable: true
     });
   }

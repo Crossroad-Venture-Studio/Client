@@ -21,7 +21,7 @@ export const setCurrentTransition = input => {
     || transitions.__current__
     || transitions.__default__;
 
-    console.log('setTransition', output.name);
+    console.log('setTransition', output.__name__);
     return output;
 };
 
