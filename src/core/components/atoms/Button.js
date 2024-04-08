@@ -11,8 +11,7 @@ export const Button = props => {
     link,
     url = link,
     href = url,
-    onClick,
-    onPress = onClick,
+    onPress,
     value,
     text = value,
     iconSrc,
@@ -42,11 +41,16 @@ export const Button = props => {
   notification && (notification = ` ${notification}`);
   const baseClassName = `button${notification}`;
   onPress || (submit && href && (onPress = () => window.location.href = href));
-  Object.assign(other, createEventHandlers({onPress}));
+  const events = {onPress, ...other};
+  typeof transition === 'string' && (transition = () => transitions.setCurrentTransition(transition));
+  typeof transition === 'function' && (
+    events.onPress = typeof onPress === 'function' && ((...args) => {transition(...args); return onPress(...args);})
+    || transition
+  );
+  Object.assign(other, createEventHandlers(events));
   href || (href = null);
   className = className && `${baseClassName} ${className}` || baseClassName;
   Array.isArray(children || (children = [])) || (children = [children]);
-  typeof transition === 'string' && transitions.setCurrentTransition(transition) || (typeof transition === 'function' && transition());
 
   // Layout.
   return href && <Link
