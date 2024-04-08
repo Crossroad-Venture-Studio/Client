@@ -36,7 +36,7 @@ export const  ProfileCard = props => {
     {linkedin && <Button
       className='profile-card-linkedin'
       href={linkedin}
-      src={'https://crossroad-venture-studio.github.io/Design-System/icons/socials/linkedin-light.svg'}
+      src={'https://crossroad-venture-studio.github.io/Design-System/icons/socials/linkedin-dark.svg'}
       target='_blank'
       title={`Go to ${name}'s LinkedIn`}
     /> || null}
