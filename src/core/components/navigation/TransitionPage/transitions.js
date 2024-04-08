@@ -15,12 +15,15 @@ Object.defineProperty(transitions, '__current__', {
 });
 
 // Helper function to set a current transition.
-export const setCurrentTransition = input => (
-  transitions.__current__ = typeof input === 'object' && input
+export const setCurrentTransition = input => {
+  const output = transitions.__current__ = typeof input === 'object' && input
     || (typeof input === 'string' && animations[input])
     || transitions.__current__
-    || transitions.__default__
-);
+    || transitions.__default__;
+
+    console.log('setTransition', output.name);
+    return output;
+};
 
 // The transition functions.
 for (const k in animations) Object.defineProperty(transitions, k, {
