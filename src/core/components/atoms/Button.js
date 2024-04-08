@@ -24,10 +24,15 @@ export const Button = props => {
     doNotHide,
     transition,
     type,
+    fat,
+    textTransform,
+    fontWeight,
+    fontSize,
     hasNotification,
     notification = hasNotification,
     submit = `${(type || '')}`.toLowerCase() === 'submit',
     scroll = false,
+    textStyle = `button-text vertical-trim${doNotHide && ' do-not-hide' || ''}${fat && ' fat' || ''}${textTransform && ` ${textTransform}` || ''}${fontWeight && ` ${fontWeight}` || ''}${fontSize && ` ${fontSize}` || ''}`,
     ...other
   } = props || {}, t;
   notification = typeof notification === 'string' && (
@@ -61,7 +66,7 @@ export const Button = props => {
   {...other}
 >
   {src && <img className={`icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
-  {text && <span className={`fat vertical-trim${doNotHide && ' do-not-hide' || ''}`}>{text}</span> || null}
+  {text && <span className={testStyle}>{text}</span> || null}
   {...children}
 </Link> ||  <button
     className={className}
@@ -70,7 +75,7 @@ export const Button = props => {
     {...other}
   >
     {src && <img className={`icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
-    {text && <span className={`fat vertical-trim${doNotHide && ' do-not-hide' || ''}`}>{text}</span> || null}
+    {text && <span className={textStyle}>{text}</span> || null}
     {...children}
   </button>;
 }
