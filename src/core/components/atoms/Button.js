@@ -25,14 +25,11 @@ export const Button = props => {
     transition,
     type,
     fat,
-    textTransform,
-    fontWeight,
-    fontSize,
     hasNotification,
     notification = hasNotification,
     submit = `${(type || '')}`.toLowerCase() === 'submit',
     scroll = false,
-    textStyle = `button-text vertical-trim${doNotHide && ' do-not-hide' || ''}${fat && ' fat' || ''}${textTransform && ` ${textTransform}` || ''}${fontWeight && ` ${fontWeight}` || ''}${fontSize && ` ${fontSize}` || ''}`,
+    textStyle = `button-text vertical-trim${doNotHide && ' do-not-hide' || ''}${fat && ' fat' || ''}`,
     ...other
   } = props || {}, t;
   notification = typeof notification === 'string' && (
