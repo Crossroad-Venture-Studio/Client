@@ -47,6 +47,7 @@ export const Button = props => {
     events.onPress = typeof onPress === 'function' && ((...args) => {transition(...args); console.log('>', transitions.__current__.__name__);return onPress(...args);})
     || transition
   );
+  console.log('# transition', transition);
   Object.assign(other, createEventHandlers(events));
   href || (href = null);
   className = className && `${baseClassName} ${className}` || baseClassName;
