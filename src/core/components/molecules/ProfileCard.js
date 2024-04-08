@@ -1,4 +1,5 @@
 // Imports.
+import Button from '../atoms/Button';
 import Column from '../atoms/Column';
 
 export const  ProfileCard = props => {
@@ -23,14 +24,19 @@ export const  ProfileCard = props => {
     description,
     className,
     ...other
-  } = {};
+  } = props || {};
   const baseClassName = 'profile-card';
   className = className && `${baseClassName} ${className}` || baseClassName;
 
   // Render.
   return <Column className={className} {...other}>
-    {src && <img src={src}/> || null}
-    {name && <span className={className}>{name}</span>}
+    {src && <img className='profile-card-picture' src={src}/> || null}
+    {name && <span className='profile-card-name'>{name}</span> || null}
+    {title && <span className='profile-card-title'>{title}</span> || null}
+    {linkedin && <Button
+      className='profile-card-linkedin'
+      href={linkedin}src={'https://crossroad-venture-studio.github.io/Design-System/icons/socials/linkedin-dark.svg'}
+    /> || null}
   </Column>;
 }
 
