@@ -31,8 +31,10 @@ export const  ProfileCard = props => {
   // Render.
   return <Column className={className} {...other}>
     {src && <img className='profile-card-picture' src={src}/> || null}
-    {name && <span className='profile-card-name'>{name}</span> || null}
-    {title && <span className='profile-card-title'>{title}</span> || null}
+    {(namme || title) && <Column className='profile-card-name-title'>
+      {name && <span className='profile-card-name'>{name}</span> || null}
+      {title && <span className='profile-card-title'>{title}</span> || null}
+    </Column> || null}
     {linkedin && <Button
       className='profile-card-linkedin'
       href={linkedin}
