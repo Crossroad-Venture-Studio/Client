@@ -34,7 +34,7 @@ export const  CompanyFooter = props => {
     </Column>
     <Column className='text-gap fill right font-size-12-14 responsive'>
       {rightNav.length && <div className='row center gap-half'>
-        {...(rightNav.map(({text, value = text, children, ...b} = {}, i) => <Button {...b} key={`${i}`}>{value}{children}</Button>))}
+        {...(rightNav.map(({...b} = {}, i) => <Button {...b} key={`${i}`}>{children}</Button>))}
       </div> || null}
       {socials.length && <div className='row center'>
         {...(socials.map((b = {}, i) => <Button {...b} key={`${i}`}></Button>))}
