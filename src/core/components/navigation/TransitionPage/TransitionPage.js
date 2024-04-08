@@ -28,7 +28,7 @@ export const TransitionPage = props => {
       <AnimatePresence
         mode={mode || 'popLayout'}
         initial={initial || false}
-        className='absolute'
+        className='relative'
       >
         <AnimationPage {...other} key={key}>{...children}</AnimationPage>
       </AnimatePresence>

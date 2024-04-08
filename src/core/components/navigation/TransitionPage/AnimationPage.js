@@ -27,7 +27,6 @@ export const AnimationPage = forwardRef((props, ref) => {
       animate='animate'
       exit='exit'
       ref={ref}
-      style={{position: 'absolute'}}
       {...animation}
       {...other}
       onAnimationStart={() => {
