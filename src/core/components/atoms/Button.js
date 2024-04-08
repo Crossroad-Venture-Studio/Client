@@ -29,7 +29,7 @@ export const Button = props => {
     submit = `${(type || '')}`.toLowerCase() === 'submit',
     scroll = false,
     ...other
-  } = props || {};
+  } = props || {}, t;
   notification = typeof notification === 'string' && (
     (notification = notification.toLowerCase()).startsWith('err') && 'error-notification'
     || (notification.startsWith('warn') && 'warning-notification')
@@ -42,7 +42,7 @@ export const Button = props => {
   const baseClassName = `button${notification}`;
   onPress || (submit && href && (onPress = () => window.location.href = href));
   const events = {onPress, ...other};
-  typeof transition === 'string' && (transition = () => transitions.setCurrentTransition(transition));
+  typeof transition === 'string' && (t = transition, transition = transitions[t] || (() => transitions.setCurrentTransition(t)));
   typeof transition === 'function' && (
     events.onPress = typeof onPress === 'function' && ((...args) => {transition(...args); console.log('>', transitions.__current__.__name__);return onPress(...args);})
     || transition
