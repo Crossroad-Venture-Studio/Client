@@ -63,12 +63,12 @@ export const slideIn = add('slideIn', {
 // Slide out.
 export const slideOut = add('slideOut', {
   variants: Object.freeze({
-    initial: { x: '-100vw', zIndex: 2 },
+    initial: { x: '100vw', zIndex: 2 },
     animate: { x: 0, zIndex: 2 },
-    exit: { x: '20vw', opacity: 0.5, zIndex: 0 }
+    exit: { x: '-20vw', zIndex: 0, opacity: 0.5 }
   }),
   transition: Object.freeze({
-    ease: 'easeInOut',
+    // ease: 'easeInOut',
     type: 'tween',
     duration: 0.5
   })
