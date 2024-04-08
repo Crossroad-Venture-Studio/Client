@@ -44,7 +44,7 @@ export const Button = props => {
   const events = {onPress, ...other};
   typeof transition === 'string' && (transition = () => transitions.setCurrentTransition(transition));
   typeof transition === 'function' && (
-    events.onPress = typeof onPress === 'function' && ((...args) => {transition(...args); return onPress(...args);})
+    events.onPress = typeof onPress === 'function' && ((...args) => {transition(...args); console.log('>', transitions.__current__.__name__);return onPress(...args);})
     || transition
   );
   Object.assign(other, createEventHandlers(events));
