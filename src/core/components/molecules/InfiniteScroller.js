@@ -6,7 +6,13 @@ export const InfiniteScrollerItem = props => {
   let {
     url,
     href = url,
-    src,
+    logoSrc,
+    logo = logoSrc,
+    pic = logo,
+    image = pic,
+    img = image,
+    imgSrc = img,
+    src = imgSrc,
     className,
     target = '_blank',
     children
