@@ -1,6 +1,10 @@
-// Imports.
-import { useEffect, useRef, useState } from 'react';
+'use client';
 
+// Imports.
+import React, { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+
+// Sub-component to render the data.
 export const InfiniteScrollerItem = props => {
   // Normalize input.
   let {
