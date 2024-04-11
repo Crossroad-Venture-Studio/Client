@@ -70,7 +70,7 @@ export const InfiniteScroller = props => {
   }, []);
 
   // Render.
-  return <div className='infinite-scroller' ref={ref}>
+  return <div className={className} ref={ref}>
     <div className='infinite-scroller-inner'>
       {children}
       {extraChildren}
