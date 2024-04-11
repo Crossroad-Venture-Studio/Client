@@ -1,5 +1,5 @@
 import Platform from '../core/native/Platform';
-import throttle from 'utils/src/throttle';
+import throttle from '../../utils/src/throttle';
 
 const eventHandler = throttle(() => {
   // We execute the same script as before.
