@@ -1,6 +1,33 @@
 // Imports.
 import { useEffect, useRef, useState } from 'react';
 
+export const InfiniteScrollerItem = props => {
+  // Normalize input.
+  let {
+    url,
+    href = url,
+    src,
+    className,
+    target = '_blank',
+    children
+  } = props || {};
+  const baseClassName = 'infinite-scroller-item';
+  className = className && `${baseClassName} ${className}` || baseClassName;
+
+  // Render.
+  return (src || children) && (
+    href && <Link className={className} href={href} target={target || null}>
+      {src && <img src={src} className='infinite-scroller-item-img'>
+        </img> || null}
+      {children}
+    </Link> || <div className={className}>
+      {src && <img src={src} className='infinite-scroller-item-img'>
+        </img> || null}
+      {children}
+    </div>
+   ) || null;
+}
+
 // Main component.
 export const InfiniteScroller = props => {
   // Normalize input.
@@ -13,7 +40,8 @@ export const InfiniteScroller = props => {
     dir = direction,
     fast,
     slow,
-    speed = fast && 'fast' || (slow && 'slow')
+    speed = fast && 'fast' || (slow && 'slow'),
+    data
   } = props || {},
   baseClassName = 'infinite-scroller';
   className = className && `${baseClassName} ${className}` || baseClassName;
@@ -22,10 +50,11 @@ export const InfiniteScroller = props => {
   // Set the animation.
   useEffect(() => {
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const p = [];
+      const p = [], arr = React.Children.toArray(children) || [];
       dir && p.push(['data-direction', dir]);
       speed && p.push(['data-speed', speed]);
-      const c = addAnimation(ref, children, p);
+      data = (data || (data = [])).filter(x => Array.isArray(x) && x.length > 1);
+      const c = addAnimation(ref, arr.concat(data.map(x => <InfiniteScrollerItem {...(x || {})} />)), p);
       c && setExtraChildren(c);
     }
   }, []);
@@ -62,8 +91,8 @@ const addAnimation = (ref, children, props) => {
   }
 
   // Clone children, for the animation.
-  return React.Children.map(children, child => (
-    React.cloneElement(child, { 'aria-hidden': true })
+  return children.map((child, i) => (
+    React.cloneElement(child, { 'aria-hidden': true, key: `${i}` })
   ));
 }
 
