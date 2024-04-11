@@ -3,8 +3,9 @@ import throttle from '../../utils/src/throttle';
 
 const eventHandler = throttle(() => {
   // We execute the same script as before.
-  document.documentElement.style.setProperty('--viewport-width', `${window.innerWidth}px`);
-  document.documentElement.style.setProperty('--viewport-height', `${window.innerHeight}px`);
+  const w = window.innerWidth, h = window.innerHeight;
+  document.documentElement.style.setProperty('--vw', w && `${w * 0.01}px` || '1dvw');
+  document.documentElement.style.setProperty('--vh', h && `${h * 0.01}px` || '1dvh');
 }, 10);
 
 export const setDynamicViewPortSize = () => (
