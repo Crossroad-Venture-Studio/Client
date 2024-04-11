@@ -70,12 +70,12 @@ export const InfiniteScroller = props => {
   }, []);
 
   // Render.
-  <div className='infinite-scroller' ref={ref}>
+  return <div className='infinite-scroller' ref={ref}>
     <div className='infinite-scroller-inner'>
       {children}
       {extraChildren}
     </div>
-  </div>
+  </div>;
 }
 
 // Helper function to add the animation.
@@ -84,7 +84,6 @@ const addAnimation = (ref, children, props) => {
   if (!(ref && children)) return null;
 
   // Add data-animated="true" to every `.infinite-scroller` on the page.
-  console.log('>>> REF', ref, !(ref && children));
   ref.setAttribute('data-animated', true);
 
   // Set the attributes for the main element.
