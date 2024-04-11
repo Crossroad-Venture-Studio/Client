@@ -63,7 +63,7 @@ export const InfiniteScroller = props => {
       const p = [], arr = React.Children.toArray(children) || [];
       dir && p.push(['data-direction', dir]);
       speed && p.push(['data-speed', speed]);
-      data = (data || (data = [])).filter(x => Array.isArray(x) && x.length > 1);
+      data = (data || (data = [])).filter(x => x);
       const c = addAnimation(ref, arr.concat(data.map(x => <InfiniteScrollerItem {...(x || {})} />)), p);
       c && setExtraChildren(c);
     }
