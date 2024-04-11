@@ -18,3 +18,6 @@ export const DynamicViewportContainer = ({children}) => {
     {children}
   </>;
 }
+
+// Default export.
+export default DynamicViewportContainer;
