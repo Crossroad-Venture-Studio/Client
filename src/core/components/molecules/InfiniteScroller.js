@@ -83,7 +83,8 @@ const addAnimation = (ref, children, props) => {
   ref && ref.current && (ref = ref.current);
   if (!(ref && children)) return null;
 
-  // add data-animated="true" to every `.infinite-scroller` on the page
+  // Add data-animated="true" to every `.infinite-scroller` on the page.
+  console.log('>>> REF', ref);
   ref.setAttribute('data-animated', true);
   Array.isArray(props || (props = [])) ||
   (typeof props === 'string' && (props = [[props, true]]))
