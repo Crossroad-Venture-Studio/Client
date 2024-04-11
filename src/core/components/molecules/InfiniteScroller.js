@@ -80,11 +80,11 @@ export const InfiniteScroller = props => {
 
 // Helper function to add the animation.
 const addAnimation = (ref, children, props) => {
-  ref && ref.current && (ref = ref.current);
+  ref && Object.hasOwn(ref, 'current') && (ref = ref.current);
   if (!(ref && children)) return null;
 
   // Add data-animated="true" to every `.infinite-scroller` on the page.
-  console.log('>>> REF', ref);
+  console.log('>>> REF', ref, !(ref && children));
   ref.setAttribute('data-animated', true);
   Array.isArray(props || (props = [])) ||
   (typeof props === 'string' && (props = [[props, true]]))
