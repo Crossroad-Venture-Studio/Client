@@ -3,6 +3,7 @@
 // Imports.
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 // Sub-component to render the data.
 export const InfiniteScrollerItem = props => {
@@ -27,12 +28,12 @@ export const InfiniteScrollerItem = props => {
   // Render.
   return (src || children) && (
     href && <Link className={className} href={href} target={target || null}>
-      {src && <img src={src} className='infinite-scroller-item-img'>
-        </img> || null}
+      {src && <Image fill={true} src={src} className='infinite-scroller-item-img'>
+        </Image> || null}
       {children}
     </Link> || <div className={className}>
-      {src && <img src={src} className='infinite-scroller-item-img'>
-        </img> || null}
+      {src && <Image fill={true} src={src} className='infinite-scroller-item-img'>
+        </Image> || null}
       {children}
     </div>
    ) || null;
