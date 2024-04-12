@@ -29,14 +29,24 @@ export const InfiniteScrollerItem = props => {
 
   // Render.
   return (src || children) && (
-    href && <Link className={className} href={href} title={title} target={target || null}>
+    href && <Link
+      className={className}
+      href={href}
+      title={title}
+      target={target || null}
+      ariaHidden={true}
+    >
       {src && <img
         src={src}
         alt={alt}
         className='infinite-scroller-item-img'
       /> || null}
       {children}
-    </Link> || <div className={className} title={title}>
+    </Link> || <div
+      className={className}
+      title={title}
+      ariaHidden={true}
+    >
       {src && <img
         src={src}
         alt={alt}
@@ -117,7 +127,7 @@ const addAnimation = (ref, children, props) => {
 
   // Clone children, for the animation.
   return children.map((child, i) => (
-    cloneElement(child, { id: `a-h-${i}`, className: 'yo', 'aria-hidden': true, ariaHidden: true, key: `a-h-${i}` })
+    cloneElement(child, { key: `a-h-${i}` })
   ));
 }
 
