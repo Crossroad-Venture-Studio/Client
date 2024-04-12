@@ -55,6 +55,7 @@ export const InfiniteScroller = props => {
   } = props || {},
   baseClassName = 'infinite-scroller';
   className = className && `${baseClassName} ${className}` || baseClassName;
+  data = (data || (data = [])).filter(x => x).map((x, i) => <InfiniteScrollerItem {...(x || {})} key={`orig-${i}`} />);
   const [extraChildren, setExtraChildren] = useState(null), ref = useRef(null);
 
   // Set the animation.
@@ -63,8 +64,7 @@ export const InfiniteScroller = props => {
       const p = [], arr = React.Children.toArray(children) || [];
       dir && p.push(['data-direction', dir]);
       speed && p.push(['data-speed', speed]);
-      data = (data || (data = [])).filter(x => x);
-      const c = addAnimation(ref, arr.concat(data.map(x => <InfiniteScrollerItem {...(x || {})} />)), p);
+      const c = addAnimation(ref, arr.concat(data), p);
       c && setExtraChildren(c);
     }
   }, []);
@@ -72,6 +72,7 @@ export const InfiniteScroller = props => {
   // Render.
   return <div className={className} ref={ref}>
     <div className='infinite-scroller-inner'>
+      {data}
       {children}
       {extraChildren}
     </div>
