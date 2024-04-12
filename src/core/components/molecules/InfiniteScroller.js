@@ -118,7 +118,7 @@ const addAnimation = (ref, children, props) => {
 
   // Clone children, for the animation.
   return children.map((child, i) => (
-    React.cloneElement(child, { /*'aria-hidden': true,*/ key: `a-h-${i}` })
+    React.cloneElement(child, { 'aria-hidden': true, key: `a-h-${i}` })
   ));
 }
 
