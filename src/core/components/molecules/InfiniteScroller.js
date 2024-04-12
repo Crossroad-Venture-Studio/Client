@@ -89,8 +89,9 @@ export const InfiniteScroller = props => {
     <div className='infinite-scroller-inner'>
       {data}
       {children}
-      {extraChildren}
       <div className='padding-half background-color-red'></div>
+      {extraChildren}
+      
     </div>
   </div>;
 }
