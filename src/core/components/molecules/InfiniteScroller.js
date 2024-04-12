@@ -90,6 +90,7 @@ export const InfiniteScroller = props => {
       {data}
       {children}
       {extraChildren}
+      <div></div>
     </div>
   </div>;
 }
