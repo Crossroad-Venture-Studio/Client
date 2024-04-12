@@ -34,7 +34,6 @@ export const InfiniteScrollerItem = props => {
       href={href}
       title={title}
       target={target || null}
-      ariaHidden={true}
     >
       {src && <img
         src={src}
@@ -45,7 +44,6 @@ export const InfiniteScrollerItem = props => {
     </Link> || <div
       className={className}
       title={title}
-      ariaHidden={true}
     >
       {src && <img
         src={src}
