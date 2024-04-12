@@ -31,12 +31,22 @@ export const InfiniteScrollerItem = props => {
   // Render.
   return (src || children) && (
     href && <Link className={className} href={href} title={title} target={target || null}>
-      {src && <Image fill={true} src={src} alt={alt} className='infinite-scroller-item-img'>
-        </Image> || null}
+      {src && <Image 
+        layout='fill'
+        objectFit='contain'
+        src={src}
+        alt={alt}
+        className='infinite-scroller-item-img'
+      /> || null}
       {children}
     </Link> || <div className={className} title={title}>
-      {src && <Image fill={true} src={src} alt={alt} className='infinite-scroller-item-img'>
-        </Image> || null}
+      {src && <Image
+        layout='fill'
+        objectFit='contain'
+        src={src}
+        alt={alt}
+        className='infinite-scroller-item-img'
+      />  || null}
       {children}
     </div>
    ) || null;
