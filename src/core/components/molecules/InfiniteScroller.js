@@ -1,7 +1,7 @@
 'use client';
 
 // Imports.
-import { cloneElement, useEffect, useRef, useState } from 'react';
+import React, { cloneElement, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
 // Sub-component to render the data.
