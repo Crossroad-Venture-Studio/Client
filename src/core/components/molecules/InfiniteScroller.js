@@ -88,7 +88,7 @@ export const InfiniteScroller = props => {
   return <div className={className} ref={ref}>
     <div className='infinite-scroller-inner'>
       {data || null}
-      {children || null}
+      {/* {children} */}
       {extraChildren}
     </div>
   </div>;
