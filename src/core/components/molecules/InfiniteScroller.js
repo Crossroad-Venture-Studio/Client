@@ -90,7 +90,7 @@ export const InfiniteScroller = props => {
       {data}
       {children}
       {extraChildren}
-      <div style={{width: '1px', height: '1px'}}></div>
+      <div className='padding-half background-color-red'></div>
     </div>
   </div>;
 }
