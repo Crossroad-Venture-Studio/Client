@@ -31,7 +31,6 @@ export const InfiniteScrollerItem = props => {
   // Render.
   return (src || children) && (
     href && <Link className={className} href={href} title={title} target={target || null}>
-      {src && <link rel='preload' as='image' href={src} /> || null}
       {src && <img
         src={src}
         alt={alt}
@@ -39,7 +38,6 @@ export const InfiniteScrollerItem = props => {
       /> || null}
       {children}
     </Link> || <div className={className} title={title}>
-      {src && <link rel='preload' as='image' href={src} /> || null}
       {src && <img
         src={src}
         alt={alt}
