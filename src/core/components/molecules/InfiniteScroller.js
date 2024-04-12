@@ -1,9 +1,8 @@
 'use client';
 
 // Imports.
-import React, { useEffect, useRef, useState } from 'react';
+import { cloneElement, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 // Sub-component to render the data.
 export const InfiniteScrollerItem = props => {
@@ -118,7 +117,7 @@ const addAnimation = (ref, children, props) => {
 
   // Clone children, for the animation.
   return children.map((child, i) => (
-    React.cloneElement(child, { id: `a-h-${i}`, 'aria-hidden': true, ariaHidden: true, key: `a-h-${i}` })
+    cloneElement(child, { id: `a-h-${i}`, className: 'yo', 'aria-hidden': true, ariaHidden: true, key: `a-h-${i}` })
   ));
 }
 
