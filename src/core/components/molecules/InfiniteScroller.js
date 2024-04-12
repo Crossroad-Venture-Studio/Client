@@ -9,6 +9,7 @@ import Image from 'next/image';
 export const InfiniteScrollerItem = props => {
   // Normalize input.
   let {
+    name,
     url,
     href = url,
     logoSrc,
@@ -20,6 +21,8 @@ export const InfiniteScrollerItem = props => {
     src = imgSrc,
     className,
     target = '_blank',
+    alt = name && `${name} logo` || 'Logo',
+    title = alt,
     children
   } = props || {};
   const baseClassName = 'infinite-scroller-item';
@@ -27,12 +30,12 @@ export const InfiniteScrollerItem = props => {
 
   // Render.
   return (src || children) && (
-    href && <Link className={className} href={href} target={target || null}>
-      {src && <Image fill={true} src={src} className='infinite-scroller-item-img'>
+    href && <Link className={className} href={href} title={title} target={target || null}>
+      {src && <Image fill={true} src={src} alt={alt} className='infinite-scroller-item-img'>
         </Image> || null}
       {children}
-    </Link> || <div className={className}>
-      {src && <Image fill={true} src={src} className='infinite-scroller-item-img'>
+    </Link> || <div className={className} title={title}>
+      {src && <Image fill={true} src={src} alt={alt} className='infinite-scroller-item-img'>
         </Image> || null}
       {children}
     </div>
