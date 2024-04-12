@@ -87,11 +87,9 @@ export const InfiniteScroller = props => {
   // Render.
   return <div className={className} ref={ref}>
     <div className='infinite-scroller-inner'>
-      {data}
-      {children}
-      <div className='padding-half background-color-red'></div>
+      {data || null}
+      {children || null}
       {extraChildren}
-      
     </div>
   </div>;
 }
