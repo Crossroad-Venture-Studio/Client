@@ -60,7 +60,10 @@ export const InfiniteScroller = props => {
 
   // Set the animation.
   useEffect(() => {
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (!(
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+       || extraChildren
+    )) {
       const p = [], arr = React.Children.toArray(children) || [];
       dir && p.push(['data-direction', dir]);
       speed && p.push(['data-speed', speed]);
@@ -85,7 +88,6 @@ const addAnimation = (ref, children, props) => {
   if (!(ref && children)) return null;
 
   // Add data-animated="true" to every `.infinite-scroller` on the page.
-  console.log('>>> REF', ref, children);
   ref.setAttribute('data-animated', true);
 
   // Set the attributes for the main element.
@@ -106,7 +108,7 @@ const addAnimation = (ref, children, props) => {
 
   // Clone children, for the animation.
   return children.map((child, i) => (
-    React.cloneElement(child, { 'aria-hidden': true, key: `${i}` })
+    React.cloneElement(child, { 'aria-hidden': true, key: `a-h-${i}` })
   ));
 }
 
