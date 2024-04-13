@@ -56,7 +56,7 @@ export const slideIn = add('slideIn', {
   transition: Object.freeze({
     ease: 'easeOut',
     // type: 'tween',
-    duration: 0.5
+    duration: 0.45
   })
 });
 
@@ -70,7 +70,7 @@ export const slideOut = add('slideOut', {
   transition: Object.freeze({
     ease: 'easeOut',
     // type: 'tween',
-    duration: 0.5
+    duration: 0.45
   })
 });
 
