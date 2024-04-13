@@ -42,7 +42,7 @@ export const dissolve = add('dissolve', {
   transition: Object.freeze({
     // ease: 'easeInOut',
     type: 'tween',
-    duration: 0.5
+    duration: 0.3
   })
 });
 
@@ -54,9 +54,9 @@ export const slideIn = add('slideIn', {
     exit: { x: '-20vw', zIndex: 0, opacity: 0.5 }
   }),
   transition: Object.freeze({
-    // ease: 'easeInOut',
+    ease: 'easeOut',
     type: 'tween',
-    duration: 0.5
+    duration: 0.3
   })
 });
 
@@ -68,9 +68,9 @@ export const slideOut = add('slideOut', {
     exit: { x: '20vw', zIndex: 0, opacity: 0.5 }
   }),
   transition: Object.freeze({
-    // ease: 'easeInOut',
+    ease: 'easeOut',
     type: 'tween',
-    duration: 0.5
+    duration: 0.3
   })
 });
 
