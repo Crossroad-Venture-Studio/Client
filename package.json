@@ -27,7 +27,8 @@
     "lintdiff": "git diff --name-only --cached --relative | grep '\\.js$' | xargs standard | snazzy",
     "clear-all": "rm -rf node_modules/ && npm cache clean --force",
     "update": "npx npm-check-updates -u; npm update; npm install",
-    "submodules" : "git submodule update --init --recursive && git submodule foreach --recursive git pull origin main && git commit -am 'client submodule' && git push",
+    "init-submodules": "git submodule add https://github.com/Crossroad-Venture-Studio/Client src/crossroad-client && git add . && git commit -am 'client submodule' && git push",
+    "update-submodules" : "git submodule update --init --recursive && git submodule foreach --recursive git pull origin main && git commit -am 'client submodule' && git push",
     "commit": "git add . && git commit -am 'new commit' && git push"
   },
   "repository": {
