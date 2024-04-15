@@ -55,7 +55,6 @@ export const Button = props => {
   className = className && `${baseClassName} ${className}` || baseClassName;
   Array.isArray(children || (children = [])) || (children = [children]);
   textStyle = `button-text${textStyle && ` ${textStyle}` || ''}${doNotHide && ' do-not-hide' || ''}${fat && ' fat' || ''}`;
-  console.log('baseClassName', baseClassName, text);
 
   // Layout.
   return href && <Link
