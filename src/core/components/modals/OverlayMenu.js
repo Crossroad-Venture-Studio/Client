@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { Overlay, TRANSITION_TIME as TT } from './Overlay';
 import Button from '../atoms/Button';
+import { useState } from 'react';
 
 // Modal menu.
 export const OverlayMenu = props => {
@@ -40,12 +41,15 @@ export const OverlayMenu = props => {
   nav || (nav = []);
   className = (className && `menu ${className}`) || 'menu';
 
+  // Additional states.
+  const [isOpened, setIsOpened] = useState(opened);
+
   // Layout.
   return <Overlay
     opened={opened}
     onOpen={_onOpen}
-    onClose={_onClose}
-    onOpened={onOpened}
+    onClose={_onClose && (() => { _onClose(); setIsOpened(false); }) || (() => setIsOpened(false))}
+    onOpened={onOpened && (() => { onOpened(); setIsOpened(true); }) || (() => setIsOpened(true))}
     onClosed={onClosed}
     hooks={hooks}
     cancelable={cancelable}
@@ -55,7 +59,7 @@ export const OverlayMenu = props => {
       ref={_ref}
       {...other}
     >
-      {...(nav.map(({src, icon, iconSrc, ...other} = {}, i) => <Button {...other} key={`${i}`}></Button>))}
+      {...(nav.map(({src, icon, iconSrc, ...other} = {}, i) => <Button disabled={!!isOpened} {...other} key={`${i}`}></Button>))}
       {...children}
     </div> || null}
   </Overlay>;
