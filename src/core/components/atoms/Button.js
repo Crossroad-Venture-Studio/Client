@@ -19,6 +19,7 @@ export const Button = props => {
     src = icon,
     title = (text || src) && `Go to ${text || src}` || null,
     alt = title,
+    disabled,
     className,
     children,
     doNotHide,
@@ -41,7 +42,7 @@ export const Button = props => {
     || (notification.startsWith('dark') && 'dark-notification')
   ) || (notification && 'notification') || '';
   notification && (notification = ` ${notification}`);
-  const baseClassName = `button${notification}`;
+  const baseClassName = `button${notification}${disabled && ' disabled' || ''}`;
   onPress || (submit && href && (onPress = () => window.location.href = href));
   const events = {onPress, ...other};
   typeof transition === 'string' && (t = transition, transition = transitions[t] || (() => transitions.setCurrentTransition(t)));
