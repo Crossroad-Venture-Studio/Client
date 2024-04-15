@@ -30,8 +30,10 @@ export const OverlayMenu = props => {
   } = props || {},
   _ref = useRef(null),
   _onOpen = (...args) => {
-    _ref && _ref.current && _ref.current.classList.add('opened');
-    onOpen && onOpen(...args);
+    setTimeout(() => {
+      _ref && _ref.current && _ref.current.classList.add('opened');
+      onOpen && onOpen(...args);
+    }, 3000);
   },
   _onClose = (...args) => {
     _ref && _ref.current && _ref.current.classList.remove('opened');
