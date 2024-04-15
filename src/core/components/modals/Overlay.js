@@ -86,8 +86,10 @@ export const Overlay = props => {
       // }
       onClose && onClose(_ref.current);
       return setTimeout(() => {
-        _ref.current.classList.remove('display');
-        _ref.current.close(); // close after animation.
+        _ref.current && (
+          _ref.current.classList.remove('display'),
+          _ref.current.close() // close after animation.
+        );
         resolve && resolve(_ref.current);
         onClosed && onClosed(_ref.current);
       }, 300); // end of animation.
