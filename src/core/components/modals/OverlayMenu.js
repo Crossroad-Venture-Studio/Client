@@ -59,7 +59,7 @@ export const OverlayMenu = props => {
       ref={_ref}
       {...other}
     >
-      {...(nav.map(({src, icon, iconSrc, ...other} = {}, i) => <Button disabled={!!isOpened} {...other} key={`${i}`}></Button>))}
+      {...(nav.map(({src, icon, iconSrc, ...other} = {}, i) => <Button disabled={!isOpened} {...other} key={`${i}`}></Button>))}
       {...children}
     </div> || null}
   </Overlay>;
