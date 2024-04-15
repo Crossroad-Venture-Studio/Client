@@ -29,7 +29,7 @@ export const Button = props => {
     notification = hasNotification,
     submit = `${(type || '')}`.toLowerCase() === 'submit',
     scroll = false,
-    textStyle = `button-text vertical-trim${doNotHide && ' do-not-hide' || ''}${fat && ' fat' || ''}`,
+    textStyle = 'vertical-trim',
     ...other
   } = props || {}, t;
   notification = typeof notification === 'string' && (
@@ -53,6 +53,7 @@ export const Button = props => {
   href || (href = null);
   className = className && `${baseClassName} ${className}` || baseClassName;
   Array.isArray(children || (children = [])) || (children = [children]);
+  textStyle = `button-text${textStyle && ` ${textStyle}` || ''}${doNotHide && ' do-not-hide' || ''}${fat && ' fat' || ''}`;
 
   // Layout.
   return href && <Link
@@ -62,7 +63,7 @@ export const Button = props => {
   title={title}
   {...other}
 >
-  {src && <img className={`icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
+  {src && <img className={`button-img icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
   {text && <span className={textStyle}>{text}</span> || null}
   {...children}
 </Link> ||  <button
@@ -71,7 +72,7 @@ export const Button = props => {
     type={type || (submit && 'submit') || null}
     {...other}
   >
-    {src && <img className={`icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
+    {src && <img className={`button-img icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
     {text && <span className={textStyle}>{text}</span> || null}
     {...children}
   </button>;
