@@ -2,6 +2,7 @@
 import Button from '../atoms/Button';
 import Column from '../atoms/Column';
 
+// Main component.
 export const  ProfileCard = props => {
   let {
     profilePictureSrc,
