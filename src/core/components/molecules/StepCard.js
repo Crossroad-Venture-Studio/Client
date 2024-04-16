@@ -25,7 +25,7 @@ export const StepCard = props => {
       </div>
     ) || null}
     {title && <span className='profile-card-title'>{title}</span> || null}
-    {description && <span className='profile-card-name'>{description}</span> || null}
+    {description && <span className='profile-card-description'>{description}</span> || null}
   </Column>
 }
 
