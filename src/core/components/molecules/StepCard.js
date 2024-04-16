@@ -13,6 +13,7 @@ export const StepCard = props => {
     src = icon,
     title,
     description,
+    ...other
   } = props || {};
   const baseClassName = 'profile-card';
   className = className && `${baseClassName} ${className}` || baseClassName;
