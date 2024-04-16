@@ -15,7 +15,7 @@ export const StepCard = props => {
     description,
     ...other
   } = props || {};
-  const baseClassName = 'profile-card';
+  const baseClassName = 'step-card';
   className = className && `${baseClassName} ${className}` || baseClassName;
 
   // Render.
@@ -25,8 +25,8 @@ export const StepCard = props => {
         {step}
       </div>
     ) || null}
-    {title && <span className='profile-card-title'>{title}</span> || null}
-    {description && <span className='profile-card-description'>{description}</span> || null}
+    {title && <span className='step-card-title'>{title}</span> || null}
+    {description && <span className='step-card-description'>{description}</span> || null}
   </Column>
 }
 
