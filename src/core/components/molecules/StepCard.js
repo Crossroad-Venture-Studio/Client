@@ -21,7 +21,7 @@ export const StepCard = props => {
   // Render.
   return <Column className={className} {...other}>
     {src && <img className='step-card-icon' src={src}/> || (
-      (typeof step === 'number' || step) && <div className='step-card-num'>
+      (typeof step === 'number' || step) && <div className='step-card-num vertical-trim'>
         {step}
       </div>
     ) || null}
