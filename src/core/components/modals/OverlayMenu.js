@@ -70,15 +70,15 @@ export const OverlayMenu = props => {
 // Helper function to create an on press action with page transition.
 export const getOverlayMenuOnPress = (
   route, close, router, transition = 'slideIn'
-) => (
-  () => {
+) => {
+  close && typeof close === object && typeof close.close === 'function' && (
+    close = close.close
+  );
+  return () => {
     transitions.setCurrentTransition(transition);
-    close && typeof close === object && typeof close.close === 'function' && (
-      close = close.close
-    );
     close().then(() => router.push(route));
   }
-);
+};
 
 // Exports.
 export const TRANSITION_TIME =  TT;
