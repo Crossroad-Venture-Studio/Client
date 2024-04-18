@@ -89,7 +89,7 @@ export const ContactUs = props => {
       <span className='contact-us-error-message'>{error}</span>
       <Button className='contact-us-reset-button'>Retry</Button>
     </Row> || null}
-    {!(msg || error || processing) && <SubmitButton className='contact-us-submit-button'>Send</SubmitButton> || null}
+    {!(msg || error || processing) && <SubmitButton className='contact-us-submit-button large'>Send</SubmitButton> || null}
     {processing && <Spinner /> || null}
   </Form>
 }
