@@ -71,7 +71,7 @@ export const OverlayMenu = props => {
 export const getOverlayMenuOnPress = (
   route, close, router, transition = 'slideIn'
 ) => {
-  close && typeof close === object && typeof close.close === 'function' && (
+  close && typeof close === 'object' && typeof close.close === 'function' && (
     close = close.close
   );
   return () => {
