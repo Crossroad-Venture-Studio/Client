@@ -4,7 +4,8 @@ import Button from '../atoms/Button';
 import Form from '../atoms/Form';
 import Row from '../atoms/Row';
 import Spinner from '../atoms/Spinner';
-import { asyncify } from '../../../../utils/src/asyncify';
+import SubmitButton from '../atoms/SubmitButton';
+import asyncify from '../../../../utils/src/asyncify';
 
 // Main component
 export const ContactUs = props => {
