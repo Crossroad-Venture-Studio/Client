@@ -71,11 +71,11 @@ export const ContactUs = props => {
   // Rendering.
   return <Form className={className} onSubmit={onSubmit} {...other}>
     {title && <span className='contact-us-title'>{title}</span> || null}
-    <input className='contact-us-name' name='name' placeholder='name...' required />
-    <input className='contact-us-email' name='email' placeholder='e-mail address...' required />
-    <input className='contact-us-subject' name='subject' placeholder='subject...' initialValue={subject} />
+    <input className='input contact-us-name' name='name' placeholder='name...' required />
+    <input className='input contact-us-email' name='email' placeholder='e-mail address...' required />
+    <input className='input contact-us-subject' name='subject' placeholder='subject...' initialValue={subject} />
     <textarea
-      className='contact-us-message'
+      className='input contact-us-message'
       rows={Math.max(rows || 0, 1)}
       name='message'
       placeholder='type your message here...'
