@@ -11,6 +11,7 @@ import asyncify from '../../../../utils/src/asyncify';
 export const ContactUs = props => {
   // Normalize input.
   let {
+    title,
     request,
     uri = request,
     url = uri,
@@ -69,6 +70,7 @@ export const ContactUs = props => {
 
   // Rendering.
   return <Form className={className} onSubmit={onSubmit} {...other}>
+    {title && <span className='contact-us-title'>{title}</span> || null}
     <input className='contact-us-name' name='name' placeholder='name...' required />
     <input className='contact-us-email' name='email' placeholder='e-mail address...' required />
     <input className='contact-us-subject' name='subject' placeholder='subject...' initialValue={subject} />
@@ -82,13 +84,13 @@ export const ContactUs = props => {
     {msg && <Row>
       <span className='contact-us-success-message'>{msg}</span>
       <Button className='contact-us-reset-button'>Send new message</Button>
-    </Row>}
+    </Row> || null}
     {error && <Row>
       <span className='contact-us-error-message'>{error}</span>
       <Button className='contact-us-reset-button'>Retry</Button>
-    </Row>}
-    {!(msg || error || processing) && <SubmitButton className='contact-us-submit-button'>Send</SubmitButton>}
-    {processing && <Spinner />}
+    </Row> || null}
+    {!(msg || error || processing) && <SubmitButton className='contact-us-submit-button'>Send</SubmitButton> || null}
+    {processing && <Spinner /> || null}
   </Form>
 }
 
