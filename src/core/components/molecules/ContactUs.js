@@ -39,7 +39,7 @@ export const ContactUs = props => {
   };
 
   // States.
-  const [{ processing, msg, error } = {}, setState] = useState(null);
+  const [{ processing, msg, error } = {}, setState] = useState({});
 
   // Submit callback.
   const onSubmit = async data => {
