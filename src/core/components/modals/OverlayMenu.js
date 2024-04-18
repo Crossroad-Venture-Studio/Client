@@ -1,9 +1,9 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { Overlay, TRANSITION_TIME as TT } from './Overlay';
 import Button from '../atoms/Button';
-import { useState } from 'react';
+import transitions from '../navigation/TransitionPage/transitions';
 
 // Modal menu.
 export const OverlayMenu = props => {
@@ -67,7 +67,21 @@ export const OverlayMenu = props => {
   </Overlay>;
 }
 
+// Helper function to create an on press action with page transition.
+export const getOverlayMenuOnPress = (
+  route, close, router, transition = 'slideIn'
+) => (
+  () => {
+    transitions.setCurrentTransition(transition);
+    close && typeof close === object && typeof close.close === 'function' && (
+      close = close.close
+    );
+    close().then(() => router.push(route));
+  }
+);
+
 // Exports.
 export const TRANSITION_TIME =  TT;
 Object.defineProperty(OverlayMenu, 'TRANSITION_TIME', {value: TRANSITION_TIME});
+Object.defineProperty(OverlayMenu, 'getOnPress', {value: getOverlayMenuOnPress});
 export default OverlayMenu;
