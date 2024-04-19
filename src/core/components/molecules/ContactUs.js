@@ -75,7 +75,7 @@ export const ContactUs = props => {
     <input className='input contact-us-email' name='email' placeholder='e-mail address...' required />
     <input className='input contact-us-subject' name='subject' placeholder='subject...' initialValue={subject} />
     <textarea
-      className='input contact-us-message'
+      className='input flex fill contact-us-message'
       rows={Math.max(rows || 0, 1)}
       name='message'
       placeholder='type your message here...'
