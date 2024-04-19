@@ -2,6 +2,7 @@
 import Button from '../atoms/Button';
 import Row from '../atoms/Row';
 import Column from '../atoms/Column';
+import '../../../../utils/src/functionUtils';
 
 export const  CompanyFooter = props => {
   let {
@@ -22,9 +23,9 @@ export const  CompanyFooter = props => {
   } = props || {};
   const baseClassName = `company-footer responsive left spread gap top`;
   className = className && `${baseClassName} ${className}` || baseClassName;
-  rightNav = (Array.isArray(rightNav) && rightNav || [rightNav]).filter(x => x);
-  socials = (Array.isArray(socials) && socials || [socials]).filter(x => x);
-  links = (Array.isArray(links) && links || [links]).filter(x => x);
+  rightNav = (Array.isArray(rightNav) && rightNav || [rightNav]).filter(Function.exists);
+  socials = (Array.isArray(socials) && socials || [socials]).filter(Function.exists);
+  links = (Array.isArray(links) && links || [links]).filter(Function.exists);
 
   // Render.
   return <Row className={className} {...other}>
