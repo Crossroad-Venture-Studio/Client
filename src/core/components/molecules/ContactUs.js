@@ -79,7 +79,7 @@ export const ContactUs = props => {
       rows={Math.max(rows || 0, 1)}
       name='message'
       placeholder='type your message here...'
-      initialValue={message} required
+      initValue={message} required
     />
     {msg && <Row>
       <span className='contact-us-success-message'>{msg}</span>
