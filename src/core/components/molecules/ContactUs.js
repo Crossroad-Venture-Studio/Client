@@ -73,13 +73,13 @@ export const ContactUs = props => {
     {title && <span className='contact-us-title'>{title}</span> || null}
     <input className='input contact-us-name' name='name' placeholder='name...' required />
     <input className='input contact-us-email' name='email' placeholder='e-mail address...' required />
-    <input className='input contact-us-subject' name='subject' placeholder='subject...' initValue={subject} />
+    <input className='input contact-us-subject' name='subject' placeholder='subject...' defaultValue={subject} />
     <textarea
       className='input flex fill contact-us-message'
       rows={Math.max(rows || 0, 1)}
       name='message'
       placeholder='type your message here...'
-      initValue={message} required
+      defaultValue={message} required
     />
     {msg && <Row>
       <span className='contact-us-success-message'>{msg}</span>
