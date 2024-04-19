@@ -46,11 +46,10 @@ export const  CompanyFooter = props => {
           text,
           value = text,
           children,
-          className,
           ...b
         } = {}, i) => [
           i && <span key={`${i}-sep`}>|</span> || null,
-          <Button isLink={isLink} className={`font-size-12-14${className && ` ${className}` || ''}`} {...b} key={`${i}`}>{value}{children}</Button>
+          <Button isLink={isLink} {...b} key={`${i}`}>{value}{children}</Button>
         ]))}
       </div> || null}
     </Column>
