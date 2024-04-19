@@ -2,6 +2,7 @@
 import Button from '../atoms/Button';
 import Row from '../atoms/Row';
 import Column from '../atoms/Column';
+import Link from 'next/link';
 
 export const  CompanyFooter = props => {
   let {
@@ -41,7 +42,7 @@ export const  CompanyFooter = props => {
       </div> || null}
       {copyright || null}
       {links.length && <div className='row center text-gap-half'>
-        {...(links.map(({text, value = text, children, ...b} = {}, i) => [i && <span key={`${i}-sep`}>|</span> || null, <Button {...b} key={`${i}`}>{value}{children}</Button>]))}
+        {...(links.map(({text, value = text, children, ...b} = {}, i) => [i && <span key={`${i}-sep`}>|</span> || null, <Link {...b} key={`${i}`}>{value}{children}</Link>]))}
       </div> || null}
     </Column>
   </Row>;
