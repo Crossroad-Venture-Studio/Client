@@ -32,7 +32,7 @@ export const  CompanyFooter = props => {
       {logo && <img src={logo} className='company-footer-logo icon' title={logoTitle} alt={logoAlt}/> || null}
       {value && <div className='line-height-130-percent font-size-12-14 balance company-footer-description'>{value}</div> || null}
     </Column>
-    <Column className='text-gap fill right font-size-12-14 responsive'>
+    <Column className='text-gap-2x fill right font-size-12-14 responsive'>
       {rightNav.length && <Row className='center gap-half'>
         {...(rightNav.map((b = {}, i) => <Button {...b} key={`${i}`}></Button>))}
       </Row> || null}
@@ -40,7 +40,7 @@ export const  CompanyFooter = props => {
         {...(socials.map((b = {}, i) => <Button {...b} key={`${i}`}></Button>))}
       </Row> || null}
       {copyright || null}
-      {links.length && <Row className='center text-gap-half padding-top-half'>
+      {links.length && <Row className='center text-gap-half'>
         {...(links.map(({
           isLink = true,
           text,
