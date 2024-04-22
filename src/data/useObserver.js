@@ -12,7 +12,7 @@ export const useObserver = (obj, attr, onRefresh) => {
       }) || (() => setState(obj[attr]));
       observe(obj, attr, refresh);
 
-      console.log('OBSERVING', obj, attr, value);
+      console.log('OBSERVING', obj, attr, value, Object.getOwnPropertyDescriptor(obj, attr));
     }, []);
   }
 }
