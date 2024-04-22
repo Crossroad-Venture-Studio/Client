@@ -54,13 +54,14 @@ export const observe = (obj, prop, ...callbacks) => {
 
   // Create new setter.
   const _setter = function (newVal) { // Setter
-    args[1] = args[0]; // Update prev value
-    args[0] = newVal; // Update cur value
+    args[1] = args[0]; // Update previous value
+    args[0] = newVal; // Update current value
     for (let i = 0, c = setter.__callbacks__, l = c.length; i !== l; ++i) {
       c[i].apply(obj, args); // Call callbacks
       // In case the callbacks modifies the output value:
       args[0] = obj[prop];
     }
+    console.log('SET', newVal, args[0]);
     return args[0]; // Return the object updated value
   }
   const setter = observeOnlyChanges && function (newVal) {
