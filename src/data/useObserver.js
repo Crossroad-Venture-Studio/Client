@@ -11,6 +11,8 @@ export const useObserver = (obj, attr, onRefresh) => {
         setState(value);
       }) || (() => setState(obj[attr]));
       observe(obj, attr, refresh);
+
+      console.log('OBSERVING', obj, attr, value);
     }, []);
   }
 }
