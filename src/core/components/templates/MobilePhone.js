@@ -3,9 +3,10 @@ export const MobilePhone = props => {
   // Normalize input.
   let {
     className,
+    flat,
     ...other
   } = props || {};
-  const baseClassName = 'mobile-phone';
+  const baseClassName = `mobile-phone${flat && ' flat' || ''}`;
   className = className && `${baseClassName} ${className}` || baseClassName;
 
   // Render.
