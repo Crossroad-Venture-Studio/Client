@@ -23,9 +23,11 @@ export const Overlay = props => {
     cancelable,
     hooks,
     title = 'Click here to close the window',
+    safearea,
     ...other
   } = props || {}, _ref = null;
   className = (className && `overlay ${className}`) || 'overlay';
+  safearea && (className = `${className} safearea`);
   cancelable && (className = `cancelable ${className}`);  
   opened && (className += ' opened');
   opened && (other.open = true);
