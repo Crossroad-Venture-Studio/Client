@@ -15,3 +15,6 @@ export const Observer = props => {
   useObserver(obj, attr, onRefresh);
   return <>{children}</>;
 }
+
+// Default export.
+export default Observer;

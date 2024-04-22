@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import observe from './observe';
 
+// Main hook.
 export const useObserver = (obj, attr, onRefresh) => {
   if (obj && attr && obj.hasOwnProperty(attr) ) {
     const value = obj[attr], [state, setState] = useState(value);
@@ -14,4 +15,5 @@ export const useObserver = (obj, attr, onRefresh) => {
   }
 }
 
+// Default export.
 export default useObserver;
