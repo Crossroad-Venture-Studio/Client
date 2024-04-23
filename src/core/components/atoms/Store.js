@@ -8,10 +8,12 @@ export const useStoreContext = (context = StoreContext) => useContext(context);
 export const Store = props => {
   const {
     store: _store,
+    initStore,
+    onStoreInit = initStore,
     children
   } = props || {};
 
-  const [store] = useStore(_store);
+  const [store] = useStore(_store, onStoreInit);
 
   // Render.
   return store && (
