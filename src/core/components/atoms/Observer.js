@@ -16,7 +16,7 @@ export const Observer = props => {
   } = props || {};
   if (!(children && (children = Children.toArray(children)).length)) return null;
   useObserver(obj, attr, onRefresh);
-  return <div key={genKeyAttr()}>{children.map(child => cloneElement(child), { key: genKeyAttr() })}</div>;
+  return <>{children.map(child => cloneElement(child), { key: genKeyAttr() })}</>;
 }
 
 // Default export.
