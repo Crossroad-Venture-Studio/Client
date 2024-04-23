@@ -4,7 +4,7 @@ import { genKeyAttr } from '../../../utils/genKeyAttr';
 
 // Main component.
 export const Observer = props => {
-  const {
+  let {
     object,
     obj = object,
     property,
@@ -14,9 +14,9 @@ export const Observer = props => {
     onRefresh,
     children
   } = props || {};
-  if (!(children && Children.toArray(children).length)) return null;
+  if (!(children && (children = Children.toArray(children)).length)) return null;
   useObserver(obj, attr, onRefresh);
-  return <div key={genKeyAttr()}>{Children.map(children, child => cloneElement(child), { key: genKeyAttr() })}</div>;
+  return <div key={genKeyAttr()}>{children.map(child => cloneElement(child), { key: genKeyAttr() })}</div>;
 }
 
 // Default export.
