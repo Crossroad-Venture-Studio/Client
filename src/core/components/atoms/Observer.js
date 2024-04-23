@@ -1,4 +1,4 @@
-import { useObserver} from '../../../data/useObserver';
+import { useObserver} from '../../hooks/useObserver';
 
 // Main component.
 export const Observer = props => {

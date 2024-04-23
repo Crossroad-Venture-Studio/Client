@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import useStore from '../../../data/useStore';
+import useStore from '../../hooks/useStore';
 
 export const StoreContext =  createContext(null);
 export const useStoreContext = (context = StoreContext) => useContext(context);
