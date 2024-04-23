@@ -10,6 +10,8 @@ export const Store = props => {
     store: _store,
     initStore,
     onStoreInit = initStore,
+    context = StoreContext,
+    Context = context,
     children
   } = props || {};
 
@@ -17,9 +19,9 @@ export const Store = props => {
 
   // Render.
   return store && (
-    <StoreContext.Provider value={store}>
+    <Context.Provider value={store}>
       {children}
-    </StoreContext.Provider>
+    </Context.Provider>
   ) || null;
 }
 
