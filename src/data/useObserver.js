@@ -4,10 +4,10 @@ import observe from './observe';
 // Main hook.
 export const useObserver = (obj, attr, onRefresh) => {
   if (obj && attr && obj.hasOwnProperty(attr) ) {
-    const value = obj[attr], [state, setState] = useState(value);
+    let value = obj[attr], [state, setState] = useState(value);
     useEffect(() => {
       const refresh = typeof onRefresh === 'function' && (() => {
-        value !== state && onRefresh(value);
+        (value = obj[attr]) !== state && onRefresh(value);
         console.log('REFRESH', state, value, value !== state, obj, attr, obj[attr]);
         setState(value);
       }) || (() => setState(obj[attr]));
