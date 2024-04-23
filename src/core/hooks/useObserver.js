@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import observe from '../data/observe';
+import observe from '../../data/observe';
 import '../../../utils/src/functionUtils';
 
 // Main hook.
