@@ -56,7 +56,6 @@ export const observe = (obj, prop, ...callbacks) => {
   const _setter = function (newVal) { // Setter
     args[1] = args[0]; // Update previous value
     args[0] = newVal; // Update current value
-    console.log('SET', args[1], args[0]);
     for (let i = 0, c = setter.__callbacks__, l = c.length; i !== l; ++i) {
       c[i].apply(obj, args); // Call callbacks
       // In case the callbacks modifies the output value:
