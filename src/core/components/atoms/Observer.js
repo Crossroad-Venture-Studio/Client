@@ -13,7 +13,7 @@ export const Observer = props => {
     children
   } = props || {};
   useObserver(obj, attr, onRefresh);
-  return <div className='observer'>{children}</div>;
+  return <div className='observer' key={`${Math.random()}`}>{children}</div>;
 }
 
 // Default export.
