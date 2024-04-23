@@ -61,7 +61,6 @@ export const observe = (obj, prop, ...callbacks) => {
       // In case the callbacks modifies the output value:
       args[0] = obj[prop];
     }
-    console.log('SET DONE', args[1], args[0]);
     return args[0]; // Return the object updated value
   }
   const setter = observeOnlyChanges && function (newVal) {

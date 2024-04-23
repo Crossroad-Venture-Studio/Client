@@ -10,7 +10,6 @@ export const useObserver = (obj, attr, onRefresh) => {
     useEffect(() => {
       const refresh = typeof onRefresh === 'function' && (() => {
         (value = obj[attr]) !== state && onRefresh(value);
-        console.log('REFRESH', state, value, value !== state, obj, attr, obj[attr]);
         setState(value);
       }) || (() => setState(obj[attr]));
       observe(obj, attr, refresh);
