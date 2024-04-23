@@ -1,5 +1,5 @@
 import { useObserver } from '../../hooks/useObserver';
-import { Children, clonedElement } from 'react';
+import { Children, cloneElement } from 'react';
 import { genKeyAttr } from '../../../utils/genKeyAttr';
 
 // Main component.
@@ -16,7 +16,7 @@ export const Observer = props => {
   } = props || {};
   if (!(children && Children.toArray(children).length)) return null;
   useObserver(obj, attr, onRefresh);
-  return <>{Children.map(children, child => clonedElement(child), { key: genKeyAttr() })}</>;
+  return <>{Children.map(children, child => cloneElement(child), { key: genKeyAttr() })}</>;
 }
 
 // Default export.
