@@ -1,10 +1,10 @@
-import { useObserver} from '../../hooks/useObserver';
-import {useState, useEffect} from 'react';
-import observe from '../../../data/observe';
+import { useObserver } from '../../hooks/useObserver';
+import { Children, clonedElement } from 'react';
+import { genKeyAttr } from '../../../utils/genKeyAttr';
 
 // Main component.
 export const Observer = props => {
-  let {
+  const {
     object,
     obj = object,
     property,
@@ -14,26 +14,9 @@ export const Observer = props => {
     onRefresh,
     children
   } = props || {};
-  // useObserver(obj, attr, onRefresh);
-
-  const valid = obj && attr && obj.hasOwnProperty(attr);
-  let value = valid ? obj[attr] : null;
-  const [state, setState] = useState(value);
-  // const forceUpdate = useForceUpdate();
-  if (valid) {
-    useEffect(() => {
-      const refresh = typeof onRefresh === 'function' && (() => {
-        const v = obj[attr];
-        v !== state && onRefresh(v);
-        setState(v);
-        console.log('OBSERVED', state, v);
-        // forceUpdate();
-      }) || (() => setState(obj[attr]));
-      observe(obj, attr, refresh);
-    }, []);
-  }
-
-  return <div className='observer' key={`${Math.random()}`}>{children}</div>;
+  if (!(children && Children.toArray(children).length)) return null;
+  useObserver(obj, attr, onRefresh);
+  return <>{Children.map(children, child => clonedElement(child), { key: genKeyAttr() })}</>;
 }
 
 // Default export.
