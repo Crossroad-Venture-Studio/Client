@@ -14,7 +14,7 @@ export const Observer = props => {
   } = props || {};
   const [state] = useObserver(obj, attr, onRefresh);
   console.log('OBSERVER', state);
-  return <div>{children}</div>;
+  return <>{console.log('>> OBSERVER', state)}{children}</>;
 }
 
 // Default export.
