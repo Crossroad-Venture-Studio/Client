@@ -1,4 +1,5 @@
 import { useObserver} from '../../hooks/useObserver';
+import {useState, useEffect} from 'react';
 
 // Main component.
 export const Observer = props => {
