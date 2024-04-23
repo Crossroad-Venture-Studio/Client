@@ -13,7 +13,7 @@ export const Observer = props => {
     children
   } = props || {};
   useObserver(obj, attr, onRefresh);
-  return <div>{children}</div>;
+  return <div className='observer'>{children}</div>;
 }
 
 // Default export.
