@@ -16,7 +16,7 @@ export const Logo = props => {
     let v = parseFloat(height);
     isNaN(v) || (height = `min(max(calc(${v} * 0.125 * var(--vh)), calc(0.5 * ${v}px)), ${v}px)`);
     v = parseFloat(width);
-    isNaN(v) || (width = `max(min(100%, ${v}px), 30%)`);
+    isNaN(v) || (width = `max(min(100%, ${v}px), 70%)`);
   } else {
     parseFloat(height) == height && (height = `${height}px`);
     parseFloat(width) == width && (width = `${width}px`);
