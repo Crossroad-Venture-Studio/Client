@@ -2,7 +2,7 @@
 export const Logo = props => {
   let {
     type = 'color',
-    height = 32,
+    height = 'auto',
     width = 'auto',
     responsive,
     title = 'Logo',
