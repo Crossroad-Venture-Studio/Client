@@ -164,6 +164,10 @@ export const commonTranslations = [
     es: 'Asunto'
   },
   {
+    en: 'Type your message here',
+    es: 'Escribe tu mensaje aquí'
+  },
+  {
     en: 'Comment',
     es: 'Comentario'
   },
