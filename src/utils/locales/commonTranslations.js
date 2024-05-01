@@ -176,6 +176,22 @@ export const commonTranslations = [
     es: 'Comentarios'
   },
   {
+    en: 'Request',
+    es: 'Pedido'
+  },
+  {
+    en: 'Requests',
+    es: 'Peticiones'
+  },
+  {
+    en: 'Order',
+    es: 'Pedido'
+  },
+  {
+    en: 'Orders',
+    es: 'Pedidos'
+  },
+  {
     en: 'Phone number',
     es: 'Número de teléfono'
   },
