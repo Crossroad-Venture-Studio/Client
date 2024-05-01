@@ -55,12 +55,12 @@ export class TranslationTable {
     let [index, transform] = this.map.get(text) || [], s;
 
     console.log('>>>>', text, this, index, transform, locale, index !== undefined && (s = this.table[index][locale]) !== undefined && (
-      transform && s[transform] || s
+      transform && s[transform]() || s
     ) || text);
 
     // Return translation.
     return index !== undefined && (s = this.table[index][locale]) !== undefined && (
-      transform && s[transform] || s
+      transform && s[transform]() || s
     ) || text;
   }
 }
