@@ -52,11 +52,11 @@ export class TranslationTable {
     // Normalize input.
     text = normalizeText(text);
     locale = normalizeLocale(locale);
-    let [index, tranform] = this.map.get(text) || [], s;
+    let [index, transform] = this.map.get(text) || [], s;
 
     // Return translation.
     return index !== undefined && (s = this.table[index][locale]) !== undefined && (
-      tranform && s[transform] || s
+      transform && s[transform] || s
     ) || text;
   }
 }
