@@ -75,5 +75,9 @@ export const translate
   = Locales.translate
   = _translate;
 
+export const createLocales
+  = Locales.createLocales
+  = (...args) => new Locales(...args);
+
 // Default export.
-export default Locales;
+export default Object.freeze(Locales);
