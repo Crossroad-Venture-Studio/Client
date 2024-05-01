@@ -37,6 +37,12 @@ export const commonTranslations = normalizeTranslations({
   'I speak 🇺🇸': {
     es: 'Hablas 🇲🇽'
   },
+  '🇺🇸': {
+    es: '🇲🇽'
+  },
+  'I speak english': {
+    es: 'Hablas español'
+  },
   'Free demo': {
     es: 'Prueba gratis'
   },
