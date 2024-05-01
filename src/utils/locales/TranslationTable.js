@@ -54,7 +54,7 @@ export class TranslationTable {
     locale = normalizeLocale(locale);
     let [index, transform] = this.map.get(text) || [], s;
 
-    console.log('>>>>', this, index, transform, locale);
+    console.log('>>>>', text, this, index, transform, locale);
 
     // Return translation.
     return index !== undefined && (s = this.table[index][locale]) !== undefined && (
