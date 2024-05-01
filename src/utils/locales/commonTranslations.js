@@ -53,15 +53,15 @@ export const commonTranslations = [
   },
   {
     en: 'I speak 🇺🇸',
-    es: 'Hablas 🇲🇽'
+    es: 'Hablo 🇲🇽'
   },
   {
     en: '🇺🇸',
     es: '🇲🇽'
   },
   {
-    en: 'I speak english',
-    es: 'Hablas español'
+    en: 'I speak English',
+    es: 'Hablo español'
   },
   {
     en: 'Free demo',
