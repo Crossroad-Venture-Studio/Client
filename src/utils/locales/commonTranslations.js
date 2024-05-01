@@ -160,6 +160,10 @@ export const commonTranslations = [
     es: 'Correo electrónico'
   },
   {
+    en: 'E-mail address',
+    es: 'Correo electrónico'
+  },
+  {
     en: 'Subject',
     es: 'Asunto'
   },
