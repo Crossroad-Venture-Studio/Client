@@ -5,10 +5,6 @@ import {
   getDefaultLocale
 } from './localeUtils';
 
-import {
-  translate,
-} from './TranslationTable';
-
 // Base class locales.
 export class Locales {
   // Constructor.
@@ -59,8 +55,8 @@ export class Locales {
     return getDefaultLocale(this.data);
   }
 
-  translate(text, locale, translations) {
-    return translate(text, this.get(locale), translations);
+  translate(text, locale, translationTable) {
+    return translationTable.translate(text, this.get(locale));
   }
 }
 
