@@ -1,81 +1,124 @@
-import { normalizeTranslations } from '../utils/translate';
-
-export const commonTranslations = normalizeTranslations({
-  'Contact us': {
-    es: 'Contáctenos'
+export const commonTranslations = [
+  {
+      en: 'Contact us',
+      es: 'Contáctenos'
   },
-  'About us': {
-    es: 'Sobre nosotras'
+  {
+      en: 'About us',
+      es: 'Sobre nosotras'
   },
-  'Register': {
-    es: 'Registrar'
+  {
+      en: 'Register',
+      es: 'Registrar'
   },
-  'Subscribe': {
-    es: 'Suscribirse'
+  {
+      en: 'Subscribe',
+      es: 'Suscribirse'
   },
-  'Log in': {
-    es: 'Iniciar sesión'
+  {
+      en: 'Log in',
+      es: 'Iniciar sesión'
   },
-  'Log out': {
-    es: 'Cerrar sesión'
+  {
+      en: 'Log out',
+      es: 'Cerrar sesión'
   },
-  'Create account': {
-    es: 'Crear cuenta'
+  {
+      en: 'Create account',
+      es: 'Crear cuenta'
   },
-  'Terms of use': {
-    es: 'Condiciones de uso'
+  {
+      en: 'Terms of use',
+      es: 'Condiciones de uso'
   },
-  'Copyrights': {
-    es: 'Derechos de autor'
+  {
+      en: 'Copyrights',
+      es: 'Derechos de autor'
   },
-  'All rights reserved': {
-    es: 'Reservados todos los derechos'
+  {
+      en: 'All rights reserved',
+      es: 'Reservados todos los derechos'
   },
-  'Privacy policy': {
-    es: 'Política de privacidad'
+  {
+      en: 'Privacy policy',
+      es: 'Política de privacidad'
   },
-  'I speak 🇺🇸': {
-    es: 'Hablas 🇲🇽'
+  {
+      en: 'I speak 🇺🇸',
+      es: 'Hablas 🇲🇽'
   },
-  '🇺🇸': {
-    es: '🇲🇽'
+  {
+      en: '🇺🇸',
+      es: '🇲🇽'
   },
-  'I speak english': {
-    es: 'Hablas español'
+  {
+      en: 'I speak english',
+      es: 'Hablas español'
   },
-  'Free demo': {
-    es: 'Prueba gratis'
+  {
+      en: 'Free demo',
+      es: 'Prueba gratis'
   },
-  'Free trial': {
-    es: 'Prueba gratis'
+  {
+      en: 'Free trial',
+      es: 'Prueba gratis'
   },
-  'Book demo': {
-    es: 'Reservar una demostración'
+  {
+      en: 'Book demo',
+      es: 'Reservar una demostración'
   },
-  'Book a demo': {
-    es: 'Reservar una demostración'
+  {
+      en: 'Book a demo',
+      es: 'Reservar una demostración'
   },
-  'Meet us': {
-    es: 'Conócenos'
+  {
+      en: 'Meet us',
+      es: 'Conócenos'
   },
-  'Book a meeting with us': {
-    es: 'Reserve una reunión con nosotros'
+  {
+      en: 'Book a meeting with us',
+      es: 'Reserve una reunión con nosotros'
   },
-  'Book a meeting': {
-    es: 'Reserve una reunión'
+  {
+      en: 'Book a meeting',
+      es: 'Reserve una reunión'
   },
-  'Send message': {
-    es: 'Enviar mensaje'
+  {
+      en: 'Send message',
+      es: 'Enviar mensaje'
   },
-  'Send': {
-    es: 'Enviar'
+  {
+      en: 'Send',
+      es: 'Enviar'
   },
-  'Submit form': {
-    es: 'Enviar formulario'
+  {
+      en: 'Submit form',
+      es: 'Enviar formulario'
   },
-  'Submit': {
-    es: 'Enviar'
-  }
-});
+  {
+      en: 'Submit',
+      es: 'Enviar'
+  },
+  {
+    en: 'Settings',
+    es: 'Ajustes'
+  },
+  {
+    en: 'User',
+    es: 'Usuario'
+  },
+  {
+    en: 'Users',
+    es: 'Usuarios'
+  },
+  {
+    en: 'User profile',
+    es: 'Perfil del usuario'
+  },
+  {
+    en: 'Profile',
+    es: 'Perfil'
+  },
+];
 
 export default commonTranslations;
