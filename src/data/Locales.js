@@ -8,7 +8,7 @@ import {
 import {
   translate as _translate,
   normalizeTranslations as _normalizeTranslations
-} from translate;
+} from '../utils/translate';
 
 // Base class locales.
 export class Locales {
@@ -56,7 +56,7 @@ export class Locales {
     return getLocale(index, this.data);
   }
 
-  default() {
+  get default() {
     return getDefaultLocale(this.data);
   }
 
