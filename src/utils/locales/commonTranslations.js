@@ -1,5 +1,13 @@
 export const commonTranslations = [
   {
+    en: 'Contact',
+    es: 'Contacto'
+  },
+  {
+    en: 'Contacts',
+    es: 'Contactos'
+  },
+  {
     en: 'Contact us',
     es: 'Contáctenos'
   },
