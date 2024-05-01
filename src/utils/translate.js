@@ -8,19 +8,26 @@ export const normalizeTranslations = translate.normalizeTranslations = (
   translations,
   output
 ) => {
-  output = Object.assign(output || {}, translations || (translations = {}));
+  translations || (translations = {});
+  output || (output = {});
+
+  // Normalize locales.
+  for (const key in translations) {
+    const t = translations[key], t2 = output[key] = {};
+    for (const l in t) t2[l.toLowerCase()] = t[l];
+  }
 
   // Augment with casing.
-  for (const key in translations) {
-    let k = key.toLowerCase(), t, t2;
-    if(!translations[k]) {
-      t = translations[key];
+  for (const key in output) {
+    let k = key.toUpperCase(), t, t2;
+    if(!output[k]) {
+      t = output[key];
       t2 = output[k] = {};
       for (const l in t) t2[l] = t[l].toLowerCase();
     }
     k = key.toUpperCase();
-    if(!translations[k]) {
-      t || (t = translations[key]);
+    if(!output[k]) {
+      t || (t = output[key]);
       t2 = output[k] = {};
       for (const l in t) t2[l] = t[l].toUpperCase();
     }
