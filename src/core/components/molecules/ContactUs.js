@@ -15,6 +15,12 @@ export const ContactUs = props => {
     request,
     uri = request,
     url = uri,
+    subject,
+    message,
+    namePlaceholder = 'name...',
+    emailPlaceholder = 'e-mail address...',
+    subjectPlaceholder = 'subject',
+    messagePlaceholder = 'type your message here...',
     fecthOptions,
     body: _body,
     method: _method,
@@ -23,9 +29,7 @@ export const ContactUs = props => {
     onSubmit: _onSubmit = onSubmitStart,
     onSubmitEnd,
     className,
-    subject,
     rows,
-    message,
     ...other
   } = props || {};
   const baseName = 'contact-us';
@@ -71,14 +75,14 @@ export const ContactUs = props => {
   // Rendering.
   return <Form className={className} onSubmit={onSubmit} {...other}>
     {title && <span className='contact-us-title'>{title}</span> || null}
-    <input className='input contact-us-name' name='name' placeholder='name...' required />
-    <input className='input contact-us-email' name='email' placeholder='e-mail address...' required />
-    <input className='input contact-us-subject' name='subject' placeholder='subject...' defaultValue={subject} />
+    <input className='input contact-us-name' name='name' placeholder={namePlaceholder} required />
+    <input className='input contact-us-email' name='email' placeholder={emailPlaceholder} required />
+    <input className='input contact-us-subject' name='subject' placeholder={subjectPlaceholder} defaultValue={subject} />
     <textarea
       className='input flex fill contact-us-message'
       rows={Math.max(rows || 0, 1)}
       name='message'
-      placeholder='type your message here...'
+      placeholder={messagePlaceholder}
       defaultValue={message} required
     />
     {msg && <Row>
