@@ -21,6 +21,8 @@ export const ContactUs = props => {
     emailPlaceholder = 'e-mail address...',
     subjectPlaceholder = 'subject',
     messagePlaceholder = 'type your message here...',
+    submitText = 'Send',
+    sendText = submitText,
     fecthOptions,
     body: _body,
     method: _method,
@@ -93,7 +95,7 @@ export const ContactUs = props => {
       <span className='contact-us-error-message'>{error}</span>
       <Button className='contact-us-reset-button'>Retry</Button>
     </Row> || null}
-    {!(msg || error || processing) && <SubmitButton className='contact-us-submit-button large'>Send</SubmitButton> || null}
+    {!(msg || error || processing) && <SubmitButton className='contact-us-submit-button large'>{sendText}</SubmitButton> || null}
     {processing && <Spinner /> || null}
   </Form>
 }
