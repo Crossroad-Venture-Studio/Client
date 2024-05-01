@@ -57,6 +57,24 @@ export const commonTranslations = normalizeTranslations({
   },
   'Meet us': {
     es: 'Conócenos'
+  },
+  'Book a meeting with us': {
+    es: 'Reserve una reunión con nosotros'
+  },
+  'Book a meeting': {
+    es: 'Reserve una reunión'
+  },
+  'Send message': {
+    es: 'Enviar mensaje'
+  },
+  'Send': {
+    es: 'Enviar'
+  },
+  'Submit form': {
+    es: 'Enviar formulario'
+  },
+  'Submit': {
+    es: 'Enviar'
   }
 });
 
