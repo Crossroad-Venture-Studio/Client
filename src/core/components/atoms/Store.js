@@ -16,6 +16,7 @@ export const Store = props => {
   } = props || {};
 
   const [store] = useStore(_store, onStoreInit);
+  console.log('STORE', store);
 
   // Render.
   return store && (
