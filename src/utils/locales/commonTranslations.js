@@ -68,6 +68,10 @@ export const commonTranslations = [
     es: 'Español'
   },
   {
+    en: 'Switch language',
+    es: 'Cambiar idioma'
+  },
+  {
     en: 'Free demo',
     es: 'Prueba gratis'
   },
