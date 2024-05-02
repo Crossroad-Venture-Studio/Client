@@ -16,14 +16,13 @@ export const Store = props => {
   } = props || {};
 
   const [store] = useStore(_store, onStoreInit);
-  console.log('STORE', store);
 
   // Render.
   return store && (
     <Context.Provider value={store}>
       {children}
     </Context.Provider>
-  ) || null;
+  ) || (!_store && <>{children}</>) || null;
 }
 
 // Additional exports.
