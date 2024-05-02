@@ -64,6 +64,10 @@ export const commonTranslations = [
     es: 'Hablo español'
   },
   {
+    en: 'English',
+    es: 'Español'
+  },
+  {
     en: 'Free demo',
     es: 'Prueba gratis'
   },
