@@ -174,6 +174,12 @@ export const commonTranslations = [
     pt: 'Agende demo'
   },
   {
+    en: 'Hi there',
+    es: 'Hola',
+    fr: 'Bonjour',
+    pt: 'Olá'
+  },
+  {
     en: 'Book a demo',
     es: 'Reservar una demo',
     fr: 'Demander une démo',
