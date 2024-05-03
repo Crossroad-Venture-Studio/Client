@@ -1,5 +1,17 @@
 export const commonTranslations = [
   {
+    en: 'Back',
+    es: 'Atrás',
+    fr: 'Retour',
+    pt: 'Voltar',
+  },
+  {
+    en: 'Next',
+    es: 'Próximo',
+    fr: 'Suivant',
+    pt: 'Próximo',
+  },
+  {
     en: 'Contact',
     es: 'Contacto',
     fr: 'Contact',
