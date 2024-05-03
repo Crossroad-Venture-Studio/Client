@@ -1,5 +1,11 @@
 export const commonTranslations = [
   {
+    en: 'Or',
+    es: 'O',
+    fr: 'Ou',
+    pt: 'Ou',
+  },
+  {
     en: 'Back',
     es: 'Atrás',
     fr: 'Retour',
