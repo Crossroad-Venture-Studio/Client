@@ -156,6 +156,18 @@ export const commonTranslations = [
     pt: 'Teste grátis'
   },
   {
+    en: 'Try it',
+    es: 'Intentalo',
+    fr: 'Essayez-le',
+    pt: 'Tente'
+  },
+  {
+    en: 'Try it for free',
+    es: 'Pruébalo gratis',
+    fr: 'Essayez-le gratuitement',
+    pt: 'Experimente Grátis'
+  },
+  {
     en: 'Book demo',
     es: 'Reservar una demo',
     fr: 'Demander une démo',
