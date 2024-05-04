@@ -40,7 +40,7 @@ export const ChatBubble = props => {
       </span> || null}
       {children}
     </Column>
-    {info && <Column className='chat-bubble-info'>
+    {info && <Column className={`chat-bubble-info${isUser && ' user' || ''}`}>
       {info}
     </Column> || null }
   </Column>;
