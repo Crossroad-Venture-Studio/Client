@@ -32,8 +32,6 @@ export const ChatBubble = props => {
   isUser && (baseClassName += ' user');
   className = className && `${baseClassName} ${className}` || baseClassName;
 
-  console.log('__date__', __date__, date, time);
-
   // Render.
   return <Column className={`chat-bubble-container ${isUser && 'right user' || 'left'}`}>
     <Column className={className} {...other}>
