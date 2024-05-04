@@ -1,7 +1,6 @@
 // Imports.
 import Column from './Column';
 
-
 // Main component.
 let KEY = 0;
 export const ChatBubble = props => {
@@ -27,7 +26,7 @@ export const ChatBubble = props => {
     sender = from,
     children,
     ...other
-  } = props || {}
+  } = props || {},
   baseClassName = 'chat-bubble';
   isStart && (baseClassName += ' start');
   isEnd && (baseClassName += ' end');
