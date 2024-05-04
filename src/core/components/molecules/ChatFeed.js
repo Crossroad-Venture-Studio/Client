@@ -10,7 +10,7 @@ export const ChatFeed = props => {
     data = history,
     children,
     ...other
-  } = props || {}
+  } = props || {},
   baseClassName = 'chat-feed';
   className = className && `${baseClassName} ${className}` || baseClassName;
   data = data && (
