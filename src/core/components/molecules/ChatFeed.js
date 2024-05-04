@@ -30,8 +30,8 @@ export const ChatFeed = props => {
 
   // Render.
   return data.length && <Column className={className} {...other}>
-    {data.map(({element, component = element, Component = component, ...b}) => (
-      Component && cloneElement(component, b) || <ChatBubble {...b} />
+    {data.map(({element, component = element, Component = component, ...b}, i) => (
+      Component && cloneElement(component, b) || <ChatBubble key={`${i}`} {...b} />
     ))}
   </Column> || null;
 }

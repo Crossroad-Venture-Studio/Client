@@ -2,7 +2,6 @@
 import Column from './Column';
 
 // Main component.
-let KEY = 0;
 export const ChatBubble = props => {
   let {
     className,
@@ -34,7 +33,7 @@ export const ChatBubble = props => {
   className = className && `${baseClassName} ${className}` || baseClassName;
 
   // Render.
-  return <Column key={`chat-bubble-${KEY++}`} className={`chat-bubble-container ${isUser && 'right user' || 'left'}`}>
+  return <Column className={`chat-bubble-container ${isUser && 'right user' || 'left'}`}>
     <Column className={className} {...other}>
       {text && <span className='chat-bubble-text'>
         {text}
