@@ -1,5 +1,5 @@
 // Imports.
-import { cloneElement, useRef } from 'react';
+import { cloneElement, useRef, useEffect } from 'react';
 import ChatBubble from '../atoms/ChatBubble';
 
 // Main component.
