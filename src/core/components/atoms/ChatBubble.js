@@ -15,7 +15,7 @@ export const ChatBubble = props => {
     isUser = __is_user__,
     name,
     __date__,
-    date = new Date(__date__),
+    date = __date__ && new Date(__date__) || undefined,
     __local_time__,
     localTime = __local_time__,
     __time__ = date && (new Date(date)).toLocaleTimeString(localTime) || '',
