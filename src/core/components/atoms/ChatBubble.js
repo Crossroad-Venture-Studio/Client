@@ -16,7 +16,7 @@ export const ChatBubble = props => {
     name,
     __date__,
     date = new Date(__date__),
-    __local_time__ = 'en-US',
+    __local_time__,
     localTime = __local_time__,
     __time__ = date && (new Date(date)).toLocaleTimeString(localTime) || '',
     time = __time__,
@@ -31,6 +31,8 @@ export const ChatBubble = props => {
   isEnd && (baseClassName += ' end');
   isUser && (baseClassName += ' user');
   className = className && `${baseClassName} ${className}` || baseClassName;
+
+  console.log('__date__', __date__, date, time);
 
   // Render.
   return <Column className={`chat-bubble-container ${isUser && 'right user' || 'left'}`}>
