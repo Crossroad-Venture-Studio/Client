@@ -1,6 +1,7 @@
 // Imports.
 import { cloneElement, useRef, useEffect } from 'react';
 import ChatBubble from '../atoms/ChatBubble';
+import Column from '../atoms/Column';
 
 // Main component.
 export const ChatFeed = props => {
