@@ -25,7 +25,7 @@ export const ChatFeed = props => {
   useEffect(() => {
     // Scrolling to the last element.
     const el = other.ref.current;
-    el.scrollTop = e.scrollHeight;
+    el.scrollTop = el.scrollHeight;
   }, []);
 
   // Render.
