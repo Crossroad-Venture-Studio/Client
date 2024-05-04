@@ -18,6 +18,12 @@ export const commonTranslations = [
     pt: 'Próximo',
   },
   {
+    en: 'Welcome back',
+    es: 'Bienvenido de nuevo',
+    fr: 'Content de vous revoir',
+    pt: 'Bem vindo de volta',
+  },
+  {
     en: 'Contact',
     es: 'Contacto',
     fr: 'Contact',
