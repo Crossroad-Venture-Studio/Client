@@ -1,7 +1,6 @@
 // Imports.
 import { cloneElement, useRef, useEffect } from 'react';
 import ChatBubble from '../atoms/ChatBubble';
-import Column from '../atoms/Column';
 
 // Main component.
 export const ChatFeed = props => {
@@ -12,7 +11,7 @@ export const ChatFeed = props => {
     children,
     ...other
   } = props || {},
-  baseClassName = 'chat-feed';
+  baseClassName = 'chat-feed column';
   className = className && `${baseClassName} ${className}` || baseClassName;
   data = data && (
     Array.isArray(data) && data.filter(x => x && typeof x === 'object')
@@ -29,11 +28,11 @@ export const ChatFeed = props => {
   }, []);
 
   // Render.
-  return data.length && <Column className={className} {...other}>
+  return data.length && <div className={className} {...other}>
     {data.map(({element, component = element, Component = component, ...b}, i) => (
       Component && cloneElement(component, b) || <ChatBubble key={`${i}`} {...b} />
     ))}
-  </Column> || null;
+  </div> || null;
 }
 
 // Default export.
