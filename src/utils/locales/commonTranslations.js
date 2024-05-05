@@ -186,6 +186,18 @@ export const commonTranslations = [
     pt: 'Teste grátis'
   },
   {
+    en: 'Start demo',
+    es: 'Iniciar demo',
+    fr: 'Commencez demo',
+    pt: 'Iniciar demo'
+  },
+  {
+    en: 'Restart new demo',
+    es: 'Reiniciar nueva demo',
+    fr: 'Recommencez nouvelle demo',
+    pt: 'Reinicie nova demo'
+  },
+  {
     en: 'Try it',
     es: 'Intentalo',
     fr: 'Essayez-le',
