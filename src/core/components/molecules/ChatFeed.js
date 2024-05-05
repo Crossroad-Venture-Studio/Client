@@ -25,6 +25,7 @@ export const ChatFeed = props => {
     // Scrolling to the last element.
     const el = other.ref.current;
     el && (el.scrollTop = el.scrollHeight);
+    console.log('CHAT FEED MOUNTED');
   }, []);
 
   // Render.
