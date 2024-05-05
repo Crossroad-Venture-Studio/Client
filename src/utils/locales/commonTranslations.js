@@ -198,6 +198,12 @@ export const commonTranslations = [
     pt: 'Reinicie nova demo'
   },
   {
+    en: 'Engagement',
+    es: 'Compromiso',
+    fr: 'Engagement',
+    pt: 'Compromisso'
+  },
+  {
     en: 'Price',
     es: 'Precio',
     fr: 'Prix',
