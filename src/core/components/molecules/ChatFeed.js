@@ -30,7 +30,7 @@ export const ChatFeed = props => {
   // Render.
   return data.length && <div className={className} {...other}>
     {data.map(({element, component = element, Component = component, ...b}, i) => (
-      Component && cloneElement(component, b) || <ChatBubble key={`${i}`} {...b} />
+      Component && cloneElement(Component, {...b, key: `${i}`}) || <ChatBubble key={`${i}`} {...b} />
     ))}
   </div> || null;
 }
