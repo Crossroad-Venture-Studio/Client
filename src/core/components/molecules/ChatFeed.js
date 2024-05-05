@@ -26,7 +26,7 @@ export const ChatFeed = props => {
     const el = other.ref.current;
     el && (el.scrollTop = el.scrollHeight);
     console.log('CHAT FEED MOUNTED');
-  }, []);
+  }, [history]);
 
   // Render.
   return data.length && <div className={className} {...other}>
