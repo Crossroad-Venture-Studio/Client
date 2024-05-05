@@ -24,6 +24,30 @@ export const commonTranslations = [
     pt: 'Bem vindo de volta',
   },
   {
+    en: 'Feature',
+    es: 'Función',
+    fr: 'Fonction',
+    pt: 'Função',
+  },
+  {
+    en: 'Features',
+    es: 'Funciones',
+    fr: 'Fonctions',
+    pt: 'Funções',
+  },
+  {
+    en: 'Benefit',
+    es: 'Beneficio',
+    fr: 'Benefice',
+    pt: 'Benefício',
+  },
+  {
+    en: 'Benefits',
+    es: 'Beneficios',
+    fr: 'Benefices',
+    pt: 'Benefícios',
+  },
+  {
     en: 'Contact',
     es: 'Contacto',
     fr: 'Contact',
