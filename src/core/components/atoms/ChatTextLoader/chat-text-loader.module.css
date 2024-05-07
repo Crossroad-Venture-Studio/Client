@@ -3,7 +3,7 @@
 .container-medium,
 .container-large,
 .container {
-  --diameter: 20px;
+  --diameter: var(--size-18-20);
   --radius: calc(0.5 * var(--diameter));
   --animation-time: 2s;
   display: flex;
@@ -35,19 +35,19 @@
 }
 
 .container-xsmall {
-  --diameter: 12px;
+  --diameter: var(--size-12-14);
 }
 
 .container-small {
-  --diameter: 16px;
+  --diameter: var(--size-14-16);
 }
 
 .container-medium {
-  --diameter: 24px;
+  --diameter: var(--size-20-24);
 }
 
 .container-large {
-  --diameter: 32px;
+  --diameter: var(--size-24-32);
 }
 
 @keyframes b1 {
