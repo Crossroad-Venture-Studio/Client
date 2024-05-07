@@ -8,9 +8,9 @@ export const ChatTextLoader = props => {
     type,
     size = type
   } = props || {},
-  baseClassName = styles['container'];
+  baseClassName = styles.container.xsmall;
   className = className && `${baseClassName} ${className}` || baseClassName;
-  size && (className += ` ${size}`);
+  // size && (className += ` ${size}`);
 
   return <div className={className}>
     <div className={styles['b1']}/>
