@@ -21,15 +21,15 @@
 }
 
 .b1 {
-  animation: b1 var(--animation-time) ease-out infinite;
+  animation: b1 var(--animation-time) linear infinite;
 }
 
 .b2 {
-  animation: b2 var(--animation-time) ease-out infinite;
+  animation: b2 var(--animation-time) linear infinite;
 }
 
 .b3 {
-  animation: b3 var(--animation-time) ease-out infinite;
+  animation: b3 var(--animation-time) linear infinite;
 }
 
 .container-xsmall {
