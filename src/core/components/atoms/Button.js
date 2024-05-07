@@ -54,6 +54,7 @@ export const Button = props => {
   Object.assign(other, createEventHandlers(events));
   href || (href = null);
   className = className && `${baseClassName} ${className}` || baseClassName;
+  doNotHide && (className += ' do-not-hide');
   Array.isArray(children || (children = [])) || (children = [children]);
   textStyle = `button-text${textStyle && ` ${textStyle}` || ''}${doNotHide && ' do-not-hide' || ''}${fat && ' fat' || ''}`;
 
