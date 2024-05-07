@@ -14,15 +14,18 @@
   height: var(--radius);
   border-radius: 50%;
   background-color: #FFF;
-  animation: flash var(--animation-time) ease-out infinite;
+}
+
+.b1 {
+  animation: b1 var(--animation-time) ease-out infinite;
 }
 
 .b2 {
-  animation-delay: var(--animation-time);
+  animation: b2 var(--animation-time) ease-out infinite;
 }
 
 .b3 {
-  animation-delay: calc(2 * var(--animation-time));
+  animation: b3 var(--animation-time) ease-out infinite;
 }
 
 .container.small {
@@ -37,7 +40,7 @@
   --diameter: 32px;
 }
 
-@keyframes flash {
+@keyframes b1 {
   0% {
     background-color: #FFF;
   }
@@ -46,6 +49,30 @@
   }
   100% {
     background-color: #FFF2;
+  }
+}
+
+@keyframes b2 {
+  0% {
+    background-color: #FFF2;
+  }
+  50% {
+    background-color: #FFF;
+  }
+  100% {
+    background-color: #FFF2;
+  }
+}
+
+@keyframes b3 {
+  0% {
+    background-color: #FFF2;
+  }
+  50% {
+    background-color: #FFF2;
+  }
+  100% {
+    background-color: #FFF;
   }
 }
       
