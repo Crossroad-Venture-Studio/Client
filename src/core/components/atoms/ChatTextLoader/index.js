@@ -3,7 +3,7 @@ import styles from './chat-text-loader.module.css';
 
 // Main component.
 export const ChatTextLoader = props => {
-  let props = {
+  let {
     className,
     type,
     size = type
