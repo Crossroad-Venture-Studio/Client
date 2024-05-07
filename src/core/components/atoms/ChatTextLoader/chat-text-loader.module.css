@@ -1,6 +1,6 @@
 .container {
   --diameter: 20px;
-  --radius: calc(0.5 * var(--radius));
+  --radius: calc(0.5 * var(--diameter));
   min-width: calc(5 * var(--radius));
   min-height: var(--diameter);
 }
