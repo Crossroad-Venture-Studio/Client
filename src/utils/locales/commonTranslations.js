@@ -174,6 +174,24 @@ export const commonTranslations = [
     pt: 'Mudar idioma'
   },
   {
+    en: 'Testimonial',
+    es: 'Testimonial',
+    fr: 'Témoignages',
+    pt: 'Depoimento'
+  },
+  {
+    en: 'Testimonials',
+    es: 'Testimonios',
+    fr: 'Témoignages',
+    pt: 'Depoimentos'
+  },
+  {
+    en: 'They said',
+    es: 'Dijeron',
+    fr: 'Ils ont dit',
+    pt: 'Eles disseram'
+  },
+  {
     en: 'Free demo',
     es: 'Prueba gratis',
     fr: 'Demo gratuite',

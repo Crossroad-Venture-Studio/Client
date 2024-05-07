@@ -24,13 +24,11 @@ export const ChatFeed = props => {
   // Define hooks.
   const scrollBottom = () => {
     let el = other.ref.current;
-    el && (el = el.parentNode.parentNode);
-    el && el && (el.scrollTop = el.scrollHeight);
+    el && (el.scrollTop = el.scrollHeight);
   },
   scrollTop = () => {
     let el = other.ref.current;
-    el && (el = el.parentNode.parentNode);
-    el && el && (el.scrollTop = 0);
+    el && (el.scrollTop = 0);
   };
   hooks && (
     hooks.scrollTop = scrollTop,
@@ -40,7 +38,6 @@ export const ChatFeed = props => {
   // useEffect to scroll to bottom of the page when history updates
   useEffect(() => {
     // Scrolling to the last element.
-    console.log('@@@@@@@@@@@@@@');
     scrollBottom();
   }, [history]);
 
