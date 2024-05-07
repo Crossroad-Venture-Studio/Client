@@ -26,10 +26,12 @@
 
 .b2 {
   animation: b2 var(--animation-time) linear infinite;
+  background-color: #FFF2;
 }
 
 .b3 {
   animation: b3 var(--animation-time) linear infinite;
+  background-color: #FFF2;
 }
 
 .container-xsmall {
