@@ -38,6 +38,7 @@ export const ChatFeed = props => {
   // useEffect to scroll to bottom of the page when history updates
   useEffect(() => {
     // Scrolling to the last element.
+    console.log('@@@@@@@@@@@@@@');
     scrollBottom();
   }, [history]);
 
