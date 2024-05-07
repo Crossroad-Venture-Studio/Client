@@ -54,10 +54,13 @@
   0% {
     background-color: #FFF;
   }
-  33% {
+  25% {
+    background-color: #FFF;
+  }
+  50% {
     background-color: #FFF2;
   }
-  66% {
+  75% {
     background-color: #FFF2;
   }
   100% {
@@ -69,10 +72,13 @@
   0% {
     background-color: #FFF2;
   }
-  33% {
+  25% {
     background-color: #FFF;
   }
-  66% {
+  50% {
+    background-color: #FFF;
+  }
+  75% {
     background-color: #FFF2;
   }
   100% {
@@ -84,10 +90,13 @@
   0% {
     background-color: #FFF2;
   }
-  33% {
+  25% {
     background-color: #FFF2;
   }
-  66% {
+  50% {
+    background-color: #FFF;
+  }
+  75% {
     background-color: #FFF;
   }
   100% {
