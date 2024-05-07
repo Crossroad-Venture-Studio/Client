@@ -8,7 +8,7 @@ export const ChatTextLoader = props => {
     type,
     size = type
   } = props || {},
-  baseClassName = styles.container.xsmall;
+  baseClassName = styles[`container${size && `-${size}` || ''}`];
   className = className && `${baseClassName} ${className}` || baseClassName;
   // size && (className += ` ${size}`);
 

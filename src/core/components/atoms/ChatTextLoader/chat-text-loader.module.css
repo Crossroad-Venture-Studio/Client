@@ -1,3 +1,7 @@
+.container-xsmall,
+.container-small,
+.container-medium,
+.container-large,
 .container {
   --diameter: 20px;
   --radius: calc(0.5 * var(--diameter));
@@ -28,19 +32,19 @@
   animation: b3 var(--animation-time) ease-out infinite;
 }
 
-.container.xsmall {
+.container-xsmall {
   --diameter: 12px;
 }
 
-.container.small {
+.container-small {
   --diameter: 16px;
 }
 
-.container.medium {
+.container-medium {
   --diameter: 24px;
 }
 
-.container.large {
+.container-large {
   --diameter: 32px;
 }
 
