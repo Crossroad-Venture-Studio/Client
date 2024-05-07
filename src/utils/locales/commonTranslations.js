@@ -204,6 +204,12 @@ export const commonTranslations = [
     pt: 'Reinicie nova demo'
   },
   {
+    en: 'Start new demo',
+    es: 'Comience nueva demo',
+    fr: 'Commencez nouvelle demo',
+    pt: 'Comece nova demo'
+  },
+  {
     en: 'Engagement',
     es: 'Compromiso',
     fr: 'Engagement',
