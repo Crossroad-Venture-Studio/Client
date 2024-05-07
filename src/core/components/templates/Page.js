@@ -5,7 +5,7 @@ import { useEffect, useRef, forwardRef } from 'react';
 import throttle from '../../../../utils/src/throttle';
 
 // Main component.
-export const Page = forwardRef(props => {
+export const Page = forwardRef((props, ref) => {
   // Normalize input.
   let {
     children,
@@ -30,7 +30,7 @@ export const Page = forwardRef(props => {
   return <main className={className} ref={ref} {...other}>
     {...children}
   </main>
-}, ref);
+});
 
 // Exports.
 export default Page;
