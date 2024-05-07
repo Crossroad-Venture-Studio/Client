@@ -25,12 +25,10 @@ export const ChatFeed = props => {
   const scrollBottom = () => {
     const el = other.ref.current;
     el && (el.scrollTop = el.scrollHeight);
-    console.log('Scroll bottom', el.scrollTop, el.scrollHeight);
   },
   scrollTop = () => {
     const el = other.ref.current;
     el && (el.scrollTop = 0);
-    console.log('Scroll top', el.scrollTop, el.scrollHeight);
   };
   hooks && (
     hooks.scrollTop = scrollTop,
