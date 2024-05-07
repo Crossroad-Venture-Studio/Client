@@ -1,18 +1,28 @@
 .container {
   --diameter: 20px;
   --radius: calc(0.5 * var(--diameter));
-  min-width: calc(5 * var(--radius));
-  min-height: var(--diameter);
+  --animation-time: 0.5s;
+  display: flex;
+  gap: var(--diameter);
 }
 
-.loader {
+.b3,
+.b2,
+.b1 {
+  border-radius: var(--radius);
   width: var(--radius);
   height: var(--radius);
   border-radius: 50%;
   background-color: #FFF;
-  box-shadow: var(--radius) 0 #FFF, var(--diameter) 0 #FFF;
-  position: relative;
-  animation: flash 0.5s ease-out infinite;
+  animation: flash var(--animation-time) ease-out infinite;
+}
+
+.b2 {
+  animation-delay: var(--animation-time);
+}
+
+.b3 {
+  animation-delay: calc(2 * var(--animation-time));
 }
 
 .container.small {
@@ -30,15 +40,12 @@
 @keyframes flash {
   0% {
     background-color: #FFF;
-    box-shadow: var(--radius) 0 #FFF2, var(--diameter) 0 #FFF2;
   }
   50% {
     background-color: #FFF2;
-    box-shadow: var(--radius) 0 #FFF, var(--diameter) 0 #FFF2;
   }
   100% {
     background-color: #FFF2;
-    box-shadow: var(--radius) 0 #FFF2, var(--diameter) 0 #FFF;
   }
 }
       

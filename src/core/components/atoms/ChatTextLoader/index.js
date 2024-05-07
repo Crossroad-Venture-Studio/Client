@@ -12,7 +12,11 @@ export const ChatTextLoader = props => {
   className = className && `${baseClassName} ${className}` || baseClassName;
   size && (className += ` ${size}`);
 
-  return <div className={className}><span className={styles['loader']}></span></div>;
+  return <div className={className}>
+    <div className={styles['b1']}/>
+    <div className={styles['b2']}/>
+    <div className={styles['b3']}/>
+  </div>;
 }
 
 // Exports.
