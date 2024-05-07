@@ -1,3 +1,4 @@
+// Imports.
 import styles from './spinner.module.css';
 
 // Main component.
