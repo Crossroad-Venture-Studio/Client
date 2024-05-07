@@ -5,7 +5,7 @@
 .container {
   --diameter: 20px;
   --radius: calc(0.5 * var(--diameter));
-  --animation-time: 3s;
+  --animation-time: 2s;
   display: flex;
   gap: var(--radius);
 }
