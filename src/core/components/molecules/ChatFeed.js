@@ -21,22 +21,26 @@ export const ChatFeed = props => {
 
   other.ref || (other.ref = useRef(null));
 
-  // useeffect to scroll to bottom of the page when history updates
+  // Define hooks.
+  const scrollBottom = () => {
+    const el = other.ref.current;
+    el && (el.scrollTop = el.scrollHeight);
+    console.log('Scroll bottom', el.scrollTop, el.scrollHeight);
+  },
+  scrollTop = () => {
+    const el = other.ref.current;
+    el && (el.scrollTop = 0);
+    console.log('Scroll top', el.scrollTop, el.scrollHeight);
+  };
+  hooks && (
+    hooks.scrollTop = scrollTop,
+    hooks.scrollBottom = scrollBottom
+  );
+
+  // useEffect to scroll to bottom of the page when history updates
   useEffect(() => {
     // Scrolling to the last element.
-    const el = other.ref.current, scrollBottom = () => {
-      el && (el.scrollTop = el.scrollHeight);
-      console.log('Scroll bottom', el.scrollTop, el.scrollHeight);
-    }, scrollTop = () => {
-      el && (el.scrollTop = 0);
-      console.log('Scroll top', el.scrollTop, el.scrollHeight);
-    };
-    hooks && (
-      hooks.scrollTop = scrollTop,
-      hooks.scrollBottom = scrollBottom
-    );
-    scrollTop();
-    
+    scrollbottom();
   }, [history]);
 
   // Render.
