@@ -1,9 +1,9 @@
 .container {
   --diameter: 20px;
   --radius: calc(0.5 * var(--diameter));
-  --animation-time: 0.5s;
+  --animation-time: 1.5s;
   display: flex;
-  gap: var(--diameter);
+  gap: var(--radius);
 }
 
 .b3,
@@ -26,6 +26,10 @@
 
 .b3 {
   animation: b3 var(--animation-time) ease-out infinite;
+}
+
+.container.xsmall {
+  --diameter: 12px;
 }
 
 .container.small {
