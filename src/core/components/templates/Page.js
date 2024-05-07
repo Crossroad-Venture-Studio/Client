@@ -1,11 +1,11 @@
 'use client';
 
 // Imports.
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, forwardRef } from 'react';
 import throttle from '../../../../utils/src/throttle';
 
 // Main component.
-export const Page = props => {
+export const Page = forwardRef(props => {
   // Normalize input.
   let {
     children,
@@ -19,7 +19,8 @@ export const Page = props => {
   Array.isArray(children || (children = [])) || (children = [children]);
 
   // Detect scroll.
-  const ref = useRef();
+  // const ref = useRef();
+  ref || (ref = useRef());
   observeScroll && useEffect(() => {
     ref && ref.current && ref.current.addEventListener('scroll', throttle(() => {
       ref && ref.current && (ref.current.dataset.scrolling = ref.current.scrollTop > 0);
@@ -29,7 +30,7 @@ export const Page = props => {
   return <main className={className} ref={ref} {...other}>
     {...children}
   </main>
-}
+}, ref);
 
 // Exports.
 export default Page;
