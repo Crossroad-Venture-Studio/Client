@@ -1,8 +1,13 @@
-.loader {
+.container {
   --diameter: 20px;
   --radius: calc(0.5 * var(--radius));
   min-width: calc(5 * var(--radius));
   min-height: var(--diameter);
+}
+
+.loader {
+  width: var(--radius);
+  height: var(--radius);
   border-radius: 50%;
   background-color: #FFF;
   box-shadow: var(--radius) 0 #FFF, var(--diameter) 0 #FFF;
@@ -10,15 +15,15 @@
   animation: flash 0.5s ease-out infinite;
 }
 
-.loader.small {
+.container.small {
   --diameter: 16px;
 }
 
-.loader.medium {
+.container.medium {
   --diameter: 24px;
 }
 
-.loader.large {
+.container.large {
   --diameter: 32px;
 }
 
