@@ -702,6 +702,12 @@ export const commonTranslations = [
     pt: 'Incrivelmente fácil'
   },
   {
+    en: 'Partner with us',
+    es: 'Asociarse con nosotros',
+    fr: 'Devenez partenaire',
+    pt: 'Seja nosso parceiro'
+  },
+  {
     en: 'Really engaging',
     es: 'Realmente atractivo',
     fr: 'Vraiment engageant',
