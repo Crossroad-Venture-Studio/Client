@@ -702,6 +702,18 @@ export const commonTranslations = [
     pt: 'Incrivelmente fácil'
   },
   {
+    en: 'Really engaging',
+    es: 'Realmente atractivo',
+    fr: 'Vraiment engageant',
+    pt: 'Realmente envolvente'
+  },
+  {
+    en: 'Facinating',
+    es: 'Fascinante',
+    fr: 'Fascinant',
+    pt: 'Fascinante'
+  },
+  {
     en: 'Solution',
     es: 'Solución',
     fr: 'Solution',
