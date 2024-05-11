@@ -678,6 +678,12 @@ export const commonTranslations = [
     pt: 'IAncrivelmente simples'
   },
   {
+    en: '𝔸𝕀mazingly simple',
+    es: '𝕀𝔸ncreíblemente simple',
+    fr: 'Étonn𝕀𝔸mment simple',
+    pt: '𝕀𝔸ncrivelmente simples'
+  },
+  {
     en: '[AI]mazingly simple',
     es: '[IA]ncreíblemente simple',
     fr: 'Étonn[IA]mment simple',
