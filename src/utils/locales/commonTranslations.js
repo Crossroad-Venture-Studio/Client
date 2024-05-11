@@ -674,19 +674,19 @@ export const commonTranslations = [
   {
     en: 'AImazingly simple',
     es: 'IAncreíblemente simple',
-    fr: 'ÉtonnAImment simple',
+    fr: 'ÉtonnIAmment simple',
     pt: 'IAncrivelmente simples'
   },
   {
     en: '[AI]mazingly simple',
     es: '[IA]ncreíblemente simple',
-    fr: 'Étonn[AI]mment simple',
+    fr: 'Étonn[IA]mment simple',
     pt: '[IA]ncrivelmente simples'
   },
   {
     en: '(AI)mazingly simple',
     es: '(IA)ncreíblemente simple',
-    fr: 'Étonn(AI)mment simple',
+    fr: 'Étonn(IA)mment simple',
     pt: '(IA)ncrivelmente simples'
   },
   {
@@ -778,7 +778,19 @@ export const commonTranslations = [
     es: 'Soluciones institucional',
     fr: 'Solutions institutionnelles',
     pt: 'Soluções institucional'
-  }
+  },
+  {
+    en: 'Steps to success',
+    es: 'Pasos hacia el éxito',
+    fr: 'Étapes vers le success',
+    pt: 'Passos para o sucesso'
+  },
+  {
+    en: 'Keys to success',
+    es: 'Claves para el éxito',
+    fr: 'Clés du succès',
+    pt: 'Chave para o sucesso'
+  },
 ];
 
 export default commonTranslations;
