@@ -92,7 +92,7 @@ export const TopNavbar = props => {
 
       {...children}
 
-      {rightNav.length && <div className={`row center right${!(hasBack || logoSrc || logoText || hasNext) && ' fill' || ''}`}>
+      {rightNav.length && <div className={`top-navbar-right row center right${!(hasBack || logoSrc || logoText || hasNext) && ' fill' || ''}`}>
         {...(rightNav.map((b, i) => <Button {...b} key={`${i}`}></Button>))}
       </div> || null}
 
