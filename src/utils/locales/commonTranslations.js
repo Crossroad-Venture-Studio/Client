@@ -444,6 +444,30 @@ export const commonTranslations = [
     pt: 'Correio eletrônico'
   },
   {
+    en: 'Enter your email address',
+    es: 'Escriba su correo electrónico',
+    fr: 'Entrez votre adresse électronique',
+    pt: 'Digite seu correio eletrônico'
+  },
+  {
+    en: 'Enter your e-mail address',
+    es: 'Escriba su correo electrónico',
+    fr: 'Entrez votre adresse électronique',
+    pt: 'Digite seu correio eletrônico'
+  },
+  {
+    en: 'Enter your password',
+    es: 'Escribe su contraseña',
+    fr: 'Entrez votre mot de passe',
+    pt: 'Digite sua senha'
+  },
+  {
+    en: 'Enter your name',
+    es: 'Escribe su nombre',
+    fr: 'Entrez votre nom',
+    pt: 'Digite seu nome'
+  },
+  {
     en: 'E-mail address',
     es: 'Correo electrónico',
     fr: 'Adresse électronique',
