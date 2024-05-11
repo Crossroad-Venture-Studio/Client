@@ -26,13 +26,13 @@ export const commonTranslations = [
   {
     en: 'Feature',
     es: 'Función',
-    fr: 'Fonction',
+    fr: 'Fonctionalités',
     pt: 'Função',
   },
   {
     en: 'Features',
     es: 'Funciones',
-    fr: 'Fonctions',
+    fr: 'Fonctionalités',
     pt: 'Funções',
   },
   {
@@ -658,6 +658,108 @@ export const commonTranslations = [
     es: 'País',
     fr: 'Pays',
     pt: 'País'
+  },
+  {
+    en: 'Why',
+    es: 'Por qué',
+    fr: 'Pourquoi',
+    pt: 'Por que'
+  },
+  {
+    en: 'How it works',
+    es: 'Cómo funciona',
+    fr: 'Comment ça marche',
+    pt: 'Como funciona'
+  },
+  {
+    en: 'AImazingly simple',
+    es: 'IAncreíblemente simple',
+    fr: 'ÉtonnAImment simple',
+    pt: 'IAncrivelmente simples'
+  },
+  {
+    en: '[AI]mazingly simple',
+    es: '[IA]ncreíblemente simple',
+    fr: 'Étonn[AI]mment simple',
+    pt: '[IA]ncrivelmente simples'
+  },
+  {
+    en: '(AI)mazingly simple',
+    es: '(IA)ncreíblemente simple',
+    fr: 'Étonn(AI)mment simple',
+    pt: '(IA)ncrivelmente simples'
+  },
+  {
+    en: 'Amazingly simple',
+    es: 'Increíblemente simple',
+    fr: 'Étonnamment simple',
+    pt: 'Incrivelmente simples'
+  },
+  {
+    en: 'Incredibly easy',
+    es: 'Increíblemente fácil',
+    fr: 'Incroyablement facile',
+    pt: 'Incrivelmente fácil'
+  },
+  {
+    en: 'Solution',
+    es: 'Solución',
+    fr: 'Solution',
+    pt: 'Solução'
+  },
+  {
+    en: 'Solutions',
+    es: 'Soluciones',
+    fr: 'Solutions',
+    pt: 'Soluções'
+  },
+  {
+    en: 'Problem',
+    es: 'Problema',
+    fr: 'Problème',
+    pt: 'Problema'
+  },
+  {
+    en: 'Problems',
+    es: 'Problemas',
+    fr: 'Problèmes',
+    pt: 'Problemas'
+  },
+  {
+    en: 'B2B solution',
+    es: 'Solución B2B',
+    fr: 'Solution B2B',
+    pt: 'Solução B2B'
+  },
+  {
+    en: 'B2B solutions',
+    es: 'Soluciones B2B',
+    fr: 'Solutions B2B',
+    pt: 'Soluções B2B'
+  },
+  {
+    en: 'B2C solution',
+    es: 'Solución B2C',
+    fr: 'Solution B2C',
+    pt: 'Solução B2C'
+  },
+  {
+    en: 'B2C solutions',
+    es: 'Soluciones B2C',
+    fr: 'Solutions B2C',
+    pt: 'Soluções B2C'
+  },
+  {
+    en: 'Institution solution',
+    es: 'Solución institucional',
+    fr: 'Solution institutionnelle',
+    pt: 'Solução institucional'
+  },
+  {
+    en: 'Institution solutions',
+    es: 'Soluciones institucional',
+    fr: 'Solutions institutionnelles',
+    pt: 'Soluções institucional'
   }
 ];
 
