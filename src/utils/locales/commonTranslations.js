@@ -32,13 +32,13 @@ export const commonTranslations = [
   {
     en: 'Feature',
     es: 'Función',
-    fr: 'Fonctionalités',
+    fr: 'Fonctionnalité',
     pt: 'Função',
   },
   {
     en: 'Features',
     es: 'Funciones',
-    fr: 'Fonctionalités',
+    fr: 'Fonctionnalités',
     pt: 'Funções',
   },
   {
