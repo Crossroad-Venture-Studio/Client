@@ -6,6 +6,12 @@ export const commonTranslations = [
     pt: 'Ou',
   },
   {
+    en: 'En',
+    es: 'Es',
+    fr: 'Fr',
+    pt: 'Pt',
+  },
+  {
     en: 'Back',
     es: 'Atrás',
     fr: 'Retour',
