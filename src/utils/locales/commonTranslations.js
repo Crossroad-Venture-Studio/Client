@@ -30,6 +30,12 @@ export const commonTranslations = [
     pt: 'Escolha seu idioma'
   },
   {
+    en: 'It\'s free',
+    es: 'Es gratis',
+    fr: 'C\'est gratuit',
+    pt: 'É grátis'
+  },
+  {
     en: 'Welcome back',
     es: 'Bienvenido de nuevo',
     fr: 'Content de vous revoir',
