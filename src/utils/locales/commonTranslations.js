@@ -24,10 +24,28 @@ export const commonTranslations = [
     pt: 'Próximo',
   },
   {
+    en: 'Pick your language',
+    es: 'Elija su idioma',
+    fr: 'Sélectionnez votre langue',
+    pt: 'Escolha seu idioma'
+  },
+  {
     en: 'Welcome back',
     es: 'Bienvenido de nuevo',
     fr: 'Content de vous revoir',
     pt: 'Bem vindo de volta',
+  },
+  {
+    en: 'Super easy to set up',
+    es: 'Súper fácil de configurar',
+    fr: 'Super facile à mettre en place',
+    pt: 'Super fácil de configurar'
+  },
+  {
+    en: 'A game changer',
+    es: 'Revolucionario',
+    fr: 'Revolutionnaire',
+    pt: 'Revolucionário'
   },
   {
     en: 'Feature',
