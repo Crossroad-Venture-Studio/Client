@@ -5,7 +5,10 @@ import styles from './chat-text-loader.module.css';
 export const ChatTextLoader = props => {
   let {
     className,
-    type,
+    xsmall,
+    small,
+    large,
+    type = xsmall && 'xsmall' || (small && 'small') || (large && 'large'),
     size = type
   } = props || {},
   baseClassName = styles[`container${size && `-${size}` || ''}`];
