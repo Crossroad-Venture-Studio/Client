@@ -22,7 +22,6 @@ export const TermsOfUse = props => {
     <br/>
     <i>This version of the Terms of Services was last updated on August 28, 2023.</i>
     <br/>
-    <br/>
     Welcome to the {name} Terms of Service (“Terms”).
     <br/>
     <br/>
@@ -31,7 +30,7 @@ export const TermsOfUse = props => {
       services and products we provide. The Site and our products and services, including any of our data-inspired features and
       APIs, are collectively called the “Services”. If you have any questions, <span><Link href={contactUsUrl} onClick={pageTransitions.slideIn} className='link primary'>contact us</Link></span>.
     </span>
-    <br/>
+    
     <div id='agreement-to-terms' className='anchor-label'></div>
 
     <h1>
@@ -67,7 +66,6 @@ export const TermsOfUse = props => {
     Services under applicable law. By submitting information to {name} in the signup process, you expressly
     authorize us to retain certain of that information on your behalf and permit us to store such information
     for the purpose of providing and improving the Services.
-    <br/>
     <br/>
     <br/>
     You may not use the Services under the name of another person with the intent to impersonate that person,
