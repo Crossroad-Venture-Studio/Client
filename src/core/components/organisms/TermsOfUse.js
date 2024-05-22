@@ -1,5 +1,5 @@
 // Imports.
-import { pageTransitions } from '../navigation/TransitionPage';
+import { pageTransitions } from '../navigation';
 import Column from '../atoms/Column';
 import Link from 'next/link';
 
