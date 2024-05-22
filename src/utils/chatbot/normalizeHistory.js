@@ -51,8 +51,9 @@ export const normalizeHistory = (history, botName = 'Otto') => {
     output[output.length - 1].__is_end__ = true
   ) || (
     date = Date.now(),
+    d = getDate(date),
     output.push({
-      component: <DateLine date={date} />
+      component: <DateLine date={d} />
     }),
     output.push({
       component: <ChatBubble><ChatTextLoader size='xsmall'/></ChatBubble>,
