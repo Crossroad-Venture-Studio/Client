@@ -26,6 +26,9 @@ export const OverlayMenu = props => {
     onClosed = onCloseEnd,
     cancelable = true,
     hooks,
+    closeIconSrc = 'https://crossroad-venture-studio.github.io/Design-System/icons/actions/close-filled-dark.svg',
+    closeIcon = closeIconSrc,
+    closeSrc = closeIcon,
     ...other
   } = props || {},
   _ref = useRef(null),
@@ -42,6 +45,7 @@ export const OverlayMenu = props => {
   Array.isArray(children || (children = [])) || (children = [children]);
   nav || (nav = []);
   className = (className && `menu ${className}`) || 'menu';
+  hooks || (hooks = {});
 
   // Additional states.
   const [isOpened, setIsOpened] = useState(opened);
@@ -61,6 +65,7 @@ export const OverlayMenu = props => {
       ref={_ref}
       {...other}
     >
+      <Button className='width-100-percent row right close' src={closeSrc} onPress={() => hooks.close()} />
       {...(nav.map(({src, icon, iconSrc, ...other} = {}, i) => <Button disabled={!isOpened} {...other} key={`${i}`}></Button>))}
       {...children}
     </div> || null}
