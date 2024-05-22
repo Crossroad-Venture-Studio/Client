@@ -2,12 +2,12 @@ import GLOBALS from './globals';
 
 // Initialize socket connection.
 export const initiateWebSocketConnection = (
-  url,
+  webSocketUrl,
   onMessageReceived,
   onOpened,
   socketHook = GLOBALS
 ) => {
-  const socket = (socketHook | {}).socket = new WebSocket(url);
+  const socket = (socketHook | {}).socket = new WebSocket(webSocketUrl);
 
   socket.addEventListener('open', () => {
     typeof onOpened === 'function' && onOpened(socket);

@@ -7,6 +7,7 @@ import { updateHistory as _updateHistory } from './updateHistory';
 
 // Helper function to initiate connection.
 export const initiateConnection = (
+  webSocketUrl,
   store,
   conversationHistoryKey = 'conversationHistory',
   conversationIdKey = 'conversation_id',
@@ -16,6 +17,7 @@ export const initiateConnection = (
 ) => {
   // Initiate WebSocket connection.
   initiateWebSocketConnection(
+    webSocketUrl,
     data => handleNewMessage(
       data,
       store,

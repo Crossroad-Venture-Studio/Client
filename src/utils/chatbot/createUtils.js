@@ -7,6 +7,7 @@ import { updateHistory as _updateHistory } from './updateHistory';
 
 // To create a set of utils.
 export const createUtils = ({
+  webSocketUrl,
   store,
   conversationHistoryKey = 'conversationHistory',
   conversationIdKey = 'conversation_id',
@@ -15,7 +16,8 @@ export const createUtils = ({
   sendMessage = _sendMessage,
   socket = GLOBALS.socket
 }) => ({
-  initiateConnection: () => initiateConnection(
+  initiateConnection: (url = webSocketUrl) => initiateConnection(
+    url,
     store,
     conversationHistoryKey = 'conversationHistory',
     conversationIdKey = 'conversation_id',
