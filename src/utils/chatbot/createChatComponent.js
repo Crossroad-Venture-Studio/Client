@@ -13,7 +13,7 @@ export const createChatComponent = ({
   userStore,
   store = userStore,
   conversationHistoryKey = 'conversationHistory',
-  conversationIdKey,
+  conversationIdKey = 'conversation_id',
   normalizeHistory: _normalizeHistory,
   translate = Function.identity
 } = {}) => {
@@ -51,8 +51,10 @@ export const createChatComponent = ({
       const type = 'chat_to_bot',
       data = {
         text: message.chatInput,
-        conversation_id: userStore.data.conversation_id
+        conversation_id: store.data[conversationIdKey]
       };
+
+      console.log('data', data);
   
       // Update the conversation history.
       updateHistory({ data });
