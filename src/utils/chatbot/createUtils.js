@@ -6,7 +6,7 @@ import { sendMessage as _sendMessage } from './sendMessage';
 import { updateHistory as _updateHistory } from './updateHistory';
 
 // To create a set of utils.
-export const createUtils = (
+export const createUtils = ({
   store,
   conversationHistoryKey = 'conversationHistory',
   conversationIdKey = 'conversation_id',
@@ -14,7 +14,7 @@ export const createUtils = (
   updateHistory = _updateHistory,
   sendMessage = _sendMessage,
   socket = GLOBALS.socket
-) => ({
+}) => ({
   initiateConnection: () => initiateConnection(
     store,
     conversationHistoryKey = 'conversationHistory',
