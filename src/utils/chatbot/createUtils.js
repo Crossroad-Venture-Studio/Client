@@ -27,9 +27,8 @@ export const createUtils = ({
     initiateNewConversation(reset, store)
   ),
   normalizeHistory: (...args) => {
-    let output = _normalizeHistory(...args);
-    typeof normalizeHistory === 'function' && (output = normalizeHistory(output));
-    return output;
+    const output = _normalizeHistory(...args);
+    return typeof normalizeHistory === 'function' && normalizeHistory(output) || output;
   },
   sendMessage: (type, data) =>  sendMessage(type, data, socket),
   updateHistory: message =>  updateHistory(message, store, conversationHistoryKey)
