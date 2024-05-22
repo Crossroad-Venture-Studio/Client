@@ -6,34 +6,45 @@ import { sendMessage as _sendMessage } from './sendMessage';
 import { updateHistory as _updateHistory } from './updateHistory';
 
 // Helper function to initiate connection.
-export const initiateConnection = (
+export const initiateConnection = ({
   webSocketUrl,
   store,
   conversationHistoryKey = 'conversationHistory',
   conversationIdKey = 'conversation_id',
   updateHistory = _updateHistory,
   sendMessage = _sendMessage,
-  socket = GLOBALS.socket
-) => {
+  socketHook = GLOBALS,
+  socket = GLOBALS.socket,
+  onSocketOpened,
+  onOpened = onSocketOpened,
+  onMessageReceived,
+  onSocketClosed,
+  onClosed = onSocketClosed,
+  onSocketError,
+  onError = onSocketError
+} = {}) => (
   // Initiate WebSocket connection.
-  initiateWebSocketConnection(
+  socket || initiateWebSocketConnection({
     webSocketUrl,
-    data => handleNewMessage(
-      data,
-      store,
-      conversationHistoryKey,
-      updateHistory
-    ),
-    () => initiateNewConversation(
+    onOpened: onOpened || (() => initiateNewConversation(
       false,
       store,
       conversationHistoryKey = 'conversationHistory',
       conversationIdKey = 'conversation_id',
       sendMessage,
       socket
-    )
-  );
-}
+    )),
+    onMessageReceived: onMessageReceived || (data => handleNewMessage(
+      data,
+      store,
+      conversationHistoryKey,
+      updateHistory
+    )),
+    onClosed,
+    onError,
+    socketHook
+  })
+);
 
 // Default export.
 export default initiateConnection;

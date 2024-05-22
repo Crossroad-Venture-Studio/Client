@@ -16,15 +16,15 @@ export const createUtils = ({
   sendMessage = _sendMessage,
   socket = GLOBALS.socket
 }) => ({
-  initiateConnection: (url = webSocketUrl) => initiateConnection(
+  initiateConnection: (url = webSocketUrl) => initiateConnection({
     url,
     store,
-    conversationHistoryKey = 'conversationHistory',
-    conversationIdKey = 'conversation_id',
-    updateHistory = _updateHistory,
-    sendMessage = _sendMessage,
+    conversationHistoryKey,
+    conversationIdKey,
+    updateHistory: _updateHistory,
+    sendMessage: _sendMessage,
     socket
-  ),
+  }),
   initiateNewConversation: (reset = false) => (
     initiateNewConversation(reset, store)
   ),
