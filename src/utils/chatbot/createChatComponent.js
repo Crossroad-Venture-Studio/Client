@@ -37,6 +37,9 @@ export const createChatComponent = ({
   return props => {
     // normalize input.
     let {
+      sendIconSrc = 'https://crossroad-venture-studio.github.io/Design-System/icons/actions/send-filled-dark.svg',
+      sendIcon = sendIconSrc,
+      sendSrc = sendIcon,
       containerRef,
       scrollBottom,
       scrollTop,
@@ -109,7 +112,7 @@ export const createChatComponent = ({
           className='icon'
           type='submit'
           isLink
-          src='assets/misc/send-filled-black.svg'
+          src={sendSrc}
         />
       </Row>
     </Form>;
