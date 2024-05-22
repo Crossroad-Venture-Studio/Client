@@ -277,9 +277,7 @@ export const TermsOfUse = props => {
       ANY OTHER LEGAL THEORY, AND WHETHER OR NOT {name.toUpperCase()} HAS BEEN INFORMED OF THE POSSIBILITY OF SUCH DAMAGE,
       EVEN IF A LIMITED REMEDY SET FOR THEREIN IS FOUND TO HAVE FAILED OF ITS ESSENTIAL PURPOSE.
       <br/>
-    <br/>
       <br/>
-    <br/>
       IN NO EVENT WILL {name.toUpperCase()}'S TOTAL LIABILITY ARISING OUT OF ORIN CONNECTION WITH THESE TERMS OR FROM THE
       USE OF OR INABILITY TO USE THE SERVICES OR CONTENT EXCEED THE LESSER OF THE AMOUNTS YOU HAVE PAID TO
       {name.toUpperCase()} FOR USE OF THE SERVICES DURING THE TWELVE (12) MONTHS PRIOR TO THE CAUSE OF ACTION, OR ONE
@@ -351,7 +349,6 @@ export const TermsOfUse = props => {
     reason a court of competent jurisdiction finds any provision of these Terms invalid or unenforceable, that
     provision will be enforced to the maximum extent permissible and the other provisions of these Terms will remain
     in full force and effect.
-
     <br/>
     <br/>
     <b>
@@ -361,20 +358,18 @@ export const TermsOfUse = props => {
     </b>
     <br/>
     <br/>
-
     Any notices or other communications provided by {name} under these Terms, including those regarding
     modifications
     to these Terms, will be given by us by posting to the Services.
     <br/>
     <br/>
-
     {name}'s failure to enforce any right or provision of these Terms will not be considered a waiver of those
     rights. The waiver of any such right or provision will be effective only if in writing and signed by a duly
     authorized representative of {name}. Except as expressly set forth in these Terms, the exercise by either
     party of any of its remedies under these Terms will be without prejudice to its other remedies under these
     Terms or otherwise.
-
-
+    <br/>
+    <br/>
     {children}
   </Column>;
 }
