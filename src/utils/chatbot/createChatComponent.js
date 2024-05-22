@@ -9,6 +9,7 @@ import '../../../utils/src/functionUtils';
 
 // Main utility.
 export const createChatComponent = ({
+  botName,
   webSocketUrl,
   userStore,
   store = userStore,
@@ -24,6 +25,7 @@ export const createChatComponent = ({
     sendMessage,
     updateHistory
   } = createUtils({
+    botName,
     webSocketUrl,
     store,
     conversationHistoryKey,

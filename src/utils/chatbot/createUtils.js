@@ -8,6 +8,7 @@ import { updateHistory as _updateHistory } from './updateHistory';
 
 // To create a set of utils.
 export const createUtils = ({
+  botName,
   webSocketUrl,
   userStore,
   store = userStore,
@@ -40,8 +41,8 @@ export const createUtils = ({
       socket: socket || GLOBALS.socket
     })
   ),
-  normalizeHistory: (...args) => {
-    const output = _normalizeHistory(...args);
+  normalizeHistory: (history, name = botName) => {
+    const output = _normalizeHistory(history, name = botName);
     return typeof normalizeHistory === 'function' && normalizeHistory(output) || output;
   },
   sendMessage: (type, data) =>  sendMessage(type, data, socket || GLOBALS.socket),
