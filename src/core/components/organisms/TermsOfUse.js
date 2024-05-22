@@ -18,6 +18,8 @@ export const TermsOfUse = props => {
   // Render.
   return <Column className={className}>
     <span className='page-title width-100-percent'>Terms of use</span>
+    <br/>
+    <br/>
     <i>This version of the Terms of Services was last updated on August 28, 2023.</i>
 
     Welcome to the {name} Terms of Service (“Terms”). 

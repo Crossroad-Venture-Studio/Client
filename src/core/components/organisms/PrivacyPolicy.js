@@ -17,6 +17,8 @@ export const PrivacyPolicy = props => {
   // Render.
   return <Column className={className}>
     <span className='page-title'>Privacy policy</span>
+    <br/>
+    <br/>
     <i>This version of the Privacy Policy was last updated on August 28, 2023.</i>
     
     At {name} we respect your privacy and are committed to protecting your personal data.
