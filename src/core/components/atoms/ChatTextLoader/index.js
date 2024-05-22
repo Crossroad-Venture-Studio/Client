@@ -11,7 +11,7 @@ export const ChatTextLoader = props => {
     type = xsmall && 'xsmall' || (small && 'small') || (large && 'large'),
     size = type
   } = props || {},
-  baseClassName = styles[`container${size && `-${size}` || ''}`];
+  baseClassName = `chat-text-loader ${styles[`container${size && `-${size}` || ''}`]}`;
   className = className && `${baseClassName} ${className}` || baseClassName;
   // size && (className += ` ${size}`);
 
