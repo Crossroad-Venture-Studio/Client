@@ -3,6 +3,7 @@ import Button from '../../core/components/atoms/Button';
 import Form from '../../core/components/atoms/Form';
 import Row from '../../core/components/atoms/Row';
 import ChatFeed from '../../core/components/molecules/ChatFeed';
+import { useObserver } from '../../core/hooks/useObserver';
 import { createUtils } from './chatbot';
 import '../../../utils/src/functionUtils';
 
