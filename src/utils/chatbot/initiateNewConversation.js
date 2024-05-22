@@ -1,10 +1,14 @@
+import {sendMessage as _sendMessage} from './sendMessage';
+import GLOBALS from './globals';
+
 // Helper function to initiate conversation.
 export const initiateNewConversation = (
   reset = false,
-  sendMessage,
   store,
   conversationHistoryKey = 'conversationHistory',
-  conversationIdKey = 'conversation_id'
+  conversationIdKey = 'conversation_id',
+  sendMessage = _sendMessage,
+  socket = GLOBALS.socket
 ) => {
   const history = store.data[conversationHistoryKey] || [];
   console.log('initiateNewConversation', history, history.length);
@@ -23,7 +27,7 @@ export const initiateNewConversation = (
       conversation_id: store.data[conversationIdKey]
     };
     conversationIdKey !== 'conversation_id' && (message[conversationIdKey] = store.data[conversationIdKey]);
-    sendMessage('chat_to_bot', message);
+    sendMessage('chat_to_bot', message, socket);
   }
 }
 

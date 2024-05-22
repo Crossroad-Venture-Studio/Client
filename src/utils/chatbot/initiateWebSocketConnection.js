@@ -2,10 +2,12 @@ import GLOBALS from './globals';
 
 // Initialize socket connection.
 export const initiateWebSocketConnection = (
+  url,
   onMessageReceived,
-  onOpened
+  onOpened,
+  socketHook = GLOBALS
 ) => {
-  const socket = GLOBALS.socket = new WebSocket('wss://api.automarketer.ai');
+  const socket = (socketHook | {}).socket = new WebSocket(url);
 
   socket.addEventListener('open', () => {
     typeof onOpened === 'function' && onOpened(socket);
@@ -29,4 +31,4 @@ export const initiateWebSocketConnection = (
 };
 
 // Default export.
-export default initiateWebSocketConnection
+export default initiateWebSocketConnection;

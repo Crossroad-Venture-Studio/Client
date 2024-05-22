@@ -1,3 +1,6 @@
+import ChatBubble from '../../core/components/atoms/ChatBubble';
+import ChatTextLoader from '../../core/components/atoms/ChatTextLoader';
+
 // Helper function to extract the date string.
 const getDate = date => {
   if (!date) return '';
