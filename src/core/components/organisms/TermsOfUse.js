@@ -21,13 +21,18 @@ export const TermsOfUse = props => {
     <br/>
     <br/>
     <i>This version of the Terms of Services was last updated on August 28, 2023.</i>
-
-    Welcome to the {name} Terms of Service (“Terms”). 
+    <br/>
+    <br/>
+    Welcome to the {name} Terms of Service (“Terms”).
+    <br/>
+    <br/>
     <span>
       Please read these Terms carefully because they govern your use of our website/webapp, (the “Site”) and the
       services and products we provide. The Site and our products and services, including any of our data-inspired features and
       APIs, are collectively called the “Services”. If you have any questions, <span><Link href={contactUsUrl} onClick={pageTransitions.slideIn} className='link primary'>contact us</Link></span>.
     </span>
+    <br/>
+    <br/>
     <div id='agreement-to-terms' className='anchor-label'></div>
 
     <h1>
@@ -63,7 +68,9 @@ export const TermsOfUse = props => {
     Services under applicable law. By submitting information to {name} in the signup process, you expressly
     authorize us to retain certain of that information on your behalf and permit us to store such information
     for the purpose of providing and improving the Services.
-    <br />
+    <br/>
+    <br/>
+    <br/>
     You may not use the Services under the name of another person with the intent to impersonate that person,
     or use a username that is subject to the rights of another person without appropriate authorization. You
     must be a human to use the Service and an automated account is not allowed. “Robot”(or automatic) activity
@@ -91,10 +98,14 @@ export const TermsOfUse = props => {
       Your privacy is important to us. Please review our Privacy Policy for information about the data we may
       collect and use. Our Privacy Policy is incorporated in these Terms, and is available <span><Link href={privacyPolicyUrl} onClick={pageTransitions.slideIn} className='link primary'>here</Link></span>.
     </span>
+    <br/>
+    <br/>
     <b>
       YOU AGREE THAT {name.toUpperCase()} MAY MONITOR YOUR USE OF THE SITE TO ENSURE QUALITY, IMPROVE THE SERVICES,
       AND TO VERIFY YOUR COMPLIANCE WITH THE TERMS.
     </b>
+    <br/>
+    <br/>
     You understand and agree that {name} may track your movement on the Site and anonymize the data for the
     purposes of quality assurance, technical support, or Service improvements. By visiting the Site, and using
     the Services, you agree to the collection and use of such data.
@@ -106,18 +117,21 @@ export const TermsOfUse = props => {
     For purposes of these Terms: “User Content” means text, software code, algorithms, graphics, images, music,
     software, audio, video, works of authorship of any kind, and information or other materials that are posted,
     generated, provided or otherwise contributed by the Users, publicly or privately, through the Services.
-    <br />
+    <br/>
+    <br/>
 
     You are responsible for the User Content that you post to the Services, including its legality, reliability,
     and appropriateness. You represent to {name} that you have the necessary permissions, if any, to submit or
     generate User Content on the Site. Based on your subscription and settings, your User Content will be available
     either in public or private format for your teams viewing or by members of the {name} community.
-    <br />
+    <br/>
+    <br/>
 
     You represent and warrant that: (i) the Content is yours(you own it) or you have the right to use it;
     and (ii) by submitting Content, through the Services you do not violate the privacy rights, publicity rights,
     copyrights, contract rights or any other rights of any other party.
-    <br />
+    <br/>
+    <br/>
 
     {name} does not claim any ownership rights in any User Content that you make available through the Services
     and nothing in these Terms will be deemed to restrict any rights that you may have to use and exploit your own
@@ -141,7 +155,8 @@ export const TermsOfUse = props => {
     or our affiliates of any kind, and information or other materials that are posted or generated on the Services
     by
     {name} or our affiliates.
-    <br />
+    <br/>
+    <br/>
     You only have the right to view and access {name} Content. At no time is any user permitted to:
     (i) transfer, sublicense, sell, lease, lend, rent or otherwise distribute {name} Content or the Services to
     a third party; (ii) decompile, reverse-engineer, disassemble, or create derivative works of the Services or
@@ -261,8 +276,10 @@ export const TermsOfUse = props => {
       ANY OTHER PROGRAMS), WHETHER BASED ON WARRANTY, CONTRACT, TORT (INCLUDING NEGLIGENCE), PRODUCT LIABILITY OR
       ANY OTHER LEGAL THEORY, AND WHETHER OR NOT {name.toUpperCase()} HAS BEEN INFORMED OF THE POSSIBILITY OF SUCH DAMAGE,
       EVEN IF A LIMITED REMEDY SET FOR THEREIN IS FOUND TO HAVE FAILED OF ITS ESSENTIAL PURPOSE.
-      <br />
-      <br />
+      <br/>
+    <br/>
+      <br/>
+    <br/>
       IN NO EVENT WILL {name.toUpperCase()}'S TOTAL LIABILITY ARISING OUT OF ORIN CONNECTION WITH THESE TERMS OR FROM THE
       USE OF OR INABILITY TO USE THE SERVICES OR CONTENT EXCEED THE LESSER OF THE AMOUNTS YOU HAVE PAID TO
       {name.toUpperCase()} FOR USE OF THE SERVICES DURING THE TWELVE (12) MONTHS PRIOR TO THE CAUSE OF ACTION, OR ONE
@@ -296,13 +313,15 @@ export const TermsOfUse = props => {
     <b>Informal Negotiations:</b> Parties to a dispute concerning thisAgreement, the Privacy Policy, or the use
     of the Services will attempt to informally negotiate a potential settlement or resolution to the dispute;
 
-    <br />
+    <br/>
+    <br/>
 
     <b>Binding Arbitration:</b> If for any reason arbitration is unsuccessful or unavailable to the parties,
     parties agree to submit to binding arbitration abiding by JAMS rules in the jurisdiction of the State of
     Nevada. Each party is responsible for paying their own filing, administrative and arbitrator fees.
     Judgment on the arbitration award may be entered in any court having jurisdiction thereof.
-    <br />
+    <br/>
+    <br/>
 
     This Agreement and all related documents are governed by, and construed in accordance with, the laws of
     the State of Nevada, without regard to the conflict of laws provisions thereof to the extent such principles
@@ -339,7 +358,8 @@ export const TermsOfUse = props => {
     Any notices or other communications provided by {name} under these Terms, including those regarding
     modifications
     to these Terms, will be given by us by posting to the Services.
-    <br />
+    <br/>
+    <br/>
 
     {name}'s failure to enforce any right or provision of these Terms will not be considered a waiver of those
     rights. The waiver of any such right or provision will be effective only if in writing and signed by a duly

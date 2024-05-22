@@ -62,7 +62,8 @@ export const PrivacyPolicy = props => {
     data about you. We do not control these third-party websites and are not responsible for their privacy
     statements. When you leave our website, we encourage you to read the privacy notice of every website
     you visit.
-    <br />
+    <br/>
+    <br/>
 
     <h2>
       Children under the age of 16
