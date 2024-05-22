@@ -1,10 +1,10 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, forwardRef } from 'react';
 import createEventHandlers from '../../../utils/createEventHandlers';
 
 // Modal overlay.
-export const Overlay = props => {
+export const Overlay = forwardRef((props, ref) => {
   // Get props and normalize input.
   let {
     className,
@@ -36,7 +36,7 @@ export const Overlay = props => {
   // Fill hooks.
   // Hooks are functions that allow control from external components.
   if (hooks) {
-    _ref = useRef(null);
+    _ref = ref || useRef(null);
 
     // Open function.
     hooks.open = async () => new Promise((resolve, reject) => {
@@ -118,7 +118,7 @@ export const Overlay = props => {
   >
     {...children}
   </dialog>
-};
+});
 
 // Exports.
 export const TRANSITION_TIME = 300;
