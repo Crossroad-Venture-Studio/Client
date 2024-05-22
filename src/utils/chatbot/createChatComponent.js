@@ -14,7 +14,7 @@ export const createChatComponent = ({
   store = userStore,
   conversationHistoryKey = 'conversationHistory',
   conversationIdKey,
-  normalizeHistory,
+  normalizeHistory: _normalizeHistory,
   translate = Function.identity
 } = {}) => {
   const {
@@ -28,7 +28,7 @@ export const createChatComponent = ({
     store,
     conversationHistoryKey,
     conversationIdKey,
-    normalizeHistory
+    normalizeHistory: _normalizeHistory
   });
 
   return props => {
