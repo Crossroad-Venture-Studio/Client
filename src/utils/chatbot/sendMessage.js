@@ -11,7 +11,7 @@ export const sendMessage = (type, data, socket = GLOBALS.socket) => (
     true
   ) || (
     // Socket not ready.
-    console.log('socket:', socket),
+    console.log('socket:', socket, GLOBALS),
     console.error('WebSocket is not connected.'),
     false
   )
