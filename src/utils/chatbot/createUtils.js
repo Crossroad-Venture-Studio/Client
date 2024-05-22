@@ -1,4 +1,5 @@
 import GLOBALS from './globals';
+import { createId as _createId } from './createId';
 import initiateNewConversation from './initiateNewConversation';
 import initiateConnection from './initiateConnection';
 import { normalizeHistory as _normalizeHistory } from './normalizeHistory';
@@ -15,6 +16,7 @@ export const createUtils = ({
   normalizeHistory,
   updateHistory = _updateHistory,
   sendMessage = _sendMessage,
+  createId = _createId,
   socket = GLOBALS.socket
 }) => ({
   initiateConnection: (url = webSocketUrl) => initiateConnection({
@@ -22,8 +24,9 @@ export const createUtils = ({
     store,
     conversationHistoryKey,
     conversationIdKey,
-    updateHistory: _updateHistory,
-    sendMessage: _sendMessage,
+    updateHistory,
+    sendMessage,
+    createId,
     socket: socket || GLOBALS.socket
   }),
   initiateNewConversation: (reset = false) => (
@@ -32,7 +35,8 @@ export const createUtils = ({
       store,
       conversationHistoryKey,
       conversationIdKey,
-      sendMessage: _sendMessage,
+      sendMessage,
+      createId,
       socket: socket || GLOBALS.socket
     })
   ),

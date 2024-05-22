@@ -1,5 +1,6 @@
 import GLOBALS from './globals';
-import {sendMessage as _sendMessage} from './sendMessage';
+import { createId as _createId } from './createId';
+import { sendMessage as _sendMessage } from './sendMessage';
 
 // Helper function to initiate conversation.
 export const initiateNewConversation = ({
@@ -8,6 +9,7 @@ export const initiateNewConversation = ({
   conversationHistoryKey = 'conversationHistory',
   conversationIdKey = 'conversation_id',
   sendMessage = _sendMessage,
+  createId = _createId,
   socket = GLOBALS.socket
 } = {}) => {
   socket || (socket = GLOBALS.socket);

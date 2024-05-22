@@ -4,6 +4,7 @@ import initiateWebSocketConnection from './initiateWebSocketConnection';
 import handleNewMessage from './handleNewMessage';
 import { sendMessage as _sendMessage } from './sendMessage';
 import { updateHistory as _updateHistory } from './updateHistory';
+import { createId as _createId } from './createId';
 
 // Helper function to initiate connection.
 export const initiateConnection = ({
@@ -15,6 +16,7 @@ export const initiateConnection = ({
   sendMessage = _sendMessage,
   socketHook = GLOBALS,
   socket = GLOBALS.socket,
+  createId = _createId,
   onSocketOpened,
   onOpened = onSocketOpened,
   onMessageReceived,
@@ -32,6 +34,7 @@ export const initiateConnection = ({
       conversationHistoryKey,
       conversationIdKey,
       sendMessage,
+      createId,
       socket
     })),
     onMessageReceived: onMessageReceived || (data => handleNewMessage(
