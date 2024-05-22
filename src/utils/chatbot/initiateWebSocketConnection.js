@@ -7,7 +7,7 @@ export const initiateWebSocketConnection = (
   onOpened,
   socketHook = GLOBALS
 ) => {
-  console.log('webSocketUrl', webSocketUrl, (socketHook | {}).socket);
+  console.log('webSocketUrl', webSocketUrl, socketHook, GLOBALS);
   const socket = (socketHook | {}).socket = new WebSocket(webSocketUrl);
 
   socket.addEventListener('open', () => {
