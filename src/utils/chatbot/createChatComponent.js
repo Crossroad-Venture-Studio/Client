@@ -46,15 +46,12 @@ export const createChatComponent = ({
     const [history] = useObserver(store.data, conversationHistoryKey),
     inputRef = useRef(),
     onSubmitMessage = message => {
-      console.log('message', message);
       // Send message to bot
       const type = 'chat_to_bot',
       data = {
         text: message.chatInput,
         conversation_id: store.data[conversationIdKey]
       };
-
-      console.log('data', data);
   
       // Update the conversation history.
       updateHistory({ data });
