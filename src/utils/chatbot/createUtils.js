@@ -8,7 +8,8 @@ import { updateHistory as _updateHistory } from './updateHistory';
 // To create a set of utils.
 export const createUtils = ({
   webSocketUrl,
-  store,
+  userStore,
+  store = userStore,
   conversationHistoryKey = 'conversationHistory',
   conversationIdKey = 'conversation_id',
   normalizeHistory,
