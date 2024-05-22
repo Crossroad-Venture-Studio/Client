@@ -44,13 +44,16 @@ export const PrivacyPolicy = props => {
       <li>
         When you interact with our website (Marketing Data).
       </li>
+      <br/>
       <li>
         In email, text message, or personal contact between you and us (Marketing Data).
       </li>
+      <br/>
       <li>
         From third parties, including through any application or content, including any that may
         link to or be accessible from or on our website (Marketing Data).
       </li>
+      <br/>
       <li>
         When you register with us and receive a login ID to use a {name} managed or web-based
         version of our software tools and services (Login Data).
@@ -104,9 +107,11 @@ export const PrivacyPolicy = props => {
         made by you, your preferences, feedback, responses, preferences in receiving marketing
         from us and communication preferences.
       </li>
+      <br/>
       <li>
         <b>Contact data:</b> Includes your mailing address, email address and telephonenumber(s).
       </li>
+      <br/>
       <li>
         <b>Participation Data:</b> Includes information received through participation in any
         interactive feature of our services, surveys, contests, promotions, requests for customer
@@ -124,11 +129,13 @@ export const PrivacyPolicy = props => {
         <b>Identity data:</b> May include first name, last name, current employer,
         job title, and any other descriptive information you choose to provide.
       </li>
+      <br/>
       <li>
         <b>Profile data:</b> Includes your username, your history of Services or orders
         made by you, your preferences, feedback, responses, preferences in receiving
         marketing from us and communication preferences.
       </li>
+      <br/>
       <li>
         <b>Login data:</b> Includes your full name, username, email address and password.
       </li>
@@ -149,6 +156,7 @@ export const PrivacyPolicy = props => {
         browser type and version, time zone setting and location, access time, pages viewed,
         pages you visited, browser plug-in types and versions, operating system and platform.
       </li>
+      <br/>
       <li>
         <b>Information collected by cookies and other tracking technologies:</b> We may
         use various technologies to collect information, and this may include sending cookies
@@ -161,6 +169,7 @@ export const PrivacyPolicy = props => {
         whether an email has been opened and acted upon. For more information about cookies, and
         how to disable them, please see 'Your Choices' below.
       </li>
+      <br/>
       <li>
         <b>Information we collect from other sources:</b> We may also obtain informatio
         from other sources and combine that with information we collect directly. We may
@@ -173,6 +182,7 @@ export const PrivacyPolicy = props => {
         you, we treat the combined data as personal data, which will be used in accordance with
         this privacy notice.
       </li>
+      <br/>
       <li>
         <b>Information we collect from sub-processors:</b> A sub-processor is a third-party data
         processor engaged by {name}, who has or potentially will have access to or process
@@ -190,23 +200,29 @@ export const PrivacyPolicy = props => {
       <li>
         Provide, maintain and improve our communications and services.
       </li>
+      <br/>
       <li>
         Send you technical notices, updates, security alerts and support and administrative messages;
       </li>
+      <br/>
       <li>
         Respond to your comments, questions and requests and provide customer service;
       </li>
+      <br/>
       <li>
         Communicate with you about products, services, offers, promotions, rewards and events offered by {name}
         and others.
       </li>
+      <br/>
       <li>
         Monitor and analyze trends, usage and activities in connection with our Services;
       </li>
+      <br/>
       <li>
         Personalize and improve our website and Services and provide content or features that match user profiles or
         interests.
       </li>
+      <br/>
       <li>
         Administer and protect our business and our Website (including troubleshooting, data analysis, testing, system
         maintenance, support, reporting and hosting data).
@@ -255,19 +271,23 @@ export const PrivacyPolicy = props => {
         access to such information to carry out work on our behalf and who are bound by
         confidentiality agreements with us.
       </li>
+      <br/>
       <li>
         In response to a request for information if we believe disclosure is in accordance
         with any applicable law, regulation or legal process, or as otherwise required by
         any applicable law, rule or regulation;
       </li>
+      <br/>
       <li>
         If we believe your actions are inconsistent with our user agreements or policies,
         or to protect the rights, property and safety of {name} or others;
       </li>
+      <br/>
       <li>
         In connection with, or during negotiations of, any merger, sale of company assets,
         financing or acquisition of all or a portion of our business by another company; and
       </li>
+      <br/>
       <li>
         With your express consent or at your direction.
       </li>
