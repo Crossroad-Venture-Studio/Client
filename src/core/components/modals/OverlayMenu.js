@@ -66,7 +66,7 @@ export const OverlayMenu = props => {
       {...other}
     >
       <Button
-        className='width-100-percent row right do-not-hide'
+        className='width-100-percent row right do-not-hide background-none'
         src={closeSrc}
         onPress={() => hooks.close()}
         title='Close menu'
