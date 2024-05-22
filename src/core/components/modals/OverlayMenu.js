@@ -86,10 +86,11 @@ export const getOverlayMenuOnPress = (
   (...args) => {
     const close = typeof hook === 'function' && hook || (
       hook && typeof hook === 'object' && typeof hook.close === 'function' && hook.close
-    ) || null;
-    router && route && close && (
+    ) || null,
+    onClosed = typeof route === 'function' && route || (router && route && (() => router.push(route)));
+    onClosed && close && (
       transitions.setCurrentTransition(transition),
-      close().then(() => typeof route === 'function' ? route(...args) : router.push(route))
+      close().then(onClosed)
     );
   }
 );
