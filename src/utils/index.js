@@ -6,5 +6,6 @@ export { default as genKeyAttr } from './genKeyAttr';
 export { default as normalizeEventHandler } from './normalizeEventHandler';
 export { default as print } from './print';
 export { default as setDynamicViewPortSize } from './setDynamicViewPortSize';
+export * from './chatbot';
 export * from './color';
 export * from './locales';
