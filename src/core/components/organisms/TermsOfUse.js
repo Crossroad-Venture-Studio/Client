@@ -32,7 +32,6 @@ export const TermsOfUse = props => {
       APIs, are collectively called the “Services”. If you have any questions, <span><Link href={contactUsUrl} onClick={pageTransitions.slideIn} className='link primary'>contact us</Link></span>.
     </span>
     <br/>
-    <br/>
     <div id='agreement-to-terms' className='anchor-label'></div>
 
     <h1>
@@ -99,12 +98,10 @@ export const TermsOfUse = props => {
       collect and use. Our Privacy Policy is incorporated in these Terms, and is available <span><Link href={privacyPolicyUrl} onClick={pageTransitions.slideIn} className='link primary'>here</Link></span>.
     </span>
     <br/>
-    <br/>
     <b>
       YOU AGREE THAT {name.toUpperCase()} MAY MONITOR YOUR USE OF THE SITE TO ENSURE QUALITY, IMPROVE THE SERVICES,
       AND TO VERIFY YOUR COMPLIANCE WITH THE TERMS.
     </b>
-    <br/>
     <br/>
     You understand and agree that {name} may track your movement on the Site and anonymize the data for the
     purposes of quality assurance, technical support, or Service improvements. By visiting the Site, and using
@@ -307,16 +304,11 @@ export const TermsOfUse = props => {
       policy in connection with any potential claims or disputes arising from your use of the Services.
       Start by notifying us of your dispute by <span><Link href={contactUsUrl} onClick={pageTransitions.slideIn} className='link primary'>sending us a notice</Link></span>.
     </span>
-
     <br/>
-    <br/>
-
     <b>Informal Negotiations:</b> Parties to a dispute concerning thisAgreement, the Privacy Policy, or the use
     of the Services will attempt to informally negotiate a potential settlement or resolution to the dispute;
-
     <br/>
     <br/>
-
     <b>Binding Arbitration:</b> If for any reason arbitration is unsuccessful or unavailable to the parties,
     parties agree to submit to binding arbitration abiding by JAMS rules in the jurisdiction of the State of
     Nevada. Each party is responsible for paying their own filing, administrative and arbitrator fees.
@@ -356,7 +348,6 @@ export const TermsOfUse = props => {
       consent.
       Any attempt by you to assign or transfer these Terms, without such consent, will be null and of no effect.
     </b>
-    <br/>
     <br/>
     Any notices or other communications provided by {name} under these Terms, including those regarding
     modifications
