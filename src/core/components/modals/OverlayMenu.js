@@ -65,7 +65,12 @@ export const OverlayMenu = props => {
       ref={_ref}
       {...other}
     >
-      <Button className='width-100-percent row right close' src={closeSrc} onPress={() => hooks.close()}>yo</Button>
+      <Button
+        className='width-100-percent row right close'
+        src={closeSrc} onPress={() => hooks.close()}
+        disabled={!isOpened}
+        key='close'
+      >yo</Button>
       {...(nav.map(({src, icon, iconSrc, ...other} = {}, i) => <Button disabled={!isOpened} {...other} key={`${i}`}></Button>))}
       {...children}
     </div> || null}
