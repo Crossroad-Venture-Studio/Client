@@ -17,7 +17,7 @@ export const createUtils = ({
   socket = GLOBALS.socket
 }) => ({
   initiateConnection: (url = webSocketUrl) => initiateConnection({
-    url,
+    webSocketUrl: url,
     store,
     conversationHistoryKey,
     conversationIdKey,
