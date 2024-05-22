@@ -2,7 +2,7 @@ import GLOBALS from './globals';
 
 // Send message.
 export const sendMessage = (type, data, socket = GLOBALS.socket) => (
-  socket && socket.readyState === WebSocket.OPEN && (
+  (socket || (socket = GLOBALS.socket)) && socket.readyState === WebSocket.OPEN && (
     console.log('sendMessage: ', type, data),
     socket.send(JSON.stringify({
       type,

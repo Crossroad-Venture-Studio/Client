@@ -24,7 +24,7 @@ export const initiateConnection = ({
   onError = onSocketError
 } = {}) => (
   // Initiate WebSocket connection.
-  socket || initiateWebSocketConnection({
+  (socket || (socket = GLOBALS.socket)) || initiateWebSocketConnection({
     webSocketUrl,
     onOpened: onOpened || (() => initiateNewConversation({
       reset: false,

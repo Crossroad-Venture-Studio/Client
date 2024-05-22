@@ -10,6 +10,7 @@ export const initiateNewConversation = ({
   sendMessage = _sendMessage,
   socket = GLOBALS.socket
 } = {}) => {
+  socket || (socket = GLOBALS.socket);
   const history = store.data[conversationHistoryKey] || [];
   console.log('initiateNewConversation', history, history.length);
   // Create a conversation ID on initial load.

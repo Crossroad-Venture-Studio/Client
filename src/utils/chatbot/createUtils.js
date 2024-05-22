@@ -23,7 +23,7 @@ export const createUtils = ({
     conversationIdKey,
     updateHistory: _updateHistory,
     sendMessage: _sendMessage,
-    socket
+    socket: socket || GLOBALS.socket
   }),
   initiateNewConversation: (reset = false) => (
     initiateNewConversation({
@@ -32,14 +32,14 @@ export const createUtils = ({
       conversationHistoryKey,
       conversationIdKey,
       sendMessage: _sendMessage,
-      socket
+      socket: socket || GLOBALS.socket
     })
   ),
   normalizeHistory: (...args) => {
     const output = _normalizeHistory(...args);
     return typeof normalizeHistory === 'function' && normalizeHistory(output) || output;
   },
-  sendMessage: (type, data) =>  sendMessage(type, data, socket),
+  sendMessage: (type, data) =>  sendMessage(type, data, socket || GLOBALS.socket),
   updateHistory: message =>  updateHistory(message, store, conversationHistoryKey)
 });
 
