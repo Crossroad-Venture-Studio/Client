@@ -1,5 +1,5 @@
-import {sendMessage as _sendMessage} from './sendMessage';
 import GLOBALS from './globals';
+import {sendMessage as _sendMessage} from './sendMessage';
 
 // Helper function to initiate conversation.
 export const initiateNewConversation = (
