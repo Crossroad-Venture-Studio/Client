@@ -26,14 +26,14 @@ export const initiateConnection = ({
   // Initiate WebSocket connection.
   socket || initiateWebSocketConnection({
     webSocketUrl,
-    onOpened: onOpened || (() => initiateNewConversation(
-      false,
+    onOpened: onOpened || (() => initiateNewConversation({
+      reset: false,
       store,
-      conversationHistoryKey = 'conversationHistory',
-      conversationIdKey = 'conversation_id',
+      conversationHistoryKey,
+      conversationIdKey,
       sendMessage,
       socket
-    )),
+    })),
     onMessageReceived: onMessageReceived || (data => handleNewMessage(
       data,
       store,

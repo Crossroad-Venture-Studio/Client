@@ -2,14 +2,14 @@ import GLOBALS from './globals';
 import {sendMessage as _sendMessage} from './sendMessage';
 
 // Helper function to initiate conversation.
-export const initiateNewConversation = (
+export const initiateNewConversation = ({
   reset = false,
   store,
   conversationHistoryKey = 'conversationHistory',
   conversationIdKey = 'conversation_id',
   sendMessage = _sendMessage,
   socket = GLOBALS.socket
-) => {
+} = {}) => {
   const history = store.data[conversationHistoryKey] || [];
   console.log('initiateNewConversation', history, history.length);
   // Create a conversation ID on initial load.

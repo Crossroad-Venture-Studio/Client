@@ -26,7 +26,14 @@ export const createUtils = ({
     socket
   }),
   initiateNewConversation: (reset = false) => (
-    initiateNewConversation(reset, store)
+    initiateNewConversation({
+      reset,
+      store,
+      conversationHistoryKey,
+      conversationIdKey,
+      sendMessage: _sendMessage,
+      socket
+    })
   ),
   normalizeHistory: (...args) => {
     const output = _normalizeHistory(...args);
