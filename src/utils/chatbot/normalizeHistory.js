@@ -1,0 +1,54 @@
+// Helper function to extract the date string.
+const getDate = date => {
+  if (!date) return '';
+  date instanceof Date || (date = new Date(date));
+  const s = date.toString(), y = date.getFullYear().toString();
+  return s.slice(0, s.indexOf(y) + y.length);
+}
+
+// Date line component.
+const DateLine = props => <div className='row width-100-percent center text-gap text-color-semi-dark font-size-22-28 bold margin-vertical'>
+  ❯ {props.date}
+</div>;
+
+// Helper function to normalize conversation history data.
+export const normalizeHistory = (history, botName = 'Otto') => {
+  const output = [];
+  let date = null, d;
+  for (let i = 0, l = (history || (history = [])).length, user, curUser, item, out, j = 0; i !== l; ++i) {
+    item = history[i];
+    if (!item || typeof item !== 'object') continue;
+    ((d = getDate(item.data.__date__)) === date) || (
+      console.log(d, date),
+      output.push({
+        component: <DateLine date={d} />
+      }),
+      date = d
+    );
+    output.push(out = {});
+    out.__is_user__ = !(curUser = item.type);
+    (out.__is_start__ = user !== curUser)
+      && (output.length - 1)
+      && (output[output.length - 2].__is_end__ = true);
+    out.text = item.data.text;
+    Object.assign(out, item.data);
+    out.name = out.__is_user__ && (item.data.name || 'You') || botName;
+    user = curUser;
+  }
+
+  output.length && (
+    output[0].__is_start__ = true,
+    output[output.length - 1].__is_user__ && output.push({
+      component: <ChatBubble><ChatTextLoader size='xsmall'/></ChatBubble>,
+      name: botName,
+      date: Date.now()
+    }),
+    output[output.length - 1].__is_end__ = true
+  );
+
+  // Return history.
+  return output;
+}
+
+// Default export.
+export default normalizeHistory;
