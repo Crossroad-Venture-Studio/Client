@@ -83,13 +83,13 @@ export const OverlayMenu = props => {
 export const getOverlayMenuOnPress = (
   route, hook, router, transition = 'slideIn'
 ) => (
-  () => {
+  (...args) => {
     const close = typeof hook === 'function' && hook || (
       hook && typeof hook === 'object' && typeof hook.close === 'function' && hook.close
     ) || null;
     router && route && close && (
       transitions.setCurrentTransition(transition),
-      close().then(() => router.push(route))
+      close().then(() => typeof route === 'function' ? route(...args) : router.push(route))
     );
   }
 );
