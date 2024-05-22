@@ -98,6 +98,7 @@ export const PrivacyPolicy = props => {
         current employer, job title, social media usernames/handles and/or gender and
         any other descriptive information you choose to provide.
       </li>
+      <br/>
       <li>
         <b>Profile data:</b> Includes your username, your history of Services or orders
         made by you, your preferences, feedback, responses, preferences in receiving marketing
