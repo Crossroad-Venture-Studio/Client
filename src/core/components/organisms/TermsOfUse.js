@@ -310,6 +310,9 @@ export const TermsOfUse = props => {
       Start by notifying us of your dispute by <span><Link href={contactUsUrl} onClick={pageTransitions.slideIn} className='link primary'>sending us a notice</Link></span>.
     </span>
 
+    <br/>
+    <br/>
+
     <b>Informal Negotiations:</b> Parties to a dispute concerning thisAgreement, the Privacy Policy, or the use
     of the Services will attempt to informally negotiate a potential settlement or resolution to the dispute;
 
@@ -349,11 +352,15 @@ export const TermsOfUse = props => {
     provision will be enforced to the maximum extent permissible and the other provisions of these Terms will remain
     in full force and effect.
 
+    <br/>
+    <br/>
     <b>
       You may not assign or transfer these Terms, by operation of law or otherwise, without our prior written
       consent.
       Any attempt by you to assign or transfer these Terms, without such consent, will be null and of no effect.
     </b>
+    <br/>
+    <br/>
 
     Any notices or other communications provided by {name} under these Terms, including those regarding
     modifications
