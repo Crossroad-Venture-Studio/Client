@@ -17,6 +17,21 @@ const DateLine = props => <div className='row width-100-percent center text-gap 
 // Helper function to normalize conversation history data.
 export const normalizeHistory = (history, botName = 'Otto') => {
   const output = [];
+
+  // Add bubbles.
+  output.length && (
+    output[output.length - 1].__is_user__ && output.push({
+      component: <ChatBubble><ChatTextLoader size='xsmall'/></ChatBubble>,
+      name: botName,
+      date: Date.now()
+    })
+  ) || output.push({
+    component: <ChatBubble><ChatTextLoader size='xsmall'/></ChatBubble>,
+    name: botName,
+    date: Date.now()
+  });
+
+  // Add dates.
   let date = null, d;
   for (let i = 0, l = (history || (history = [])).length, user, curUser, item, out, j = 0; i !== l; ++i) {
     item = history[i];
@@ -38,19 +53,11 @@ export const normalizeHistory = (history, botName = 'Otto') => {
     user = curUser;
   }
 
+  // Add start and end.
   output.length && (
     output[0].__is_start__ = true,
-    output[output.length - 1].__is_user__ && output.push({
-      component: <ChatBubble><ChatTextLoader size='xsmall'/></ChatBubble>,
-      name: botName,
-      date: Date.now()
-    }),
     output[output.length - 1].__is_end__ = true
-  ) || output.push({
-    component: <ChatBubble><ChatTextLoader size='xsmall'/></ChatBubble>,
-    name: botName,
-    date: Date.now()
-  });
+  );
 
   // Return history.
   return output;
