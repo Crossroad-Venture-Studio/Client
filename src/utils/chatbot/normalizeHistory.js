@@ -22,7 +22,6 @@ export const normalizeHistory = (history, botName = 'Otto') => {
     item = history[i];
     if (!item || typeof item !== 'object') continue;
     ((d = getDate(item.data.__date__)) === date) || (
-      console.log(d, date),
       output.push({
         component: <DateLine date={d} />
       }),
