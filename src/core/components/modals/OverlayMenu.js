@@ -71,6 +71,7 @@ export const OverlayMenu = props => {
         onPress={() => hooks.close()}
         title='Close menu'
         disabled={!isOpened}
+        isLink
         text=' '
       />
       {...(nav.map(({src, icon, iconSrc, ...other} = {}, i) => <Button disabled={!isOpened} {...other} key={`${i}`} />))}
