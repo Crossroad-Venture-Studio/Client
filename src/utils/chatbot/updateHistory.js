@@ -10,7 +10,6 @@ export const updateHistory = (
 ) => {
   if (!message) return history;
   try {
-    message = JSON.parse(message);
     let history = store.data[conversationHistoryKey] || [];
     message && message.data && (message.data.__date__ = Date.now());
     history = store.data[conversationHistoryKey] = [...history, message];

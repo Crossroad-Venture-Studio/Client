@@ -52,7 +52,20 @@ export class Chatbot {
     this.#conversationHistoryKey = conversationHistoryKey;
     this.#conversationIdKey = conversationIdKey;
     this.#onOpen = onOpen;
-    this.#onMessage = onMessage;
+    this.#onMessage = message => {
+      try {
+        updateHistory(
+          JSON.parse(message),
+          this.#store,
+          this.#conversationHistoryKey,
+          this.#log,
+          this.#err
+        );
+        typeof onMessage === 'function' && onMessage(...args);
+      } catch (e) {
+        typeof this.#err === 'function' && this.#err(e);
+      }
+    };
     this.#onClose = restartOnClose && ((...args) => {
       typeof onClose === 'function' && onClose(...args);
       this.restartConnection();
@@ -173,17 +186,6 @@ export class Chatbot {
       return this.sendMessage('chat_to_bot', message);
     }
     return Promise.resolve();
-  }
-
-  // Method to update history.
-  updateHistory(message) {
-    return updateHistory(
-      message,
-      this.#store,
-      this.#conversationHistoryKey,
-      this.#log,
-      this.#err
-    );
   }
 }
 
