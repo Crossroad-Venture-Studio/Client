@@ -42,7 +42,6 @@ export const OverlayMenu = props => {
     _ref && _ref.current && _ref.current.classList.remove('opened');
     onClose && onClose(...args);
   };
-  Array.isArray(children || (children = [])) || (children = [children]);
   nav || (nav = []);
   className = (className && `menu ${className}`) || 'menu';
   hooks || (hooks = {});
@@ -60,7 +59,7 @@ export const OverlayMenu = props => {
     hooks={hooks}
     cancelable={cancelable}
   >
-    {(nav.length || children.length) && <div
+    {(nav.length || children) && <div
       className={className}
       ref={_ref}
       {...other}
@@ -74,7 +73,7 @@ export const OverlayMenu = props => {
         isLink
       />
       {...(nav.map(({src, icon, iconSrc, ...other} = {}, i) => <Button disabled={!isOpened} {...other} key={`${i}`} />))}
-      {...children}
+      {children}
     </div> || null}
   </Overlay>;
 }
