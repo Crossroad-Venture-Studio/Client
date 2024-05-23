@@ -21,7 +21,7 @@ export const createChatComponent = ({
 } = {}) => {
   const {
     initiateConnection,
-    initiateNewConversation,
+    startNewConversation,
     normalizeHistory,
     sendMessage,
     updateHistory
@@ -79,7 +79,7 @@ export const createChatComponent = ({
 
     // Hooks.
     hooks && (
-      hooks.reset = () => initiateNewConversation(true),
+      hooks.reset = () => startNewConversation(true),
       hooks.scrollBottom = scrollBottom,
       hooks.scrollTop = scrollTop
     );

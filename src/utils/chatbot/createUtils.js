@@ -1,10 +1,7 @@
-import GLOBALS from './globals';
-import { createId as _createId } from './createId';
-import initiateNewConversation from './initiateNewConversation';
-import initiateConnection from './initiateConnection';
+import Sockets from './sockets';
+import Chatbot from './Chatbot';
 import { normalizeHistory as _normalizeHistory } from './normalizeHistory';
-import { sendMessage as _sendMessage } from './sendMessage';
-import { updateHistory as _updateHistory } from './updateHistory';
+import updateHistory from './updateHistory';
 
 // To create a set of utils.
 export const createUtils = ({
@@ -16,38 +13,44 @@ export const createUtils = ({
   conversationHistoryKey = 'conversationHistory',
   conversationIdKey = 'conversation_id',
   normalizeHistory,
-  updateHistory = _updateHistory,
-  sendMessage = _sendMessage,
-  createId = _createId,
-  socket = GLOBALS.socket
+  log,
+  err,
+  onSocketOpened,
+  onOpened = onSocketOpened,
+  onOpen = onOpened,
+  onMessageReceived,
+  onMessage = onMessageReceived,
+  onSocketClosed,
+  onClosed = onSocketClosed,
+  onClose = onClosed,
+  onSocketError,
+  onError = onSocketError,
+  restartOnClose
 }) => ({
-  initiateConnection: (url = webSocketUrl) => initiateConnection({
+  initiateConnection: (url = webSocketUrl) => Sockets[url] = new Chatbot({
     webSocketUrl: url,
     store,
-    conversationHistoryKey,
-    conversationIdKey,
-    updateHistory,
-    sendMessage,
-    createId,
-    socket: socket || GLOBALS.socket
+    conversationHistoryKey = 'conversationHistory',
+    conversationIdKey = 'conversation_id',
+    log,
+    err,
+    onOpen,
+    onMessage,
+    onClose,
+    onError,
+    restartOnClose
   }),
-  initiateNewConversation: (reset = false) => (
-    initiateNewConversation({
-      reset,
-      store,
-      conversationHistoryKey,
-      conversationIdKey,
-      sendMessage,
-      createId,
-      socket: socket || GLOBALS.socket
-    })
+  startNewConversation: async (reset = true, url = webSocketUrl) => (
+    Sockets[url].startNewConversation(reset)
   ),
   normalizeHistory: (history, name = botName) => {
     const output = _normalizeHistory(history, name = botName);
     return typeof normalizeHistory === 'function' && normalizeHistory(output) || output;
   },
-  sendMessage: (type, data) =>  sendMessage(type, data, socket || GLOBALS.socket),
-  updateHistory: message =>  updateHistory(message, store, conversationHistoryKey)
+  sendMessage: async (type, data, url = webSocketUrl) => (
+    Sockets[url].sendMessage(type, data)
+  ),
+  updateHistory: message => updateHistory(message, store, conversationHistoryKey)
 });
 
 // Default export.

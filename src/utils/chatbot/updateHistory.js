@@ -4,11 +4,22 @@
 export const updateHistory = (
   message,
   store,
-  conversationHistoryKey = 'conversationHistory'
+  conversationHistoryKey = 'conversationHistory',
+  log = console.log,
+  err = console.error
 ) => {
-  const history = store.data[conversationHistoryKey] || [];
-  message && message.data && (message.data.__date__ = Date.now());
-  return store.data[conversationHistoryKey] = [...history, message];
+  if (!message) return history;
+  try {
+    message = JSON.parse(message);
+    let history = store.data[conversationHistoryKey] || [];
+    message && message.data && (message.data.__date__ = Date.now());
+    history = store.data[conversationHistoryKey] = [...history, message];
+    typeof log === 'function' && log('History updated');
+    return history;
+  } catch (e) {
+    typeof err === 'function' && err(e);
+    return false;
+  }
 }
 
 // Default export.
