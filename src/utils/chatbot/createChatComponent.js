@@ -91,7 +91,6 @@ export const createChatComponent = ({
     useEffect(() => {
       setTimeout(() => {
         // Scrolling to the last element.
-        console.log('>>>> scrollBottom', containerRef);
         scrollBottom();
       }, 10);
     }, [history]);
