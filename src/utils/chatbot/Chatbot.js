@@ -69,7 +69,7 @@ export class Chatbot {
   // Helper function to restart socket connection.
   restartConnection(onOpen = this.#onOpen) {
     // Init web socket.
-    this.#socket = new WebSocket(webSocketUrl);
+    this.#socket = new WebSocket(this.#webSocketUrl);
 
     // Add open listener.
     this.#socket.addEventListener('open', () => {
