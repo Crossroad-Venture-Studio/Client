@@ -16,7 +16,7 @@ export const initiateNewConversation = ({
   const history = store.data[conversationHistoryKey] || [];
   console.log('initiateNewConversation', history, history.length);
   // Create a conversation ID on initial load.
-  console.log('reset', reset, 'store', store, 'conversationIdKey', conversationIdKey);
+  console.log('reset', reset, 'store', store, 'conversationIdKey', conversationIdKey, 'id', store.data[conversationIdKey]);
   (!reset && store.data[conversationIdKey]) || (store.data[conversationIdKey] = createId());
 
   // Send first message.
