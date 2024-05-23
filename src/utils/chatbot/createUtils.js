@@ -7,7 +7,7 @@ import updateHistory from './updateHistory';
 export const createUtils = ({
   name,
   botName = name,
-  webSocketUrl,
+  webSocketUrl: _webSocketUrl,
   userStore,
   store = userStore,
   conversationHistoryKey = 'conversationHistory',
@@ -27,11 +27,11 @@ export const createUtils = ({
   onError = onSocketError,
   restartOnClose
 }) => ({
-  initiateConnection: (url = webSocketUrl) => Sockets[url] = new Chatbot({
-    webSocketUrl: url,
+  initiateConnection: (webSocketUrl = _webSocketUrl) => Sockets[webSocketUrl] = new Chatbot({
+    webSocketUrl,
     store,
-    conversationHistoryKey = 'conversationHistory',
-    conversationIdKey = 'conversation_id',
+    conversationHistoryKey,
+    conversationIdKey,
     log,
     err,
     onOpen,
@@ -40,15 +40,15 @@ export const createUtils = ({
     onError,
     restartOnClose
   }),
-  startNewConversation: async (reset = true, url = webSocketUrl) => (
-    Sockets[url].startNewConversation(reset)
+  startNewConversation: async (reset = true, webSocketUrl = _webSocketUrl) => (
+    Sockets[webSocketUrl].startNewConversation(reset)
   ),
   normalizeHistory: (history, name = botName) => {
     const output = _normalizeHistory(history, name = botName);
     return typeof normalizeHistory === 'function' && normalizeHistory(output) || output;
   },
-  sendMessage: async (type, data, url = webSocketUrl) => (
-    Sockets[url].sendMessage(type, data)
+  sendMessage: async (type, data, webSocketUrl = _webSocketUrl) => (
+    Sockets[webSocketUrl].sendMessage(type, data)
   ),
   updateHistory: message => updateHistory(message, store, conversationHistoryKey)
 });
