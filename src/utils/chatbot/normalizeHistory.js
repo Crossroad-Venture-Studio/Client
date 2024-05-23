@@ -48,7 +48,7 @@ export const normalizeHistory = (history, botName = 'Otto') => {
       component: <ChatBubble><ChatTextLoader size='xsmall'/></ChatBubble>,
       name: botName,
       date: Date.now(),
-      __is_start__: true,
+      // __is_start__: true,
       __is_end__: true
     })
   ) || (
