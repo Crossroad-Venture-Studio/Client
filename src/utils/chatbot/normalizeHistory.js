@@ -43,14 +43,15 @@ export const normalizeHistory = (history, botName = 'Otto') => {
   // Add bubbles
   output.length && (
     output[0].__is_start__ = true,
-    output[output.length - 1].__is_end__ = true,
+    // output[output.length - 1].__is_end__ = true,
     output[output.length - 1].__is_user__ && output.push({
       component: <ChatBubble><ChatTextLoader size='xsmall'/></ChatBubble>,
       name: botName,
       date: Date.now(),
       // __is_start__: true,
-      __is_end__: true
-    })
+      // __is_end__: true
+    }),
+    output[output.length - 1].__is_end__ = true
   ) || (
     date = Date.now(),
     d = getDate(date),
