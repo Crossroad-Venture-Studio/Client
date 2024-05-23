@@ -7,7 +7,7 @@
   --radius: calc(0.5 * var(--diameter));
   --animation-time: 2s;
   display: flex;
-  gap: var(--radius);
+  gap: calc(0.5 * var(--radius));
 }
 
 .b3,
