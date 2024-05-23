@@ -49,6 +49,8 @@ export const OverlayMenu = props => {
   // Additional states.
   const [isOpened, setIsOpened] = useState(opened);
 
+  console.log('children', children);
+
   // Layout.
   return <Overlay
     opened={opened}
