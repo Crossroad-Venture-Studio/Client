@@ -41,15 +41,13 @@ export const OverlayMenu = props => {
   _onClose = (...args) => {
     _ref && _ref.current && _ref.current.classList.remove('opened');
     onClose && onClose(...args);
-  };
+  }, baseClassName = 'menu column';
   nav || (nav = []);
-  className = (className && `menu ${className}`) || 'menu';
+  className = (className && `${baseClassName} ${className}`) || baseClassName;
   hooks || (hooks = {});
 
   // Additional states.
   const [isOpened, setIsOpened] = useState(opened);
-
-  console.log('children', children);
 
   // Layout.
   return <Overlay
