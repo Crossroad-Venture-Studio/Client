@@ -79,7 +79,9 @@ export const createChatComponent = ({
 
     // Hooks.
     hooks && (
-      hooks.reset = () => initiateNewConversation(true)
+      hooks.reset = () => initiateNewConversation(true),
+      hooks.scrollBottom = scrollBottom,
+      hooks.scrollTop = scrollTop
     );
 
     // Initiate connection when component mounts.
