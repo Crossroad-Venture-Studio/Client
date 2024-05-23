@@ -49,7 +49,7 @@ export const normalizeHistory = (history, botName = 'Otto') => {
       name: botName,
       date: Date.now(),
       __is_start__: true,
-      __is_user__: true
+      __is_end__: true
     })
   ) || (
     date = Date.now(),
