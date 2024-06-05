@@ -24,6 +24,34 @@
   --_color: var(--dark);
 }
 
+.spinner.white {
+  --_color: white;
+}
+
+.spinner.black {
+  --_color: black;
+}
+
+.spinner.orange {
+  --_color: var(--orange);
+}
+
+.spinner.red {
+  --_color: var(--red);
+}
+
+.spinner.green {
+  --_color: var(--green);
+}
+
+.spinner.blue {
+  --_color: var(--blue);
+}
+
+.spinner.gray {
+  --_color: var(--gray);
+}
+
 .spinner div {
   box-sizing: border-box;
   display: block;
