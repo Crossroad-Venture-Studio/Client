@@ -9,10 +9,25 @@ export const Spinner = props => {
     size,
     light,
     dark,
+    white,
+    black,
+    red,
+    blue,
+    green,
+    gray,
     color
   } = props || {}, baseClassName = `${styles.spinner}`;
   className = className && `${baseClassName} ${className}` || baseClassName;
-  (color || (dark && (color = 'dark')) || (light && (color = 'light'))) && (className += ` ${styles[color]}`);
+  (color
+    || (dark && (color = 'dark'))
+    || (light && (color = 'light'))
+    || (white && (color = 'white'))
+    || (black && (color = 'black'))
+    || (orange && (color = 'orange'))
+    || (red && (color = 'red'))
+    || (green && (color = 'green'))
+    || (gray && (color = 'gray'))
+  ) && (className += ` ${styles[color]}`);
   (size || (large && (size = 'large'))) && (className += ` ${styles[size]}`);
 
   return <div className={className}>
