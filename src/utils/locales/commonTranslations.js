@@ -24,10 +24,40 @@ export const commonTranslations = [
     pt: 'Próximo',
   },
   {
+    en: 'Language',
+    es: 'Idioma',
+    fr: 'Langue',
+    pt: 'Idioma'
+  },
+  {
+    en: 'Switch language',
+    es: 'Cambiar idioma',
+    fr: 'Changer de langue',
+    pt: 'Mudar idioma'
+  },
+  {
     en: 'Pick your language',
     es: 'Elija su idioma',
     fr: 'Sélectionnez votre langue',
     pt: 'Escolha seu idioma'
+  },
+  {
+    en: 'is multilingual',
+    es: 'es multilingüe',
+    fr: 'est multilingue',
+    pt: 'é multilíngue'
+  },
+  {
+    en: 'is multilingual. Choose your language below',
+    es: 'es multilingüe. Elija su idioma a continuación',
+    fr: 'est multilingue. Choisissez votre langue ci-dessous',
+    pt: 'é multilíngue. Escolha seu idioma abaixo'
+  },
+  {
+    en: 'Choose your language below',
+    es: 'Elija su idioma a continuación',
+    fr: 'Choisissez votre langue ci-dessous',
+    pt: 'Escolha seu idioma abaixo'
   },
   {
     en: 'It\'s free',
@@ -196,12 +226,6 @@ export const commonTranslations = [
     es: 'Español',
     fr: 'Français',
     pt: 'Português'
-  },
-  {
-    en: 'Switch language',
-    es: 'Cambiar idioma',
-    fr: 'Changer de langue',
-    pt: 'Mudar idioma'
   },
   {
     en: 'Testimonial',
