@@ -54,6 +54,12 @@ export const commonTranslations = [
     pt: 'é multilíngue. Escolha seu idioma abaixo'
   },
   {
+    en: 'Choose your language',
+    es: 'Elija su idioma',
+    fr: 'Choisissez votre langue',
+    pt: 'Escolha seu idioma'
+  },
+  {
     en: 'Choose your language below',
     es: 'Elija su idioma a continuación',
     fr: 'Choisissez votre langue ci-dessous',
