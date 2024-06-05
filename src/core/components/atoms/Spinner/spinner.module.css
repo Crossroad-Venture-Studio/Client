@@ -1,37 +1,55 @@
-.lds-ring {
+.spinner {
   display: inline-block;
   position: relative;
-  width: var(--size-18-24);
-  height: var(--size-18-24);
-  min-height: var(--size-18-24);
+  --_size: var(--size-18-24);
+  --_inner-size: var(--size-16-22);
+  --_thickness: var(--size-2-4);
+  --_color: var(--ocean);
+  width: var(--_size);
+  height: var(--_size);
+  min-height: var(--_size);
 }
 
-.lds-ring div {
+.spinner.large {
+  --_size: calc(2 * var(--size-18-24));
+  --_inner-size: calc(2 * var(--size-16-22));
+  --_thickness: calc(2 * var(--size-2-4));
+}
+
+.spinner.light {
+  --_color: var(--light);
+}
+
+.spinner.dark {
+  --_color: var(--dark);
+}
+
+.spinner div {
   box-sizing: border-box;
   display: block;
   position: absolute;
-  width: var(--size-16-22);
-  height: var(--size-16-22);
+  width: var(--_inner-size);
+  height: var(--_inner-size);
   margin: 2px;
-  border: var(--size-2-4) solid var(--ocean);
+  border: var(--_thickness) solid var(--_color);
   border-radius: 50%;
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: var(--ocean) transparent transparent transparent;
+  animation: spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: var(--_color) transparent transparent transparent;
 }
 
-.lds-ring div:nth-child(1) {
+.spinner div:nth-child(1) {
   animation-delay: -0.45s;
 }
 
-.lds-ring div:nth-child(2) {
+.spinner div:nth-child(2) {
   animation-delay: -0.3s;
 }
 
-.lds-ring div:nth-child(3) {
+.spinner div:nth-child(3) {
   animation-delay: -0.15s;
 }
 
-@keyframes lds-ring {
+@keyframes spinner {
   0% {
     transform: rotate(0deg);
   }
