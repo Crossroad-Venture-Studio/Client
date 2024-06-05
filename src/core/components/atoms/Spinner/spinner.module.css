@@ -13,7 +13,7 @@
 .spinner.large {
   --_size: calc(2 * var(--size-18-24));
   --_inner-size: calc(2 * var(--size-16-22));
-  --_thickness: calc(2 * var(--size-2-4));
+  --_thickness: var(--size-2-4);
 }
 
 .spinner.light {
