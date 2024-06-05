@@ -122,7 +122,7 @@ export const commonTranslations = [
   {
     en: 'Log out',
     es: 'Desconectarse',
-    fr: 'Se connecter',
+    fr: 'Se déconnecter',
     pt: 'Deconecte-se'
   },
   {
