@@ -4,7 +4,7 @@
   --_size: var(--size-18-24);
   --_inner-size: var(--size-16-22);
   --_thickness: var(--size-2-4);
-  --_color: var(--white);
+  --_color: var(--ocean);
   width: var(--_size);
   height: var(--_size);
   min-height: var(--_size);

@@ -10,10 +10,10 @@ export const Spinner = props => {
     light,
     dark,
     color
-  } = props || {}, baseClassName = `${styles['spinner']}`;
+  } = props || {}, baseClassName = `${styles.spinner}`;
   className = className && `${baseClassName} ${className}` || baseClassName;
-  (color || (dark && (color = 'dark')) || (light && (color = 'light'))) && (className += ` ${color}`);
-  (size || (large && (size = 'large'))) && (className += ` ${size}`);
+  (color || (dark && (color = 'dark')) || (light && (color = 'light'))) && (className += ` ${styles[color]}`);
+  (size || (large && (size = 'large'))) && (className += ` ${styles[size]}`);
 
   return <div className={className}>
     <div/>
