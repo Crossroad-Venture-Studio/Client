@@ -24,6 +24,30 @@ export const commonTranslations = [
     pt: 'Próximo',
   },
   {
+    en: 'Load',
+    es: 'Cargar',
+    fr: 'Charger',
+    pt: 'Carregar',
+  },
+  {
+    en: 'Loading',
+    es: 'Cargando',
+    fr: 'En chargement',
+    pt: 'Carregando',
+  },
+  {
+    en: 'Download',
+    es: 'Descargar',
+    fr: 'Télécharger',
+    pt: 'Download',
+  },
+  {
+    en: 'Upload',
+    es: 'Subir',
+    fr: 'Télécharger',
+    pt: 'Carregar',
+  },
+  {
     en: 'Language',
     es: 'Idioma',
     fr: 'Langue',
