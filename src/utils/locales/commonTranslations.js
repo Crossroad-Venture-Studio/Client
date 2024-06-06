@@ -336,6 +336,18 @@ export const commonTranslations = [
     pt: 'Custo'
   },
   {
+    en: 'Add',
+    es: 'Agregar',
+    fr: 'Ajouter',
+    pt: 'Adicionar'
+  },
+  {
+    en: 'To add',
+    es: 'Para agregar',
+    fr: 'À ajouter',
+    pt: 'Para adicionar'
+  },
+  {
     en: 'Try it',
     es: 'Intentalo',
     fr: 'Essayez-le',
