@@ -336,6 +336,24 @@ export const commonTranslations = [
     pt: 'Custo'
   },
   {
+    en: 'Edit',
+    es: 'Editar',
+    fr: 'Modifier',
+    pt: 'Editar'
+  },
+  {
+    en: 'Go',
+    es: 'Ir',
+    fr: 'Aller',
+    pt: 'Ir'
+  },
+  {
+    en: 'Go to',
+    es: 'Ir a',
+    fr: 'Aller à',
+    pt: 'Ir para'
+  },
+  {
     en: 'Add',
     es: 'Agregar',
     fr: 'Ajouter',
