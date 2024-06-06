@@ -450,6 +450,114 @@ export const commonTranslations = [
     pt: 'Perfil'
   },
   {
+    en: 'Social medias',
+    es: 'Redes sociales',
+    fr: 'Réseaux sociaux',
+    pt: 'Redes sociais'
+  },
+  {
+    en: 'Socials',
+    es: 'Redes sociales',
+    fr: 'Réseaux sociaux',
+    pt: 'Redes sociais'
+  },
+  {
+    en: 'Link',
+    es: 'Enlace',
+    fr: 'Lien',
+    pt: 'Link'
+  },
+  {
+    en: 'Links',
+    es: 'Enlaces',
+    fr: 'Liens',
+    pt: 'Links'
+  },
+  {
+    en: 'Portfolio',
+    es: 'Portafolio',
+    fr: 'Portfolio',
+    pt: 'Portfólio'
+  },
+  {
+    en: 'Background image',
+    es: 'Imagen de fondo',
+    fr: 'Image d\'arrière-plan',
+    pt: 'Imagem de fundo'
+  },
+  {
+    en: 'Background picture',
+    es: 'Foto de fondo',
+    fr: 'Photo d\'arrière-plan',
+    pt: 'Foto de fundo'
+  },
+  {
+    en: 'Profile image',
+    es: 'Imagen de perfil',
+    fr: 'Image de profil',
+    pt: 'Imagem do perfil'
+  },
+  {
+    en: 'Profile picture',
+    es: 'Foto de perfil',
+    fr: 'Photo de profil',
+    pt: 'Foto do perfil'
+  },
+  {
+    en: 'Image',
+    es: 'Imagen',
+    fr: 'Image',
+    pt: 'Imagem'
+  },
+  {
+    en: 'Picture',
+    es: 'Foto',
+    fr: 'Photo',
+    pt: 'Foto'
+  },
+  {
+    en: 'Logo',
+    es: 'Logo',
+    fr: 'Logo',
+    pt: 'Logotipo'
+  },
+  {
+    en: 'Banner',
+    es: 'Bandera',
+    fr: 'Bannière',
+    pt: 'Bandeira'
+  },
+  {
+    en: 'Title',
+    es: 'Título',
+    fr: 'titre',
+    pt: 'título'
+  },
+  {
+    en: 'Subtitle',
+    es: 'Subtítulo',
+    fr: 'Sous-titre',
+    pt: 'Legenda'
+  },
+  {
+    en: 'Name / title',
+    es: 'Nombre / título',
+    fr: 'Nom / titre',
+    pt: 'Nome / título'
+  },
+  {
+    en: 'Description',
+    es: 'Descripción',
+    fr: 'Description',
+    pt: 'Descrição'
+  },
+  {
+    en: 'Quote',
+    es: 'Cita',
+    fr: 'Citation',
+    pt: 'Citação'
+  },
+  {
     en: 'Name',
     es: 'Nombre',
     fr: 'Nom',
