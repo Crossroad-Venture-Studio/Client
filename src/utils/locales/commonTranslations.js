@@ -810,6 +810,12 @@ export const commonTranslations = [
     pt: 'Endereço'
   },
   {
+    en: 'Location',
+    es: 'Ubicación',
+    fr: 'Emplacement',
+    pt: 'Localização'
+  },
+  {
     en: 'Street',
     es: 'Calle',
     fr: 'Rue',
