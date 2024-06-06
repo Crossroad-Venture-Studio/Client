@@ -18,7 +18,9 @@ export const Button = props => {
     iconSrc,
     icon = iconSrc,
     src = icon,
-    title = (text || src) && `Go to ${text || src}` || null,
+    translate,
+    __translate__ = typeof translate === 'function' && translate || Function.identity,
+    title = (text || src) && `${__translate__('Go to')} ${__translate__(text || src)}` || null,
     alt = title,
     disabled,
     className,
@@ -33,7 +35,6 @@ export const Button = props => {
     submit = `${(type || '')}`.toLowerCase() === 'submit',
     scroll = false,
     textStyle = 'vertical-trim',
-    translate,
     ...other
   } = props || {}, t;
   notification = typeof notification === 'string' && (
@@ -59,7 +60,9 @@ export const Button = props => {
   doNotHide && (className += ' do-not-hide');
   Array.isArray(children || (children = [])) || (children = [children]);
   textStyle = `button-text${textStyle && ` ${textStyle}` || ''}${doNotHide && ' do-not-hide' || ''}${fat && ' fat' || ''}`;
-  typeof translate === 'function' || (translate = Function.identity);
+  translate = __translate__;
+  title && (title = translate(title));
+  alt && (alt = translate(alt));
 
   // Layout.
   return href && <Link
