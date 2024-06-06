@@ -354,6 +354,24 @@ export const commonTranslations = [
     pt: 'Ir para'
   },
   {
+    en: 'Open',
+    es: 'Abrir',
+    fr: 'Ouvrir',
+    pt: 'Abrir'
+  },
+  {
+    en: 'Close',
+    es: 'Cerrar',
+    fr: 'Fermer',
+    pt: 'Fechar'
+  },
+  {
+    en: 'Close menu',
+    es: 'Cerrar menú',
+    fr: 'Fermer le menu',
+    pt: 'Fechar menu'
+  },
+  {
     en: 'Add',
     es: 'Agregar',
     fr: 'Ajouter',
@@ -364,6 +382,18 @@ export const commonTranslations = [
     es: 'Para agregar',
     fr: 'À ajouter',
     pt: 'Para adicionar'
+  },
+  {
+    en: 'Navigation bar',
+    es: 'Barra de navegación',
+    fr: 'Barre de navigation',
+    pt: 'Barra de navegação'
+  },
+  {
+    en: 'Top navigation bar',
+    es: 'Barra de navegación superior',
+    fr: 'Barre de navigation supérieure',
+    pt: 'Barra de navegação superior'
   },
   {
     en: 'Try it',

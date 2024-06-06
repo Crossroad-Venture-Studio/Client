@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import createEventHandlers from '../../../utils/createEventHandlers';
 import transitions from '../navigation/TransitionPage/transitions';
+import '../../../../utils/src/functionUtils';
 
 // Main component.
 export const Button = props => {
@@ -32,6 +33,7 @@ export const Button = props => {
     submit = `${(type || '')}`.toLowerCase() === 'submit',
     scroll = false,
     textStyle = 'vertical-trim',
+    translate,
     ...other
   } = props || {}, t;
   notification = typeof notification === 'string' && (
@@ -57,6 +59,7 @@ export const Button = props => {
   doNotHide && (className += ' do-not-hide');
   Array.isArray(children || (children = [])) || (children = [children]);
   textStyle = `button-text${textStyle && ` ${textStyle}` || ''}${doNotHide && ' do-not-hide' || ''}${fat && ' fat' || ''}`;
+  typeof translate === 'function' || (translate = Function.identity);
 
   // Layout.
   return href && <Link
@@ -67,7 +70,7 @@ export const Button = props => {
   {...other}
 >
   {src && <img className={`button-img icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
-  {text && <span className={textStyle}>{text}</span> || null}
+  {text && <span className={textStyle}>{translate(text)}</span> || null}
   {...children}
 </Link> ||  <button
     className={className}
@@ -76,7 +79,7 @@ export const Button = props => {
     {...other}
   >
     {src && <img className={`button-img icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
-    {text && <span className={textStyle}>{text}</span> || null}
+    {text && <span className={textStyle}>{translate(text)}</span> || null}
     {...children}
   </button>;
 }

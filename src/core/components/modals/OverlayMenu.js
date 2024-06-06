@@ -30,6 +30,7 @@ export const OverlayMenu = props => {
     closeIconSrc = 'https://crossroad-venture-studio.github.io/Design-System/icons/actions/close-filled-dark.svg',
     closeIcon = closeIconSrc,
     closeSrc = closeIcon,
+    translate,
     ...other
   } = props || {},
   _ref = useRef(null),
@@ -46,6 +47,7 @@ export const OverlayMenu = props => {
   nav || (nav = []);
   className = (className && `${baseClassName} ${className}`) || baseClassName;
   hooks || (hooks = {});
+  typeof translate === 'function' || (translate = Function.identity);
 
   // Additional states.
   const [isOpened, setIsOpened] = useState(opened);
@@ -69,11 +71,11 @@ export const OverlayMenu = props => {
         className='width-100-percent row right do-not-hide background-none close-menu-button'
         src={closeSrc}
         onPress={() => hooks.close()}
-        title='Close menu'
+        title={translate('Close menu')}
         disabled={!isOpened}
         isLink
       />
-      {...(nav.map(({src, icon, iconSrc, ...other} = {}, i) => <Button disabled={!isOpened} {...other} key={`${i}`} />))}
+      {...(nav.map(({src, icon, iconSrc, ...other} = {}, i) => <Button translate={translate} disabled={!isOpened} {...other} key={`${i}`} />))}
       {children}
     </div> || null}
   </Overlay>;

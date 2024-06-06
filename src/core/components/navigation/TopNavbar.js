@@ -4,6 +4,7 @@ import createEventHandlers from '../../../utils/createEventHandlers';
 import Button from '../atoms/Button';
 import BackButton from '../atoms/BackButton';
 import NextButton from '../atoms/NextButton';
+import '../../../../utils/src/functionUtils';
 
 // Navbar.
 export const TopNavbar = props => {
@@ -43,6 +44,7 @@ export const TopNavbar = props => {
     children,
     className,
     safearea,
+    translate,
     title = 'Top navigation bar',
     ...other
   } = props || {},
@@ -57,6 +59,8 @@ export const TopNavbar = props => {
   className = className && `top-navbar ${className}` || 'top-navbar';
   safearea && (className = `safearea ${className}`);
   rightNav = (Array.isArray(rightNav) && rightNav || [rightNav]).filter(x => x);
+  typeof translate === 'function' || (translate = Function.identity);
+  title && (title = translate(title));
   const hasBack = (onBack || backHref) && (backSrc || backText),
     hasNext = (onNext || nextHref) && (nextSrc || nextText);
 
@@ -68,11 +72,12 @@ export const TopNavbar = props => {
         <div className='row center left fill'>
           <BackButton
             src={backSrc}
-            title={backTitle}
-            alt={backAlt}
-            value={backText}
+            title={backTitle && translate(backTitle) || null}
+            alt={backAlt && translate(backAlt) || null}
+            value={backText && translate(backText) || null}
             href={backHref}
             onPress={onBack}
+            translate={translate}
           ></BackButton>
         </div>
       ) || null}
@@ -86,23 +91,23 @@ export const TopNavbar = props => {
           {...onLogoFuncs}
         >
           {logoSrc && <img src={logoSrc} className='top-navbar-logo-image do-not-hide' alt='logo'/> || null}
-          {logoText && <span className='top-navbar-logo-text vertical-trim'> {logoText} </span> || null}
+          {logoText && <span className='top-navbar-logo-text vertical-trim'> {translate(logoText)} </span> || null}
         </Button>
       ) || null}
 
       {...children}
 
       {rightNav.length && <div className={`top-navbar-right row center right${!(hasBack || logoSrc || logoText || hasNext) && ' fill' || ''}`}>
-        {...(rightNav.map((b, i) => <Button {...b} key={`${i}`}></Button>))}
+        {...(rightNav.map((b, i) => <Button translate={translate} {...b} key={`${i}`}></Button>))}
       </div> || null}
 
       {hasNext && (
         <div className={`row center right ${(!rightNav.length || !(logoSrc || logoText)) && 'fill' || ''}`}>
           <NextButton
             src={nextSrc}
-            title={nextTitle}
-            alt={nextAlt}
-            value={nextText}
+            title={nextTitle && translate(nextTitle) || null}
+            alt={nextAlt && translate(nextAlt) || null}
+            value={nextText && translate(nextText) || null}
             href={nextHref}
             onPress={onNext}
           ></NextButton>
