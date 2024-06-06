@@ -4,6 +4,7 @@ import { useRef, useState } from 'react';
 import { Overlay, TRANSITION_TIME as TT } from './Overlay';
 import Button from '../atoms/Button';
 import transitions from '../navigation/TransitionPage/transitions';
+import '../../../../utils/src/functionUtils';
 
 // Modal menu.
 export const OverlayMenu = props => {
@@ -86,7 +87,7 @@ export const getOverlayMenuOnPress = (
     const close = typeof hook === 'function' && hook || (
       hook && typeof hook === 'object' && typeof hook.close === 'function' && hook.close
     ) || null,
-    onClosed = typeof route === 'function' && route || (router && route && (() => router.push(route)));
+    onClosed = typeof route === 'function' && route || (router && route && (() => router.push(route))) || Function.void;
     onClosed && close && (
       transitions.setCurrentTransition(transition),
       close().then(onClosed)
