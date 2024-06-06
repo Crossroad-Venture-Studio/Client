@@ -498,6 +498,18 @@ export const commonTranslations = [
     pt: 'Redes sociais'
   },
   {
+    en: 'Social',
+    es: 'Red social',
+    fr: 'Réseau social',
+    pt: 'Mídia social'
+  },
+  {
+    en: 'Social media',
+    es: 'Red social',
+    fr: 'Réseau social',
+    pt: 'Mídia social'
+  },
+  {
     en: 'Link',
     es: 'Enlace',
     fr: 'Lien',
