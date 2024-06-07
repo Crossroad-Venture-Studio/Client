@@ -192,6 +192,12 @@ export const commonTranslations = [
     pt: 'Conta'
   },
   {
+    en: 'My Account',
+    es: 'Mi cuenta',
+    fr: 'Mon compte',
+    pt: 'Minha conta'
+  },
+  {
     en: 'Create account',
     es: 'Crear cuenta',
     fr: 'Créer compte',
