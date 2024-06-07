@@ -198,6 +198,12 @@ export const commonTranslations = [
     pt: 'Criar conta'
   },
   {
+    en: 'Switch account',
+    es: 'Cambiar cuenta',
+    fr: 'Changer compte',
+    pt: 'Mudar conta'
+  },
+  {
     en: 'Your account',
     es: 'Su cuenta',
     fr: 'Votre compte',
