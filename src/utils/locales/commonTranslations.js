@@ -216,6 +216,24 @@ export const commonTranslations = [
     pt: 'Conta do usuário'
   },
   {
+    en: 'Page',
+    es: 'Página',
+    fr: 'Page',
+    pt: 'Página'
+  },
+  {
+    en: 'My page',
+    es: 'Mi página',
+    fr: 'Ma page',
+    pt: 'Minha página'
+  },
+  {
+    en: 'Preview',
+    es: 'Vista previa',
+    fr: 'Aperçu',
+    pt: 'Prévia'
+  },
+  {
     en: 'Terms of use',
     es: 'Condiciones de uso',
     fr: 'Conditions Générales d\'Utilisation',
