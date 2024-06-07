@@ -384,6 +384,18 @@ export const commonTranslations = [
     pt: 'Para adicionar'
   },
   {
+    en: 'Social handle',
+    es: 'Mango social',
+    fr: 'Poignée sociale',
+    pt: 'Identificador social'
+  },
+  {
+    en: 'Handle',
+    es: 'Mango',
+    fr: 'Poignée',
+    pt: 'Identificador'
+  },
+  {
     en: 'Navigation bar',
     es: 'Barra de navegación',
     fr: 'Barre de navigation',
