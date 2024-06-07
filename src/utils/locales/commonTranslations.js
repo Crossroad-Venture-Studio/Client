@@ -24,6 +24,12 @@ export const commonTranslations = [
     pt: 'Próximo',
   },
   {
+    en: 'Powered by',
+    es: 'Distribuido por',
+    fr: 'Distribué par',
+    pt: 'Distribuído por',
+  },
+  {
     en: 'Load',
     es: 'Cargar',
     fr: 'Charger',
