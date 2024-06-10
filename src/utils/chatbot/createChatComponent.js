@@ -44,6 +44,7 @@ export const createChatComponent = ({
       scrollBottom,
       scrollTop,
       hooks,
+      locale: 'en',
       className
     } = props || {}, baseClassName = 'chat-feed-container';
     className = className && `${baseClassName} ${baseClassName}` || baseClassName;
@@ -56,7 +57,8 @@ export const createChatComponent = ({
       const type = 'chat_to_bot',
       data = {
         text: message.chatInput,
-        conversation_id: store.data[conversationIdKey]
+        conversation_id: store.data[conversationIdKey],
+        locale
       };
   
       // Update the conversation history.
