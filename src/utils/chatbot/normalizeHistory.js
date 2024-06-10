@@ -11,7 +11,7 @@ const getDate = date => {
 
 // Date line component.
 const DateLine = props => <div className='row width-100-percent center text-gap text-color-semi-dark font-size-22-28 bold margin-vertical'>
-  ❯ {props.date}
+  {props.date}
 </div>;
 
 // Helper function to normalize conversation history data.
