@@ -44,7 +44,7 @@ export const createChatComponent = ({
       scrollBottom,
       scrollTop,
       hooks,
-      locale: 'en',
+      locale = 'en',
       className
     } = props || {}, baseClassName = 'chat-feed-container';
     className = className && `${baseClassName} ${baseClassName}` || baseClassName;
