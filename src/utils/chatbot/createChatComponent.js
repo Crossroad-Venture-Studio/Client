@@ -11,6 +11,8 @@ import '../../../utils/src/functionUtils';
 export const createChatComponent = ({
   name,
   botName = name,
+  src,
+  botSrc = src,
   webSocketUrl,
   userStore,
   store = userStore,
@@ -37,6 +39,8 @@ export const createChatComponent = ({
   return props => {
     // normalize input.
     let {
+      src: _src,
+      botSrc: _botSrc = _src,
       sendIconSrc = 'https://crossroad-venture-studio.github.io/Design-System/icons/actions/send-filled-dark.svg',
       sendIcon = sendIconSrc,
       sendSrc = sendIcon,
@@ -129,6 +133,9 @@ export const createChatComponent = ({
           src={sendSrc}
         />
       </Row>
+      {_botSrc && <div className='chatbot-image-container'>
+        <img className='chatbot-image' src={_botSrc}/>
+        </div> || null}
     </Form>;
   };
 }
