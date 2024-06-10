@@ -52,14 +52,20 @@ export const createChatComponent = ({
     // Chatbot history.
     const [history] = useObserver(store.data, conversationHistoryKey),
     inputRef = useRef(),
-    onSubmitMessage = message => {
+    submitMessage = input => {
+      if (!input && input !== 0 && input !== false) return false;
+
       // Send message to bot
       const type = 'chat_to_bot',
       data = {
-        text: message.chatInput,
         conversation_id: store.data[conversationIdKey],
         locale
       };
+      typeof input === 'object' && (
+        Array.isArray(input) && (data.array = input) || Object.assign(data, input)
+      ) || (
+        data.text = `${input}`
+      );
   
       // Update the conversation history.
       updateHistory({ data });
@@ -69,7 +75,10 @@ export const createChatComponent = ({
   
       // Reset input.
       inputRef.current.value = '';
-    };
+
+      return true;
+    },
+    onSubmitMessage = message => submitMessage(message && message.chatInput || null);
 
     // Scrolling functions.
     scrollBottom || (scrollBottom = (el = containerRef && containerRef.current) => (
@@ -83,7 +92,8 @@ export const createChatComponent = ({
     hooks && (
       hooks.reset = () => startNewConversation(true),
       hooks.scrollBottom = scrollBottom,
-      hooks.scrollTop = scrollTop
+      hooks.scrollTop = scrollTop,
+      hooks.submitMessage = submitMessage
     );
 
     // Initiate connection when component mounts.
@@ -104,7 +114,7 @@ export const createChatComponent = ({
       className='chat-feed-container'
       onSubmit={onSubmitMessage}
     >
-      <ChatFeed history={normalizeHistory(history)}/>
+      <ChatFeed history={normalizeHistory(history, submitMessage)}/>
       <Row className='gap-half chat-input'>
         <input
           ref={inputRef}
