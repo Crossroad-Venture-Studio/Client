@@ -118,6 +118,9 @@ export const createChatComponent = ({
       className='chat-feed-container'
       onSubmit={onSubmitMessage}
     >
+      {_botSrc && <div className='chatbot-image-container'>
+        <img className='chatbot-image' src={_botSrc}/>
+        </div> || null}
       <ChatFeed history={normalizeHistory(history, submitMessage)}/>
       <Row className='gap-half chat-input'>
         <input
@@ -133,9 +136,6 @@ export const createChatComponent = ({
           src={sendSrc}
         />
       </Row>
-      {_botSrc && <div className='chatbot-image-container'>
-        <img className='chatbot-image' src={_botSrc}/>
-        </div> || null}
     </Form>;
   };
 }
