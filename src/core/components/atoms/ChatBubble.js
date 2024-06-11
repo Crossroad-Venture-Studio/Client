@@ -26,6 +26,8 @@ export const ChatBubble = props => {
     children,
     conversation_id,
     conversationId,
+    style,
+    textStyle,
     ...other
   } = props || {},
   baseClassName = 'chat-bubble';
@@ -33,16 +35,22 @@ export const ChatBubble = props => {
   isEnd && (baseClassName += ' end');
   isUser && (baseClassName += ' user');
   className = className && `${baseClassName} ${className}` || baseClassName;
+  style || (style = {});
+  textStyle || (textStyle = {});
+
+  for (const k in style) {
+    (k.includes('text') || k.includes('font')) && (
+      textStyle[k] = style[k],
+      delete style[k]
+    );
+  }
 
   console.log('other:', other);
 
   // Render.
   return <Column className={`chat-bubble-container ${isUser && 'right user' || 'left'}`}>
-    <Column className={className} {...other} style={{
-        fontSize: '40px !important',
-        background: 'red'
-      }}>
-      {text && <span className='chat-bubble-text'>
+    <Column className={className} {...other} style={style}>
+      {text && <span className='chat-bubble-text' style={textStyle}>
         {text}
       </span> || null}
       {children}
