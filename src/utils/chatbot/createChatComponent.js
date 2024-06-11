@@ -39,7 +39,7 @@ export const createChatComponent = ({
   return props => {
     // normalize input.
     let {
-      src: _src,
+      src: _src = botSrc,
       botSrc: _botSrc = _src,
       sendIconSrc = 'https://crossroad-venture-studio.github.io/Design-System/icons/actions/send-filled-dark.svg',
       sendIcon = sendIconSrc,
