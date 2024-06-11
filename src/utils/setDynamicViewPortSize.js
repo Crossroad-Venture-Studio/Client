@@ -28,8 +28,6 @@ const visualViewportResizeHandler = () => {
     vvot = clamp(vv.offsetTop, 0, lvh - vvh),
     vvol = clamp(vv.offsetLeft, 0, lvl - vvw);
 
-  offsetTop = clamp(offsetTop, 0, layoutViewportHeight - height);
-        offsetLeft = clamp(offsetLeft, 0, layoutViewportWidth - width);
   console.log('page', vvl, vvt);
   document.documentElement.style.setProperty('--vvt', vvt && `${vvt}px` || '0');
   document.documentElement.style.setProperty('--vvl', vvl && `${vvl}px` || '0');
