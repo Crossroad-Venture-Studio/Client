@@ -21,6 +21,10 @@ export const Platform = {
   get orientation() { return this.screen.orientation || this.window.orientation; },
   get online() { return (this.navigator.online || this.navigator.onLine); },
   matchMedia(...args) { return (this.window.matchMedia || (() => {}))(...args); },
+  get windowSize() { return this.isMounted && {
+    width: Math.max(this.documentElement.clientWidth || 0, this.window.innerWidth || 0),
+    height: Math.max(this.documentElement.clientHeight || 0, this.window.innerHeight || 0)
+  } || {}; },
   // Mobile.
   get isAndroidMobile() { return /Android|Opera Mini/.test(this.userAgent) || this.window.Android; },
   get isWindowsMobile() { return /Windows Phone|IEMobile/.test(this.userAgent); },
