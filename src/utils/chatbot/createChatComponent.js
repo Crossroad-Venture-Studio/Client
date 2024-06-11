@@ -103,24 +103,25 @@ export const createChatComponent = ({
     // Initiate connection when component mounts.
     useEffect(() => {
       initiateConnection();
-      inputRef.current.onfocus = () => {
-        console.log('>>>>>>>>>>')
-        window.scrollTo(0, 0);
-        document.body.scrollTop = 0;
-      };
-      document.ontouchmove = e => {
-        e.preventDefault();
-      }
-      const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-      const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-      document.body.style.width = document.body.parentNode.style.width = `${w}px`;
-      document.body.style.height = document.body.parentNode.style.height = `${h}px`;
-      console.log('>>>>', w, h);
+      // inputRef.current.onfocus = () => {
+      //   console.log('>>>>>>>>>>')
+      //   window.scrollTo(0, 0);
+      //   document.body.scrollTop = 0;
+      // };
+      // document.ontouchmove = e => {
+      //   e.preventDefault();
+      // }
+      // const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      // const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+      // document.body.style.width = document.body.parentNode.style.width = `${w}px`;
+      // document.body.style.height = document.body.parentNode.style.height = `${h}px`;
+      // console.log('>>>>', w, h);
 
       if (window.visualViewport) {
         function resizeHandler() {
             for (const sessionView of document.getElementsByClassName('chat-feed-container')) {
                 sessionView.style.height = window.visualViewport.height.toString() + 'px';
+                document.body.style.height = window.visualViewport.height.toString() + 'px';
                 document.getElementsByTagName('html')[0].style.height = window.visualViewport.height.toString() + 'px';
             }
         }
