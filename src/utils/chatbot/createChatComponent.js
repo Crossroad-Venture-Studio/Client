@@ -108,6 +108,9 @@ export const createChatComponent = ({
         window.scrollTo(0, 0);
         document.body.scrollTop = 0;
       };
+      document.ontouchmove = function(e){
+        e.preventDefault();
+        }
     }, []);
 
     // useEffect to scroll to bottom of the page when history updates
