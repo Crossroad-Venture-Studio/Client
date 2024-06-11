@@ -116,6 +116,16 @@ export const createChatComponent = ({
       document.body.style.width = document.body.parentNode.style.width = `${w}px`;
       document.body.style.height = document.body.parentNode.style.height = `${h}px`;
       console.log('>>>>', w, h);
+
+      if (window.visualViewport) {
+        function resizeHandler() {
+            for (const sessionView of document.getElementsByClassName('chat-feed-container')) {
+                sessionView.style.height = window.visualViewport.height.toString() + 'px';
+                document.getElementsByTagName('html')[0].style.height = window.visualViewport.height.toString() + 'px';
+            }
+        }
+        window.visualViewport.addEventListener('resize', resizeHandler);
+      }
     }, []);
 
     // useEffect to scroll to bottom of the page when history updates
