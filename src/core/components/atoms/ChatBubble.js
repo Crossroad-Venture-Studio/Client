@@ -24,6 +24,8 @@ export const ChatBubble = props => {
     from,
     sender = from,
     children,
+    conversation_id,
+    conversationId,
     ...other
   } = props || {},
   baseClassName = 'chat-bubble';
@@ -36,7 +38,9 @@ export const ChatBubble = props => {
 
   // Render.
   return <Column className={`chat-bubble-container ${isUser && 'right user' || 'left'}`}>
-    <Column className={className} {...other}>
+    <Column className={className} {...other} style={{
+        fontSize: '40px !important'
+      }}>
       {text && <span className='chat-bubble-text'>
         {text}
       </span> || null}
