@@ -25,6 +25,7 @@ export const Platform = {
     width: Math.max(this.documentElement.clientWidth || 0, this.window.innerWidth || 0),
     height: Math.max(this.documentElement.clientHeight || 0, this.window.innerHeight || 0)
   } || {}; },
+  get visualViewport() { return this.window.visualViewport || {} },
   // Mobile.
   get isAndroidMobile() { return /Android|Opera Mini/.test(this.userAgent) || this.window.Android; },
   get isWindowsMobile() { return /Windows Phone|IEMobile/.test(this.userAgent); },

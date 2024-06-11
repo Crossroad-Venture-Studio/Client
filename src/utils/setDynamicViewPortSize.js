@@ -5,17 +5,19 @@ const setWindowSizeProperties = () => {
   const { width: w, height: h } = Platform.windowSize;
   document.documentElement.style.setProperty('--vw', w && `${w * 0.01}px` || '1dvw');
   document.documentElement.style.setProperty('--vh', h && `${h * 0.01}px` || '1dvh');
-  console.log('hello', w, h);
 }
 
 const windowResizeEventHandler = throttle(() => {
   // We execute the same script as before.
-  console.log('resizing');
   setWindowSizeProperties();
   document.body.dataset.resizing = true;
 }, 10);
 
 const visualViewportResizeHandler = () => {
+  const vv = window.visualViewport, vl = vv.pageLeft, vt = vvt.pageTop;
+  console.log('page', vl, vt);
+  document.documentElement.style.setProperty('--vt', vt && `${vt}px` || '0');
+  document.documentElement.style.setProperty('--vl', vl && `${vl}px` || '0');
   document.body.dataset.viewportResizing = true;
 }
 
