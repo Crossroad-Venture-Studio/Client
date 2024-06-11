@@ -13,11 +13,15 @@ const windowResizeEventHandler = throttle(() => {
   document.body.dataset.resizing = true;
 }, 10);
 
+const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
+
 const visualViewportResizeHandler = () => {
-  const vv = window.visualViewport, vl = vv.pageLeft, vt = vv.pageTop;
-  console.log('page', vl, vt);
-  document.documentElement.style.setProperty('--vt', vt && `${vt}px` || '0');
-  document.documentElement.style.setProperty('--vl', vl && `${vl}px` || '0');
+  let vv = window.visualViewport, vvl = vv.pageLeft, vvt = vv.pageTop, vvw = vv.width, vvh = vv.height;
+  vvt = clamp(vvl, 0, document.body.offsetHeight - vvh);
+  vvl = clamp(vvl, 0, document.body.offsetWidth - vvw);
+  console.log('page', vvl, vvt);
+  document.documentElement.style.setProperty('--vvt', vvt && `${vvt}px` || '0');
+  document.documentElement.style.setProperty('--vvl', vvl && `${vvl}px` || '0');
   document.body.dataset.viewportResizing = true;
 }
 
