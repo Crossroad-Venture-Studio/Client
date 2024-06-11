@@ -104,6 +104,7 @@ export const createChatComponent = ({
     useEffect(() => {
       initiateConnection();
       inputRef.current.onfocus = () => {
+        console.log('>>>>>>>>>>')
         window.scrollTo(0, 0);
         document.body.scrollTop = 0;
       };
