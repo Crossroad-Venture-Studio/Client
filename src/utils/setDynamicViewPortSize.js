@@ -11,6 +11,7 @@ const eventHandler = throttle(() => {
 export const setDynamicViewPortSize = () => (
   // We listen to the resize event
   Platform.isMounted && (
+    console.log('#######'),
     window.removeEventListener('resize', eventHandler),
     window.addEventListener('resize', eventHandler)
   )
