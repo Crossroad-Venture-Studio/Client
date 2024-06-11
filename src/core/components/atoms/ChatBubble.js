@@ -39,7 +39,8 @@ export const ChatBubble = props => {
   // Render.
   return <Column className={`chat-bubble-container ${isUser && 'right user' || 'left'}`}>
     <Column className={className} {...other} style={{
-        fontSize: '40px !important'
+        fontSize: '40px !important',
+        background: 'red'
       }}>
       {text && <span className='chat-bubble-text'>
         {text}
