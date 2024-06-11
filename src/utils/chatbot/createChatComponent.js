@@ -124,13 +124,14 @@ export const createChatComponent = ({
       <ChatFeed history={normalizeHistory(history, submitMessage)}/>
       <Row className='gap-half chat-input'>
         <input
+          enterkeyhint='send'
           ref={inputRef}
           className='fill input'
           required name='chat-input'
           placeholder={`${translate('type your message here')}...`}
         />
         <Button
-          className='icon'
+          className='icon chat-submit-button'
           type='submit'
           isLink
           src={sendSrc}
