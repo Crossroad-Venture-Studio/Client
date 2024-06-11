@@ -3,6 +3,7 @@ import throttle from '../../utils/src/throttle';
 
 const windowResizeEventHandler = throttle(() => {
   // We execute the same script as before.
+  console.log('hello');
   const w = window.innerWidth, h = window.innerHeight;
   document.documentElement.style.setProperty('--vw', w && `${w * 0.01}px` || '1dvw');
   document.documentElement.style.setProperty('--vh', h && `${h * 0.01}px` || '1dvh');
