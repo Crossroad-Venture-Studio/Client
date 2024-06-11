@@ -1,8 +1,9 @@
 import Platform from '../core/native/Platform';
 import throttle from '../../utils/src/throttle';
 
-const setWindowSizeProperties = () => {
-  const { width: w, height: h } = Platform.windowSize;
+let META_VIEWPORT_CONTENT, VVH;
+
+const setWindowSizeProperties = ({ width: w, height: h } = Platform.windowSize) => {
   document.documentElement.style.setProperty('--vw', w && `${w * 0.01}px` || '1dvw');
   document.documentElement.style.setProperty('--vh', h && `${h * 0.01}px` || '1dvh');
 }
@@ -29,16 +30,18 @@ const visualViewportResizeHandler = () => {
     vvol = clamp(vv.offsetLeft, 0, lvl - vvw);
 
   console.log('page', vvl, vvt);
-  document.documentElement.style.setProperty('--vvt', vvt && `${vvt}px` || '0');
-  document.documentElement.style.setProperty('--vvl', vvl && `${vvl}px` || '0');
-  document.documentElement.style.setProperty('--vvot', vvot && `${vvt}px` || '0');
-  document.documentElement.style.setProperty('--vvol', vvol && `${vvl}px` || '0');
+  // document.documentElement.style.setProperty('--vvt', vvt && `${vvt}px` || '0');
+  // document.documentElement.style.setProperty('--vvl', vvl && `${vvl}px` || '0');
+  // document.documentElement.style.setProperty('--vvot', vvot && `${vvt}px` || '0');
+  // document.documentElement.style.setProperty('--vvol', vvol && `${vvl}px` || '0');
+  Platform.metaViewport.setAttribute && VVH !== h && Platform.metaViewport.setAttribute('content', `${META_VIEWPORT_CONTENT} height=${h}px`);
   document.body.dataset.viewportResizing = true;
 }
 
 export const setDynamicViewPortSize = () => (
   // We listen to the resize event.
   Platform.isMounted && (
+    META_VIEWPORT_CONTENT = Platform.metaViewport.getAttribute && Platform.metaViewport.getAttribute('content') || '',
     setWindowSizeProperties(),
     window.removeEventListener('resize', windowResizeEventHandler),
     window.addEventListener('resize', windowResizeEventHandler),
