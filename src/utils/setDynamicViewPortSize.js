@@ -4,6 +4,7 @@ import throttle from '../../utils/src/throttle';
 const eventHandler = throttle(() => {
   // We execute the same script as before.
   const w = window.innerWidth, h = window.innerHeight;
+  console.log('Viewport', w, h);
   document.documentElement.style.setProperty('--vw', w && `${w * 0.01}px` || '1dvw');
   document.documentElement.style.setProperty('--vh', h && `${h * 0.01}px` || '1dvh');
 }, 10);
