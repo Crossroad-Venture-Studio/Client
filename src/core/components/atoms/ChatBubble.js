@@ -45,7 +45,7 @@ export const ChatBubble = props => {
     );
   }
 
-  console.log('other:', other);
+  console.log('other:', other, style, textStyle);
 
   // Render.
   return <Column className={`chat-bubble-container ${isUser && 'right user' || 'left'}`}>
