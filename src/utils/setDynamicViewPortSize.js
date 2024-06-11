@@ -16,12 +16,25 @@ const windowResizeEventHandler = throttle(() => {
 const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
 
 const visualViewportResizeHandler = () => {
-  let vv = window.visualViewport, vvl = vv.pageLeft, vvt = vv.pageTop, vvw = vv.width, vvh = vv.height;
-  vvt = clamp(vvt, 0, document.body.offsetHeight - vvh);
-  vvl = clamp(vvl, 0, document.body.offsetWidth - vvw);
+  let vv = window.visualViewport,
+  { width: w, height: h } = Platform.windowSize,
+    vvw = vv.width || w,
+    vvh = vv.height || h,
+    vvl = clamp(vv.pageLeft, 0, document.body.offsetWidth - vvw),
+    vvt = clamp(vv.pageTop, 0, document.body.offsetHeight - vvh),
+    vvs = vv.scale || 1,
+    lvh = h * vvs,
+    lvl = w * vvs,
+    vvot = clamp(vv.offsetTop, 0, lvh - vvh),
+    vvol = clamp(vv.offsetLeft, 0, lvl - vvw);
+
+  offsetTop = clamp(offsetTop, 0, layoutViewportHeight - height);
+        offsetLeft = clamp(offsetLeft, 0, layoutViewportWidth - width);
   console.log('page', vvl, vvt);
   document.documentElement.style.setProperty('--vvt', vvt && `${vvt}px` || '0');
   document.documentElement.style.setProperty('--vvl', vvl && `${vvl}px` || '0');
+  document.documentElement.style.setProperty('--vvot', vvot && `${vvt}px` || '0');
+  document.documentElement.style.setProperty('--vvol', vvol && `${vvl}px` || '0');
   document.body.dataset.viewportResizing = true;
 }
 
