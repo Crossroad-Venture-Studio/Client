@@ -14,7 +14,7 @@ const windowResizeEventHandler = throttle(() => {
 }, 10);
 
 const visualViewportResizeHandler = () => {
-  const vv = window.visualViewport, vl = vv.pageLeft, vt = vvt.pageTop;
+  const vv = window.visualViewport, vl = vv.pageLeft, vt = vv.pageTop;
   console.log('page', vl, vt);
   document.documentElement.style.setProperty('--vt', vt && `${vt}px` || '0');
   document.documentElement.style.setProperty('--vl', vl && `${vl}px` || '0');
