@@ -108,9 +108,13 @@ export const createChatComponent = ({
         window.scrollTo(0, 0);
         document.body.scrollTop = 0;
       };
-      document.ontouchmove = function(e){
+      document.ontouchmove = e => {
         e.preventDefault();
-        }
+      }
+      const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+      document.body.style.width = document.body.parentNode.style.width = w;
+      document.body.style.height = document.body.parentNode.style.height = h;
     }, []);
 
     // useEffect to scroll to bottom of the page when history updates
