@@ -17,7 +17,7 @@ const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
 
 const visualViewportResizeHandler = () => {
   let vv = window.visualViewport, vvl = vv.pageLeft, vvt = vv.pageTop, vvw = vv.width, vvh = vv.height;
-  vvt = clamp(vvl, 0, document.body.offsetHeight - vvh);
+  vvt = clamp(vvt, 0, document.body.offsetHeight - vvh);
   vvl = clamp(vvl, 0, document.body.offsetWidth - vvw);
   console.log('page', vvl, vvt);
   document.documentElement.style.setProperty('--vvt', vvt && `${vvt}px` || '0');
