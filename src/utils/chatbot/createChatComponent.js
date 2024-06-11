@@ -129,7 +129,7 @@ export const createChatComponent = ({
       <ChatFeed history={normalizeHistory(history, submitMessage)}/>
       <Row className='gap-half chat-input'>
         <input
-          enterkeyhint='send'
+          enterKeyHint='send'
           ref={inputRef}
           className='fill input'
           required name='chat-input'
