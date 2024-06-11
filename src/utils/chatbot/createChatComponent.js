@@ -113,8 +113,9 @@ export const createChatComponent = ({
       }
       const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
       const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-      document.body.style.width = document.body.parentNode.style.width = w;
-      document.body.style.height = document.body.parentNode.style.height = h;
+      document.body.style.width = document.body.parentNode.style.width = `${w}px`;
+      document.body.style.height = document.body.parentNode.style.height = `${h}px`;
+      console.log('>>>>', w, h);
     }, []);
 
     // useEffect to scroll to bottom of the page when history updates
