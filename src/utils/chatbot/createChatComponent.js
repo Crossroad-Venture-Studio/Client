@@ -103,6 +103,10 @@ export const createChatComponent = ({
     // Initiate connection when component mounts.
     useEffect(() => {
       initiateConnection();
+      inputRef.current.onfocus = () => {
+        window.scrollTo(0, 0);
+        document.body.scrollTop = 0;
+      };
     }, []);
 
     // useEffect to scroll to bottom of the page when history updates
