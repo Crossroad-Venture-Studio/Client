@@ -40,6 +40,7 @@ const visualViewportResizeHandler = () => {
   // Platform.metaViewport.setAttribute('content', `${META_VIEWPORT_CONTENT} height=${vvh}px`);
   // document.body.style.marginTop = `${vvt}px`;
   setWindowSizeProperties({width: vvw, height: vvh});
+  document.body.style.marginTop = `${vvt}px`;
 
 }
 
