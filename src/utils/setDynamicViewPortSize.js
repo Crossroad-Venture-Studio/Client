@@ -41,6 +41,30 @@ const visualViewportResizeHandler = () => {
 
 }
 
+const visualViewportScrollHandler = () => {
+  let vv = window.visualViewport,
+  { width: w, height: h } = Platform.windowSize,
+    vvw = vv.width || w,
+    vvh = vv.height || h,
+    vvl = clamp(vv.pageLeft, 0, document.body.offsetWidth - vvw),
+    vvt = clamp(vv.pageTop, 0, document.body.offsetHeight - vvh),
+    vvs = vv.scale || 1,
+    lvh = h * vvs,
+    lvl = w * vvs,
+    vvot = clamp(vv.offsetTop, 0, lvh - vvh),
+    vvol = clamp(vv.offsetLeft, 0, lvl - vvw);
+
+  document.body.dataset.viewportResizing = true;
+  // document.documentElement.style.setProperty('--vvt', vvt && `${vvt}px` || '0');
+  // document.documentElement.style.setProperty('--vvl', vvl && `${vvl}px` || '0');
+  // document.documentElement.style.setProperty('--vvot', vvot && `${vvt}px` || '0');
+  // document.documentElement.style.setProperty('--vvol', vvol && `${vvl}px` || '0');
+  document.getElementById('chat-input').setAttribute('value', `scrolling: ${vvt} ${vvh} ${h} ${h - vvt}`);
+  // Platform.metaViewport.setAttribute('content', `${META_VIEWPORT_CONTENT} height=${vvh}px`);
+  // document.body.style.marginTop = `${vvt}px`;
+
+}
+
 export const setDynamicViewPortSize = () => (
   // We listen to the resize event.
   Platform.isMounted && (
@@ -49,8 +73,10 @@ export const setDynamicViewPortSize = () => (
     window.removeEventListener('resize', windowResizeEventHandler),
     window.addEventListener('resize', windowResizeEventHandler),
     window.visualViewport && (
-      window.visualViewport.removeEventListener('resize', visualViewportResizeHandler),
-      window.visualViewport.addEventListener('resize', visualViewportResizeHandler)
+      // window.visualViewport.removeEventListener('resize', visualViewportResizeHandler),
+      // window.visualViewport.addEventListener('resize', visualViewportResizeHandler),
+      window.visualViewport.removeEventListener('scroll', visualViewportScrollHandler),
+      window.visualViewport.addEventListener('scroll', visualViewportScrollHandler)
     )
   )
 );
