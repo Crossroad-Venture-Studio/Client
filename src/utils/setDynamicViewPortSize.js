@@ -35,7 +35,7 @@ const visualViewportResizeHandler = () => {
   document.documentElement.style.setProperty('--vvot', vvot && `${vvt}px` || '0');
   document.documentElement.style.setProperty('--vvol', vvol && `${vvl}px` || '0');
   Platform.metaViewport.setAttribute && VVH !== h && Platform.metaViewport.setAttribute('content', `${META_VIEWPORT_CONTENT} height=${h}px`);
-  document.body.dataset.viewportResizing = true;
+  document.body.dataset.viewportResizing = vvt && true || null;
 }
 
 export const setDynamicViewPortSize = () => (
