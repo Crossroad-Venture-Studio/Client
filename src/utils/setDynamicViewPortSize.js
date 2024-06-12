@@ -28,7 +28,8 @@ const visualViewportResizeHandler = throttle(() => {
     vvot = clamp(vv.offsetTop, 0, lvh - vvh),
     vvol = clamp(vv.offsetLeft, 0, lvl - vvw);
 
-    document.documentElement.style.setProperty('--vs', (vvh || 0) / h * (vvw || 0) / w);
+    document.documentElement.style.setProperty('--vsx', (vvw || 0) / w);
+    document.documentElement.style.setProperty('--vsy', (vvh || 0) / h);
     document.documentElement.style.setProperty('--visual-viewport-scale', `${vvs || 1}`);
     document.documentElement.style.setProperty('--visual-viewport-width', `${vvw || 0}px`);
     document.documentElement.style.setProperty('--visual-viewport-height', `${vvw || 0}px`);
