@@ -41,11 +41,11 @@ const visualViewportResizeHandler = throttle(() => {
     document.documentElement.style.setProperty('--viewport-width-scaled', `${vvw || 0}px`);
     document.documentElement.style.setProperty('--viewport-height-scaled', `${vvh || 0}px`);
     document.body.dataset.viewportScrolledUp = (vvt || vvot) && true || null;
-    const els = document.getElementsByClassName('chat-bubble-container'), el = els[els.length - 1];
-    el.innerHTML = Platform.userAgent;
-    document.getElementById('chat-input').setAttribute('placeholder', `${Platform.isMobile} ${window.webkit} ${Platform.isAndroidMobile
-      || Platform.isWindowsMobile
-      || Platform.isOtherMobile}`);
+    // const els = document.getElementsByClassName('chat-bubble-container'), el = els[els.length - 1];
+    // el.innerHTML = Platform.userAgent;
+    // document.getElementById('chat-input').setAttribute('placeholder', `${Platform.isMobile} ${window.webkit} ${Platform.isAndroidMobile
+    //   || Platform.isWindowsMobile
+    //   || Platform.isOtherMobile}`);
 }, 10);
 
 export const setDynamicViewPortSize = () => (
