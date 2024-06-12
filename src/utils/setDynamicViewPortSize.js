@@ -3,7 +3,8 @@ import throttle from '../../utils/src/throttle';
 
 let META_VIEWPORT_CONTENT, VVH;
 
-const setWindowSizeProperties = ({ width: w, height: h } = Platform.windowSize) => {
+const setWindowSizeProperties = input => {
+  const { width: w, height: h } = Object.assign({}, Platform.windowSize, input || {});
   document.documentElement.style.setProperty('--vw', w && `${w * 0.01}px` || '1dvw');
   document.documentElement.style.setProperty('--vh', h && `${h * 0.01}px` || '1dvh');
 }
@@ -29,15 +30,16 @@ const visualViewportResizeHandler = () => {
     vvot = clamp(vv.offsetTop, 0, lvh - vvh),
     vvol = clamp(vv.offsetLeft, 0, lvl - vvw);
 
-  console.log('page', vvl, vvt);
-  document.body.dataset.viewportResizing = (vvt || vvot) && true || null;
+  // console.log('page', vvl, vvt);
+  // document.body.dataset.viewportResizing = (vvt || vvot) && true || null;
   // document.documentElement.style.setProperty('--vvt', vvt && `${vvt}px` || '0');
   // document.documentElement.style.setProperty('--vvl', vvl && `${vvl}px` || '0');
   // document.documentElement.style.setProperty('--vvot', vvot && `${vvt}px` || '0');
   // document.documentElement.style.setProperty('--vvol', vvol && `${vvl}px` || '0');
   document.getElementById('chat-input').setAttribute('value', `${vvt} ${vvh} ${h} ${h - vvt}`);
   // Platform.metaViewport.setAttribute('content', `${META_VIEWPORT_CONTENT} height=${vvh}px`);
-  document.body.style.marginTop = `${vvt}px`;
+  // document.body.style.marginTop = `${vvt}px`;
+  setWindowSizeProperties({width: vvw, height: vvh});
 
 }
 
@@ -75,16 +77,16 @@ export const setDynamicViewPortSize = () => (
   Platform.isMounted && (
     META_VIEWPORT_CONTENT = Platform.metaViewport.getAttribute && Platform.metaViewport.getAttribute('content') || '',
     setWindowSizeProperties(),
-    // window.removeEventListener('resize', windowResizeEventHandler),
-    // window.addEventListener('resize', windowResizeEventHandler),
-    window.removeEventListener('scroll', windowScrollEventHandler),
-    window.addEventListener('scroll', windowScrollEventHandler)
-    // window.visualViewport && (
-    //   window.visualViewport.removeEventListener('resize', visualViewportResizeHandler),
-    //   window.visualViewport.addEventListener('resize', visualViewportResizeHandler),
-    //   window.visualViewport.removeEventListener('scroll', visualViewportScrollHandler),
-    //   window.visualViewport.addEventListener('scroll', visualViewportScrollHandler)
-    // )
+    window.removeEventListener('resize', windowResizeEventHandler),
+    window.addEventListener('resize', windowResizeEventHandler),
+    // window.removeEventListener('scroll', windowScrollEventHandler),
+    // window.addEventListener('scroll', windowScrollEventHandler)
+    window.visualViewport && (
+      window.visualViewport.removeEventListener('resize', visualViewportResizeHandler),
+      window.visualViewport.addEventListener('resize', visualViewportResizeHandler)
+      // window.visualViewport.removeEventListener('scroll', visualViewportScrollHandler),
+      // window.visualViewport.addEventListener('scroll', visualViewportScrollHandler)
+    )
   )
 );
 
