@@ -35,7 +35,7 @@ const visualViewportResizeHandler = () => {
   // document.documentElement.style.setProperty('--vvl', vvl && `${vvl}px` || '0');
   // document.documentElement.style.setProperty('--vvot', vvot && `${vvt}px` || '0');
   // document.documentElement.style.setProperty('--vvol', vvol && `${vvl}px` || '0');
-  document.getElementById('chat-input').setAttribute('value', `${META_VIEWPORT_CONTENT} height=${h - vvt}px`);
+  document.getElementById('chat-input').setAttribute('value', `${vvt} ${vvh} ${h}`);
   Platform.metaViewport.setAttribute('content', `${META_VIEWPORT_CONTENT} height=${h - vvt}px`);
 }
 
