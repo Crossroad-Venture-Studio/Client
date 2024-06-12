@@ -105,14 +105,14 @@ export const createChatComponent = ({
     // Initiate connection when component mounts.
     useEffect(() => {
       initiateConnection();
-      // Platform.isMobile && (
+      Platform.isMobile && (
         document.removeEventListener('touchmove', preventDefaultEventHandler),
         document.addEventListener('touchmove', preventDefaultEventHandler),
         window.visualViewport && (
           window.visualViewport.removeEventListener('scroll', preventDefaultEventHandler),
           window.visualViewport.addEventListener('scroll', preventDefaultEventHandler)
         )
-      // );
+      );
     }, []);
 
     // useEffect to scroll to bottom of the page when history updates
