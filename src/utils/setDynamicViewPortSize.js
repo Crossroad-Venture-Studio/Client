@@ -37,19 +37,19 @@ const visualViewportResizeHandler = () => {
   // document.documentElement.style.setProperty('--vvot', vvot && `${vvt}px` || '0');
   // document.documentElement.style.setProperty('--vvol', vvol && `${vvl}px` || '0');
   // document.getElementById('chat-input').setAttribute('value', `${vvt} ${vvh} ${Platform.windowSize}`);
-  Platform.metaViewport.setAttribute('content', `height=${vvh}px${META_VIEWPORT_CONTENT && ', ' || ''}${META_VIEWPORT_CONTENT}`);
+  // Platform.metaViewport.setAttribute('content', `height=${vvh}px${META_VIEWPORT_CONTENT && ', ' || ''}${META_VIEWPORT_CONTENT}`);
   // document.body.style.marginTop = `${vvt}px`;
   // setWindowSizeProperties({width: vvw, height: vvh});
   // document.getElementById('chat-input').setAttribute('value', `${vvt} ${vvh} | ${getComputedStyle(document.documentElement).getPropertyValue('--vh')}`);
   // document.body.style.marginTop = `${vvt}px`;
 
-  document.getElementById('chat-input').setAttribute('value', Platform.metaViewport.getAttribute('content'));
+  document.getElementById('chat-input').setAttribute('value', window.scrollHeight, document.documentElement.scrollHeight);
   // const scrollEndEventHandler = event => {
   //   document.getElementById('chat-input').setAttribute('value', `${vvt} ${vvh} | ${getComputedStyle(document.documentElement).getPropertyValue('--vh')} | ${vv.pageTop}`);
   //   window.removeEventListener('scrollend', scrollEndEventHandler);
   // }
   // window.addEventListener('scrollend', scrollEndEventHandler);
-  document.documentElement.scrollTo(0,document.documentElement.scrollHeight || 0);
+  // document.documentElement.scrollTo(0,document.documentElement.scrollHeight || 0);
   // window.scrollTop = window.scrollHeight;
 }
 
