@@ -31,11 +31,12 @@ const visualViewportResizeHandler = () => {
 
   console.log('page', vvl, vvt);
   // document.body.dataset.viewportResizing = (vvt || vvot) && true || null;
+  document.body.dataset.viewportResizing = window.navigator.virtualKeyboard && true || false;
 
-  if ('virtualKeyboard' in navigator) {
-    navigator.virtualKeyboard.overlaysContent = true;
-    document.body.dataset.viewportResizing = true;
-  }
+  // if ('virtualKeyboard' in navigator) {
+  //   navigator.virtualKeyboard.overlaysContent = true;
+  //   document.body.dataset.viewportResizing = true;
+  // }
   // document.documentElement.style.setProperty('--vvt', vvt && `${vvt}px` || '0');
   // document.documentElement.style.setProperty('--vvl', vvl && `${vvl}px` || '0');
   // document.documentElement.style.setProperty('--vvot', vvot && `${vvt}px` || '0');
