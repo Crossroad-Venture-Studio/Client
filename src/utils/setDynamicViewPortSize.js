@@ -43,11 +43,12 @@ const visualViewportResizeHandler = () => {
   // document.getElementById('chat-input').setAttribute('value', `${vvt} ${vvh} | ${getComputedStyle(document.documentElement).getPropertyValue('--vh')}`);
   // document.body.style.marginTop = `${vvt}px`;
 
-  const scrollEndEventHandler = event => {
-    document.getElementById('chat-input').setAttribute('value', `${vvt} ${vvh} | ${getComputedStyle(document.documentElement).getPropertyValue('--vh')} | ${vv.pageTop}`);
-    window.removeEventListener('scrollend', scrollEndEventHandler);
-  }
-  window.addEventListener('scrollend', scrollEndEventHandler);
+  document.getElementById('chat-input').setAttribute('value', Platform.metaViewport.getAttribute('content'));
+  // const scrollEndEventHandler = event => {
+  //   document.getElementById('chat-input').setAttribute('value', `${vvt} ${vvh} | ${getComputedStyle(document.documentElement).getPropertyValue('--vh')} | ${vv.pageTop}`);
+  //   window.removeEventListener('scrollend', scrollEndEventHandler);
+  // }
+  // window.addEventListener('scrollend', scrollEndEventHandler);
   window.scrollTo(0,0);
 }
 
