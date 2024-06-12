@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Button from '../../core/components/atoms/Button';
 import Form from '../../core/components/atoms/Form';
 import Row from '../../core/components/atoms/Row';
@@ -84,7 +84,8 @@ export const createChatComponent = ({
 
       return true;
     },
-    onSubmitMessage = message => submitMessage(message && message.chatInput || null);
+    onSubmitMessage = message => submitMessage(message && message.chatInput || null),
+    [focused, setFocused] = useState();
 
     // Scrolling functions.
     scrollBottom || (scrollBottom = (el = containerRef && containerRef.current) => (
@@ -105,12 +106,19 @@ export const createChatComponent = ({
     // Initiate connection when component mounts.
     useEffect(() => {
       initiateConnection();
+      const onFocus = () => setFocused(true), onBlur = () => setFocused(false);
       Platform.isMobile && (
         document.removeEventListener('touchmove', preventDefaultEventHandler),
         document.addEventListener('touchmove', preventDefaultEventHandler),
         window.visualViewport && (
           window.visualViewport.removeEventListener('scroll', preventDefaultEventHandler),
           window.visualViewport.addEventListener('scroll', preventDefaultEventHandler)
+        ),
+        inputRef.current && (
+          inputRef.current.removeEventListener('focus', onFocus),
+          inputRef.current.addEventListener('focus', onFocus),
+          inputRef.current.removeEventListener('blur', onBlur),
+          inputRef.current.addEventListener('blur', onBlur)
         )
       );
     }, []);
@@ -125,7 +133,7 @@ export const createChatComponent = ({
 
     // Render.
     return <Form
-      className='chat-feed-container'
+      className={`chat-feed-container${focused && ' focused' || ''}`}
       onSubmit={onSubmitMessage}
     >
       {_botSrc && <div className='chatbot-image-container'>
