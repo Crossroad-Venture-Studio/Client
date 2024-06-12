@@ -113,16 +113,16 @@ export const createChatComponent = ({
           setTimeout(() => {
             // Scrolling to the last element.
             scrollBottom();
-          }, 10);
+          }, 100);
           document.body.dataset.blah = true;
         };
       // Platform.isMobile && (
         document.removeEventListener('touchmove', preventDefaultEventHandler),
         document.addEventListener('touchmove', preventDefaultEventHandler),
-        // window.visualViewport && (
-        //   window.visualViewport.removeEventListener('scroll', onScroll),
-        //   window.visualViewport.addEventListener('scroll', onScroll)
-        // ),
+        window.visualViewport && (
+          window.visualViewport.removeEventListener('scroll', onScroll),
+          window.visualViewport.addEventListener('scroll', onScroll)
+        ),
         inputRef.current && (
           inputRef.current.removeEventListener('focus', onFocus),
           inputRef.current.addEventListener('focus', onFocus),
