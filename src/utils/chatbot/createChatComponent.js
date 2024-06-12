@@ -116,7 +116,7 @@ export const createChatComponent = ({
           }, 100);
           document.body.dataset.blah = true;
         };
-      // Platform.isMobile && (
+      Platform.isMobile && (
         document.removeEventListener('touchmove', preventDefaultEventHandler),
         document.addEventListener('touchmove', preventDefaultEventHandler),
         window.visualViewport && (
@@ -129,7 +129,7 @@ export const createChatComponent = ({
           inputRef.current.removeEventListener('blur', onBlur),
           inputRef.current.addEventListener('blur', onBlur)
         )
-      // );
+      );
     }, []);
 
     // useEffect to scroll to bottom of the page when history updates
