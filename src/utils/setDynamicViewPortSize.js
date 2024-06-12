@@ -66,19 +66,25 @@ const visualViewportScrollHandler = event => {
 
 }
 
+const windowScrollEventHandler = event => {
+  document.getElementById('chat-input').setAttribute('value', `scrolling: ${event.target.offsetTop} ${++CNT}`);
+}
+
 export const setDynamicViewPortSize = () => (
   // We listen to the resize event.
   Platform.isMounted && (
     META_VIEWPORT_CONTENT = Platform.metaViewport.getAttribute && Platform.metaViewport.getAttribute('content') || '',
     setWindowSizeProperties(),
-    window.removeEventListener('resize', windowResizeEventHandler),
-    window.addEventListener('resize', windowResizeEventHandler),
-    window.visualViewport && (
-      // window.visualViewport.removeEventListener('resize', visualViewportResizeHandler),
-      // window.visualViewport.addEventListener('resize', visualViewportResizeHandler),
-      window.visualViewport.removeEventListener('scroll', visualViewportScrollHandler),
-      window.visualViewport.addEventListener('scroll', visualViewportScrollHandler)
-    )
+    // window.removeEventListener('resize', windowResizeEventHandler),
+    // window.addEventListener('resize', windowResizeEventHandler),
+    window.removeEventListener('scroll', windowScrollEventHandler),
+    window.addEventListener('scroll', windowScrollEventHandler)
+    // window.visualViewport && (
+    //   window.visualViewport.removeEventListener('resize', visualViewportResizeHandler),
+    //   window.visualViewport.addEventListener('resize', visualViewportResizeHandler),
+    //   window.visualViewport.removeEventListener('scroll', visualViewportScrollHandler),
+    //   window.visualViewport.addEventListener('scroll', visualViewportScrollHandler)
+    // )
   )
 );
 
