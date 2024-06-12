@@ -107,7 +107,11 @@ export const createChatComponent = ({
       initiateConnection();
       Platform.isMobile && (
         document.removeEventListener('touchmove', preventDefaultEventHandler),
-        document.addEventListener('touchmove', preventDefaultEventHandler)
+        document.addEventListener('touchmove', preventDefaultEventHandler),
+        window.visualViewport && (
+          window.visualViewport.removeEventListener('scroll', preventDefaultEventHandler),
+          window.visualViewport.addEventListener('scroll', preventDefaultEventHandler)
+        )
       );
     }, []);
 
