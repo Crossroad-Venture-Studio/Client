@@ -43,7 +43,7 @@ const visualViewportResizeHandler = () => {
   // document.getElementById('chat-input').setAttribute('value', `${vvt} ${vvh} | ${getComputedStyle(document.documentElement).getPropertyValue('--vh')}`);
   // document.body.style.marginTop = `${vvt}px`;
 
-  document.getElementById('chat-input').setAttribute('value', `${document.documentElement.scrollHeight} ${Platform.windowSize.height} ${vv.height + vv.offsetTop} | ${document.body.offsetHeight} ${vv.height} ${vv.offsetTop} ${vv.pageTop}`);
+  document.getElementById('chat-input').setAttribute('value', `${document.documentElement.scrollHeight} ${Platform.windowSize.height} ${vv.height + vv.offsetTop} | ${document.body.scrollHeight} ${vv.height} ${vv.offsetTop} ${vv.pageTop}`);
   // const scrollEndEventHandler = event => {
   //   document.getElementById('chat-input').setAttribute('value', `${vvt} ${vvh} | ${getComputedStyle(document.documentElement).getPropertyValue('--vh')} | ${vv.pageTop}`);
   //   window.removeEventListener('scrollend', scrollEndEventHandler);
