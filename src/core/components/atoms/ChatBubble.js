@@ -1,4 +1,5 @@
 // Imports.
+import { useEffect, useRef } from 'react';
 import Column from './Column';
 
 // Main component.
@@ -28,9 +29,11 @@ export const ChatBubble = props => {
     conversationId,
     style,
     textStyle,
+    animTime,
     ...other
   } = props || {},
-  baseClassName = 'chat-bubble';
+  baseClassName = 'chat-bubble'
+  textRef = useRef();
   isStart && (baseClassName += ' start');
   isEnd && (baseClassName += ' end');
   isUser && (baseClassName += ' user');
@@ -45,11 +48,20 @@ export const ChatBubble = props => {
     );
   }
 
+  animTime && useEffect(() => {
+    let j = 0, t = '', f = () => {
+      t += text[j++];
+      textRef.current.innerHTML = t;
+      j < t.length &&  setTimeout(f, animTime);
+    };
+    f();
+  });
+
   // Render.
   return <Column className={`chat-bubble-container ${isUser && 'right user' || 'left'}`}>
     <Column className={className} {...other} style={style}>
-      {text && <span className='chat-bubble-text' style={textStyle}>
-        {text}
+      {text && <span ref={textRef} className='chat-bubble-text' style={textStyle}>
+        {!animTime && text || ''}
       </span> || null}
       {children}
     </Column>
