@@ -40,9 +40,7 @@ const visualViewportResizeHandler = throttle(() => {
     document.documentElement.style.setProperty('--visual-viewport-offset-left', `${vvol || 0}px`);
     document.documentElement.style.setProperty('--viewport-width-scaled', `${vvw || 0}px`);
     document.documentElement.style.setProperty('--viewport-height-scaled', `${vvh || 0}px`);
-    document.body.dataset.viewportScrolled = (vvt || vvot) && true || null;
-    const els = document.getElementsByClassName('chat-bubble-container'), el = els[els.length - 1];
-    document.getElementById('chat-input').setAttribute('placeholder', `${el.offsetHeight} ${vvh} + ${vvt} = ${h} | ${getComputedStyle(document.documentElement).getPropertyValue('--viewport-height-scaled')}`);
+    document.body.dataset.viewportScrolledUp = (vvt || vvot) && true || null;
 }, 10);
 
 export const setDynamicViewPortSize = () => (
