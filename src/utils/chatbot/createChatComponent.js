@@ -110,7 +110,7 @@ export const createChatComponent = ({
         onBlur = () => setFocused(false),
         onScroll = event => {
           preventDefaultEventHandler(event);
-          scrollBottom();
+          setTimeout(() => scrollBottom(), 3000);
         };
       Platform.isMobile && (
         document.removeEventListener('touchmove', preventDefaultEventHandler),
