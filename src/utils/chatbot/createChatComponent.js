@@ -144,7 +144,7 @@ export const createChatComponent = ({
       setTimeout(() => {
         // Scrolling to the last element.
         scrollBottom();
-      }, 10);
+      }, 50);
       document.body.dataset.focused = focused;
     },[focused])
 
