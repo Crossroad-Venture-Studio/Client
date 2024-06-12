@@ -36,10 +36,11 @@ const visualViewportResizeHandler = () => {
   // document.documentElement.style.setProperty('--vvl', vvl && `${vvl}px` || '0');
   // document.documentElement.style.setProperty('--vvot', vvot && `${vvt}px` || '0');
   // document.documentElement.style.setProperty('--vvol', vvol && `${vvl}px` || '0');
-  document.getElementById('chat-input').setAttribute('value', `${vvt} ${vvh} ${h} ${h - vvt}`);
+  // document.getElementById('chat-input').setAttribute('value', `${vvt} ${vvh} ${Platform.windowSize}`);
   // Platform.metaViewport.setAttribute('content', `${META_VIEWPORT_CONTENT} height=${vvh}px`);
   // document.body.style.marginTop = `${vvt}px`;
   setWindowSizeProperties({width: vvw, height: vvh});
+  document.getElementById('chat-input').setAttribute('value', `${vvt} ${vvh} ${Platform.windowSize}`);
   // document.body.style.marginTop = `${vvt}px`;
   document.documentElement.scrollTo(0,0);
 }
