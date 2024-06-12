@@ -151,7 +151,9 @@ export const createChatComponent = ({
           enterKeyHint='send'
           ref={inputRef}
           className='fill input'
-          required name='chat-input'
+          required
+          name='chat-input'
+          id='chat-input'
           placeholder={`${translate('type your message here')}...`}
         />
         <Button
