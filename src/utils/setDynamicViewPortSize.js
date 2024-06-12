@@ -41,7 +41,7 @@ const visualViewportResizeHandler = () => {
 
 }
 
-const visualViewportScrollHandler = () => {
+const visualViewportScrollHandler = event => {
   let vv = window.visualViewport,
   { width: w, height: h } = Platform.windowSize,
     vvw = vv.width || w,
@@ -59,7 +59,7 @@ const visualViewportScrollHandler = () => {
   // document.documentElement.style.setProperty('--vvl', vvl && `${vvl}px` || '0');
   // document.documentElement.style.setProperty('--vvot', vvot && `${vvt}px` || '0');
   // document.documentElement.style.setProperty('--vvol', vvol && `${vvl}px` || '0');
-  document.getElementById('chat-input').setAttribute('value', `scrolling: ${vvt} ${vvh} ${h} ${h - vvt}`);
+  document.getElementById('chat-input').setAttribute('value', `scrolling: ${vvt} ${vvh} ${h} ${h - vvt} ${window.scrollY}`);
   // Platform.metaViewport.setAttribute('content', `${META_VIEWPORT_CONTENT} height=${vvh}px`);
   document.body.style.marginTop = `${vvt}px`;
 
