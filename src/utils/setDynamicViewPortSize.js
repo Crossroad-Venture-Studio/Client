@@ -41,7 +41,7 @@ const visualViewportResizeHandler = () => {
   // document.body.style.marginTop = `${vvt}px`;
   // setWindowSizeProperties({width: vvw, height: vvh});
   // document.body.style.marginTop = `${vvt}px`;
-  document.documentElement.scrollTop();
+  document.documentElement.scrollTo(0,0);
 }
 
 let CNT = 0;
