@@ -31,7 +31,6 @@ const visualViewportResizeHandler = () => {
 
   console.log('page', vvl, vvt);
   document.body.dataset.viewportResizing = (vvt || vvot) && true || null;
-  vv.pageTop = 0;
   // document.documentElement.style.setProperty('--vvt', vvt && `${vvt}px` || '0');
   // document.documentElement.style.setProperty('--vvl', vvl && `${vvl}px` || '0');
   // document.documentElement.style.setProperty('--vvot', vvot && `${vvt}px` || '0');
