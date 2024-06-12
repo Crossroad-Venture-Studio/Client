@@ -37,6 +37,9 @@ const visualViewportResizeHandler = throttle(() => {
     document.documentElement.style.setProperty('--visual-viewport-page-left', `${vvl || 0}px`);
     document.documentElement.style.setProperty('--visual-viewport-offset-top', `${vvot || 0}px`);
     document.documentElement.style.setProperty('--visual-viewport-offset-left', `${vvol || 0}px`);
+    document.documentElement.style.setProperty('--visual-viewport-offset-left', `${vvol || 0}px`);
+    document.documentElement.style.setProperty('--viewport-width-scale', `${vvw || 0}px`);
+    document.documentElement.style.setProperty('--viewport-height-scale', `${vvh || 0}px`);
     document.body.dataset.viewportScrolled = (vvt || vvot) && true || null;
     document.getElementById('chat-input').setAttribute('placeholder', `${Math.round(100 * document.documentElement.style.getPropertyValue('--vsy')) / 100} | ${vvh} + ${vvt} = ${h} | ${getComputedStyle(document.documentElement).getPropertyValue('--viewport-height-scaled')}`);
 }, 10);
