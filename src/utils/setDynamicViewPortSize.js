@@ -31,13 +31,13 @@ const visualViewportResizeHandler = () => {
 
   console.log('page', vvl, vvt);
   document.body.dataset.viewportResizing = (vvt || vvot) && true || null;
-  document.documentElement.style.setProperty('--vvt', vvt && `${vvt}px` || '0');
+  // document.documentElement.style.setProperty('--vvt', vvt && `${vvt}px` || '0');
   // document.documentElement.style.setProperty('--vvl', vvl && `${vvl}px` || '0');
   // document.documentElement.style.setProperty('--vvot', vvot && `${vvt}px` || '0');
   // document.documentElement.style.setProperty('--vvol', vvol && `${vvl}px` || '0');
   document.getElementById('chat-input').setAttribute('value', `${vvt} ${vvh} ${h} ${h - vvt}`);
-  Platform.metaViewport.setAttribute('content', `${META_VIEWPORT_CONTENT} height=${vvh}px`);
-  // document.body.style.top = `${vvt}px`;
+  // Platform.metaViewport.setAttribute('content', `${META_VIEWPORT_CONTENT} height=${vvh}px`);
+  document.body.style.marginTop = `${vvt}px`;
 
 }
 
