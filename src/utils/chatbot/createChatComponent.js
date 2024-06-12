@@ -110,7 +110,11 @@ export const createChatComponent = ({
         onBlur = () => setFocused(false),
         onScroll = event => {
           preventDefaultEventHandler(event);
-          setTimeout(() => scrollBottom(), 3000);
+          setTimeout(() => {
+            // Scrolling to the last element.
+            scrollBottom();
+          }, 10);
+          document.body.dataset.blah = true;
         };
       Platform.isMobile && (
         document.removeEventListener('touchmove', preventDefaultEventHandler),
@@ -137,7 +141,11 @@ export const createChatComponent = ({
     }, [history]);
 
     useEffect(() => {
-      scrollBottom();
+      setTimeout(() => {
+        // Scrolling to the last element.
+        scrollBottom();
+      }, 10);
+      document.body.dataset.focused = true;
     },[focused])
 
     // Render.
