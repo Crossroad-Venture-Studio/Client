@@ -36,7 +36,6 @@ export const Platform = {
   get isOtherMobile() { return /webOS|BlackBerry/.test(this.userAgent); },
   get isIosMobile() { return (
     /iP(hone|ad|od)/.test(this.userAgent)
-    && this.window.webkit
     && !(
       this.isAndroidMobile
       || this.isWindowsMobile
@@ -47,7 +46,7 @@ export const Platform = {
     return this.isAndroidMobile || this.isWindowsMobile || this.isOtherMobile || this.isIosMobile;
   },
   get isIosMobileApp() {
-    return this.isIosMobile && this.window.webkit.messageHandlers && this.window.webkit.messageHandlers.console;
+    return this.isIosMobile && this.window.webkit && this.window.webkit.messageHandlers && this.window.webkit.messageHandlers.console;
   },
   get isAndroidApp() { return this.isAndroidMobile && this.window.Android; },
   // Touch screen.
