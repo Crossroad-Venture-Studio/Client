@@ -40,8 +40,14 @@ const visualViewportResizeHandler = () => {
   Platform.metaViewport.setAttribute('content', `${META_VIEWPORT_CONTENT}${META_VIEWPORT_CONTENT && ',' || ''} height=${vvh}px`);
   // document.body.style.marginTop = `${vvt}px`;
   // setWindowSizeProperties({width: vvw, height: vvh});
-  document.getElementById('chat-input').setAttribute('value', `${vvt} ${vvh} | ${getComputedStyle(document.documentElement).getPropertyValue('--vh')}`);
+  // document.getElementById('chat-input').setAttribute('value', `${vvt} ${vvh} | ${getComputedStyle(document.documentElement).getPropertyValue('--vh')}`);
   // document.body.style.marginTop = `${vvt}px`;
+
+  const scrollEndEventHandler = event => {
+    document.getElementById('chat-input').setAttribute('value', `${vvt} ${vvh} | ${getComputedStyle(document.documentElement).getPropertyValue('--vh')} | ${vv.pageTop}`);
+    document.documentElement.removeEventListener('scrollend', scrollEndEventHandler);
+  }
+  document.documentElement.addEventListener('scrollend', scrollEndEventHandler);
   document.documentElement.scrollTo(0,0);
 }
 
