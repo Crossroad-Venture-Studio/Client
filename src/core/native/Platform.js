@@ -21,10 +21,13 @@ export const Platform = {
   get orientation() { return this.screen.orientation || this.window.orientation; },
   get online() { return (this.navigator.online || this.navigator.onLine); },
   matchMedia(...args) { return (this.window.matchMedia || (() => {}))(...args); },
-  get windowSize() { return this.isMounted && {
-    width: Math.max(this.documentElement.clientWidth || 0, this.window.innerWidth || 0),
-    height: Math.max(this.documentElement.clientHeight || 0, this.window.innerHeight || 0)
-  } || {}; },
+  get windowSize() {
+    return this.isMounted && Object.defineProperty({
+      width: Math.max(this.documentElement.clientWidth || 0, this.window.innerWidth || 0),
+      height: Math.max(this.documentElement.clientHeight || 0, this.window.innerHeight || 0)
+    }, 'toString', { value: function(){ return `{ width: ${this.width}, height: ${this.height} }`}})
+    || {};
+  },
   get visualViewport() { return this.window.visualViewport || {}; },
   get metaViewport() { return this.isMounted && this.document.querySelector('meta[name=viewport]') || {}; },
   // Mobile.
