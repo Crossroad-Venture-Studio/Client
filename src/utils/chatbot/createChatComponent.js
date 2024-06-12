@@ -106,13 +106,18 @@ export const createChatComponent = ({
     // Initiate connection when component mounts.
     useEffect(() => {
       initiateConnection();
-      const onFocus = () => setFocused(true), onBlur = () => setFocused(false);
+      const onFocus = () => setFocused(true),
+        onBlur = () => setFocused(false),
+        onScroll = event => {
+          preventDefaultEventHandler(event);
+          scrollBottom();
+        };
       Platform.isMobile && (
         document.removeEventListener('touchmove', preventDefaultEventHandler),
         document.addEventListener('touchmove', preventDefaultEventHandler),
         window.visualViewport && (
-          window.visualViewport.removeEventListener('scroll', preventDefaultEventHandler),
-          window.visualViewport.addEventListener('scroll', preventDefaultEventHandler)
+          window.visualViewport.removeEventListener('scroll', onScroll),
+          window.visualViewport.addEventListener('scroll', onScroll)
         ),
         inputRef.current && (
           inputRef.current.removeEventListener('focus', onFocus),
