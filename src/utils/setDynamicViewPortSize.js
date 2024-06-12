@@ -43,7 +43,9 @@ const visualViewportResizeHandler = throttle(() => {
     document.body.dataset.viewportScrolledUp = (vvt || vvot) && true || null;
     const els = document.getElementsByClassName('chat-bubble-container'), el = els[els.length - 1];
     el.innerHTML = Platform.userAgent;
-    // document.getElementById('chat-input').setAttribute('placeholder', `${el.offsetHeight} ${vvh} + ${vvt} = ${h} | ${getComputedStyle(document.documentElement).getPropertyValue('--viewport-height-scaled')}`);
+    document.getElementById('chat-input').setAttribute('placeholder', `${Platform.isMobile} ${window.webkit} ${this.isAndroidMobile
+      || this.isWindowsMobile
+      || this.isOtherMobile}`);
 }, 10);
 
 export const setDynamicViewPortSize = () => (
