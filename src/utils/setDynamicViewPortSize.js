@@ -45,9 +45,9 @@ const visualViewportResizeHandler = () => {
 
   const scrollEndEventHandler = event => {
     document.getElementById('chat-input').setAttribute('value', `${vvt} ${vvh} | ${getComputedStyle(document.documentElement).getPropertyValue('--vh')} | ${vv.pageTop}`);
-    document.documentElement.removeEventListener('scrollend', scrollEndEventHandler);
+    vv.removeEventListener('scrollend', scrollEndEventHandler);
   }
-  document.documentElement.addEventListener('scrollend', scrollEndEventHandler);
+  vv.addEventListener('scrollend', scrollEndEventHandler);
   document.documentElement.scrollTo(0,0);
 }
 
