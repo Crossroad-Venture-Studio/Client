@@ -131,6 +131,10 @@ export const createChatComponent = ({
       }, 10);
     }, [history]);
 
+    useEffect(() => {
+      scrollBottom();
+    },[focused])
+
     // Render.
     return <Form
       className={`chat-feed-container${focused && ' focused' || ''}`}
