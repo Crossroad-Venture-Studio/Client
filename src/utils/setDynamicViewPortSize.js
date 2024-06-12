@@ -49,7 +49,7 @@ const visualViewportResizeHandler = () => {
   //   window.removeEventListener('scrollend', scrollEndEventHandler);
   // }
   // window.addEventListener('scrollend', scrollEndEventHandler);
-  document.documentElement.scrollTo(0,100000);
+  document.documentElement.scrollTo(0,document.documentElement.scrollHeight || 0);
   // window.scrollTop = window.scrollHeight;
 }
 
