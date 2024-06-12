@@ -38,7 +38,7 @@ const visualViewportResizeHandler = throttle(() => {
     document.documentElement.style.setProperty('--visual-viewport-offset-top', `${vvot || 0}px`);
     document.documentElement.style.setProperty('--visual-viewport-offset-left', `${vvol || 0}px`);
     document.body.dataset.viewportScrolled = (vvt || vvot) && true || null;
-    document.getElementById('chat-input').setAttribute('placeholder', `${document.documentElement.style.getPropertyValue('--vsy')} | ${vvh} + ${vvt} = ${vvh + vvt} = ${h}`);
+    document.getElementById('chat-input').setAttribute('placeholder', `${document.documentElement.style.getPropertyValue('--vsy')} | ${vvh} + ${vvt} = ${h} | ${getComputedStyle(document.documentElement).getPropertyValue('--viewport-height')}`);
 }, 10);
 
 export const setDynamicViewPortSize = () => (
