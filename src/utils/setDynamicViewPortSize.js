@@ -59,7 +59,7 @@ const visualViewportScrollHandler = event => {
   // document.documentElement.style.setProperty('--vvl', vvl && `${vvl}px` || '0');
   // document.documentElement.style.setProperty('--vvot', vvot && `${vvt}px` || '0');
   // document.documentElement.style.setProperty('--vvol', vvol && `${vvl}px` || '0');
-  document.getElementById('chat-input').setAttribute('value', `scrolling: ${vvt} ${vvh} ${h} ${h - vvt} ${window.scrollY}`);
+  document.getElementById('chat-input').setAttribute('value', `scrolling: ${vvt} ${vvh} ${h} ${h - vvt} ${window.scrollY} ${event.target.offsetTop}`);
   // Platform.metaViewport.setAttribute('content', `${META_VIEWPORT_CONTENT} height=${vvh}px`);
   // document.body.style.marginTop = `${vvt}px`;
 
