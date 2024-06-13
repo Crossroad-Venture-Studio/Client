@@ -51,7 +51,7 @@ export const ChatBubble = props => {
   useEffect(() => {
     if (animTime) {
       let j = 0, t = '', arr = (text || '').split(/\s+/g) || [], f = () => {
-        t += arr[j++];
+        t += (j && ' ' || '') + arr[j++];
         textRef.current.innerHTML = t;
         j < arr.length && setTimeout(f, animTime);
       };
