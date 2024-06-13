@@ -32,7 +32,7 @@ export const ChatBubble = props => {
     animTime,
     ...other
   } = props || {},
-  baseClassName = 'chat-bubble'
+  baseClassName = 'chat-bubble',
   textRef = useRef();
   isStart && (baseClassName += ' start');
   isEnd && (baseClassName += ' end');
