@@ -35,15 +35,15 @@ export class Locales {
     // Add find for constructor.
     Object.defineProperty(this, 'find', {
       value: function(locale) {
-        return this.data.find(normalizeLocale(locale));
+        const output = this.data.indexOf(normalizeLocale(locale));
+        return output >= 0 && this.data[output] || undefined;
       }
     });
 
     // Add has for constructor.
     Object.defineProperty(this, 'has', {
       value: function(locale) {
-        const output = this.find(locale);
-        return output !== undefined && output !== null && !(output < 0);
+        return this.find(locale) !== undefined;
       }
     });
 
