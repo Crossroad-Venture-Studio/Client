@@ -144,7 +144,7 @@ export const createChatComponent = ({
     useEffect(() => {
       setTimeout(() => {
         // Scrolling to the last element.
-        scrollBottom(null, 'instant');
+        scrollBottom();
       }, 100);
       document.body.dataset.focused = focused;
     }, [focused]);
