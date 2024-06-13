@@ -57,8 +57,7 @@ export const createChatComponent = ({
     className = className && `${baseClassName} ${baseClassName}` || baseClassName;
 
     // Chatbot history.
-    const history = [],
-    // const [history] = useObserver(store.data, conversationHistoryKey),
+    const [history] = useObserver(store.data, conversationHistoryKey),
     inputRef = useRef(),
     submitMessage = input => {
       if (!input && input !== 0 && input !== false) return false;
