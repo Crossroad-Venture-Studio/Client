@@ -53,11 +53,11 @@ export const ChatBubble = props => {
       let j = 0, t = '', f = () => {
         t += text[j++];
         textRef.current.innerHTML = t;
-        j < t.length &&  setTimeout(f, animTime);
+        j < text.length && setTimeout(f, animTime);
       };
       f();
     }
-  }, []);
+  });
 
   // Render.
   return <Column className={`chat-bubble-container ${isUser && 'right user' || 'left'}`}>
