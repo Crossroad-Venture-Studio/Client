@@ -88,11 +88,12 @@ export const createChatComponent = ({
     [focused, setFocused] = useState();
 
     // Scrolling functions.
-    scrollBottom || (scrollBottom = (el = containerRef && containerRef.current) => (
-      el && (el.scrollTop = el.scrollHeight)
+    scrollBottom || (scrollBottom = (el, behavior) => (
+      (el || (el = containerRef && containerRef.current))
+        && (el.scrollTo({ top: el.scrollHeight, left: 0, behavior: behavior || 'auto' }))
     ));
-    scrollTop || (scrollTop = (el = containerRef && containerRef.current) => (
-      el && (el.scrollTop = 0)
+    scrollTop || (scrollTop = (el, behavior) => (
+      (el || (el = containerRef && containerRef.current)) && (el.scrollTo({ top: 0, left: 0, behavior: behavior || 'auto' }))
     ));
 
     // Hooks.
@@ -112,7 +113,7 @@ export const createChatComponent = ({
           preventDefaultEventHandler(event);
           setTimeout(() => {
             // Scrolling to the last element.
-            scrollBottom();
+            scrollBottom(_, 'instant');
           }, 100);
           document.body.dataset.blah = true;
         };
@@ -143,10 +144,10 @@ export const createChatComponent = ({
     useEffect(() => {
       setTimeout(() => {
         // Scrolling to the last element.
-        scrollBottom();
+        scrollBottom(_, 'instant');
       }, 100);
       document.body.dataset.focused = focused;
-    },[focused])
+    }, [focused]);
 
     // Render.
     return <Form
