@@ -48,13 +48,15 @@ export const ChatBubble = props => {
     );
   }
 
-  animTime && useEffect(() => {
-    let j = 0, t = '', f = () => {
-      t += text[j++];
-      textRef.current.innerHTML = t;
-      j < t.length &&  setTimeout(f, animTime);
-    };
-    f();
+  useEffect(() => {
+    if (animTime) {
+      let j = 0, t = '', f = () => {
+        t += text[j++];
+        textRef.current.innerHTML = t;
+        j < t.length &&  setTimeout(f, animTime);
+      };
+      f();
+    }
   }, []);
 
   // Render.
