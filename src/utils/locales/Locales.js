@@ -2,7 +2,8 @@ import {
   nextLocale,
   previousLocale,
   getLocale,
-  getDefaultLocale
+  getDefaultLocale,
+  normalizeLocale
 } from './localeUtils';
 
 // Base class locales.
@@ -11,7 +12,7 @@ export class Locales {
   constructor(locales) {
     // Add data.
     Object.defineProperty(this, 'data', {
-      value: (locales || []).map(locale => locale.toLowerCase()),
+      value: (locales || []).map(locale => normalizeLocale(locale)),
     });
 
     // Add _ getter for data.
@@ -28,6 +29,21 @@ export class Locales {
     Object.defineProperty(this, 'map', {
       value: function(...args) {
         return this.data.map(...args);
+      }
+    });
+
+    // Add find for constructor.
+    Object.defineProperty(this, 'find', {
+      value: function(locale) {
+        return this.data.find(normalizeLocale(locale));
+      }
+    });
+
+    // Add has for constructor.
+    Object.defineProperty(this, 'has', {
+      value: function(locale) {
+        const output = this.find(locale);
+        return output !== undefined && output !== null && !(output < 0);
       }
     });
 

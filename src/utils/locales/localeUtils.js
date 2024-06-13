@@ -26,3 +26,6 @@ export const getLocale = (input, locales) => (
 export const getDefaultLocale = locales => (
   (locales || [])[0]
 );
+
+// Helper function to normalize a locale.
+export const normalizeLocale = locale => (locale || '').toLowerCase();
