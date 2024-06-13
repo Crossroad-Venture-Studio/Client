@@ -113,7 +113,7 @@ export const createChatComponent = ({
           preventDefaultEventHandler(event);
           setTimeout(() => {
             // Scrolling to the last element.
-            scrollBottom(_, 'instant');
+            scrollBottom(null, 'instant');
           }, 100);
           document.body.dataset.blah = true;
         };
@@ -144,7 +144,7 @@ export const createChatComponent = ({
     useEffect(() => {
       setTimeout(() => {
         // Scrolling to the last element.
-        scrollBottom(_, 'instant');
+        scrollBottom(null, 'instant');
       }, 100);
       document.body.dataset.focused = focused;
     }, [focused]);
