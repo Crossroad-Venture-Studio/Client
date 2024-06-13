@@ -8,6 +8,9 @@ export const ChatBubble = props => {
     className,
     value,
     text = value,
+    imgSrc,
+    img = imgSrc,
+    src = img,
     __is_start__,
     isStart = __is_start__,
     __is_end__,
@@ -50,10 +53,10 @@ export const ChatBubble = props => {
 
   useEffect(() => {
     if (animTime) {
-      let j = 0, t = '', arr = (text || '').split(/\s+/g) || [], f = () => {
-        t += (j && ' ' || '') + arr[j++];
+      let j = 0, t = '', f = () => {
+        t += text[j++];
         textRef.current.innerHTML = t;
-        j < arr.length && setTimeout(f, animTime);
+        j < text.length && setTimeout(f, animTime);
       };
       f();
     }
@@ -66,6 +69,7 @@ export const ChatBubble = props => {
         {!animTime && text || ''}
       </span> || null}
       {children}
+      {src && <div className='chat-bubble-image-container'><img className='chat-bubble-image' src={src} /></div>}
     </Column>
     {info && <Column className={`chat-bubble-info${isUser && ' user' || ''}`}>
       {info}
