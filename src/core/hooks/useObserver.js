@@ -12,6 +12,8 @@ export function useObserver(obj, attr, onRefresh) {
   const [state, setState] = useState(value);
   const forceUpdate = useForceUpdate();
 
+  return [state, setState];
+
   useEffect(() => {
     const refresh = typeof onRefresh === 'function' && (() => {
       const v = obj[attr];
