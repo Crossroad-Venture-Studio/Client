@@ -126,7 +126,7 @@ export const createChatComponent = ({
           window.visualViewport.removeEventListener('scroll', onScroll),
           window.visualViewport.addEventListener('scroll', onScroll)
         ),
-        document.body.dataset.mobile = true;
+        document.body.dataset.mobile = true
       );
 
       // Focus / blur events.
