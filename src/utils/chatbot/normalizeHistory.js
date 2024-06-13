@@ -15,7 +15,7 @@ const DateLine = props => <div className='row width-100-percent center text-gap 
 </div>;
 
 // Helper function to normalize conversation history data.
-export const normalizeHistory = (history, botName = 'Otto') => {
+export const normalizeHistory = (history, botName = 'Chatbot', botSrc) => {
   const output = [];
 
   // Add dates.
@@ -36,7 +36,10 @@ export const normalizeHistory = (history, botName = 'Otto') => {
       && (output[output.length - 2].__is_end__ = true);
     out.text = item.data.text;
     Object.assign(out, item.data);
-    out.name = out.__is_user__ && (item.data.name || 'You') || botName;
+    out.name = item.data.name || item.data.botName
+      || (out.__is_user__ && (item.data.name || 'You') || botName);
+    out.pic = item.data.picSrc || item.data.pic || item.data.botSrc || botSrc
+      || (!out.__is_user__ && botSrc);
     user = curUser;
   }
 

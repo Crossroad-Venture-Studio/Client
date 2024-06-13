@@ -7,6 +7,8 @@ import updateHistory from './updateHistory';
 export const createUtils = ({
   name,
   botName = name,
+  src,
+  botSrc= src,
   webSocketUrl: _webSocketUrl,
   userStore,
   store = userStore,
@@ -43,9 +45,9 @@ export const createUtils = ({
   startNewConversation: async (reset = true, webSocketUrl = _webSocketUrl) => (
     Sockets[webSocketUrl].startNewConversation(reset)
   ),
-  normalizeHistory: (history, name = botName) => {
-    const output = _normalizeHistory(history, name = botName);
-    return typeof normalizeHistory === 'function' && normalizeHistory(output) || output;
+  normalizeHistory: (history, ...args) => {
+    const output = _normalizeHistory(history, botName, botSrc);
+    return typeof normalizeHistory === 'function' && normalizeHistory(output, ...args) || output;
   },
   sendMessage: async (type, data, webSocketUrl = _webSocketUrl) => (
     Sockets[webSocketUrl].sendMessage(type, data)

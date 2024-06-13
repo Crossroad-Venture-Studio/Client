@@ -31,6 +31,7 @@ export const createChatComponent = ({
     updateHistory
   } = createUtils({
     botName,
+    botSrc,
     webSocketUrl,
     store,
     conversationHistoryKey,
@@ -85,6 +86,7 @@ export const createChatComponent = ({
       return true;
     },
     onSubmitMessage = message => submitMessage(message && message.chatInput || null),
+    normalizedHistory = normalizeHistory(history, submitMessage),
     [focused, setFocused] = useState();
 
     // Scrolling functions.
@@ -124,12 +126,15 @@ export const createChatComponent = ({
           window.visualViewport.removeEventListener('scroll', onScroll),
           window.visualViewport.addEventListener('scroll', onScroll)
         ),
-        inputRef.current && (
-          inputRef.current.removeEventListener('focus', onFocus),
-          inputRef.current.addEventListener('focus', onFocus),
-          inputRef.current.removeEventListener('blur', onBlur),
-          inputRef.current.addEventListener('blur', onBlur)
-        )
+        document.body.dataset.mobile = true;
+      );
+
+      // Focus / blur events.
+      inputRef.current && (
+        inputRef.current.removeEventListener('focus', onFocus),
+        inputRef.current.addEventListener('focus', onFocus),
+        inputRef.current.removeEventListener('blur', onBlur),
+        inputRef.current.addEventListener('blur', onBlur)
       );
     }, []);
 
@@ -146,8 +151,8 @@ export const createChatComponent = ({
         // Scrolling to the last element.
         scrollBottom();
       }, 100);
-      document.body.dataset.focused = focused;
     }, [focused]);
+    
 
     // Render.
     return <Form
@@ -157,7 +162,7 @@ export const createChatComponent = ({
       {_botSrc && <div className='chatbot-image-container'>
         <img className='chatbot-image' src={_botSrc}/>
         </div> || null}
-      <ChatFeed history={normalizeHistory(history, submitMessage)}/>
+      <ChatFeed history={normalizedHistory}/>
       <Row className='gap-half chat-input'>
         <input
           enterKeyHint='send'
