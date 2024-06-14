@@ -8,6 +8,7 @@ import { createUtils } from './createUtils';
 import '../../../utils/src/functionUtils';
 import Platform from '../../core/native/Platform';
 import preventDefaultEventHandler from '../preventDefaultEventHandler';
+import throttle from '../../../utils/src/throttle';
 
 // Main utility.
 export const createChatComponent = ({
@@ -154,7 +155,12 @@ export const createChatComponent = ({
           required
           name='chat-input'
           id='chat-input'
-          onChange={() => (console.log('>>>>>>'), scrollBottom())}
+          onChange={throttle(() => {
+            setTimeout(() => {
+              // Scrolling to the last element.
+              scrollBottom();
+            }, 0);
+          }, 500)}
           placeholder={`${translate('type your message here')}...`}
         />
         <Button
