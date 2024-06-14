@@ -13,12 +13,9 @@ export function useObserver(obj, attr, onRefresh) {
     setValue = valid && (v => obj[attr] = v) || Function.identity;
   useEffect(() => {
     valid && observe(obj, attr, typeof onRefresh === 'function' && (() => {
-      const v = obj[attr];
-      v !== value && (
-        onRefresh(v),
-        forceUpdate()
-      );
-    }) || (() => v !== value && forceUpdate()));
+      onRefresh(obj[attr]);
+      forceUpdate();
+    }) || (() => forceUpdate()));
   }, []);
   return [value, setValue];
 }
