@@ -10,7 +10,8 @@ import useForceUpdate from './useForceUpdate';
 export function useObserver(obj, attr, onRefresh) {
   const valid = obj && attr && obj.hasOwnProperty(attr),
     value = valid ? obj[attr] : null,
-    setValue = valid && (v => obj[attr] = v) || Function.identity;
+    setValue = valid && (v => obj[attr] = v) || Function.identity,
+    forceUpdate = useForceUpdate();
   useEffect(() => {
     valid && observe(obj, attr, typeof onRefresh === 'function' && (() => {
       onRefresh(obj[attr]);
