@@ -87,7 +87,7 @@ export const createChatComponent = ({
     },
     onSubmitMessage = message => submitMessage(message && message.chatInput || null),
     [focused, setFocused] = useState(),
-    [normalizedHistory, setNormalizedHistory] = useState();
+    [{ normalizedHistory, initialized } = {}, setNormalizedHistory] = useState();
 
     // Scrolling functions.
     scrollBottom || (scrollBottom = (el, behavior) => (
@@ -138,11 +138,11 @@ export const createChatComponent = ({
         inputRef.current.addEventListener('focus', () => (console.log('focused'),setFocused(true)));
         inputRef.current.addEventListener('blur', () => (console.log('blured'),setFocused(false)));
       }
-    }, [!inputRef.current]);
+    }, [initialized]);
 
     // useEffect to scroll to bottom of the page when history updates
     useEffect(() => {
-      setNormalizedHistory(normalizeHistory(history, submitMessage));
+      setNormalizedHistory({normalizedHistory: normalizeHistory(history, submitMessage), initialized: true});
     }, [history, locale]);
 
     useEffect(() => {
