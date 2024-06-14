@@ -3,7 +3,7 @@ import { createContext, useContext } from 'react';
 import useObserver from '../core/hooks/useObserver';
 
 // Main utility.
-export const createObserver = (
+export const createObserverComponent = (
   obj,
   key,
 ) => {
@@ -30,4 +30,4 @@ export const createObserver = (
 }
 
 // Default export.
-export default createObserver;
+export default createObserverComponent;
