@@ -10,14 +10,14 @@ export function useObserver(obj, attr, onRefresh) {
   const valid = obj && attr && obj.hasOwnProperty(attr);
   let value = valid ? obj[attr] : null;
   // const [state, setState] = useState(value);
-  const forceUpdate = useForceUpdate();
+  // const forceUpdate = useForceUpdate();
 
   useEffect(() => {
-    const refresh = typeof onRefresh === 'function' && (() => {
-      const v = obj[attr];
-      v !== value && onRefresh(v);
-      forceUpdate();
-    }) || (() => forceUpdate());
+    // const refresh = typeof onRefresh === 'function' && (() => {
+    //   const v = obj[attr];
+    //   v !== value && onRefresh(v);
+    //   forceUpdate();
+    // }) || (() => forceUpdate());
     observe(obj, attr);
   }, []);
 
