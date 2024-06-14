@@ -137,7 +137,9 @@ export const createChatComponent = ({
 
     // useEffect to scroll to bottom of the page when history updates
     useEffect(() => {
-      setNormalizedHistory({normalizedHistory: normalizeHistory(history, submitMessage), initialized: true});
+      setTimeout(() => {
+        setNormalizedHistory({normalizedHistory: normalizeHistory(history, submitMessage), initialized: true});
+      }, 0);
     }, [history, locale, focused]);
 
     useEffect(() => {
