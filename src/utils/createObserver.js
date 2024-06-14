@@ -11,7 +11,7 @@ export const createObserver = (
   const Context = createContext(),
   // Create the observer.
   Observer = props => {
-    const children = props || {}, observer = useObserver(obj, key);
+    const { children } = props || {}, observer = useObserver(obj, key);
     return <Context.Provider value={observer}>
       {children}
     </Context.Provider>;
