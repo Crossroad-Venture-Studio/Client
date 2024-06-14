@@ -145,7 +145,7 @@ export const createChatComponent = ({
         scrollBottom();
       }, 10);
       setNormalizedHistory(normalizeHistory(history, submitMessage));
-    }, [history]);
+    }, [history, locale]);
 
     useEffect(() => {
       setTimeout(() => {
