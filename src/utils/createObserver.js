@@ -9,13 +9,10 @@ export const createObserver = (
 ) => {
   // Create the context.
   const Context = createContext(),
-  // Create the setter.
-  setFunctionName = `set${key.charAt(0).toUpperCase()}${key.substring(1)}`,
   // Create the observer.
   Observer = props => {
-    const children = props || {},
-      [state, setState] = useObserver(obj, key);
-    return <Context.Provider value={{ [key]: state, [setFunctionName]: setState }}>
+    const children = props || {}, observer = useObserver(obj, key);
+    return <Context.Provider value={observer}>
       {children}
     </Context.Provider>;
   };
