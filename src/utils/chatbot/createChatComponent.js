@@ -138,7 +138,7 @@ export const createChatComponent = ({
         inputRef.current.addEventListener('focus', () => (console.log('focused'),setFocused(true)));
         inputRef.current.addEventListener('blur', () => (console.log('blured'),setFocused(false)));
       }
-    }, [inputRef]);
+    }, [!inputRef.current]);
 
     // useEffect to scroll to bottom of the page when history updates
     useEffect(() => {
