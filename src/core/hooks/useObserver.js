@@ -15,8 +15,13 @@ export function useObserver(obj, attr, onRefresh) {
   useEffect(() => {
     valid && observe(obj, attr, typeof onRefresh === 'function' && (() => {
       onRefresh(obj[attr]);
+      useEffect(() => {
+        forceUpdate();
+      }, []);
+      
+    }) || (() => useEffect(() => {
       forceUpdate();
-    }) || (() => forceUpdate()));
+    }, [])));
   }, []);
   return [value, setValue];
 }
