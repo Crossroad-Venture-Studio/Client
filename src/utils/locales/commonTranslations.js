@@ -795,7 +795,7 @@ export const commonTranslations = [
     en: 'Type your message here',
     es: 'Escribe tu mensaje aquí',
     fr: 'tapez votre message ici',
-    pt: 'Digite sua mensagem aqu'
+    pt: 'Digite sua mensagem aqui'
   },
   {
     en: 'Comment',
