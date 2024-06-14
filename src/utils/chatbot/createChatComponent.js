@@ -58,7 +58,7 @@ export const createChatComponent = ({
 
     // Chatbot history.
     const [history] = useObserver(store.data, conversationHistoryKey),
-    inputRef = useRef(),
+    inputRef = useRef(null),
     submitMessage = input => {
       if (!input && input !== 0 && input !== false) return false;
 
