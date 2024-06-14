@@ -86,8 +86,8 @@ export const createChatComponent = ({
       return true;
     },
     onSubmitMessage = message => submitMessage(message && message.chatInput || null),
-    normalizedHistory = normalizeHistory(history, submitMessage),
-    [focused, setFocused] = useState();
+    [focused, setFocused] = useState(),
+    [normalizedHistory, setNormalizedHistory] = useState();
 
     // Scrolling functions.
     scrollBottom || (scrollBottom = (el, behavior) => (
@@ -144,6 +144,7 @@ export const createChatComponent = ({
         // Scrolling to the last element.
         scrollBottom();
       }, 10);
+      setNormalizedHistory(normalizeHistory(history, submitMessage));
     }, [history]);
 
     useEffect(() => {
@@ -155,7 +156,7 @@ export const createChatComponent = ({
     
 
     // Render.
-    return <Form
+    return normalizedHistory && <Form
       className={`chat-feed-container${focused && ' focused' || ''}`}
       onSubmit={onSubmitMessage}
     >
@@ -180,7 +181,7 @@ export const createChatComponent = ({
           src={sendSrc}
         />
       </Row>
-    </Form>;
+    </Form> || null;
   };
 }
 
