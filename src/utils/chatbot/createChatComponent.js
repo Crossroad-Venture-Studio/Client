@@ -117,7 +117,6 @@ export const createChatComponent = ({
             // Scrolling to the last element.
             scrollBottom(null, 'instant');
           }, 0);
-          document.body.dataset.blah = true;
         };
       Platform.isMobile && (
         document.removeEventListener('touchmove', preventDefaultEventHandler),
