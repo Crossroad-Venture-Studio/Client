@@ -140,28 +140,15 @@ export const createChatComponent = ({
 
     // useEffect to scroll to bottom of the page when history updates
     useEffect(() => {
-      setTimeout(() => {
-        // Scrolling to the last element.
-        scrollBottom();
-      }, 10);
       setNormalizedHistory(normalizeHistory(history, submitMessage));
-    }, [history]);
+    }, [history, locale]);
 
     useEffect(() => {
       setTimeout(() => {
         // Scrolling to the last element.
         scrollBottom(null, 'instant');
       }, 0);
-      setNormalizedHistory(normalizeHistory(history, submitMessage));
-    }, [locale]);
-
-    useEffect(() => {
-      setTimeout(() => {
-        // Scrolling to the last element.
-        scrollBottom();
-      }, 100);
-    }, [focused]);
-    
+    }, [normalizedHistory, focused]);
 
     // Render.
     return normalizedHistory && <Form
