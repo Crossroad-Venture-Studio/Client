@@ -51,7 +51,7 @@ export const createChatComponent = ({
       scrollBottom,
       scrollTop,
       hooks,
-      locale = 'en',
+      locale,
       className
     } = props || {}, baseClassName = 'chat-feed-container';
     className = className && `${baseClassName} ${baseClassName}` || baseClassName;
@@ -64,10 +64,10 @@ export const createChatComponent = ({
 
       // Send message to bot
       const type = 'chat_to_bot',
-      data = {
-        conversation_id: store.data[conversationIdKey],
-        locale
-      };
+        data = {
+          conversation_id: store.data[conversationIdKey],
+        };
+      locale && (data.locale = locale);
       typeof input === 'object' && (
         Array.isArray(input) && (data.array = input) || Object.assign(data, input)
       ) || (
