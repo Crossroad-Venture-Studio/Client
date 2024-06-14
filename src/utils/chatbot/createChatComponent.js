@@ -129,10 +129,9 @@ export const createChatComponent = ({
 
     // As soon as the chat is rendered, add focus/blur events.
     useEffect(() => {
-      console.log('#####', inputRef.current, initialized);
       if (inputRef.current) {
-        inputRef.current.addEventListener('focus', () => (console.log('focused'),setFocused(true)));
-        inputRef.current.addEventListener('blur', () => (console.log('blured'),setFocused(false)));
+        inputRef.current.addEventListener('focus', () => setFocused(true));
+        inputRef.current.addEventListener('blur', () => setFocused(false));
       }
     }, [initialized]);
 
