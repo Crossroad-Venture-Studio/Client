@@ -10,7 +10,7 @@ export function useObserver(obj, attr, onRefresh) {
   const valid = obj && attr && obj.hasOwnProperty(attr);
   let value = valid ? obj[attr] : null;
   // const [state, setState] = useState(value);
-  // const forceUpdate = useForceUpdate();
+  const forceUpdate = useForceUpdate();
 
   useEffect(() => {
     // const refresh = typeof onRefresh === 'function' && (() => {
