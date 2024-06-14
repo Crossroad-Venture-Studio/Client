@@ -12,6 +12,10 @@ export function useObserver(obj, attr, onRefresh) {
   const [state, setState] = useState(value);
   const forceUpdate = useForceUpdate();
 
+  useEffect(() => {
+    
+  }, []);
+
   return [state, setState];
 
   useEffect(() => {
