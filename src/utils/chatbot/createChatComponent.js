@@ -129,6 +129,7 @@ export const createChatComponent = ({
       );
 
       // Focus / blur events.
+      console.log('inputRef:', inputRef, inputRef.current);
       inputRef.current && (
         console.log('SET, focus/blur handlers'),
         // inputRef.current.removeEventListener('focus', onFocus),
