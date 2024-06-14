@@ -109,8 +109,8 @@ export const createChatComponent = ({
     // Initiate connection when component mounts.
     useEffect(() => {
       initiateConnection();
-      const onFocus = () => setFocused(true),
-        onBlur = () => setFocused(false),
+      const onFocus = () => (console.log('focused'),setFocused(true)),
+        onBlur = () => (console.log('blured'),setFocused(false)),
         onScroll = event => {
           preventDefaultEventHandler(event);
           setTimeout(() => {
@@ -136,6 +136,8 @@ export const createChatComponent = ({
         inputRef.current.addEventListener('blur', onBlur)
       );
     }, []);
+
+    console.log('FOCUS:', focused);
 
     // useEffect to scroll to bottom of the page when history updates
     useEffect(() => {
