@@ -87,7 +87,7 @@ export const createChatComponent = ({
     },
     onSubmitMessage = message => submitMessage(message && message.chatInput || null),
     [focused, setFocused] = useState(),
-    [{ normalizedHistory, initialized } = {}, setNormalizedHistory] = useState();
+    [{ normalizedHistory, initialized } = {}, setNormalizedHistory] = useState({initialized: false});
 
     // Scrolling functions.
     scrollBottom || (scrollBottom = (el, behavior) => (
