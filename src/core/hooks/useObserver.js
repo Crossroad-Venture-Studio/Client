@@ -17,10 +17,11 @@ export function useObserver(obj, attr, onRefresh) {
       const v = obj[attr];
       v !== state && onRefresh(v);
       setState(v);
-      forceUpdate();
+      // forceUpdate();
     }) || (() => setState(obj[attr]));
     observe(obj, attr, refresh);
   }, []);
+  return [state, v => obj[attr] = v];
 
   return [state, setState];
 
