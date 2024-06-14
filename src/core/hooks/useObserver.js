@@ -18,7 +18,7 @@ export function useObserver(obj, attr, onRefresh) {
       v !== value && onRefresh(v);
       forceUpdate();
     }) || (() => forceUpdate());
-    observe(obj, attr, refresh);
+    observe(obj, attr);
   }, []);
 
   return [value, v => obj[attr] = v];
