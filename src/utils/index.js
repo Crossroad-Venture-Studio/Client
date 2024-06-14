@@ -1,6 +1,7 @@
 
 // Exports.
 export { default as createEventHandlers } from './createEventHandlers';
+export { default as createObserver } from './createObserver';
 export { default as createStopPropagationFunc } from './createStopPropagationFunc';
 export { default as genKeyAttr } from './genKeyAttr';
 export { default as normalizeEventHandler } from './normalizeEventHandler';
