@@ -8,14 +8,19 @@ import useForceUpdate from './useForceUpdate';
 // Main hook.
 
 export function useObserver(obj, attr, onRefresh) {
-  const valid = obj && attr && obj.hasOwnProperty(attr);
-  let value = valid ? obj[attr] : null;
-  const [state, setState] = useState((
-    console.log('#########'),
-    value
-  ));
-  return [state, setState];
-  return [value, v => obj[attr] = v];
+  const valid = obj && attr && obj.hasOwnProperty(attr),
+    value = valid ? obj[attr] : null,
+    setValue = valid && (v => obj[attr] = v) || Function.identity;
+  useEffect(() => {
+    valid && observe(obj, attr, typeof onRefresh === 'function' && (() => {
+      const v = obj[attr];
+      v !== value && (
+        onRefresh(v),
+        forceUpdate()
+      );
+    }) || (() => v !== value && forceUpdate()));
+  }, []);
+  return [value, setValue];
 }
 
 // export function useObserver(obj, attr, onRefresh) {
