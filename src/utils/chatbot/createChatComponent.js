@@ -115,8 +115,8 @@ export const createChatComponent = ({
           preventDefaultEventHandler(event);
           setTimeout(() => {
             // Scrolling to the last element.
-            scrollBottom();
-          }, 100);
+            scrollBottom(null, 'instant');
+          }, 0);
           document.body.dataset.blah = true;
         };
       Platform.isMobile && (
