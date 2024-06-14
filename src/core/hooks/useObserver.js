@@ -19,6 +19,7 @@ export function useObserver(obj, attr, onRefresh) {
       setState(v);
       forceUpdate();
     }) || (() => setState(obj[attr]));
+    observe(obj, attr, refresh);
   }, []);
 
   return [state, setState];
