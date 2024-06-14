@@ -130,9 +130,10 @@ export const createChatComponent = ({
 
       // Focus / blur events.
       inputRef.current && (
-        inputRef.current.removeEventListener('focus', onFocus),
+        console.log('SET, focus/blur handlers'),
+        // inputRef.current.removeEventListener('focus', onFocus),
         inputRef.current.addEventListener('focus', onFocus),
-        inputRef.current.removeEventListener('blur', onBlur),
+        // inputRef.current.removeEventListener('blur', onBlur),
         inputRef.current.addEventListener('blur', onBlur)
       );
     }, []);
