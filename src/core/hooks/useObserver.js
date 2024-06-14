@@ -9,8 +9,19 @@ import useForceUpdate from './useForceUpdate';
 export function useObserver(obj, attr, onRefresh) {
   const valid = obj && attr && obj.hasOwnProperty(attr);
   let value = valid ? obj[attr] : null;
-  const [state, setState] = useState(value);
+  // const [state, setState] = useState(value);
   const forceUpdate = useForceUpdate();
+
+  useEffect(() => {
+    const refresh = typeof onRefresh === 'function' && (() => {
+      const v = obj[attr];
+      v !== value && onRefresh(v);
+      forceUpdate();
+    }) || (() => forceUpdate());
+    observe(obj, attr, refresh);
+  }, []);
+
+  return [value, v => obj[attr] = v];
 
   useEffect(() => {
     // const refresh = typeof onRefresh === 'function' && (() => {
@@ -19,11 +30,13 @@ export function useObserver(obj, attr, onRefresh) {
     //   setState(v);
     //   forceUpdate();
     // }) || (() => setState(obj[attr]));
-    const refresh = () => {};
+    const refresh = () => {
+      setState(obj[attr])
+    };
     observe(obj, attr, refresh);
   }, []);
   return [state, v => {
-    setState(obj[attr] = v);
+    // setState(obj[attr] = v);
   }];
 
   return [state, setState];
