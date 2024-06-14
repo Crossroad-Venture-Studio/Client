@@ -22,7 +22,9 @@ export function useObserver(obj, attr, onRefresh) {
     const refresh = () => {};
     observe(obj, attr, refresh);
   }, []);
-  return [state, v => obj[attr] = v];
+  return [state, v => {
+    setState(obj[attr] = v);
+  }];
 
   return [state, setState];
 
