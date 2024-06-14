@@ -111,8 +111,8 @@ export const createChatComponent = ({
 
       // Add listeners if platform is run on mobile devices.
       Platform.isMobile && (
-        document.removeEventListener('touchmove', preventDefaultEventHandler),
-        document.addEventListener('touchmove', preventDefaultEventHandler),
+        // document.removeEventListener('touchmove', preventDefaultEventHandler),
+        // document.addEventListener('touchmove', preventDefaultEventHandler),
         window.visualViewport && (
           window.visualViewport.addEventListener('scroll', event => {
             preventDefaultEventHandler(event);
