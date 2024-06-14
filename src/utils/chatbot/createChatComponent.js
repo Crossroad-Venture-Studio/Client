@@ -154,7 +154,7 @@ export const createChatComponent = ({
           required
           name='chat-input'
           id='chat-input'
-          onChange={() => scrollBottom()}
+          onChange={() => (console.log('>>>>>>'), scrollBottom())}
           placeholder={`${translate('type your message here')}...`}
         />
         <Button
