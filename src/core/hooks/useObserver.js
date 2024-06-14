@@ -13,11 +13,11 @@ export function useObserver(obj, attr, onRefresh) {
   const forceUpdate = useForceUpdate();
 
   useEffect(() => {
-    // const refresh = typeof onRefresh === 'function' && (() => {
-    //   const v = obj[attr];
-    //   v !== value && onRefresh(v);
-    //   forceUpdate();
-    // }) || (() => forceUpdate());
+    const refresh = typeof onRefresh === 'function' && (() => {
+      const v = obj[attr];
+      v !== value && onRefresh(v);
+      forceUpdate();
+    }) || (() => forceUpdate());
     observe(obj, attr);
   }, []);
 
