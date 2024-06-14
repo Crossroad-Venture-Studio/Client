@@ -109,37 +109,31 @@ export const createChatComponent = ({
     // Initiate connection when component mounts.
     useEffect(() => {
       initiateConnection();
-      const onFocus = () => (console.log('focused'),setFocused(true)),
-        onBlur = () => (console.log('blured'),setFocused(false)),
-        onScroll = event => {
-          preventDefaultEventHandler(event);
-          setTimeout(() => {
-            // Scrolling to the last element.
-            scrollBottom(null, 'instant');
-          }, 0);
-        };
+
+      // Add listeners if platform is run on mobile devices.
       Platform.isMobile && (
         document.removeEventListener('touchmove', preventDefaultEventHandler),
         document.addEventListener('touchmove', preventDefaultEventHandler),
         window.visualViewport && (
-          window.visualViewport.removeEventListener('scroll', onScroll),
-          window.visualViewport.addEventListener('scroll', onScroll)
+          window.visualViewport.addEventListener('scroll', event => {
+            preventDefaultEventHandler(event);
+            setTimeout(() => {
+              // Scrolling to the last element.
+              scrollBottom(null, 'instant');
+            }, 0);
+          })
         ),
         document.body.dataset.mobile = true
       );
-
-      // Focus / blur events.
-      console.log('inputRef:', inputRef, inputRef.current);
-      inputRef.current && (
-        console.log('SET, focus/blur handlers'),
-        // inputRef.current.removeEventListener('focus', onFocus),
-        inputRef.current.addEventListener('focus', onFocus),
-        // inputRef.current.removeEventListener('blur', onBlur),
-        inputRef.current.addEventListener('blur', onBlur)
-      );
     }, []);
 
-    console.log('FOCUS:', focused);
+    // As soon as the chat is rendered, add focus/blur events.
+    useEffect(() => {
+      if (inputRef.current) {
+        inputRef.current.addEventListener('focus', () => (console.log('focused'),setFocused(true)));
+        inputRef.current.addEventListener('blur', () => (console.log('blured'),setFocused(false)));
+      }
+    }, [inputRef.current]);
 
     // useEffect to scroll to bottom of the page when history updates
     useEffect(() => {
