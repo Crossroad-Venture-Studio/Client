@@ -125,39 +125,42 @@ export const createChatComponent = ({
         ),
         document.body.dataset.mobile = true
       );
+
+      inputRef.current.addEventListener('focus', () => setFocused(true));
+      inputRef.current.addEventListener('blur', () => setFocused(false));
     }, []);
 
     // As soon as the chat is rendered, add focus/blur events.
-    useEffect(() => {
-      if (inputRef.current) {
-        inputRef.current.addEventListener('focus', () => setFocused(true));
-        inputRef.current.addEventListener('blur', () => setFocused(false));
-      }
-    }, [initialized]);
+    // useEffect(() => {
+    //   if (inputRef.current) {
+    //     inputRef.current.addEventListener('focus', () => setFocused(true));
+    //     inputRef.current.addEventListener('blur', () => setFocused(false));
+    //   }
+    // }, [initialized]);
 
     // useEffect to scroll to bottom of the page when history updates
-    useEffect(() => {
-      setTimeout(() => {
-        setNormalizedHistory({normalizedHistory: normalizeHistory(history, submitMessage), initialized: true});
-      }, 0);
-    }, [history, locale, focused]);
+    // useEffect(() => {
+    //   setTimeout(() => {
+    //     setNormalizedHistory({normalizedHistory: normalizeHistory(history, submitMessage), initialized: true});
+    //   }, 0);
+    // }, [history, locale, focused]);
 
     useEffect(() => {
       setTimeout(() => {
         // Scrolling to the last element.
         scrollBottom(null, 'instant');
       }, 0);
-    }, [normalizedHistory]);
+    }, [history, locale, focused]);
 
     // Render.
-    return normalizedHistory && <Form
+    return <Form
       className={`chat-feed-container${focused && ' focused' || ''}`}
       onSubmit={onSubmitMessage}
     >
       {_botSrc && <div className='chatbot-image-container'>
         <img className='chatbot-image' src={_botSrc}/>
         </div> || null}
-      <ChatFeed history={normalizedHistory}/>
+      <ChatFeed history={normalizeHistory(history, submitMessage)}/>
       <Row className='gap-half chat-input'>
         <input
           enterKeyHint='send'
@@ -175,7 +178,7 @@ export const createChatComponent = ({
           src={sendSrc}
         />
       </Row>
-    </Form> || null;
+    </Form>;
   };
 }
 
