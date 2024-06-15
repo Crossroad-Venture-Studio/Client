@@ -59,40 +59,40 @@ export const createChatComponent = ({
 
     // Chatbot history.
     const [history] = useObserver(store.data, conversationHistoryKey),
-    inputRef = useRef(null),
-    submitMessage = input => {
-      if (!input && input !== 0 && input !== false) return false;
+      inputRef = useRef(null),
+      submitMessage = input => {
+        if (!input && input !== 0 && input !== false) return false;
 
-      // Send message to bot
-      const type = 'chat_to_bot',
-        data = {
-          conversation_id: store.data[conversationIdKey],
-        };
-      locale && (data.locale = locale);
-      typeof input === 'object' && (
-        Array.isArray(input) && (data.array = input) || Object.assign(data, input)
-      ) || (
-        data.text = `${input}`
-      );
-  
-      // Update the conversation history.
-      updateHistory({ data });
-  
-      // Send message to bot.
-      sendMessage(type, data);
-  
-      // Reset input.
-      inputRef.current.value = '';
+        // Send message to bot
+        const type = 'chat_demo_bot',
+          data = {
+            conversation_id: store.data[conversationIdKey],
+          };
+        locale && (data.locale = locale);
+        typeof input === 'object' && (
+          Array.isArray(input) && (data.array = input) || Object.assign(data, input)
+        ) || (
+            data.text = `${input}`
+          );
 
-      return true;
-    },
-    onSubmitMessage = message => submitMessage(message && message.chatInput || null),
-    [focused, setFocused] = useState();
+        // Update the conversation history.
+        updateHistory({ data });
+
+        // Send message to bot.
+        sendMessage(type, data);
+
+        // Reset input.
+        inputRef.current.value = '';
+
+        return true;
+      },
+      onSubmitMessage = message => submitMessage(message && message.chatInput || null),
+      [focused, setFocused] = useState();
 
     // Scrolling functions.
     scrollBottom || (scrollBottom = (el, behavior) => (
       (el || (el = containerRef && containerRef.current))
-        && (el.scrollTo({ top: el.scrollHeight, left: 0, behavior: behavior || 'auto' }))
+      && (el.scrollTo({ top: el.scrollHeight, left: 0, behavior: behavior || 'auto' }))
     ));
     scrollTop || (scrollTop = (el, behavior) => (
       (el || (el = containerRef && containerRef.current)) && (el.scrollTo({ top: 0, left: 0, behavior: behavior || 'auto' }))
@@ -144,9 +144,9 @@ export const createChatComponent = ({
       onSubmit={onSubmitMessage}
     >
       {_botSrc && <div className='chatbot-image-container'>
-        <img className='chatbot-image' src={_botSrc}/>
-        </div> || null}
-      <ChatFeed history={normalizeHistory(history, submitMessage)}/>
+        <img className='chatbot-image' src={_botSrc} />
+      </div> || null}
+      <ChatFeed history={normalizeHistory(history, submitMessage)} />
       <Row className='gap-half chat-input'>
         <input
           enterKeyHint='send'

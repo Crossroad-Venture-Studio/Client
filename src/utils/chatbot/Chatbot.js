@@ -161,9 +161,9 @@ export class Chatbot {
   // Method to start a new conversation.
   startNewConversation = async (reset = true) => {
     const data = this.#store.data,
-    conversationHistoryKey = this.#conversationHistoryKey,
-    conversationIdKey = this.#conversationIdKey,
-    history = data[conversationHistoryKey] || [];
+      conversationHistoryKey = this.#conversationHistoryKey,
+      conversationIdKey = this.#conversationIdKey,
+      history = data[conversationHistoryKey] || [];
     typeof this.#log === 'function' && this.#log('initiateNewConversation', history, history.length);
 
     // Create a conversation ID on initial load.
@@ -183,7 +183,7 @@ export class Chatbot {
         conversation_id: data[conversationIdKey]
       };
       conversationIdKey !== 'conversation_id' && (message[conversationIdKey] = data[conversationIdKey]);
-      return this.sendMessage('chat_to_bot', message);
+      return this.sendMessage('chat_demo_bot', message);
     }
     return Promise.resolve();
   }
