@@ -76,9 +76,7 @@ export class Locales {
   }
 }
 
-export const createLocales
-  = Locales.create
-  = (...args) => new Locales(...args);
+export const createLocales = Locales.create = (...args) => new Locales(...args);
 
 // Default export.
 export default Object.freeze(Locales);
