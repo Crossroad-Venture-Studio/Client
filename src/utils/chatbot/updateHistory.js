@@ -1,6 +1,6 @@
 // Helper function to update conversation history.
 // History object example:
-// {data: {text: '', coversation_id}, type?: "chat_to_bot" // only for user}.
+// {data: {text: '', coversation_id}, type?: "chat_demo_bot" // only for user}.
 export const updateHistory = (
   message,
   store,
