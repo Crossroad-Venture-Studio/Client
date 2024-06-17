@@ -21,6 +21,7 @@ export const TopNavbar = props => {
     // Logo.
     logoSrc,
     logoText,
+    logoTitle,
     onPressLogo,
     onLogo = onPressLogo,
     logoHref,
@@ -89,6 +90,7 @@ export const TopNavbar = props => {
           {...(logoTarget && { target: logoTarget } || {})}
           scroll={logoScroll}
           {...onLogoFuncs}
+          title={logoTitle}
         >
           {logoSrc && <img src={logoSrc} className='top-navbar-logo-image do-not-hide' alt='logo'/> || null}
           {logoText && <span className='top-navbar-logo-text vertical-trim'> {translate(logoText)} </span> || null}
