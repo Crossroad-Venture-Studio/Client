@@ -192,6 +192,18 @@ export const commonTranslations = [
     pt: 'Deconecte-se'
   },
   {
+    en: 'Click here to close the window',
+    es: 'Haga clic aquí para cerrar la ventana',
+    fr: 'Cliquez ici pour fermer la fenêtre',
+    pt: 'Clique aqui para fechar a janela'
+  },
+  {
+    en: 'Print',
+    es: 'Imprimir',
+    fr: 'Imprimer',
+    pt: 'Imprimir'
+  },
+  {
     en: 'Account',
     es: 'Cuenta',
     fr: 'Compte',
