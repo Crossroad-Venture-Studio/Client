@@ -35,7 +35,7 @@ export const Overlay = forwardRef((props, ref) => {
   opened && (other.open = true);
   Array.isArray(children || (children = [])) || (children = [children]);
   typeof translate === 'function' || (translate = Function.identity);
-  title || (title = translate(title || ''));
+  title = translate(title || 'Click here to close the window');
 
   // Fill hooks.
   // Hooks are functions that allow control from external components.
