@@ -6,6 +6,8 @@ const setWindowSizeProperties = input => {
   document.documentElement.style.setProperty('--vw', w && `${w * 0.01}px` || '1dvw');
   document.documentElement.style.setProperty('--vh', h && `${h * 0.01}px` || '1dvh');
   document.documentElement.style.setProperty('--viewport-surface', Math.max(w * h, 1));
+  document.documentElement.style.setProperty('--viewport-w', Math.max(w, 1));
+  document.documentElement.style.setProperty('--viewport-h', Math.max(h, 1));
 }
 
 const windowResizeEventHandler = throttle(() => {
