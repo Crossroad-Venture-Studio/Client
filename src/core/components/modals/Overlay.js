@@ -2,6 +2,7 @@
 
 import { useRef, forwardRef } from 'react';
 import createEventHandlers from '../../../utils/createEventHandlers';
+import '../../../../utils/src/functionUtils';
 
 // Modal overlay.
 export const Overlay = forwardRef((props, ref) => {
@@ -22,7 +23,8 @@ export const Overlay = forwardRef((props, ref) => {
     onClosed = onCloseEnd,
     cancelable,
     hooks,
-    title = 'Click here to close the window',
+    translate,
+    title,
     safearea,
     ...other
   } = props || {}, _ref = null;
@@ -32,6 +34,8 @@ export const Overlay = forwardRef((props, ref) => {
   opened && (className += ' opened');
   opened && (other.open = true);
   Array.isArray(children || (children = [])) || (children = [children]);
+  typeof translate === 'function' || (translate = Function.identity);
+  title || (title = translate(title || ''));
 
   // Fill hooks.
   // Hooks are functions that allow control from external components.
