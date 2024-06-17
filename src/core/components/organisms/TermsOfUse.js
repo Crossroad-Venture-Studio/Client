@@ -8,6 +8,8 @@ export const TermsOfUse = props => {
   let {
     companyName,
     name = companyName,
+    productName = name,
+    product = productName,
     contactUsUrl = '/contact-us',
     privacyPolicyUrl = '/privacy-policy',
     className,
@@ -25,8 +27,11 @@ export const TermsOfUse = props => {
     Welcome to the {name} Terms of Service (“Terms”).
     <br/>
     <br/>
+
+    {product && product.toLowerCase() !== name.toLowerCase() && <><br/><span>{product} is a product/software created and delivered by {name}.</span><br/></> || null}
+
     <span>
-      Please read these Terms carefully because they govern your use of our website/webapp, (the “Site”) and the
+      Please read these Terms carefully because they govern your use of our website/webapp/software, (the “Site”) and the
       services and products we provide. The Site and our products and services, including any of our data-inspired features and
       APIs, are collectively called the “Services”. If you have any questions, <span><Link href={contactUsUrl} onClick={pageTransitions.slideIn} className='link primary'>contact us</Link></span>.
     </span>

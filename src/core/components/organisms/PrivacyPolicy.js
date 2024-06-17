@@ -8,6 +8,8 @@ export const PrivacyPolicy = props => {
   let {
     companyName,
     name = companyName,
+    productName = name,
+    product = productName,
     contactUsUrl = '/contact-us',
     className,
     children
@@ -21,6 +23,8 @@ export const PrivacyPolicy = props => {
     <br/>
     <i>This version of the Privacy Policy was last updated on August 28, 2023.</i>
     
+    {product && product.toLowerCase() !== name.toLowerCase() && <><br/><span>{product} is a product/software created and delivered by {name}.</span><br/></> || null}
+
     At {name} we respect your privacy and are committed to protecting your personal data.
     This Privacy Policy will explain what data we do and do not collect, how it is disclosed,
     how it is maintained and what rights you have to modify or delete that data.
@@ -210,8 +214,7 @@ export const PrivacyPolicy = props => {
       </li>
       <br/>
       <li>
-        Communicate with you about products, services, offers, promotions, rewards and events offered by {name}
-        and others.
+        Communicate with you about products, services, offers, promotions, rewards and events offered by {name} and others.
       </li>
       <br/>
       <li>
