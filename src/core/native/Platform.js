@@ -28,6 +28,10 @@ export const Platform = {
     }, 'toString', { value: function(){ return `{ width: ${this.width}, height: ${this.height} }`}})
     || {};
   },
+  getBoundingClientRect() {
+    const s = this.windowSize;
+    return {top: 0, left: 0, bottom: s.height || 0, right: s.width || 0};
+  },
   get visualViewport() { return this.window.visualViewport || {}; },
   get metaViewport() { return this.isMounted && this.document.querySelector('meta[name=viewport]') || {}; },
   // Mobile.

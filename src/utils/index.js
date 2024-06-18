@@ -4,6 +4,7 @@ export { default as createEventHandlers } from './createEventHandlers';
 export { default as createObserverComponent } from './createObserverComponent';
 export { default as createStopPropagationFunc } from './createStopPropagationFunc';
 export { default as genKeyAttr } from './genKeyAttr';
+export { default as isElementInView } from './isElementInView';
 export { default as normalizeEventHandler } from './normalizeEventHandler';
 export { default as preventDefaultEventHandler } from './preventDefaultEventHandler';
 export { default as print } from './print';
