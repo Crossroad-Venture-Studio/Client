@@ -8,7 +8,7 @@ import { throttle } from '../../../../utils/src/throttle';
 import '../../../../utils/src/functionUtils';
 
 // Main component.
-export const ChatDemoPostCarousel = ({ posts, onClose, translate } = {}) => {
+export const ChatDemoPostCarousel = ({ posts, onClose, translate, hooks } = {}) => {
   posts || (posts = []);
   typeof translate === 'function' || (translate = Function.identity);
   const containerRef = useRef(), nextRef = useRef(), prevRef = useRef(),
@@ -28,6 +28,12 @@ export const ChatDemoPostCarousel = ({ posts, onClose, translate } = {}) => {
     nextRef.current.style.opacity = containerRef.current.scrollWidth - containerRef.current.clientWidth - containerRef.current.scrollLeft > 5 && 1 || 0;
   }, 50);
 
+  hooks && (
+    hooks.prev = prev,
+    hooks.next = next,
+    hooks.checkInView = checkInView
+  );
+
   useEffect(() => {
     window.addEventListener('resize', checkInView);
     containerRef.current.addEventListener('scroll', checkInView);
@@ -35,7 +41,7 @@ export const ChatDemoPostCarousel = ({ posts, onClose, translate } = {}) => {
   }, []);
 
   // Render.
-  return <Column className='width-100-percent'>
+  return <Column className='width-100-percent gap-half'>
     <Row className='chat-demo-post-container' ref={containerRef}>
       {posts.map(({...post} = {}, p) => (
         <ChatDemoPost
