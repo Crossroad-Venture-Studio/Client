@@ -127,7 +127,7 @@ export const createChatComponent = ({
         ),
         containerRef.current && containerRef.current.addEventListener('scroll', throttle(() => (
           inputRef.current === document.activeElement && blur()
-        ), 30),
+        ), 30)),
         document.body.dataset.mobile = true
       );
 
