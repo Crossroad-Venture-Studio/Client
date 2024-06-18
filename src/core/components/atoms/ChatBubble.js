@@ -37,6 +37,9 @@ export const ChatBubble = props => {
     textStyle,
     animTime,
     buttons,
+    content,
+    hide,
+    onRender,
     ...other
   } = props || {},
   baseClassName = 'chat-bubble',
@@ -67,14 +70,17 @@ export const ChatBubble = props => {
       };
       f();
     }
+
+    typeof onRender === 'function' && onRender();
   });
 
   // Render.
-  return <Column className={`chat-bubble-container ${isUser && 'right user' || 'left'}`}>
+  return <Column className={`chat-bubble-container${isUser && ' right user' || ' left'}${hide && ' hidden' || ''}`}>
     <Column className={className} {...other} style={style}>
       {text && <span ref={textRef} className='chat-bubble-text' style={textStyle}>
         {!animTime && text || ''}
       </span> || null}
+      {content}
       {children}
       {src && <div className='chat-bubble-image-container'><img className='chat-bubble-image' src={src} /></div>}
       {buttons.length && buttons.map((b, i) => <Button className='chat-bubble-button' key={`${i}`} {...(b || {})}/>) || null}

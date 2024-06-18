@@ -24,6 +24,7 @@ export const Button = props => {
     alt = title,
     disabled,
     className,
+    content,
     children,
     doNotHide,
     transition,
@@ -58,7 +59,6 @@ export const Button = props => {
   href || (href = null);
   className = className && `${baseClassName} ${className}` || baseClassName;
   doNotHide && (className += ' do-not-hide');
-  Array.isArray(children || (children = [])) || (children = [children]);
   textStyle = `button-text${textStyle && ` ${textStyle}` || ''}${doNotHide && ' do-not-hide' || ''}${fat && ' fat' || ''}`;
   translate = __translate__;
   title && (title = translate(title));
@@ -74,7 +74,8 @@ export const Button = props => {
 >
   {src && <img className={`button-img icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
   {text && <span className={textStyle}>{translate(text)}</span> || null}
-  {...children}
+  {content}
+  {children}
 </Link> ||  <button
     className={className}
     title={title}
@@ -83,7 +84,8 @@ export const Button = props => {
   >
     {src && <img className={`button-img icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
     {text && <span className={textStyle}>{translate(text)}</span> || null}
-    {...children}
+    {content}
+    {children}
   </button>;
 }
 

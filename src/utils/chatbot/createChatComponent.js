@@ -103,7 +103,9 @@ export const createChatComponent = ({
       hooks.reset = () => startNewConversation(true),
       hooks.scrollBottom = scrollBottom,
       hooks.scrollTop = scrollTop,
-      hooks.submitMessage = submitMessage
+      hooks.submitMessage = submitMessage,
+      hooks.blur = () => inputRef.current && inputRef.current.blur(),
+      hooks.focus = () => inputRef.current && inputRef.current.focus()
     );
 
     // Initiate connection when component mounts.
