@@ -57,6 +57,7 @@ export const setDynamicViewPortSize = () => (
   // We listen to the resize event.
   Platform.isMounted && (
     setWindowSizeProperties(),
+    visualViewportResizeHandler(),
     window.removeEventListener('resize', windowResizeEventHandler),
     window.addEventListener('resize', windowResizeEventHandler),
     window.visualViewport && (
