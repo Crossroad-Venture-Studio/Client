@@ -29,8 +29,8 @@ export const Platform = {
     || {};
   },
   getBoundingClientRect() {
-    const s = this.windowSize;
-    return {top: 0, left: 0, bottom: s.height || 0, right: s.width || 0};
+    const {width = 0, height = 0} = this.windowSize;
+    return {top: 0, left: 0, bottom: height, right: width, width, height, x: 0, y: 0};
   },
   get visualViewport() { return this.window.visualViewport || {}; },
   get metaViewport() { return this.isMounted && this.document.querySelector('meta[name=viewport]') || {}; },
