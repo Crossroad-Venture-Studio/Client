@@ -2,7 +2,7 @@
 import { useEffect, useRef } from 'react';
 import Column from './Column';
 import Button from './Button';
-import '../../../utils/src/functionUtils';
+import '../../../../utils/src/functionUtils';
 
 // Main component.
 export const ChatBubble = props => {
