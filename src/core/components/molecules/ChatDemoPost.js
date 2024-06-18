@@ -2,7 +2,7 @@
 import Column from '../atoms/Column';
 
 // Main component.
-const hashTagRe = re = /(\#[a-z0-9]+)/gi;
+const hashTagRe = /(\#[a-z0-9]+)/gi;
 export const ChatDemoPost = props => {
   // Normalise input.
   let {
