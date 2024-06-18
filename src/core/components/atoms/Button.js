@@ -87,7 +87,7 @@ export const Button = forwardRef((props, ref) => {
   >
     {src && <img className={`button-img icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
     {text && <span className={textStyle}>{translate(text)}</span> || null}
-    {content}
+    {typeof content === 'function' && <content /> || content}
     {children}
   </button>;
 });
