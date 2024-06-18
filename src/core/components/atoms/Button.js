@@ -26,6 +26,7 @@ export const Button = forwardRef((props, ref) => {
     disabled,
     className,
     content,
+    Content = content,
     children,
     doNotHide,
     transition,
@@ -87,7 +88,7 @@ export const Button = forwardRef((props, ref) => {
   >
     {src && <img className={`button-img icon${doNotHide && ' do-not-hide' || ''}`} src={src || null} alt={alt || null} />}
     {text && <span className={textStyle}>{translate(text)}</span> || null}
-    {typeof content === 'function' && <content /> || content}
+    {typeof Content === 'function' && <Content /> || Content}
     {children}
   </button>;
 });

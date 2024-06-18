@@ -39,6 +39,7 @@ export const ChatBubble = props => {
     button,
     buttons = button,
     content,
+    Content = content,
     hide,
     onRender,
     translate,
@@ -85,7 +86,7 @@ export const ChatBubble = props => {
       {text && <span ref={textRef} className='chat-bubble-text' style={textStyle}>
         {!animTime && text || ''}
       </span> || null}
-      {typeof content === 'function' && <content /> || content}
+      {typeof Content === 'function' && <Content /> || Content}
       {children}
       {src && <div className='chat-bubble-image-container'><img className='chat-bubble-image' src={src} /></div>}
       {buttons.length && buttons.map((b, i) => <Button translate={translate} className='chat-bubble-button' key={`${i}`} {...(b || {})}/>) || null}
