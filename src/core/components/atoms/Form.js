@@ -1,9 +1,10 @@
 'use client';
 
+import { forwardRef } from 'react';
 import createEventHandlers from '../../../utils/createEventHandlers';
 
 // Main component.
-export const Form = props => {
+export const Form = forwardRef((props, ref) => {
   // Normalize input.
   let {
     onLogin,
@@ -17,10 +18,10 @@ export const Form = props => {
   Array.isArray(children || (children = [])) || (children = [children]);
 
   // Layout.
-  return <form className={className} {...other}>
+  return <form className={className} ref={ref} {...other}>
     {...children}
   </form>;
-}
+});
 
 // Exports.
 export default Form;
