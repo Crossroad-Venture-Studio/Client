@@ -71,9 +71,11 @@ export const ChatBubble = props => {
       };
       f();
     }
-
-    typeof onRender === 'function' && onRender();
   });
+
+  useEffect(() => {
+    typeof onRender === 'function' && onRender();
+  }, []);
 
   // Render.
   return <Column className={`chat-bubble-container${isUser && ' right user' || ' left'}${hide && ' hidden' || ''}`}>
