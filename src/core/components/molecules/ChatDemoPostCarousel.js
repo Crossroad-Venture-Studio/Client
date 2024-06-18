@@ -30,7 +30,7 @@ export const ChatDemoPostCarousel = ({
     node.scrollLeft += w;
   },
   checkInView = throttle(() => {
-    console.log(containerRef.current.scrollLeft, containerRef.current.scrollWidth - containerRef.current.clientWidth - containerRef.current.scrollLeft);
+    console.log('>>>', containerRef.current.scrollLeft, containerRef.current.scrollWidth - containerRef.current.clientWidth - containerRef.current.scrollLeft);
     prevRef.current.style.opacity = containerRef.current.scrollLeft > 5 && 1 || 0;
     nextRef.current.style.opacity = containerRef.current.scrollWidth - containerRef.current.clientWidth - containerRef.current.scrollLeft > 5 && 1 || 0;
   }, 50);
