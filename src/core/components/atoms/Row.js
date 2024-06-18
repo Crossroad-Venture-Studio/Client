@@ -1,7 +1,9 @@
 'use client';
 
+import { forwardRef } from 'react';
+
 // Main component.
-export const Row = props => {
+export const Row = forwardRef((props, ref) => {
   // Normalize input.
   let {
     className,
@@ -12,10 +14,10 @@ export const Row = props => {
   Array.isArray(children || (children = [])) || (children = [children]);
 
   // Layout.
-  return <div className={className} {...other}>
+  return <div ref={ref} className={className} {...other}>
     {...children}
   </div>
-}
+});
 
 // Exports.
 export default Row;
