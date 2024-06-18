@@ -134,7 +134,7 @@ export const createChatComponent = ({
 
       containerRef && containerRef.current && containerRef.current.addEventListener('scroll', throttle(() => (
         console.log('>>>>>>>>', inputRef.current === document.activeElement),
-        inputRef.current === document.activeElement && blur()
+        inputRef.current === document.activeElement && inputRef.current.blur()
       ), 30));
 
       inputRef.current.addEventListener('focus', () => setFocused(true));
