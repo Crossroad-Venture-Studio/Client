@@ -8,8 +8,15 @@ import { throttle } from '../../../../utils/src/throttle';
 import '../../../../utils/src/functionUtils';
 
 // Main component.
-export const ChatDemoPostCarousel = ({ posts, onClose, translate, hooks } = {}) => {
+export const ChatDemoPostCarousel = ({
+  posts,
+  onClose,
+  translate,
+  hooks,
+  className
+} = {}) => {
   posts || (posts = []);
+  className = className && `chat-demo-post-carousel ${className}` || 'chat-demo-post-carousel';
   typeof translate === 'function' || (translate = Function.identity);
   const containerRef = useRef(), nextRef = useRef(), prevRef = useRef(),
   prev = () => {
@@ -41,7 +48,7 @@ export const ChatDemoPostCarousel = ({ posts, onClose, translate, hooks } = {}) 
   }, []);
 
   // Render.
-  return <Column className='width-100-percent gap-half'>
+  return <Column className={className}>
     <Row className='chat-demo-post-container' ref={containerRef}>
       {posts.map(({...post} = {}, p) => (
         <ChatDemoPost
