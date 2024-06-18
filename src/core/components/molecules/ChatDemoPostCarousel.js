@@ -30,9 +30,11 @@ export const ChatDemoPostCarousel = ({
     node.scrollLeft += w;
   },
   checkInView = throttle(() => {
-    console.log('>>>', containerRef.current.scrollLeft, containerRef.current.scrollWidth - containerRef.current.clientWidth - containerRef.current.scrollLeft);
-    prevRef.current.style.opacity = containerRef.current.scrollLeft > 5 && 1 || 0;
-    nextRef.current.style.opacity = containerRef.current.scrollWidth - containerRef.current.clientWidth - containerRef.current.scrollLeft > 5 && 1 || 0;
+    const delta = 5,
+      fromLeft = containerRef.current.scrollLeft,
+      fromRight = containerRef.current.scrollWidth - containerRef.current.clientWidth - containerRef.current.scrollLeft;
+    prevRef.current.style.opacity = fromLeft > delta && 1 || 0;
+    nextRef.current.style.opacity = fromRight > delta && 1 || 0;
   }, 50);
 
   hooks && (
