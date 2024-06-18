@@ -60,7 +60,7 @@ export const createChatComponent = ({
     // Chatbot history.
     const [history] = useObserver(store.data, conversationHistoryKey),
       inputRef = useRef(null),
-      containerRef = useRef(null),
+      formRef = useRef(null),
       submitMessage = input => {
         if (!input && input !== 0 && input !== false) return false;
 
@@ -125,7 +125,7 @@ export const createChatComponent = ({
             }, 0);
           }, 30))
         ),
-        containerRef.current && containerRef.current.addEventListener('scroll', throttle(() => (
+        formRef.current && formRef.current.addEventListener('scroll', throttle(() => (
           inputRef.current === document.activeElement && blur()
         ), 30)),
         document.body.dataset.mobile = true
@@ -147,7 +147,7 @@ export const createChatComponent = ({
     return <Form
       className={`chat-feed-container${focused && ' focused' || ''}`}
       onSubmit={onSubmitMessage}
-      ref={containerRef}
+      ref={formRef}
     >
       {_botSrc && <div className='chatbot-image-container'>
         <img className='chatbot-image' src={_botSrc} />
