@@ -1,12 +1,13 @@
 'use client';
 
+import {forwardRef} from 'react';
 import Link from 'next/link';
 import createEventHandlers from '../../../utils/createEventHandlers';
 import transitions from '../navigation/TransitionPage/transitions';
 import '../../../../utils/src/functionUtils';
 
 // Main component.
-export const Button = props => {
+export const Button = forwardRef((props, ref) => {
   // Normalize input.
   let {
     link,
@@ -66,6 +67,7 @@ export const Button = props => {
 
   // Layout.
   return href && <Link
+  ref={ref}
   href={href}
   scroll={scroll}
   className={className}
@@ -77,6 +79,7 @@ export const Button = props => {
   {content}
   {children}
 </Link> ||  <button
+    ref={ref}
     className={className}
     title={title}
     type={type || (submit && 'submit') || null}
@@ -87,7 +90,7 @@ export const Button = props => {
     {content}
     {children}
   </button>;
-}
+});
 
 // Exports.
 export default Button;
