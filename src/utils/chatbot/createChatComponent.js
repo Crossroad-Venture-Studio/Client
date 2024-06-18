@@ -99,14 +99,13 @@ export const createChatComponent = ({
     ));
 
     // Hooks.
-    hooks && (
-      hooks.reset = () => startNewConversation(true),
-      hooks.scrollBottom = scrollBottom,
-      hooks.scrollTop = scrollTop,
-      hooks.submitMessage = submitMessage,
-      hooks.blur = () => inputRef.current && inputRef.current.blur(),
-      hooks.focus = () => inputRef.current && inputRef.current.focus()
-    );
+    hooks || (hooks = {});
+    hooks.reset = () => startNewConversation(true);
+    hooks.scrollBottom = scrollBottom;
+    hooks.scrollTop = scrollTop;
+    hooks.submitMessage = submitMessage;
+    hooks.blur = () => inputRef.current && inputRef.current.blur();
+    hooks.focus = () => inputRef.current && inputRef.current.focus();
 
     // Initiate connection when component mounts.
     useEffect(() => {
@@ -148,7 +147,7 @@ export const createChatComponent = ({
       {_botSrc && <div className='chatbot-image-container'>
         <img className='chatbot-image' src={_botSrc} />
       </div> || null}
-      <ChatFeed history={normalizeHistory(history, submitMessage)} />
+      <ChatFeed history={normalizeHistory(history, hooks)} />
       <Row className='gap-half chat-input'>
         <input
           enterKeyHint='send'
