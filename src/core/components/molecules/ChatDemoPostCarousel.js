@@ -35,7 +35,7 @@ export const ChatDemoPostCarousel = ({ posts, onClose, translate } = {}) => {
   }, []);
 
   // Render.
-  return <Column>
+  return <Column className='width-100-percent'>
     <Row className='chat-demo-post-container' ref={containerRef}>
       {posts.map(({...post} = {}, p) => (
         <ChatDemoPost
