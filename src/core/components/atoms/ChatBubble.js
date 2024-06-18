@@ -41,6 +41,7 @@ export const ChatBubble = props => {
     content,
     hide,
     onRender,
+    translate,
     ...other
   } = props || {},
   baseClassName = 'chat-bubble',
@@ -51,6 +52,7 @@ export const ChatBubble = props => {
   className = className && `${baseClassName} ${className}` || baseClassName;
   style || (style = {});
   textStyle || (textStyle = {});
+  typeof translate === 'function' || (translate = Function.identity);
 
   buttons && !Array.isArray(buttons) && (buttons = [buttons]);
   buttons = (buttons || []).filter(Function.exists);
@@ -86,7 +88,7 @@ export const ChatBubble = props => {
       {content}
       {children}
       {src && <div className='chat-bubble-image-container'><img className='chat-bubble-image' src={src} /></div>}
-      {buttons.length && buttons.map((b, i) => <Button className='chat-bubble-button' key={`${i}`} {...(b || {})}/>) || null}
+      {buttons.length && buttons.map((b, i) => <Button translate={translate} className='chat-bubble-button' key={`${i}`} {...(b || {})}/>) || null}
     </Column>
     {info && <Column className={`chat-bubble-info${isUser && ' user' || ''}`}>
       {info}
