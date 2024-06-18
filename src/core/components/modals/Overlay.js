@@ -42,6 +42,10 @@ export const Overlay = forwardRef((props, ref) => {
   if (hooks) {
     _ref = ref || useRef(null);
 
+    // Status functions.
+    hooks.isOpened = () => _ref.current && _ref.current.open;
+    hooks.isClosed = () => _ref.current && !_ref.current.open;
+
     // Open function.
     hooks.open = async () => new Promise((resolve, reject) => {
       // If the modal ref is not available or processed yet.
