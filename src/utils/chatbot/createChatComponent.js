@@ -133,7 +133,7 @@ export const createChatComponent = ({
       );
 
       containerRef && containerRef.current && containerRef.current.addEventListener('scroll', throttle(() => (
-        console.log('>>>>>>>>')
+        console.log('>>>>>>>>'),
         inputRef.current === document.activeElement && blur()
       ), 30));
 
