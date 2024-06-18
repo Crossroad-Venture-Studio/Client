@@ -47,7 +47,7 @@ export const Overlay = forwardRef((props, ref) => {
     hooks.isClosed = () => _ref.current && !_ref.current.open;
 
     // Open function.
-    hooks.open = async () => new Promise((resolve, reject) => {
+    hooks.open = async (cb) => new Promise((resolve, reject) => {
       // If the modal ref is not available or processed yet.
       if (!(_ref && _ref.current && _ref.current.showModal)) {
         reject && reject(Error('modal ref to dialog not ready yet'));
@@ -67,16 +67,17 @@ export const Overlay = forwardRef((props, ref) => {
         setTimeout(() => {
           _ref.current.classList.add('opened');
           onOpen && onOpen(_ref.current);
-          (resolve || onOpened) && setTimeout(() => {
+          (resolve || onOpened || cb) && setTimeout(() => {
             resolve && resolve(_ref.current);
             onOpened && onOpened(_ref.current);
+            cb && cb(_ref.current);
           }, 300); // end of animation.
         }, 10);
       }, 30); // add a mini delay to make sure showModal is done.
     });
 
     // Close function.
-    hooks.close = async () => new Promise((resolve, reject) => {
+    hooks.close = async (cb) => new Promise((resolve, reject) => {
       // If the modal ref is not available or processed yet.
       if (!(_ref && _ref.current && _ref.current.close)) {
         reject && reject(Error('modal ref to dialog not ready yet'));
@@ -102,6 +103,7 @@ export const Overlay = forwardRef((props, ref) => {
         );
         resolve && resolve(_ref.current);
         onClosed && onClosed(_ref.current);
+        cb && cb(_ref.current);
       }, 300); // end of animation.
     });
 
