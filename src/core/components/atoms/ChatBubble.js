@@ -1,9 +1,12 @@
 // Imports.
 import { useEffect, useRef } from 'react';
 import Column from './Column';
+import Button from './Button';
+import '../../../utils/src/functionUtils';
 
 // Main component.
 export const ChatBubble = props => {
+  // Normalise input.
   let {
     className,
     value,
@@ -33,6 +36,7 @@ export const ChatBubble = props => {
     style,
     textStyle,
     animTime,
+    buttons,
     ...other
   } = props || {},
   baseClassName = 'chat-bubble',
@@ -43,6 +47,9 @@ export const ChatBubble = props => {
   className = className && `${baseClassName} ${className}` || baseClassName;
   style || (style = {});
   textStyle || (textStyle = {});
+
+  buttons && !Array.isArray(buttons) && (buttons = [buttons]);
+  buttons = (buttons || []).filter(Function.exists);
 
   for (const k in style) {
     (k.includes('text') || k.includes('font')) && (
@@ -70,6 +77,7 @@ export const ChatBubble = props => {
       </span> || null}
       {children}
       {src && <div className='chat-bubble-image-container'><img className='chat-bubble-image' src={src} /></div>}
+      {buttons.length && buttons.map((b, i) => <Button className='chat-bubble-button' key={`${i}`} {...(b || {})}/>) || null}
     </Column>
     {info && <Column className={`chat-bubble-info${isUser && ' user' || ''}`}>
       {info}

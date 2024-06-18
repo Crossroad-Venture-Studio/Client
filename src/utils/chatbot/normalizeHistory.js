@@ -22,7 +22,7 @@ export const normalizeHistory = (history, botName = 'Chatbot', botSrc) => {
   let date = null, d;
   for (let i = 0, l = (history || (history = [])).length, user, curUser, item, out, j = 0; i !== l; ++i) {
     item = history[i];
-    if (!item || typeof item !== 'object') continue;
+    if (!item || typeof item !== 'object' || !item.data || typeof item.data !== 'object' ) continue;
     ((d = getDate(item.data.__date__)) === date) || (
       output.push({
         component: <DateLine date={d} />
@@ -30,16 +30,29 @@ export const normalizeHistory = (history, botName = 'Chatbot', botSrc) => {
       date = d
     );
     output.push(out = {});
+    // is user / start / end
     out.__is_user__ = !(curUser = item.type);
     (out.__is_start__ = user !== curUser)
       && (output.length - 1)
       && (output[output.length - 2].__is_end__ = true);
-    out.text = item.data.text;
+
+    item.component && (out.component = item.component);
+
+    if (!item.data || typeof item.data !== 'object' ) continue;
+    // other
     Object.assign(out, item.data);
+
+    // text
+    out.text = item.data.text;
+    
+    // name
     out.name = item.data.name || item.data.botName
       || (out.__is_user__ && (item.data.name || 'You') || botName);
+
+    // pic
     out.pic = item.data.picSrc || item.data.pic || item.data.botSrc || botSrc
       || (!out.__is_user__ && botSrc);
+
     user = curUser;
   }
 
