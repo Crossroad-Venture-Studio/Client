@@ -28,7 +28,7 @@ export const Button = props => {
     children,
     doNotHide,
     transition,
-    type,
+    type = 'button',
     fat,
     isLink,
     hasNotification,
