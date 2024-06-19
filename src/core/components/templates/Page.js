@@ -21,10 +21,12 @@ export const Page = forwardRef((props, ref) => {
   // Detect scroll.
   // const ref = useRef();
   ref || (ref = useRef());
-  observeScroll && useEffect(() => {
-    ref && ref.current && ref.current.addEventListener('scroll', throttle(() => {
-      ref && ref.current && (ref.current.dataset.scrolling = ref.current.scrollTop > 0);
-    }), { passive: true });
+  useEffect(() => {
+    observeScroll && setTimeout(() => {
+      ref && ref.current && ref.current.addEventListener('scroll', throttle(() => {
+        ref && ref.current && (ref.current.dataset.scrolling = ref.current.scrollTop > 0);
+      }), { passive: true });
+    }, 100);
   }, []);
   
   return <main className={className} ref={ref} {...other}>
