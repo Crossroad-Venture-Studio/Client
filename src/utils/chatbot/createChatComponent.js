@@ -125,18 +125,11 @@ export const createChatComponent = ({
             }, 0);
           }, 30))
         ),
-        // containerRef && containerRef.current && containerRef.current.addEventListener('scroll', throttle(() => (
-        //   console.log('>>>>>>>>')
-        //   inputRef.current === document.activeElement && blur()
-        // ), 30)),
+        containerRef && containerRef.current && containerRef.current.addEventListener('touchmove', throttle(() => (
+          inputRef.current === document.activeElement && inputRef.current.blur()
+        ), 30)),
         document.body.dataset.mobile = true
       );
-
-      containerRef && containerRef.current && containerRef.current.addEventListener('touchmove', throttle(() => (
-        inputRef.current === document.activeElement && inputRef.current.blur(),
-        console.log('>>>>>>>>', inputRef.current === document.activeElement)
-        // inputRef.current.blur()
-      ), 30));
 
       inputRef.current.addEventListener('focus', () => setFocused(true));
       inputRef.current.addEventListener('blur', () => setFocused(false));
