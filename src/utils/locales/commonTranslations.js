@@ -204,6 +204,12 @@ export const commonTranslations = [
     pt: 'Imprimir'
   },
   {
+    en: 'Skip',
+    es: 'Saltar',
+    fr: 'Passer',
+    pt: 'Pular'
+  },
+  {
     en: 'Account',
     es: 'Cuenta',
     fr: 'Compte',
