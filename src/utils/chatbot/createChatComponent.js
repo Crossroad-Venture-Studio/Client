@@ -132,8 +132,8 @@ export const createChatComponent = ({
         document.body.dataset.mobile = true
       );
 
-      containerRef && containerRef.current && containerRef.current.addEventListener('scroll', throttle(() => (
-        inputRef.current.blur(),
+      containerRef && containerRef.current && containerRef.current.addEventListener('touchmove', throttle(() => (
+        inputRef.current === document.activeElement && inputRef.current.blur(),
         console.log('>>>>>>>>', inputRef.current === document.activeElement)
         // inputRef.current.blur()
       ), 30));
