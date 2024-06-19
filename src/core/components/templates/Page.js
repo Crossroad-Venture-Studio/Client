@@ -22,11 +22,11 @@ export const Page = forwardRef((props, ref) => {
   // const ref = useRef();
   ref || (ref = useRef());
   useEffect(() => {
-    // observeScroll && setTimeout(() => {
-    //   ref && ref.current && ref.current.addEventListener('scroll', throttle(() => {
-    //     ref && ref.current && (ref.current.dataset.scrolling = ref.current.scrollTop > 0);
-    //   }), { passive: true });
-    // }, 100);
+    observeScroll && setTimeout(() => {
+      ref && ref.current && ref.current.addEventListener('scroll', throttle(() => {
+        ref && ref.current && (ref.current.dataset.scrolling = ref.current.scrollTop > 0);
+      }), { passive: true });
+    }, 100);
   }, []);
   
   return <main className={className} ref={ref} {...other}>
