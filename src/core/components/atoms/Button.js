@@ -57,9 +57,9 @@ export const Button = forwardRef((props, ref) => {
   typeof transition === 'function' && (typeof events.onRelease !== 'function' && (
     events.onPress = typeof onPress === 'function' && ((...args) => {transition(...args); return onPress(...args);})
     || transition
-  )) || (
+  ) || (
     events.onRelease =  ((...args) => {transition(...args); return onRelease(...args);})
-  );
+  ));
   Object.assign(other, createEventHandlers(events));
   href || (href = null);
   className = className && `${baseClassName} ${className}` || baseClassName;
