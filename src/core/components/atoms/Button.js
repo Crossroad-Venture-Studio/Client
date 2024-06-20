@@ -14,6 +14,7 @@ export const Button = forwardRef((props, ref) => {
     url = link,
     href = url,
     onPress,
+    onRelease,
     value,
     text = value,
     iconSrc,
@@ -51,11 +52,13 @@ export const Button = forwardRef((props, ref) => {
   notification && (notification = ` ${notification}`);
   const baseClassName = `${isLink && 'link' || 'button'}${notification}${disabled && ' disabled' || ''}`;
   onPress || (submit && href && (onPress = () => window.location.href = href));
-  const events = {onPress, ...other};
+  const events = {onPress, onRelease, ...other};
   typeof transition === 'string' && (t = transition, transition = transitions[t] || (() => transitions.setCurrentTransition(t)));
-  typeof transition === 'function' && (
+  typeof transition === 'function' && (typeof events.onRelease !== 'function' && (
     events.onPress = typeof onPress === 'function' && ((...args) => {transition(...args); return onPress(...args);})
     || transition
+  )) || (
+    events.onRelease =  ((...args) => {transition(...args); return onRelease(...args);})
   );
   Object.assign(other, createEventHandlers(events));
   href || (href = null);
