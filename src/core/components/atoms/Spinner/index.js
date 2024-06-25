@@ -13,6 +13,8 @@ export const Spinner = props => {
     black,
     red,
     blue,
+    orange,
+    yellow,
     green,
     gray,
     color
@@ -23,7 +25,9 @@ export const Spinner = props => {
     || (light && (color = 'light'))
     || (white && (color = 'white'))
     || (black && (color = 'black'))
+    || (blue && (color = 'blue'))
     || (orange && (color = 'orange'))
+    || (yellow && (color = 'yellow'))
     || (red && (color = 'red'))
     || (green && (color = 'green'))
     || (gray && (color = 'gray'))

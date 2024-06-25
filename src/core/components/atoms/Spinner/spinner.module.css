@@ -48,6 +48,10 @@
   --_color: var(--blue);
 }
 
+.spinner.yellow {
+  --_color: var(--yellow);
+}
+
 .spinner.gray {
   --_color: var(--gray);
 }
