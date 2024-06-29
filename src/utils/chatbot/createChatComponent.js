@@ -160,8 +160,8 @@ export const createChatComponent = ({
       <ChatFeed history={normalizeHistory(history, hooks)} />
 
       {/* Haven't viewed posts and still in demo mode */}
-      {(!hasViewedDemoPosts && chatType === 'chat_demo_bot') &&
-        < Row className='gap-half chat-input'>
+      {((!hasViewedDemoPosts && chatType === 'chat_demo_bot') || chatType === 'chat_onboarding_bot') &&
+        <Row className='gap-half chat-input'>
           <input
             enterKeyHint='send'
             ref={inputRef}
