@@ -4,6 +4,7 @@ import createId from './createId';
 
 // Chatbot class.
 export class Chatbot {
+  #chatType
   #webSocketUrl
   #socket
   #store
@@ -18,6 +19,7 @@ export class Chatbot {
 
   // Constructor.
   constructor({
+    chatType,
     webSocketUrl,
     store,
     conversationHistoryKey = 'conversationHistory',
@@ -75,7 +77,7 @@ export class Chatbot {
     // Start connection.
     this.restartConnection((...args) => {
       typeof this.#onOpen === 'function' && this.#onOpen(...args)
-      this.startNewConversation(false);
+      this.startNewConversation(false, chatType);
     });
   }
 
@@ -159,7 +161,7 @@ export class Chatbot {
   }
 
   // Method to start a new conversation.
-  startNewConversation = async (reset = true) => {
+  startNewConversation = async (reset = true, chatType) => {
     const data = this.#store.data,
       conversationHistoryKey = this.#conversationHistoryKey,
       conversationIdKey = this.#conversationIdKey,
@@ -183,7 +185,7 @@ export class Chatbot {
         conversation_id: data[conversationIdKey]
       };
       conversationIdKey !== 'conversation_id' && (message[conversationIdKey] = data[conversationIdKey]);
-      return this.sendMessage('chat_demo_bot', message);
+      return this.sendMessage(chatType, message);
     }
     return Promise.resolve();
   }

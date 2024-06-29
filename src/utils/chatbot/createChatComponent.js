@@ -43,6 +43,7 @@ export const createChatComponent = ({
   return props => {
     // normalize input.
     let {
+      chatType,
       src: _src = botSrc,
       botSrc: _botSrc = _src,
       sendIconSrc = 'https://crossroad-venture-studio.github.io/Design-System/icons/actions/send-filled-dark.svg',
@@ -65,7 +66,7 @@ export const createChatComponent = ({
         if (!input && input !== 0 && input !== false) return false;
 
         // Send message to bot
-        const type = 'chat_demo_bot',
+        const type = chatType,
           data = {
             conversation_id: store.data[conversationIdKey],
           };
@@ -110,7 +111,7 @@ export const createChatComponent = ({
 
     // Initiate connection when component mounts.
     useEffect(() => {
-      initiateConnection();
+      initiateConnection(chatType);
 
       // Add listeners if platform is run on mobile devices.
       Platform.isMobile && (

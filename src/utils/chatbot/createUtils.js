@@ -8,7 +8,7 @@ export const createUtils = ({
   name,
   botName = name,
   src,
-  botSrc= src,
+  botSrc = src,
   webSocketUrl: _webSocketUrl,
   userStore,
   store = userStore,
@@ -29,7 +29,8 @@ export const createUtils = ({
   onError = onSocketError,
   restartOnClose
 }) => ({
-  initiateConnection: (webSocketUrl = _webSocketUrl) => Sockets[webSocketUrl] = new Chatbot({
+  initiateConnection: (chatType, webSocketUrl = _webSocketUrl) => Sockets[webSocketUrl] = new Chatbot({
+    chatType,
     webSocketUrl,
     store,
     conversationHistoryKey,
