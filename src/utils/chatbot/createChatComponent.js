@@ -60,6 +60,7 @@ export const createChatComponent = ({
       className
     } = props || {}, baseClassName = 'chat-feed-container';
     className = className && `${baseClassName} ${baseClassName}` || baseClassName;
+    console.log("submodule chat type", chatType, hasViewedDemoPosts);
 
     // Chatbot history.
     const [history] = useObserver(store.data, conversationHistoryKey),
@@ -159,31 +160,31 @@ export const createChatComponent = ({
       <ChatFeed history={normalizeHistory(history, hooks)} />
 
       {/* Haven't viewed posts and still in demo mode */}
-      {chatType === 'chat_demo_bot' || chatType === 'chat_bot_onboarding' &&
-        <Row className='gap-half chat-input'>
-          <input
-            enterKeyHint='send'
-            ref={inputRef}
-            className='fill input'
-            required
-            name='chat-input'
-            id='chat-input'
-            onChange={throttle(() => {
-              setTimeout(() => {
-                // Scrolling to the last element.
-                scrollBottom();
-              }, 0);
-            }, 500)}
-            placeholder={`${translate('type your message here')}...`}
-          />
-          <Button
-            className='icon chat-submit-button'
-            type='submit'
-            isLink
-            src={sendSrc}
-          />
-        </Row>
-      }
+      {/* {chatType === 'chat_demo_bot' || chatType === 'chat_bot_onboarding' && */}
+      <Row className='gap-half chat-input'>
+        <input
+          enterKeyHint='send'
+          ref={inputRef}
+          className='fill input'
+          required
+          name='chat-input'
+          id='chat-input'
+          onChange={throttle(() => {
+            setTimeout(() => {
+              // Scrolling to the last element.
+              scrollBottom();
+            }, 0);
+          }, 500)}
+          placeholder={`${translate('type your message here')}...`}
+        />
+        <Button
+          className='icon chat-submit-button'
+          type='submit'
+          isLink
+          src={sendSrc}
+        />
+      </Row>
+      {/* } */}
 
 
       {/* They have viewed posts and still in demo: Show button to start onboarding. Button sets chat type to chat_bot_onboarding */}
