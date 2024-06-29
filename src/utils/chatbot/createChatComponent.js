@@ -185,11 +185,10 @@ export const createChatComponent = ({
 
 
       {/* They have viewed posts and still in demo: Show button to start onboarding. Button sets chat type to chat_bot_onboarding */}
-      {hasViewedDemoPosts && chatType === 'chat_demo_bot' &&
+      {/* {hasViewedDemoPosts && chatType === 'chat_demo_bot' &&
         <Row className='gap-half chat-input'>
           <Button
             type='button'
-            isLink
             onClick={() => {
               setChatType('chat_bot_onboarding');
             }}
@@ -197,7 +196,7 @@ export const createChatComponent = ({
             Start Onboarding
           </Button>
         </Row>
-      }
+      } */}
 
 
     </Form>;
