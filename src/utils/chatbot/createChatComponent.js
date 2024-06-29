@@ -43,6 +43,9 @@ export const createChatComponent = ({
   return props => {
     // normalize input.
     let {
+      setHasViewedDemoPosts,
+      hasViewedDemoPosts,
+      setChatType,
       chatType,
       src: _src = botSrc,
       botSrc: _botSrc = _src,
@@ -154,7 +157,9 @@ export const createChatComponent = ({
         <img className='chatbot-image' src={_botSrc} />
       </div> || null}
       <ChatFeed history={normalizeHistory(history, hooks)} />
-      <Row className='gap-half chat-input'>
+
+      {/* Haven't viewed posts and still in demo mode */}
+      {(!hasViewedDemoPosts && chatType === 'chat_demo_bot') || chatType === 'chat_bot_onboarding' && <Row className='gap-half chat-input'>
         <input
           enterKeyHint='send'
           ref={inputRef}
@@ -176,10 +181,27 @@ export const createChatComponent = ({
           isLink
           src={sendSrc}
         />
-      </Row>
-    </Form>;
+      </Row>}
+
+
+      {/* They have viewed posts and still in demo: Show button to start onboarding. Button sets chat type to chat_bot_onboarding */}
+      {hasViewedDemoPosts && chatType === 'chat_demo_bot' && <Row className='gap-half chat-input'>
+        <Row className='gap-half chat-input'>
+          <Button
+            type='button'
+            isLink
+            onClick={() => {
+              setChatType('chat_bot_onboarding');
+            }}
+          >
+            Start Onboarding
+          </Button>
+        </Row>}
+
+
+      </Form>;
   };
 }
 
-// Default export.
-export default createChatComponent;
+      // Default export.
+      export default createChatComponent;
