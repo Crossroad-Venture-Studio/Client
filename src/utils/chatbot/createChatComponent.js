@@ -43,7 +43,7 @@ export const createChatComponent = ({
   return props => {
     // normalize input.
     let {
-      setHasViewedDemoPosts,
+      // setHasViewedDemoPosts,
       hasViewedDemoPosts,
       setChatType,
       chatType,
