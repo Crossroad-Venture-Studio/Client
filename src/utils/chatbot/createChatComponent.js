@@ -185,7 +185,7 @@ export const createChatComponent = ({
 
 
       {/* They have viewed posts and still in demo: Show button to start onboarding. Button sets chat type to chat_bot_onboarding */}
-      {hasViewedDemoPosts && chatType === 'chat_demo_bot' && <Row className='gap-half chat-input'>
+      {hasViewedDemoPosts && chatType === 'chat_demo_bot' &&
         <Row className='gap-half chat-input'>
           <Button
             type='button'
@@ -196,12 +196,13 @@ export const createChatComponent = ({
           >
             Start Onboarding
           </Button>
-        </Row>}
+        </Row>
+      }
 
 
-      </Form>;
+    </Form>;
   };
 }
 
-      // Default export.
-      export default createChatComponent;
+// Default export.
+export default createChatComponent;
