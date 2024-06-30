@@ -157,7 +157,7 @@ export const createChatComponent = ({
       {_botSrc && <div className='chatbot-image-container'>
         <img className='chatbot-image' src={_botSrc} />
       </div> || null}
-      <ChatFeed history={normalizeHistory(history, hooks)} />
+      <ChatFeed history={normalizeHistory(history, hooks, store)} />
 
       {/* Haven't viewed posts and still in demo mode */}
       {((!store.data.hasViewedDemoPosts && chatType === 'chat_demo_bot') || chatType === 'chat_onboarding_bot') &&
