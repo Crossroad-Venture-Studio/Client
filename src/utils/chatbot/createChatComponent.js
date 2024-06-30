@@ -168,7 +168,7 @@ export const createChatComponent = ({
       <ChatFeed history={normalizeHistory(history, hooks, store)} />
 
       {/* Haven't viewed posts and still in demo mode */}
-      {((!store.data?.hasViewedDemoPosts && chatType === 'chat_demo_bot') || chatType === 'chat_onboarding_bot') &&
+      {/* {((!store.data.hasViewedDemoPosts && chatType === 'chat_demo_bot') || chatType === 'chat_onboarding_bot') &&
         <Row className='gap-half chat-input'>
           <input
             enterKeyHint='send'
@@ -192,11 +192,11 @@ export const createChatComponent = ({
             src={sendSrc}
           />
         </Row>
-      }
+      } */}
 
 
       {/* They have viewed posts and still in demo: Show button to start onboarding. Button sets chat type to chat_bot_onboarding */}
-      {store.data?.hasViewedDemoPosts && chatType === 'chat_demo_bot' &&
+      {store.data.hasViewedDemoPosts &&
         <Row className='gap-half chat-input'>
           <Button
             type='button'
