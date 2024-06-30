@@ -12,6 +12,7 @@ import throttle from '../../../utils/src/throttle';
 
 // Main utility.
 export const createChatComponent = ({
+  setHasViewedDemoPosts,
   name,
   botName = name,
   src,
@@ -43,7 +44,6 @@ export const createChatComponent = ({
   return props => {
     // normalize input.
     let {
-      setHasViewedDemoPosts,
       hasViewedDemoPosts,
       setChatType,
       chatType,
