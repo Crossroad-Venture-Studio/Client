@@ -148,6 +148,14 @@ export const createChatComponent = ({
       }, 0);
     }, [history, locale, focused]);
 
+    console.log("Store", {
+      data: store.data,
+      conversationHistory: history,
+      conversationId: store.data[conversationIdKey],
+      chatType,
+      hasViewedDemoPosts: store.data.hasViewedDemoPostsß
+    })
+
     // Render.
     return <Form
       className={`chat-feed-container${focused && ' focused' || ''}`}
