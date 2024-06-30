@@ -153,7 +153,7 @@ export const createChatComponent = ({
       conversationHistory: history,
       conversationId: store.data[conversationIdKey],
       chatType,
-      hasViewedDemoPosts: store.data.hasViewedDemoPostsß
+      hasViewedDemoPosts: store.data.hasViewedDemoPosts
     })
 
     // Render.
