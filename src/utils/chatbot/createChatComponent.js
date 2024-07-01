@@ -199,10 +199,10 @@ export const createChatComponent = ({
       {store.data.hasViewedDemoPosts &&
         <Row className='gap-half chat-input'>
           <Button
-            type='button'
-            onClick={() => {
-              setChatType('chat_bot_onboarding');
-            }}
+          // type='button'
+          // onClick={() => {
+          //   setChatType('chat_bot_onboarding');
+          // }}
           >
             Start Onboarding
           </Button>
