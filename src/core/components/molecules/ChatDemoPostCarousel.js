@@ -19,23 +19,23 @@ export const ChatDemoPostCarousel = ({
   className = className && `chat-demo-post-carousel ${className}` || 'chat-demo-post-carousel';
   typeof translate === 'function' || (translate = Function.identity);
   const containerRef = useRef(), nextRef = useRef(), prevRef = useRef(),
-  prev = () => {
-    const node = containerRef.current,
-    w = ((node && node.childNodes[0]) || document.documentElement).clientWidth || 0;
-    node.scrollLeft -= w;
-  },
-  next = () => {
-    const node = containerRef.current,
-    w = ((node && node.childNodes[0]) || document.documentElement).clientWidth || 0;
-    node.scrollLeft += w;
-  },
-  checkInView = throttle(() => {
-    const delta = 5,
-      fromLeft = containerRef.current.scrollLeft,
-      fromRight = containerRef.current.scrollWidth - containerRef.current.clientWidth - containerRef.current.scrollLeft;
-    prevRef.current.style.opacity = fromLeft > delta && 1 || 0;
-    nextRef.current.style.opacity = fromRight > delta && 1 || 0;
-  }, 50);
+    prev = () => {
+      const node = containerRef.current,
+        w = ((node && node.childNodes[0]) || document.documentElement).clientWidth || 0;
+      node.scrollLeft -= w;
+    },
+    next = () => {
+      const node = containerRef.current,
+        w = ((node && node.childNodes[0]) || document.documentElement).clientWidth || 0;
+      node.scrollLeft += w;
+    },
+    checkInView = throttle(() => {
+      const delta = 5,
+        fromLeft = containerRef?.current?.scrollLeft,
+        fromRight = containerRef?.current?.scrollWidth - containerRef?.current?.clientWidth - containerRef?.current?.scrollLeft;
+      prevRef.current.style.opacity = fromLeft > delta && 1 || 0;
+      nextRef.current.style.opacity = fromRight > delta && 1 || 0;
+    }, 50);
 
   hooks && (
     hooks.prev = prev,
@@ -52,7 +52,7 @@ export const ChatDemoPostCarousel = ({
   // Render.
   return <Column className={className}>
     <Row className='chat-demo-post-container' ref={containerRef}>
-      {posts.map(({...post} = {}, p) => (
+      {posts.map(({ ...post } = {}, p) => (
         <ChatDemoPost
           key={`${p}`}
           {...post}
@@ -72,7 +72,7 @@ export const ChatDemoPostCarousel = ({
         value='Close'
         onPress={onClose}
         translate={translate}
-      /> || null }
+      /> || null}
       <Button
         ref={nextRef}
         className='outlined large light round'
