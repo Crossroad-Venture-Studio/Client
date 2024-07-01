@@ -136,8 +136,8 @@ export const createChatComponent = ({
         document.body.dataset.mobile = true
       );
 
-      inputRef.current.addEventListener('focus', () => setFocused(true));
-      inputRef.current.addEventListener('blur', () => setFocused(false));
+      inputRef?.current?.addEventListener('focus', () => setFocused(true));
+      inputRef?.current?.addEventListener('blur', () => setFocused(false));
     }, []);
 
     // In change of history, focus, or locale: scroll down.
