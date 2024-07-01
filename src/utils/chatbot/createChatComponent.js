@@ -208,6 +208,7 @@ export const createChatComponent = ({
               const type = 'chat_bot_onboarding',
                 data = {
                   conversation_id: store.data[conversationIdKey],
+                  text: 'Start Onboarding'
                 };
               locale && (data.locale = locale);
               sendMessage(type, data);
@@ -217,9 +218,6 @@ export const createChatComponent = ({
 
               // Reset input.
               inputRef.current.value = '';
-
-              // Scrolling to the last element.
-              scrollBottom();
 
 
             }}
