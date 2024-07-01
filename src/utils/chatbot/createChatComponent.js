@@ -201,7 +201,27 @@ export const createChatComponent = ({
           <Button
             type='button'
             onClick={() => {
+              // Change chat type
               setChatType('chat_bot_onboarding');
+
+              // Send message to bot to start onboarding
+              const type = 'chat_bot_onboarding',
+                data = {
+                  conversation_id: store.data[conversationIdKey],
+                };
+              locale && (data.locale = locale);
+              sendMessage(type, data);
+
+              // Update the conversation history.
+              updateHistory({ data });
+
+              // Reset input.
+              inputRef.current.value = '';
+
+              // Scrolling to the last element.
+              scrollBottom();
+
+
             }}
           >
             Start Onboarding
