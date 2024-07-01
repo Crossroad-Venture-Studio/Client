@@ -60,7 +60,6 @@ export const createChatComponent = ({
       className
     } = props || {}, baseClassName = 'chat-feed-container';
     className = className && `${baseClassName} ${baseClassName}` || baseClassName;
-    console.log("submodule chat type", chatType, hasViewedDemoPosts);
 
     // Chatbot history.
     const [history] = useObserver(store.data, conversationHistoryKey),
@@ -147,14 +146,6 @@ export const createChatComponent = ({
         scrollBottom(null, 'instant');
       }, 0);
     }, [history, locale, focused]);
-
-    console.log("Store", {
-      data: store.data,
-      conversationHistory: history,
-      conversationId: store.data[conversationIdKey],
-      chatType,
-      hasViewedDemoPosts: store.data.hasViewedDemoPosts
-    })
 
     // Render.
     return <Form
