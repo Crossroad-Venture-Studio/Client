@@ -197,6 +197,7 @@ export const createChatComponent = ({
 
       {/* They have viewed posts and still in demo: Show button to start onboarding. Button sets chat type to chat_bot_onboarding */}
       {store.data.hasViewedDemoPosts &&
+        <p>some test</p>
         // <Row className='gap-half chat-input'>
         //   <Button
         //   type='button'
