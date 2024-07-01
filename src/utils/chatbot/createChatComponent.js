@@ -168,31 +168,31 @@ export const createChatComponent = ({
       <ChatFeed history={normalizeHistory(history, hooks, store)} />
 
       {/* Haven't viewed posts and still in demo mode */}
-      {((!store.data.hasViewedDemoPosts && chatType === 'chat_demo_bot') || chatType === 'chat_onboarding_bot') &&
-        <Row className='gap-half chat-input'>
-          <input
-            enterKeyHint='send'
-            ref={inputRef}
-            className='fill input'
-            required
-            name='chat-input'
-            id='chat-input'
-            onChange={throttle(() => {
-              setTimeout(() => {
-                // Scrolling to the last element.
-                scrollBottom();
-              }, 0);
-            }, 500)}
-            placeholder={`${translate('type your message here')}...`}
-          />
-          <Button
-            className='icon chat-submit-button'
-            type='submit'
-            isLink
-            src={sendSrc}
-          />
-        </Row>
-      }
+      {/* {((!store.data.hasViewedDemoPosts && chatType === 'chat_demo_bot') || chatType === 'chat_onboarding_bot') && */}
+      <Row className='gap-half chat-input'>
+        <input
+          enterKeyHint='send'
+          ref={inputRef}
+          className='fill input'
+          required
+          name='chat-input'
+          id='chat-input'
+          onChange={throttle(() => {
+            setTimeout(() => {
+              // Scrolling to the last element.
+              scrollBottom();
+            }, 0);
+          }, 500)}
+          placeholder={`${translate('type your message here')}...`}
+        />
+        <Button
+          className='icon chat-submit-button'
+          type='submit'
+          isLink
+          src={sendSrc}
+        />
+      </Row>
+      {/* } */}
 
 
       {/* They have viewed posts and still in demo: Show button to start onboarding. Button sets chat type to chat_bot_onboarding */}
