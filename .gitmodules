@@ -1,3 +1,6 @@
 [submodule "utils"]
 	path = utils
 	url = git@github.com:Crossroad-Venture-Studio/Utils.git
+[submodule "src/crossroad-client"]
+	path = src/crossroad-client
+	url = https://github.com/Crossroad-Venture-Studio/Client
